@@ -13,6 +13,6 @@ public class HomeController {
 	public String index(Model model) {
 		model.addAttribute("message", "좋은 아침");
 		model.addAttribute("now", new Date());
-		return "index";
+		return "/index";
 	}
 }
