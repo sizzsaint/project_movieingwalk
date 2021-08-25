@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-	@RequestMapping("/hello.com")
+	@RequestMapping("/com")
 	public String index(Model model) {
 		model.addAttribute("message", "좋은 아침");
 		model.addAttribute("now", new Date());
