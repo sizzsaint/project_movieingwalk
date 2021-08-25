@@ -123,7 +123,7 @@ FOREIGN KEY (u_idx) REFERENCES member (u_idx)
 
 
 CREATE TABLE member(
-       u_idx                int NOT NULL,
+       u_idx                int NOT NULL, auto_increment
        u_id                   varchar(20) ,
        u_password           varchar(20) ,
        u_name               varchar(10) ,
@@ -139,4 +139,5 @@ CREATE TABLE member(
        u_admin              varchar(3) ,
 PRIMARY KEY (u_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+create sequence seq_id;
+create sequence seq_id;
