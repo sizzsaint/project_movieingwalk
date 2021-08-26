@@ -18,13 +18,13 @@ public class LoginController {
 	private static final Logger logger = 
 			LoggerFactory.getLogger(LoginController.class);
 	@Autowired
-	LoginService loginservice;
+	LoginService loginService;
 	
-	@RequestMapping(value="/registermember", method = RequestMethod.POST)
+	@RequestMapping(value="/registmember", method = RequestMethod.GET)
 	public String index(Model model, MemberBean memberBean) {
 		
 			logger.debug("registerMember called!!!");
-			loginservice.registerMember(memberBean);
+			loginService.registerMember(memberBean);
 			model.addAttribute("result",1); //뷰 폼값 자동 매핑
 			
 		
