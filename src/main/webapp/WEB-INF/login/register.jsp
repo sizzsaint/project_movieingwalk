@@ -12,15 +12,15 @@
 <body>
 
 <c:url var="registmember" value="registmember"/>
-<sf:form modelAttribute="memberBean" method="GET" action="${registmember}">
+<sf:form modelAttribute="memberBean" method="POST" action="${registmember}">
 아이디 : <sf:input path="u_id" size="50" maxlength="50"/>&nbsp;
 <sf:errors path="u_id" cssClass="error"/><br>
 
 비밀번호 : <sf:input path="u_password" size="50" maxlength="50"/>&nbsp;
 <sf:errors path="u_password" cssClass="error"/><br>
 
-비밀번호확인 : <sf:input path="u_password" size="50" maxlength="50"/>&nbsp;
-<sf:errors path="u_password" cssClass="error"/><br>
+비밀번호확인 : <input type="password" >&nbsp;
+<br>
 
 이름 : <sf:input path="u_name" size="50" maxlength="50"/>&nbsp;
 <sf:errors path="u_name" cssClass="error"/><br>

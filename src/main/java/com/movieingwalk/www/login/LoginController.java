@@ -10,35 +10,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
 import com.movieingwalk.www.bean.MemberBean;
+
 @Controller
 public class LoginController {
-	
-	private static final Logger logger = 
-			LoggerFactory.getLogger(LoginController.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	LoginService loginService;
-	
+
 	@RequestMapping(value="/registmember", method = RequestMethod.GET)
-	public String index(Model model, MemberBean memberBean) {
-		
+	public String register(Model model, MemberBean memberBean) {
 			logger.debug("registerMember called!!!");
-			loginService.registerMember(memberBean);
-			model.addAttribute("result",1); //뷰 폼값 자동 매핑
+			model.addAttribute("memberBean",memberBean); //뷰 폼값 자동 매핑
 			
-		
 		return "login/register";
 	}
+	
+	@RequestMapping(value = "/registmember", method = RequestMethod.POST)
+	public String registerOK(Model model, MemberBean memberBean) {
+		logger.debug("registerMember called!!!");
+		loginService.registerMember(memberBean);
+		model.addAttribute("result", 1); // 뷰 폼값 자동 매핑
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		return "login/registerOK";
+	}
+
 }
