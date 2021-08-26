@@ -23,7 +23,7 @@ FOREIGN KEY (o_idx) REFERENCES ott (o_idx)
 
 
 CREATE TABLE comment (
-       c_idx                int NOT NULL,
+       c_idx                int NOT NULL auto_increment,
        u_idx                int ,
        r_idx                int ,
        c_memo               varchar(150) not NULL,
@@ -34,7 +34,7 @@ FOREIGN KEY (r_idx) REFERENCES review (r_idx)
 
 
 CREATE TABLE review (
-       r_idx                int NOT NULL,
+       r_idx                int NOT NULL auto_increment,
        u_idx                int not NULL,
        m_title              varchar(30) ,
        m_date               datetime not NULL,
@@ -82,7 +82,7 @@ PRIMARY KEY (theater_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE collection(
-       col_idx              int NOT NULL,
+       col_idx              int NOT NULL auto_increment,
        u_idx                int ,
        col_title            varchar(25) ,
        col_memo             varchar(100) ,
@@ -111,7 +111,7 @@ FOREIGN KEY (t_idx) REFERENCES ticket (t_idx)
 
 
 CREATE TABLE ticket(
-       t_idx                int NOT NULL,
+       t_idx                int NOT NULL auto_increment,
        u_idx                int NOT NULL,
        m_idx                int ,
        t_date               datetime ,
@@ -123,8 +123,8 @@ FOREIGN KEY (u_idx) REFERENCES member (u_idx)
 
 
 CREATE TABLE member(
-       u_idx                int NOT NULL,
-       u_id                   varchar(20) ,
+       u_idx                int NOT NULL auto_increment,
+       u_id                 varchar(20) ,
        u_password           varchar(20) ,
        u_name               varchar(10) ,
        u_email              varchar(30) ,

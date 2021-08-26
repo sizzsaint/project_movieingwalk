@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	@RequestMapping("/")
 	public String index(Model model) {
+<<<<<<< HEAD
 		model.addAttribute("message", "좋은 아침");
 		model.addAttribute("now", new Date());
 		return "main/index";
+=======
+
+		return "movieinfo/TempFile";
+>>>>>>> ec744c8b577b757db46803909ace357f5750656d
 	}
 }
