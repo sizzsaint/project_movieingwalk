@@ -1,0 +1,167 @@
+/*전체*/
+html,body {
+	height: 100%;
+	font-family: "Mulish", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	background: #0b0c2a;
+}
+
+/*header*/
+header{
+	background: #070720;
+	height:400px;
+}
+header table{
+	height:400px;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
+}
+header table td{
+	text-align:center;
+}
+header img{
+	padding: 5px 0 17px;
+	display: block;
+	margin: 0px auto;
+	width:380px;
+}
+header td input[type=button]{
+	background-color: #f4511e;
+  	border: none;
+  	border-radius:5px;
+  	color: white;
+ 	padding: 16px 32px;
+  	text-align: center;
+  	font-size: 20px;
+  	font-weight: bold;
+  	margin: 14px 25px;
+  	opacity: 0.6;
+  	transition: 0.3s;
+  	display: inline-block;
+  	text-decoration: none;
+  	cursor: pointer;
+}
+header td input[type=button]:hover{
+	opacity: 1;
+}
+
+/*nav*/
+nav {
+	text-align: center;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+nav ul{
+	list-style: none;
+	display: inline-block;
+	position: relative;
+	margin: 25px 80px;
+}
+nav ul li a{
+	text-decoration : none;
+	font-size: 30px;
+	color: #b7b7b7;
+	font-weight: 700;
+	-webkit-transition: all, 0.5s;
+	-o-transition: all, 0.5s;
+	transition: all, 0.5s;
+}
+nav ul li.active a{
+	background: #e53637;
+	color: #ffffff;
+}
+nav ul li:hover a{
+	color: #ffffff;
+}
+
+/*검색*/
+section{
+	margin-top: 50px;
+}
+section .search {
+    position: relative;
+    text-align: center;
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
+}
+section .search input {
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid #bbb;
+    margin: 15px 0;
+    padding: 15px 12px;
+    color: #b7b7b7;
+    font-size: 15px;
+}
+section .search a .fa-search {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    margin: 0;
+}
+section .search a:hover{
+	color:#f4511e;
+}
+
+table{
+	margin-bottom:90px;
+}
+
+/*Walker추천작, 최신등록된리뷰, 현재상영작*/
+section .show,
+section .review{
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+}
+section .show thead th,
+section .review thead th{
+	font-size: 30px;
+	color:#ffffff;
+	text-align:left;
+	padding-bottom: 20px;
+}
+section .show thead td img{
+	height:350px;
+	border-radius:5px;
+	display: block;
+	margin: 0px auto;
+}
+section .show tbody td{
+	font-size: 20px;
+	color:#ffffff;
+	text-align:center;
+	padding-bottom: 20px;
+}
+section .review thead td{
+    color: #168;
+    font-size: 25px;
+    background: #f0f6f9;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+section .review tbody img{
+	height:105px;
+	border-radius:5px;
+}
+section .review tbody td{
+	padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 20px;
+	color:#ffffff;
+}
+
+/*footer*/
+footer{
+	background: #070720;
+	color: #ffffff;
+	text-align:center;
+	padding:10px;
+}
+footer p{
+	font-weight: bold;
+}
