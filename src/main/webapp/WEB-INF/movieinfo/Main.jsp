@@ -4,51 +4,62 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>MovieiengWalk</title>
+
+<script src="../js/html5shiv.js"></script>
+
 <!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
 
 <!-- 사용자 스크립트 블록 -->
 <script type="text/javascript">
 $(function(){
+		$.ajax({
+	  		url: "https://api.themoviedb.org/3/search/movie?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&query=%EA%B4%91%ED%95%B4",
+	  		type: "get",
+	  		dataType: "json",
+	  		cache : false,
+	  		timeout : 30000,
+	  		success: function(json) {
+	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+	    			var page = json.page;
+	    			var result = json.results;
+	    			var str="";
+	    			
+	    			$(result).each(function(key, value){
+	    				var title = value.original_title;
+	    				var id = value.id;
+	    				var poster_img = value.poster_path;
+		
+	    			//출력을 위한 동적 요소 생성
+	    			
+	    			str +="<div>";
+	    			str +="<p>"+title+"</p>";
+	    			str +="<p>"+id+"</p>";
+	    			str += "<img src='"+poster_host+poster_img+"' style=width:200px;' alt=''/>";
+	    			str += "</div>";
+	    			    
+	    			});
+	    			$("#review_order").html(str);
 
-	$.ajax({
-		url:"http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.xml?key=f5eef3421c602c6cb7ea224104795888&movieCd=20124079",
-		type:"get",
-		dataType:"xml",
-		cache:false,
-		timeout:30000,
-		success:function(xml){
-			//alert(xml)	;	
-			alert($(xml).find("movieNm").text());
-			var title = $(xml).find("movieNm").text();
-			var date = $(xml).find("prdtYear").text();
-			
-			//alert(title)	;	alert(date)	;	
-			
-		//추출된 데이터를 화면에 출력하기 위한 HTML 요소
-		var div = $("<div>");
-		var p1 = $("<p>").html(title);
-		var p2 = $("<p>").html(date);
-		
-		//메소드 체인을 사용한 동적 요소의 결합
-		div.append(p1).append(p2);
-		
-		//화면에 표시 
-		$("#result").append(div);
-			}
-		
-	})
-})
+	    			
+	  		  },
+	   		 error : function(xhr, textStatus, errorThrown){
+	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+	    		}
+	});
+});
+
 </script>
 </head>
 <body>
-<h1 class="title"></h1>
+<h3>리뷰가 많은 영화</h3>
 
-<div class="console" id="result">
-
+<div id="review_order">
 </div>
+<h3>장르별 영화보기</h3>
 
-
+<div id="genre_movie">
+</div>
 </body>
 </html>
