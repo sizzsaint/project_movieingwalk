@@ -15,8 +15,16 @@
 			<td width="30%"></td>
 			<td width="30%"><a href="/"><img src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
 			<td width="30%">
+<<<<<<< HEAD
+				<input type="button" value="로그인" onclick="location.href='./../login/login.jsp'">
+=======
 				<input type="button" value="로그인" onclick="location.href='#'">
+<<<<<<< HEAD
 				<input type="button" value="회원가입" onclick="location.href='/registmember'">
+=======
+>>>>>>> e497a175a08e71f6ecabff71622225c5135e2a52
+				<input type="button" value="회원가입" onclick="location.href='#'">
+>>>>>>> 003a04167e3a17b0fcc419afeb70a70ef764d9a2
 			</td>
 		</tr>
 	</table>
