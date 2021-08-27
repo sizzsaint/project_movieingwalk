@@ -18,7 +18,7 @@
 			<td width="30%"></td>
 			<td width="30%"><a href="#"><img src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
 			<td width="30%">
-				<input type="button" value="로그인" onclick="location.href='../login/login'">
+				<input type="button" value="로그인" onclick="location.href='loginMember'">
 				<input type="button" value="회원가입" onclick="location.href='registmember'">
 
 			</td>
