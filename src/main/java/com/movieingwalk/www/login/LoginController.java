@@ -1,5 +1,10 @@
 package com.movieingwalk.www.login;
 
+<<<<<<< HEAD
+=======
+import java.util.Date;
+
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +27,11 @@ public class LoginController {
 			logger.debug("registerMember called!!!");
 			model.addAttribute("memberBean",memberBean); //뷰 폼값 자동 매핑
 			
+<<<<<<< HEAD
 		return "register/register";
+=======
+		return "login/register";
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 	}
 	
 	@RequestMapping(value = "/registmember", method = RequestMethod.POST)
@@ -31,6 +40,7 @@ public class LoginController {
 		loginService.registerMember(memberBean);
 		model.addAttribute("result", 1); // 뷰 폼값 자동 매핑
 
+<<<<<<< HEAD
 		return "register/registerOK";
 	}
 	
@@ -43,4 +53,9 @@ public class LoginController {
 	public String loginOK() {
 		return "login/loginOK";
 	}
+=======
+		return "login/registerOK";
+	}
+
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 }
