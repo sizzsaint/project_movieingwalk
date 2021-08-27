@@ -140,3 +140,4 @@ CREATE TABLE member(
 PRIMARY KEY (u_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+select* from member;
