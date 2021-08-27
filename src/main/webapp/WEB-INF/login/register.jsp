@@ -30,8 +30,8 @@
     // 휴대폰 번호 정규식
     var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
     /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/
-
-        var birthJ = false;
+       
+    var birthJ = false;
                 //아이디 중복확인
                 $("#mem_id").blur(function () {
                     if ($('#mem_id').val() == '') {
