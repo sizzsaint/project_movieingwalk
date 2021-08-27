@@ -13,9 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MovieingWalk 회원가입</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- 
     <link href="./../../css/index.css" rel="stylesheet" type="text/css">
-
     <script type="text/javascript">
     var empJ = /\s/g;
     //아이디 정규식

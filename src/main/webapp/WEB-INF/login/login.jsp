@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-=======
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
->>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
+
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <link rel = "stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>로그인</title>
@@ -41,20 +40,6 @@
 		</table>
 	</form>
 </div>
-=======
-<title>movieingwalk</title>
-<link href="./../../css/index.css" rel ="stylesheet" type="text/css">
-</head>
-<body>
-<!-- header고정 -->
-<jsp:include page="./../main/header.jsp"/>
 
-<section>
-로그인창이오.
-</section>
-
-<!-- footer고정 -->
-<jsp:include page="./../main/footer.jsp"/>
->>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 </body>
 </html>
