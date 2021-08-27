@@ -12,9 +12,17 @@ public class LoginService {
 	
 	public void registerMember(MemberBean memberBean) {
 		loginDao.registerMember(memberBean);
+<<<<<<< HEAD
+	}
+	public void loginMember(MemberBean memberBean) {
+		loginDao.loginMember(memberBean);
+	}
+}
+=======
 
 	}
 	
 	}
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 
 

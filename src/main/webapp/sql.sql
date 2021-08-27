@@ -143,3 +143,4 @@ FOREIGN KEY (s_idx) REFERENCES schedule (s_idx),
 FOREIGN KEY (o_idx) REFERENCES ott (o_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+select* from member;

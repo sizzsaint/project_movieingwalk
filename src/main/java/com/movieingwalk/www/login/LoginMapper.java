@@ -2,7 +2,11 @@ package com.movieingwalk.www.login;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+<<<<<<< HEAD
+import org.apache.ibatis.annotations.Select;
+=======
 import org.apache.ibatis.annotations.Update;
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 
 import com.movieingwalk.www.bean.MemberBean;
 
@@ -17,6 +21,24 @@ public interface LoginMapper {
 				+ " values( #{u_id}, #{u_password}, #{u_name}, #{u_phone}, #{u_sex}, #{u_email}, #{u_age} )";
 	@Insert(REGISTER)
 	void registerMember(MemberBean memberBean);
+<<<<<<< HEAD
+	
+	//아이디+비번 일치하면 로그인
+	final String LOGIN = " select count(*) from MEMBER where u_id=#{u_id} and u_password=#{u_password} ";
+
+	@Select(LOGIN)
+	void loginMember(MemberBean memberBean);
+	
+	
+	// u_id받아서 u_name얻는다.
+	final String GETNAME = " select u_name from MEMBER where u_id=#{u_id}";
+	
+	@Select(GETNAME)
+	void getName(MemberBean memberBean);
+
+	
+}
+=======
 
 	
 	
@@ -29,4 +51,5 @@ public interface LoginMapper {
 	
 	
 	}
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 

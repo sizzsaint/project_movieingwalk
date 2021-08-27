@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 /*전체*/
 html,body {
 	height: 100%;
@@ -75,10 +77,15 @@ nav ul li:hover a{
 	color: #ffffff;
 }
 
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 /*검색*/
 section{
 	margin-top: 50px;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 section .search {
     position: relative;
     text-align: center;
@@ -153,6 +160,8 @@ section .review tbody td{
     text-align: center;
     font-size: 20px;
 	color:#ffffff;
+<<<<<<< HEAD
+=======
 }
 
 /*footer*/
@@ -164,4 +173,5 @@ footer{
 }
 footer p{
 	font-weight: bold;
+>>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 }
