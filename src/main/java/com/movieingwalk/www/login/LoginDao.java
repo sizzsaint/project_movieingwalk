@@ -30,4 +30,12 @@ public class LoginDao {
 		return loginMapper.showId(memberBean);
 	}
 	
+	public int searchPw(MemberBean memberBean) {
+		return loginMapper.searchPw(memberBean);
+	}
+	
+	public MemberBean showPw(MemberBean memberBean) {
+		return loginMapper.showPw(memberBean);
+	}
+	
 }

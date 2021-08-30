@@ -82,8 +82,8 @@ public class LoginController {
 		return "login/search";
 	}
 	
-	@RequestMapping(value="/searchInfo",method = RequestMethod.POST)
-	public String searchOK(MemberBean bean,Model model) {
+	@RequestMapping(value="/search_id_Info",method = RequestMethod.POST)
+	public String id_searchOK(MemberBean bean,Model model) {
 		int result = loginService.searchId(bean);
 		
 		//입력한 정보가 모두 일치하는 아이디가 존재한다.
@@ -94,7 +94,22 @@ public class LoginController {
 		else {
 			model.addAttribute("UserId","none");
 		}
-		return "login/searchOK";
+		return "login/searchIdOK";
+	}
+	
+	@RequestMapping(value="/search_pw_Info",method = RequestMethod.POST)
+	public String pw_searchOK(MemberBean bean,Model model) {
+		int result = loginService.searchPw(bean);
+				
+		//입력한 정보가 모두 일치하는 비밀번호가 존재한다.
+		if(result == 1) {
+			MemberBean showPw = loginService.showPw(bean);
+			model.addAttribute("UserPw",showPw.getU_password());
+		}
+		else {
+			model.addAttribute("UserPw","none");
+		}
+		return "login/searchPwOK";
 	}
 	
 	@RequestMapping(value = "/logoutMember")

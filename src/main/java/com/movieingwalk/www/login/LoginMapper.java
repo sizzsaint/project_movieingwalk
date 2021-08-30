@@ -31,6 +31,14 @@ public interface LoginMapper {
 	//아이디 보여주기
 	@Select("SELECT u_id from MEMBER where u_name=#{u_name} and u_email=#{u_email} and u_phone=#{u_phone}")
 	public MemberBean showId(MemberBean memberBean);
+	
+	//비밀번호 찾기
+	@Select("SELECT count(*) from MEMBER where u_id=#{u_id} and u_name=#{u_name} and u_email=#{u_email}")
+	public int searchPw(MemberBean memberBean);
+	
+	//비밀번호 보여주기
+	@Select("SELECT u_password from MEMBER where u_id=#{u_id} and u_name=#{u_name} and u_email=#{u_email}")
+	public MemberBean showPw(MemberBean memberBean);
 }
 
 
