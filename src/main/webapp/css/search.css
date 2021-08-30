@@ -38,7 +38,7 @@ h2{
 form{
 	width:49%;
 	float:left;
-	border:1px solid #ffffff;
+	border-left:1px solid #ffffff;
 }
 #search_id input,
 #search_pw input{

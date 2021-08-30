@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>회원정보 수정</title>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<style> 
@@ -29,6 +30,7 @@
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
     
+    //모든 공백 체크 정규식
      var empJ = /\s/g;
     //아이디 정규식
     var idJ = /^[a-z0-9][a-z0-9_\-]{5,20}$/;
@@ -40,52 +42,53 @@
     var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     // 휴대폰 번호 정규식
     var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{4})?([0-9]{4})$/;
-
-    var birthJ = false;
-    //아이디 중복확인
- 
- $(document).ready(function() {
-
-  $("#mem_id").blur(function () {
-         if ($('#mem_id').val() == '') {
-             $('#id_check').text('아이디를 입력하세요.');
-             $('#id_check').css('color', 'red');
     
-            
-         } else if (idJ.test($('#mem_id').val()) != true) {
-             $('#id_check').text('아이디형식이 올바르지않습니다. 6~20자의 영문, 숫자만 사용 가능합니다.');
-             $('#id_check').css('color', 'red');
-         } else if ($('#mem_id').val() != '') { 
-             var mem_id = $('#mem_id').val();
-             var u_id = mem_id ;
-             $.ajax({
-                 async: true,
-                 type: 'POST',
-                 data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
-                 url: '/idCheck',
-                 dateType: 'json',
-                 contentType: "application/json; charset=UTF-8",
-                 success: function (data) {
-                     if (data.cnt > 0) {
-                         $('#id_check').text('중복된 아이디 입니다.');
-                         $('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
-                     } else {
-                         if (idJ.test(mem_id)) {
-                             $('#id_check').text('사용가능한 아이디 입니다.');
-                             $('#id_check').css('color', 'blue'); $("#usercheck").attr("disabled", false);
-                         } else if (mem_id == '') {
-                             $('#id_check').text('아이디를 입력해주세요.');
-                             $('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
-                         } else {
-                             $('#id_check').text("아이디는 소문자와 숫자 5~20자리만 가능합니다.");
-                             $('#id_check').css('color', 'red');
-                             $("#usercheck").attr("disabled", true);
-                         }
-                     }
-                 }
-             });
-             //ajax///
-         }//else if
+    var birthJ = false;
+    
+	//아이디 중복확인
+	$(document).ready(function() {	
+  		$("#mem_id").blur(function () {
+         	if ($('#mem_id').val() == '') {
+            	$('#id_check').text('아이디를 입력하세요.');
+             	$('#id_check').css('color', 'red');
+    		} 
+         	else if (idJ.test($('#mem_id').val()) != true) {
+            	$('#id_check').text('아이디형식이 올바르지않습니다. 6~20자의 영문, 숫자만 사용 가능합니다.');
+             	$('#id_check').css('color', 'red');
+         	} 
+         	else if ($('#mem_id').val() != '') { 
+             	var mem_id = $('#mem_id').val();
+             	var u_id = mem_id ;
+             	$.ajax({
+                 	async: true,
+                 	type: 'POST',
+                 	data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
+                 	url: '/idCheck',
+                 	dateType: 'json',
+                 	contentType: "application/json; charset=UTF-8",
+                 	success: function (data) {
+                     	if (data.cnt > 0) {
+                       		$('#id_check').text('중복된 아이디 입니다.');
+                         	$('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
+                     	} 
+                     	else {
+                         	if (idJ.test(mem_id)) {
+                             	$('#id_check').text('사용가능한 아이디 입니다.');
+                             	$('#id_check').css('color', 'blue'); $("#usercheck").attr("disabled", false);
+                         	} 
+                         	else if (mem_id == '') {
+                             	$('#id_check').text('아이디를 입력해주세요.');
+                             	$('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
+                         	} 
+                         	else {
+                             	$('#id_check').text("아이디는 소문자와 숫자 5~20자리만 가능합니다.");
+                             	$('#id_check').css('color', 'red');
+                             	$("#usercheck").attr("disabled", true);
+                         	}
+                     	}
+                 	}
+             	});//ajax///
+         	}//else if
      });//blur
      
      $('form').on('submit', function () {
@@ -282,8 +285,8 @@
                 </div>
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
-                     <input type="checkbox" id="mem_gender" value="남성" checked="checked" name="u_sex">남 
-                        <input type="checkbox" id="mem_gender" value="여성" name="u_sex">여
+                     <input type="radio" id="mem_gender" value="남성" checked="checked" name="u_sex">남 
+                        <input type="radio" id="mem_gender" value="여성" name="u_sex">여
                 </div>
 
                 <div class="form-group text-center">
