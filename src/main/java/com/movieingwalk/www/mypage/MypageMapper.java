@@ -32,7 +32,7 @@ public interface MypageMapper {
 	
 	
 	final String MODIFY_MEMBER = " UPDATE MEMBER set u_password = #{u_password}, u_name=#{u_name} ,"
-			+ "u_phone=#{u_phone}, u_email=#{u_email}";
+			+ "u_phone=#{u_phone}, u_email=#{u_email} where u_idx = #{u_idx}";
 	@Update(MODIFY_MEMBER)
 	void modifyMember(MemberBean memberBean);
 

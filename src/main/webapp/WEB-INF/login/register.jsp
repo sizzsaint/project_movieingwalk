@@ -228,7 +228,7 @@
      // 휴대전화
      $('#mem_phone').blur(function () {
          if (phoneJ.test($(this).val())) {
-             console.log(nameJ.test($(this).val()));
+             console.log(phoneJ.test($(this).val()));
              $("#phone_check").text('');
          } else {
              $('#phone_check').text('휴대폰번호를 확인해주세요 ');

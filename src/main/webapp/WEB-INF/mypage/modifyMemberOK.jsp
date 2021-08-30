@@ -8,11 +8,9 @@
 <title>회원정보수정</title>
 </head>
 <body>
-	<c:if test="${result==1}">
 		<script type="text/javascript">
 			alert('수정이되었습니다.')
 			location.href='/'
 		</script>
-	</c:if>
 </body>
 </html>
