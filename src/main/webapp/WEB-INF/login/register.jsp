@@ -22,6 +22,7 @@
 	border-radius: 10px; -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) }
+	}
 	</style>
 
 
@@ -44,6 +45,7 @@
     //아이디 중복확인
  
  $(document).ready(function() {
+	 alert(1);
 
   $("#mem_id").blur(function () {
          if ($('#mem_id').val() == '') {
@@ -60,7 +62,7 @@
              $.ajax({
                  async: true,
                  type: 'POST',
-                 data: u_id,//mem_id라는 이름으로 mem_id라는 데이터를 
+                 data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
                  url: '/idCheck',
                  dateType: 'json',
                  contentType: "application/json; charset=UTF-8",
@@ -133,7 +135,6 @@
              alert('MovieingWalk 가족이 되어주셔 감사합니다.');
          } else { alert('정보를 다시 확인하세요.');
         	 }
-         }
      });
      	
       /*
