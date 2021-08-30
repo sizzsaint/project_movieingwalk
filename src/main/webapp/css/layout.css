@@ -20,6 +20,9 @@ header table{
 header table td{
 	text-align:center;
 }
+header table td h2{
+	font-weight: bold;
+}
 header img{
 	padding: 5px 0 17px;
 	display: block;

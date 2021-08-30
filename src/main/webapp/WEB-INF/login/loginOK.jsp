@@ -6,15 +6,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
-<link rel = "stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<title>로그아웃</title>
+<!-- jQuery Framework 참조하기 -->
+<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>﻿
+<title>로그인확인</title>
 </head>
 <body>
-	<div style="position:absolute; left:200px; top:150px;">
-	${u_name }님이 로그인 중입니다. &nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<input type="button" value="로그아웃" onclick="location.href='#'">
-	</div>
+<c:if test="${result eq 'same'}">
+	<script type="text/javascript">
+		alert('로그인 되었습니다.')
+		location.href='/'
+	</script>
+</c:if>
+<c:if test="${result eq 'noID'}">
+	<script type="text/javascript">
+		alert('해당 아이디는 존재하지 않습니다.')
+		location.href='/loginMember'
+	</script>
+</c:if>
+<c:if test="${result eq 'different'}">
+	<script type="text/javascript">
+		alert('비밀번호가 올바르지 않습니다.')
+		location.href='/loginMember'
+	</script>
+</c:if>
 </body>
 </html>
