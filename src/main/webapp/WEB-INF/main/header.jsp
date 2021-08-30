@@ -16,10 +16,10 @@
 	<table>
 		<tr>
 			<td width="30%"></td>
-			<td width="30%"><a href="#"><img src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
+			<td width="30%"><a href="/"><img src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
 			<td width="30%">
 				<input type="button" value="로그인" onclick="location.href='loginMember'">
-				<input type="button" value="회원가입" onclick="location.href='registmember'">
+				<input type="button" value="회원가입" onclick="window.open('registmember','회원가입','width=430,height=500,location=no,status=no,scrollbars=yes')">
 
 			</td>
 		</tr>
@@ -27,7 +27,7 @@
 </header>
 
 <nav id="menu">
-    <ul class="movie"><li><a href="#">영화</a></li></ul>
+    <ul class="movie"><li><a href="/movieinfo/Main">영화</a></li></ul>
     <ul class="collection"><li><a href="#">컬렉션</a></li></ul>
     <ul class="ticketing"><li><a href="#">예매</a></li></ul>
     <ul class="my_page"><li><a href="#">마이페이지</a></li></ul>

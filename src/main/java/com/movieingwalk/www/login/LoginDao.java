@@ -19,5 +19,10 @@ public class LoginDao {
 	public void loginMember(MemberBean memberBean) {
 		loginMapper.loginMember(memberBean);
 	}
+	
+	public int idCheck(String u_id) {
+		int cnt = loginMapper.idCheck(u_id);
+		return cnt;
+	}
 
 }

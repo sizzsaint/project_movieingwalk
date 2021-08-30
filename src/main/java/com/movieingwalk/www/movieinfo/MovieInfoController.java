@@ -25,7 +25,7 @@ public class MovieInfoController {
 	public String Main(Model model, ReviewBean reviewBean) {
 		logger.debug("영화 정보 메인 페이지 호출");
 		model.addAttribute("reviewBean",reviewBean);
-		return "/movieinfo/Main";
+		return "movieinfo/Main";
 	}
 
 }

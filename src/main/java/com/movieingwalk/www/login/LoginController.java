@@ -5,9 +5,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.movieingwalk.www.bean.MemberBean;
 
 @Controller
@@ -41,7 +47,13 @@ public class LoginController {
 	public String loginOK() {
 		return "login/loginOK";
 	}
-
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+	@ResponseBody
+	public int idCheck(@RequestParam("u_id")String u_id) {
+		int cnt = loginService.idCheck(u_id);
+		
+		return cnt;
+	}
 	
 	
 }

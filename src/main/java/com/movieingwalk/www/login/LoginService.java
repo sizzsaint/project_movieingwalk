@@ -18,6 +18,10 @@ public class LoginService {
 		loginDao.loginMember(memberBean);
 	}
 	
+	public int idCheck(String u_id) {
+		int cnt = loginDao.idCheck(u_id);
+		return cnt;
+	}
 	
 	
 	

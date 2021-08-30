@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>movieingwalk</title>
-<<<<<<< HEAD
+<title>MovieingWalk</title>
+
 <link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
-=======
->>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
 <link href="./../../css/index.css" rel ="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
 </head>
