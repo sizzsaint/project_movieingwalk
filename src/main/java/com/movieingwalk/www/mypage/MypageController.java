@@ -18,37 +18,27 @@ public class MypageController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	MypageService mypageService;
-	
-	@RequestMapping(value ="/modify" , method=RequestMethod.GET)
-	public String modifyMember(Model model, 
-			@RequestParam("u_id") String u_id) {
-		logger.debug("회원정보수정폼");
-		MemberBean memberBean = mypageService.modifyMember(u_id);
-		
-		model.addAttribute("u_id",u_id);
-		model.addAttribute("memberBean",memberBean);
-		return "mypage/modifyMember";
-		
-		/*
-		 * @RequestMapping(value = "/updateBoard.do", method = RequestMethod.GET) public
-		 * String updateBoard(
-		 * 
-		 * @RequestParam("memo_id") String memo_id,
-		 * 
-		 * @RequestParam("current_page") String current_page, Model model ) {
-		 * logger.info("updateBoard called!"); BoardBean boardBean =
-		 * boardService.getEditView(memo_id);
-		 * 
-		 * model.addAttribute("memo_id",memo_id); model.addAttribute("current_page",
-		 * current_page); model.addAttribute("boardBean", boardBean); return
-		 * "updateBoard"; }
-		 */
-		
-		
-		
-		
-	}
-	
-	
 
+// 수정폼 불러오기
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public String modifyMember(Model model, @RequestParam("u_idx") String u_idx) {
+		logger.debug("회원정보수정폼");
+		MemberBean memberBean = mypageService.modifyMemberView(u_idx);
+
+		model.addAttribute("u_idx", u_idx);
+		model.addAttribute("memberBean", memberBean);
+		return "mypage/modifyMember";
+	}
+
+	// 수정처리
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyMemberOK(MemberBean memberBean, @RequestParam("u_idx") int u_idx, Model model) {
+		logger.info("회원정보수정처리");
+		memberBean.setU_idx(u_idx);
+		mypageService.modifyMember(memberBean);
+		model.addAttribute("u_idx", u_idx);
+
+		return "mypage/modifyMemberOK";
+
+	}
 }
