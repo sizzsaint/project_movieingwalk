@@ -1,0 +1,31 @@
+body{
+	background: #0b0c2a;
+}
+
+#container{
+	margin-top:10%;
+	text-align: center;
+}
+
+section #container h1{
+	font-weight: bold;
+	font-size: 40px;
+	color:#ffffff;
+}
+
+section #container img{
+	width: 450px;
+	border-radius: 10px;
+}
+
+section #container #bt input{
+	width:175px;
+	height: 70px;
+	font-size:25px;
+	font-weight: bold;
+	margin:35px 13px 15px 13px;
+	background-color: #ffffff;
+	border:none;
+	cursor:pointer;
+	border-radius: 10px;
+}

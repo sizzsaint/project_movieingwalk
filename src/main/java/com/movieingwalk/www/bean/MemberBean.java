@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public class MemberBean {
 	int u_idx, u_age, u_reviews, u_collections, u_liked_collections, u_tickets;
 	String u_id, u_password, u_name, u_email, u_phone, u_date, u_sex, u_admin;
-	
+
 	public int getU_idx() {
 		return u_idx;
 	}

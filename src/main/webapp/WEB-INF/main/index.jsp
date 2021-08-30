@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>MovieingWalk</title>
-
+<title>movieingwalk</title>
 <link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
 <link href="./../../css/index.css" rel ="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
