@@ -28,7 +28,7 @@
 		<h2>회원 아이디/비밀번호를 잊으셨습니까?</h2>
 		
 		<!-- 아이디찾기 부분 -->
-		<form action="/search_id_Info" method="post">
+		<form id="idSearchForm" action="/search_id_Info" method="post">
 			<table style="margin:0 auto;">
 				<tr>
 					<td>
@@ -62,7 +62,7 @@
 		</form>
 		
 		<!-- 비밀번호찾기 부분 -->
-		<form action="/search_pw_Info" method="post">
+		<form id="pwSearchForm" action="/search_pw_Info" method="post">
 			<table style="margin:0 auto;">
 				<tr>
 					<td>

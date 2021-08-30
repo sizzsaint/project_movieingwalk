@@ -16,8 +16,7 @@
 	<img src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo">
 	
 	<div id=bt>
-		<input type="button" value="로그인" onclick="location.href='loginMember'">
-		<input type="button" value="회원가입" onclick="location.href='registmember'"> 
+		<input type="button" value="로그인" onclick="location.href='loginAdmin'">
 	</div>
 </div>
 </section>

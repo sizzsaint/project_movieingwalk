@@ -27,12 +27,6 @@ public class LoginController {
 		return "login/register";
 	}
 	
-	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
-	public @ResponseBody int idCheck(@RequestParam("u_id")MemberBean u_id) {
-		int cnt = loginService.checkId(u_id);
-		return cnt;
-	}
-	
 	@RequestMapping(value = "/registmember", method = RequestMethod.POST)
 	public String registerOK(Model model, MemberBean memberBean) {
 		logger.debug("registerMember called!!!");
@@ -43,8 +37,8 @@ public class LoginController {
 	
 	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
 	public @ResponseBody int idCheck(@RequestParam("u_id")MemberBean u_id) {
-	    int cnt = loginService.checkId(u_id);
-	    return cnt;
+		int cnt = loginService.checkId(u_id);
+		return cnt;
 	}
 	
 	@RequestMapping(value="/loginMember", method = RequestMethod.GET)
