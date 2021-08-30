@@ -1,7 +1,5 @@
 package com.movieingwalk.www.login;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.movieingwalk.www.bean.MemberBean;
@@ -34,6 +32,15 @@ public class LoginService {
 	//아이디 보여주기
 	public MemberBean showId(MemberBean memberBean) {
 		return loginDao.showId(memberBean);
+	}
+	
+	//비밀번호 찾기
+	public int searchPw(MemberBean memberBean) {
+		return loginDao.searchPw(memberBean);
+	}
+	//비밀번호 보여주기
+	public MemberBean showPw(MemberBean memberBean) {
+		return loginDao.showPw(memberBean);
 	}
 }
 
