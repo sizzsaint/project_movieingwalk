@@ -42,8 +42,34 @@
     var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{4})?([0-9]{4})$/;
 
     var birthJ = false;
+    var idPass;
     //아이디 중복확인
- 
+
+	//아이디 중복체크
+	$('input[name=id]').blur(function(){
+		var idCheck=$('input[name=id]').val();
+		if(idRegex.test(idCheck)){
+			$.ajax({
+				url:'idCheck?userId='+idCheck,
+				type:'get',
+				success:function(data){
+					var color;
+					var ans;
+					if(data>0){
+						ans='이미있는 아이디입니다.';
+						color='red';
+                        idPass=false;
+					}else{
+						ans='회원가입 가능한 아이디입니다.';
+						color='blue';
+						idPass=true;
+					}
+					$('#temp').text(ans);
+					$('#temp').css('color',color);
+				}
+			})	
+		}
+	});
  $(document).ready(function() {
 
   $("#mem_id").blur(function () {
@@ -282,8 +308,8 @@
                 </div>
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
-                     <input type="checkbox" id="mem_gender" value="남성" checked="checked" name="u_sex">남 
-                        <input type="checkbox" id="mem_gender" value="여성" name="u_sex">여
+                     <input type="radio" id="mem_gender" value="남성" checked="checked" name="u_sex">남 
+                        <input type="radio" id="mem_gender" value="여성" name="u_sex">여
                 </div>
 
                 <div class="form-group text-center">

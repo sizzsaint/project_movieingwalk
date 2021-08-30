@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MovieingWalk 회원가입</title>
+    <title>MovieingWalk 회원정보수정</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<style> 
@@ -46,49 +46,6 @@
  
  $(document).ready(function() {
 
-
-  $("#mem_id").blur(function () {
-         if ($('#mem_id').val() == '') {
-             $('#id_check').text('아이디를 입력하세요.');
-             $('#id_check').css('color', 'red');
-    
-            
-         } else if (idJ.test($('#mem_id').val()) != true) {
-             $('#id_check').text('아이디형식이 올바르지않습니다. 6~20자의 영문, 숫자만 사용 가능합니다.');
-             $('#id_check').css('color', 'red');
-         } else if ($('#mem_id').val() != '') { 
-             var mem_id = $('#mem_id').val();
-             var u_id = mem_id ;
-             $.ajax({
-                 async: true,
-                 type: 'POST',
-                 data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
-                 url: '/idCheck',
-                 dateType: 'json',
-                 contentType: "application/json; charset=UTF-8",
-                 success: function (data) {
-                     if (data.cnt > 0) {
-                         $('#id_check').text('중복된 아이디 입니다.');
-                         $('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
-                     } else {
-                         if (idJ.test(mem_id)) {
-                             $('#id_check').text('사용가능한 아이디 입니다.');
-                             $('#id_check').css('color', 'blue'); $("#usercheck").attr("disabled", false);
-                         } else if (mem_id == '') {
-                             $('#id_check').text('아이디를 입력해주세요.');
-                             $('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
-                         } else {
-                             $('#id_check').text("아이디는 소문자와 숫자 5~20자리만 가능합니다.");
-                             $('#id_check').css('color', 'red');
-                             $("#usercheck").attr("disabled", true);
-                         }
-                     }
-                 }
-             });
-             //ajax///
-         }//else if
-     });//blur
-     
      $('form').on('submit', function () {
          var inval_Arr = new Array(7).fill(false);
          if (idJ.test($('#mem_id').val())) { inval_Arr[0] = true; } else {
@@ -137,17 +94,6 @@
         	 }
      });
      	
-      /*
-      $('#mem_id').blur(function () {
-         if (idJ.test($('#mem_id').val())) {
-             console.log('true');
-             $('#id_check').text('');
-         } else {
-             console.log('false');
-             $('#id_check').text('6~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.');
-             $('#id_check').css('color', 'red');
-         }
-     }); */
      
      $('#mem_pw').blur(function () {
          if (pwJ.test($('#mem_pw').val())) {
@@ -226,7 +172,7 @@
      // 휴대전화
      $('#mem_phone').blur(function () {
          if (phoneJ.test($(this).val())) {
-             console.log(nameJ.test($(this).val()));
+             console.log(phoneJ.test($(this).val()));
              $("#phone_check").text('');
          } else {
              $('#phone_check').text('휴대폰번호를 확인해주세요 ');
@@ -245,7 +191,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
-            <form action="/registmember" method="post" role="form" id="usercheck" name="member">
+            <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
             <input type="hidden" name="u_idx" value="<c:out value="${memberBean.u_idx}"/>">
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
@@ -284,8 +230,8 @@
                 </div>
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
-                     <input type="checkbox" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" checked="checked" name="u_sex" readonly="readonly">남 
-                        <input type="checkbox" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" name="u_sex" readonly="readonly">여
+                     <input type="text" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" checked="checked" name="u_sex" readonly="readonly"> 
+
                 </div>
 
                 <div class="form-group text-center">

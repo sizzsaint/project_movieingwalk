@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.movieingwalk.www.bean.MemberBean;
 
 @Controller
@@ -22,6 +25,12 @@ public class LoginController {
 			logger.debug("registerMember called!!!");
 			model.addAttribute("memberBean",memberBean); //뷰 폼값 자동 매핑
 		return "login/register";
+	}
+	
+	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
+	public @ResponseBody int idCheck(@RequestParam("u_id")MemberBean u_id) {
+		int cnt = loginService.checkId(u_id);
+		return cnt;
 	}
 	
 	@RequestMapping(value = "/registmember", method = RequestMethod.POST)
