@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CollectionBean {
 
-	int col_idx, u_idx, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx,
+	int col_idx, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx,
 			col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx;
 
-	String col_title, col_memo;
+	String col_title, col_memo, u_id;
 
 	public int getCol_idx() {
 		return col_idx;
@@ -18,12 +18,12 @@ public class CollectionBean {
 		this.col_idx = col_idx;
 	}
 
-	public int getU_idx() {
-		return u_idx;
+	public String getU_id() {
+		return u_id;
 	}
 
-	public void setU_idx(int u_idx) {
-		this.u_idx = u_idx;
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
 	}
 
 	public int getCol_movie1_idx() {

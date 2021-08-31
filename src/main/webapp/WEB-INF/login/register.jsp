@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>회원정보 수정</title>
+    <title>회원가입</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -59,14 +59,18 @@
          	else if ($('#mem_id').val() != '') { 
              	var mem_id = $('#mem_id').val();
              	var u_id = mem_id ;
+             	var serializeData = $("#usercheck").serialize();
+         		console.log(serializeData);
              	$.ajax({
                  	async: true,
                  	type: 'POST',
-                 	data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
+//                  	data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
+					data : {"u_id":u_id},
                  	url: '/idCheck',
-                 	dateType: 'json',
+                 	dataType: 'text',
                  	contentType: "application/json; charset=UTF-8",
                  	success: function (data) {
+                 	//	console.log(data);
                      	if (data.cnt > 0) {
                        		$('#id_check').text('중복된 아이디 입니다.');
                          	$('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
@@ -187,7 +191,7 @@
      var birthJ = false; // 생년월일 birthJ 유효성 검사
      $('#mem_birth').blur(function () {
          var dateStr = $(this).val();
-         var year = Number(dateStr.substr(0, 4)); // 입력한 값의 0~4자리까지 (연) 
+         var year = Number(dateStr.substr(0, 3)); // 입력한 값의 0~4자리까지 (연) 
          var month = Number(dateStr.substr(4, 2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월) 
          var day = Number(dateStr.substr(6, 2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일) 
          var today = new Date(); // 날짜 변수 선언 
@@ -247,7 +251,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
-            <form action="/registmember" method="post" role="form" id="usercheck" name="member">
+            <sf:form action="/registmember" method="post" role="form" id="usercheck" name="member" modelAttribute="member">
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
                         name="u_id"  placeholder="ID" value="${u_id}">
@@ -292,7 +296,7 @@
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">회원가입</button>
                 </div>
-            </form>
+            </sf:form>
         </div>
     </article>
 

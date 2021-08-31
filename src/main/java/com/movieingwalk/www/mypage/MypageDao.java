@@ -10,8 +10,12 @@ public class MypageDao {
 	@Autowired
 	private MypageMapper mypageMapper;
 	
-	public MemberBean modifyMemberView(String u_idx) {
-		return mypageMapper.modifyMemberView(u_idx);
+	public MemberBean mypageMain(String u_id) {
+		return mypageMapper.mypageMain(u_id);
+	}
+	
+	public MemberBean modifyMemberView(String u_id) {
+		return mypageMapper.modifyMemberView(u_id);
 	}
 	
 	public  void modifyMember(MemberBean memberBean) {

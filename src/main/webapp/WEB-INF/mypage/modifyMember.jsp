@@ -2,7 +2,7 @@
 <%@page import="java.io.*, java.text.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-<c:set var = "u_idx" value="${u_idx}"/>
+<c:set var = "u_idx" value="${memberBean.u_idx}"/>
 
 <!DOCTYPE html>
 <html>
@@ -14,16 +14,7 @@
     <title>MovieingWalk 회원정보수정</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<style> 
-    body { min-height: 100vh;
-    .input-form { max-width: 680px; margin-top: 80px; padding: 32px;
-	background: #fff; -webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px; -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) }
-	}
-	</style>
+	<link href="./../../css/mypage.css" rel ="stylesheet" type="text/css">
 
 
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
@@ -131,7 +122,7 @@
      var birthJ = false; // 생년월일 birthJ 유효성 검사
      $('#mem_birth').blur(function () {
          var dateStr = $(this).val();
-         var year = Number(dateStr.substr(0, 4)); // 입력한 값의 0~4자리까지 (연) 
+         var year = Number(dateStr.substr(0, 3)); // 입력한 값의 0~4자리까지 (연) 
          var month = Number(dateStr.substr(4, 2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월) 
          var day = Number(dateStr.substr(6, 2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일) 
          var today = new Date(); // 날짜 변수 선언 
@@ -184,7 +175,9 @@
 </head>
 
 <body>
-    <article class="container">
+<jsp:include page="../main/header.jsp"/>
+<nav class="leftmenu"><jsp:include page="./leftMenu.jsp"/></nav>
+    <article class="container" >
         <div class="page-header">
             <div class="col-md-6 col-md-offset-3">
                 <h3>회원정보수정</h3>
@@ -240,7 +233,7 @@
             </form>
         </div>
     </article>
-
+<jsp:include page="../main/footer.jsp"/>
 </body>
 
 </html>

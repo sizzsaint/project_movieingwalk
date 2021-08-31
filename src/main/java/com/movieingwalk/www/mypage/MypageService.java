@@ -12,9 +12,13 @@ public class MypageService {
 
 	@Autowired
 	private MypageDao mypageDao;
+	//마이페이지메인
+	public MemberBean mypageMain(String u_id) {
+		return mypageDao.mypageMain(u_id);
+	}
 	//글수정 불러오기
-	public MemberBean modifyMemberView(String u_idx) {
-		return mypageDao.modifyMemberView(u_idx);
+	public MemberBean modifyMemberView(String u_id) {
+		return mypageDao.modifyMemberView(u_id);
 		
 	}
 	

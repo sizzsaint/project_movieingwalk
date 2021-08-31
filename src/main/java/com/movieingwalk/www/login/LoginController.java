@@ -4,8 +4,10 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,9 +37,15 @@ public class LoginController {
 		return "login/registerOK";
 	}
 	
-	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
-	public @ResponseBody int idCheck(@RequestParam("u_id")MemberBean u_id) {
-		int cnt = loginService.checkId(u_id);
+	@RequestMapping(value="/idCheck", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody int idCheck(@RequestParam(required=false) String u_id, Model model) {
+//		String u_id2 = (String) model.getAttribute("u_id");
+		System.out.println("u_id-->" +u_id);
+		MemberBean mb = new MemberBean();
+		mb.setU_id(u_id);
+		int cnt = loginService.checkId(mb);
+		System.out.println(cnt);
+		model.addAttribute("cnt", cnt );
 		return cnt;
 	}
 	
