@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class CheckTicketFrame extends JFrame{
-	ArrayList<String> ticket; 											// text���Ͽ��� ���ŵ� ������ �����ͼ� arraylist�� �־���
+	ArrayList<String> ticket; 											// text파일에서 예매된 정보를 가져와서 arraylist에 넣어줌
 	JPanel panel;
 	JLabel label,numLabel;
 	JButton next,home;
@@ -30,18 +30,18 @@ public class CheckTicketFrame extends JFrame{
 		label = new JLabel("CGV");
 		label.setFont(new Font(label.getFont().getName(), Font.PLAIN, 80));
 		label.setForeground(Color.red);
-		 next = new JButton("NEXT");
+		next = new JButton("NEXT");
 		home = new JButton("HOME");
 		
-		numLabel = new JLabel("���� ��ȣ : ");
+		numLabel = new JLabel("예약 번호 : ");
 		numText = new JTextField(10);
-		ticket = new ArrayList<String>(); 								// arraylist �ʱ�ȭ
+		ticket = new ArrayList<String>(); 								// arraylist 초기화
 		
 		try {
-			FileReader fr = new FileReader("ticket.txt");				// ticket.txt ���Ͽ��� ���� ������ ������
+			FileReader fr = new FileReader("ticket.txt");				// ticket.txt 파일에서 예매 정보를 가져옴
 			BufferedReader br = new BufferedReader(fr);
 			String str;
-			while((str = br.readLine()) != null) { 						// ���ٴ������о arraylist�� �־���
+			while((str = br.readLine()) != null) { 						// 한줄단위로읽어서 arraylist에 넣어줌
 				ticket.add(str);
 			}
 			br.close();
@@ -51,21 +51,21 @@ public class CheckTicketFrame extends JFrame{
 			e2.printStackTrace();
 		}
 		
-		home.addActionListener(new ActionListener() { 					// home ��ư �̺�Ʈ ������
+		home.addActionListener(new ActionListener() { 					// home 버튼 이벤트 리스너
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				CheckTicketFrame.this.dispose(); 						// ���� frame�� dispose ����
-				new MainFrame().show(); 								// mainframe�� show ����
+				CheckTicketFrame.this.dispose(); 						// 현재 frame을 dispose 해줌
+				new MainFrame().show(); 								// mainframe을 show 해줌
 			}
 		});
-		next.addActionListener(new ActionListener() { 					// ���� ���� Ȯ�� ��ư �̺�Ʈ ������
+		next.addActionListener(new ActionListener() { 					// 예매 정보 확인 버튼 이벤트 리스너
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				for(int i=0;i<ticket.size();i++) {						// text���� �о�� ���ŵ����� ���� 
+				for(int i=0;i<ticket.size();i++) {						// text에서 읽어온 예매된정보 에서 
 					
 					StringTokenizer st = new StringTokenizer(ticket.get(i).toString());
 					String name = st.nextToken("\t ");
@@ -74,8 +74,8 @@ public class CheckTicketFrame extends JFrame{
 						String price = st.nextToken("\t ");
 						String seats = st.nextToken("\t ");
 						String time = st.nextToken("\t");
-						String etc = "��    �� : "+time+"   ��     �� : "+price;
-						new MsgBox(new JFrame("") ,"��ȭ �̸� : "+name,"���� ��ȣ : "+num, etc,"��     ��   : "+seats, false,null);
+						String etc = "시    간 : "+time+"   가     격 : "+price;
+						new MsgBox(new JFrame("") ,"영화 이름 : "+name,"예약 번호 : "+num, etc,"좌     석   : "+seats, false,null);
 					}
 				}
 			}
@@ -93,7 +93,7 @@ public class CheckTicketFrame extends JFrame{
 		panel.add(home);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);				 // ũ�� ���� �Ұ�
+		setResizable(false);				 // 크기 조절 불가
 		add(panel);
 		
 		

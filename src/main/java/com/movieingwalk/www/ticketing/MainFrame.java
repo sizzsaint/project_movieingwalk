@@ -15,40 +15,40 @@ import javax.swing.JPanel;
 public class MainFrame extends JFrame{
 	public MainFrame(){
 		setSize(500,400);
-		setTitle("CGV");
+		setTitle("예매");
 		JPanel panel = new JPanel(null);
-		JLabel label = new JLabel("CGV");
+		JLabel label = new JLabel("예매");
 		label.setFont(new Font(label.getFont().getName(), Font.PLAIN, 80));
-		label.setForeground(Color.red);											// cgv ���ڸ� red�� �ٲ���
-		JButton button1 = new JButton("��ȭ ����");
-		JButton button2 = new JButton("���� Ȯ��");
+		label.setForeground(Color.red);											// 예매 글자를 red로 바꿔줌
+		JButton button1 = new JButton("예매하기");
+		JButton button2 = new JButton("예매확인");
 		
-		label.setBounds(160,60,200,80);											// widget�� ������ǥ ��������
+		label.setBounds(160,60,200,80);											// widget들 절대좌표 지정해줌
 		button1.setBounds(180, 180, 140, 30);
 		button2.setBounds(180, 240, 140, 30);
 		panel.add(label);
 		panel.add(button1);
 		panel.add(button2);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);				 // ũ�� ���� �Ұ�
+		setResizable(false);				 // 크기 조절 불가
 		add(panel);
 		
-		button1.addActionListener(new ActionListener() { 						// ��ȭ ���� ��ư �̺�Ʈ������
+		button1.addActionListener(new ActionListener() { 						// 영화 예매 버튼 이벤트리스너
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				new TicketingFrame().show(); 									// ticketframe�� ������
-				MainFrame.this.dispose();										// mainframe�� dispose��
+				new TicketingFrame().show(); 									// ticketframe을 보여줌
+				MainFrame.this.dispose();										// mainframe은 dispose함
 			}
 		});
-		button2.addActionListener(new ActionListener() { 						// ���� Ȯ�� ��ư �̺�Ʈ ������
+		button2.addActionListener(new ActionListener() { 						// 예매 확인 버튼 이벤트 리스너
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new CheckTicketFrame().show(); 									// checkTicketFrame �� ������
-				MainFrame.this.dispose(); 										// mainframe�� dispose����
+				new CheckTicketFrame().show(); 									// checkTicketFrame 을 보여줌
+				MainFrame.this.dispose(); 										// mainframe은 dispose해줌
 			}
 		});
 		
