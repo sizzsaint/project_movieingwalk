@@ -59,13 +59,15 @@ public class MypageController {
 	//리뷰 목록 처리
 	@RequestMapping(value = "/myreviewlist", method = RequestMethod.GET)
 	public String myReview(ReviewBean ReviewBean, Model model, @RequestParam("u_id")String u_id) {
-	
+		MemberBean memberBean = mypageService.mypageMain(u_id);
+		model.addAttribute("memberBean", memberBean);
 		return "mypage/myreviewlist";
 	}
 	// 콜렉션 목록 처리
 	@RequestMapping(value = "/mycollectionlist", method = RequestMethod.GET)
 	public String myReview(CollectionBean collectionBean, Model model, @RequestParam("u_id")String u_id) {
-	
+		MemberBean memberBean = mypageService.mypageMain(u_id);
+		model.addAttribute("memberBean", memberBean);
 		return "mypage/myreviewlist";
 	}
 }
