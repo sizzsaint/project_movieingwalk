@@ -1,18 +1,21 @@
 package com.movieingwalk.www.movieinfo;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.MovieBean;
 
-//@Repository
-public class MovieInfoDaoImpl {
+@Repository
+public class MovieInfoDaoImpl implements MovieInfoDao{
 	
-	//@Autowired
-	//private MovieInfoMapper movieInfoMapper;
+	@Autowired
+	private MovieInfoMapper movieInfoMapper;
 	
-	//public void showMovieList(ReviewBean reviewBean) {
-	//movieInfoMapper.showMovieList(reviewBean);
-	//}
+	
+	public ArrayList<String> getReviewRank() {
+		return movieInfoMapper.getReviewRank();
+	}
 
 }
