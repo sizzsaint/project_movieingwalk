@@ -10,8 +10,8 @@ public class CollectionService {
 	@Autowired
 	private CollectionDao colDao;
 	//콜렉션상세보기
-	public CollectionBean col_datail(String u_id) {
-		return colDao.col_datail(u_id);
+	public CollectionBean col_datail(int col_idx) {
+		return colDao.col_datail(col_idx);
 	}
 	
 	

@@ -30,7 +30,7 @@ public interface CollectionMapper {
 			@Result(property = "col_movie9_idx", column="col_movie9_idx"),
 			@Result(property = "col_movie10_idx", column="col_movie10_idx")
 	})
-	CollectionBean col_datail(@Param("u_id")String u_id);
+	CollectionBean col_datail(@Param("col_idx")int col_idx);
 	
 	
 	

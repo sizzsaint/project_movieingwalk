@@ -9,7 +9,7 @@
  -->
 </head>
 <body>
-  <nav id="leftMenu" style="background-color: red; float:left; width:30%;">
+  <nav id="leftMenu" style=" float:left; width:30%;">
     <ul class="mypage">
       <li><a class="mypage" href="/mypage/myreviewlist?u_id=${memberBean.u_id}">리뷰</a></li>
       <li><a href="/mypage/mycollectionlist?u_id=${memberBean.u_id }">컬렉션</a></li>

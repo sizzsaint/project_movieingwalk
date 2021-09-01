@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.login.LoginController;
 
-@Controller
-@RequestMapping("/collection")
-public class CollectionController {
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-	
-	@Autowired
-	CollectionService colService;
-
-	//콜렉션상세보기
-	@RequestMapping("/collectiondetail")
-	public String col_detail(Model model, CollectionBean colBean, @RequestParam("col_idx")String col_idx) {
-		logger.debug("콜렉션상세보기페이지");
-		model.addAttribute("colBean",colBean);
-		return ("/collection/collection_detail");
-	}
-}
+//@Controller
+//@RequestMapping("/collection")
+//public class CollectionController {
+//	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+//	
+//	@Autowired
+//	CollectionService colService;
+//
+//	//콜렉션상세보기
+//	@RequestMapping("/collectiondetail")
+//	public String col_detail(Model model, CollectionBean colBean, @RequestParam("col_idx")String col_idx) {
+//		logger.debug("콜렉션상세보기페이지");
+//		model.addAttribute("colBean",colBean);
+//		return "/collection/collection_detail";
+//	}
+//}

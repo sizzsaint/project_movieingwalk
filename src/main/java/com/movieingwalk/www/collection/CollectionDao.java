@@ -9,8 +9,8 @@ public class CollectionDao {
 	@Autowired
 	private CollectionMapper colMaper;
 	
-	public CollectionBean col_datail(String u_id) {
-	return colMaper.col_datail(u_id);
+	public CollectionBean col_datail(int col_idx) {
+	return colMaper.col_datail(col_idx);
 	}
 
 }
