@@ -1,0 +1,46 @@
+section{
+	width:80%;
+	height:90%;
+	float:right;
+	margin: 70px 70px 0 0;
+	background-color: #e8e8e8;
+}
+section table{
+	width:100%;
+	border:1px solid black;
+}
+section tr,
+section td{
+	border:1px solid black;
+}
+section h1{
+	color: black;
+	font-size:40px;
+	text-align: center;
+}
+
+section .search {
+    position: relative;
+    text-align: center;
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
+}
+section .search input {
+    width: 100%;
+    border-radius: 25px;
+    border: 1px solid #bbb;
+    margin: 15px 0;
+    padding: 15px 12px;
+    color: #b7b7b7;
+    font-size: 15px;
+}
+section .search a .fa-search {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    margin: 0;
+}
+section .search a:hover{
+	color:#f4511e;
+}
