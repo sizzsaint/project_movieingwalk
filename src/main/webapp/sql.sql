@@ -143,3 +143,32 @@ FOREIGN KEY (s_idx) REFERENCES schedule (s_idx),
 FOREIGN KEY (o_idx) REFERENCES ott (o_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+select * from member;
+
+ALTER TABLE `movieingwalk`.`review` 
+CHANGE COLUMN `m_title` `m_idx` VARCHAR(30) NULL DEFAULT NULL ;
+
+ALTER TABLE `movieingwalk`.`ott` 
+CHANGE COLUMN `o_idx` `m_idx` INT NOT NULL ;
+
+ALTER TABLE `movieingwalk`.`review` 
+DROP COLUMN `m_date`;
+
+ALTER TABLE `movieingwalk`.`review` 
+ADD COLUMN `r_memo` VARCHAR(300) NULL AFTER `r_comments`,
+CHANGE COLUMN `r_comments` `r_comments` INT NULL DEFAULT NULL ;
+
+alter table member change column u_id  u_id varchar(20) not null unique;
+
+update member set u_admin='Y' where u_idx=1;
+update member set u_admin='N' where u_idx=2;
+
+
+
+
+
+
+
+
+
