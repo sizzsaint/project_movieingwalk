@@ -14,7 +14,7 @@
 			<p>회원관리</p>
 		</li>
 		<li>
-			<input type="button" value="회원명단" onclick="location.href='/membersInfo'">
+			<input type="button" value="회원명단" onclick="location.href='/mInfo_udateSort'">
 		</li>
 		<li>
 			<p>컨텐츠 관리</p>

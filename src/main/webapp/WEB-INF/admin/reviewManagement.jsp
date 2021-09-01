@@ -42,6 +42,7 @@
 			<td>회원아이디</td><!-- u_idx-->
 			<td>등록날짜</td><!-- r_date-->
 			<td>등록내용</td><!-- r_comments-->
+			<td></td>
 		</tr>
 		<c:forEach items="${reviewsInfo}" var="info">
 		<tr> 
@@ -51,6 +52,9 @@
 			<td>${info.u_idx}</td>
 			<td>${info.r_date}</td>
 			<td>${info.r_comments}</td>
+			<td>
+				<input type="button" value="삭제" onclick="mInfoDel()">
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

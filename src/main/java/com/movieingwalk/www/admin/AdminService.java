@@ -22,8 +22,14 @@ public class AdminService {
 		return adminDao.showAdId(memberBean);
 	}
 	
-	public ArrayList<MemberBean> showMembersInfo() {
-		return adminDao.showMembersInfo();
+	public ArrayList<MemberBean> showMembersInfo1() {
+		return adminDao.showMembersInfo1();
+	}
+	public ArrayList<MemberBean> showMembersInfo2() {
+		return adminDao.showMembersInfo2();
+	}
+	public ArrayList<MemberBean> showMembersInfo3() {
+		return adminDao.showMembersInfo3();
 	}
 	
 	public ArrayList<MovieBean> showMoviesInfo(){

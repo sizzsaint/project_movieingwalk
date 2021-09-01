@@ -16,9 +16,16 @@ public interface AdminMapper {
 	@Select("select u_id,u_password from MEMBER where u_id=#{u_id}")
 	public MemberBean showAdId(MemberBean memberBean);
 	
-	//회원등록일순
+	//등록날짜
 	@Select("select * from MEMBER order by u_date desc")
-	public ArrayList<MemberBean> showMembersInfo();
+	public ArrayList<MemberBean> showMembersInfo1();
+	//회원명
+	@Select("select * from MEMBER order by u_name desc")
+	public ArrayList<MemberBean> showMembersInfo2();
+	//아이디
+	@Select("select * from MEMBER order by u_idx desc")
+	public ArrayList<MemberBean> showMembersInfo3();	
+	/*--------------------------------------------------------------*/
 	
 	//영화제목순
 	@Select("select* from movie order by m_title asc")

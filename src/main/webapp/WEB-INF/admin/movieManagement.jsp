@@ -39,12 +39,16 @@
 			<td>영화코드</td><!-- m_id-->
 			<td>영화명</td><!-- m_title -->
 			<td>개봉일</td><!-- m_date-->
+			<td></td>
 		</tr>
 		<c:forEach items="${moviesInfo}" var="info">
 		<tr> 
 			<td>${info.m_idx}</td>
 			<td>${info.m_title}</td>
 			<td>${info.m_date}</td>
+			<td>
+				<input type="button" value="삭제" onclick="mInfoDel()">
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

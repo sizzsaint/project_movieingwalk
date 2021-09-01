@@ -23,8 +23,14 @@ public class AdminDao {
 		return adminMapper.showAdId(memberBean);
 	}
 	
-	public ArrayList<MemberBean> showMembersInfo(){
-		return adminMapper.showMembersInfo();
+	public ArrayList<MemberBean> showMembersInfo1(){
+		return adminMapper.showMembersInfo1();
+	}
+	public ArrayList<MemberBean> showMembersInfo2(){
+		return adminMapper.showMembersInfo2();
+	}
+	public ArrayList<MemberBean> showMembersInfo3(){
+		return adminMapper.showMembersInfo3();
 	}
 	
 	public ArrayList<MovieBean> showMoviesInfo(){

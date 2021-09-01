@@ -16,6 +16,13 @@
 <!-- adAside(좌측)고정 -->
 <jsp:include page="./adAside.jsp"/>
 
+<script type="text/javascript">
+function mInfoDel(${info.u_id}){
+	alert('데이터를 삭제합니다.')
+	location.href='/mInfo_udateSort'
+}
+</script>
+
 <section>
 	<table>
 		<tr>
@@ -28,7 +35,14 @@
 				</div>
 			</td>
 			<td width="15%">
-				
+				<form style="text-align: center">
+					<h3>정렬 방식</h3>
+					<select name="sort" id="sort" onchange="location.href=this.value">
+						<option value="/mInfo_udateSort">등록날짜</option>
+						<option value="/mInfo_unameSort">회원명</option>
+						<option value="/mInfo_uidxSort">아이디</option>
+					</select>
+				</form>
 			</td>
 		</tr>
 	</table>
@@ -43,7 +57,8 @@
 			<td>이메일</td><!-- u_email-->
 			<td>연락처</td><!-- u_phone -->
 			<td>가입일</td><!-- u_date -->
-			<td> 관리자 유무</td><!-- u_admin-->
+			<td>관리자 유무</td><!-- u_admin-->
+			<td></td>
 		</tr>
 		<c:forEach items="${membersInfo}" var="info">
 		<tr> 
@@ -54,7 +69,10 @@
 			<td>${info.u_email}</td><!-- u_email-->
 			<td>${info.u_phone}</td><!-- u_phone -->
 			<td>${info.u_date}</td><!-- u_date -->
-			<td>${info.u_admin}</td><!-- u_admin-->		
+			<td>${info.u_admin}</td><!-- u_admin-->
+			<td>
+				<input type="button" value="삭제" onclick="mInfoDel()">
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

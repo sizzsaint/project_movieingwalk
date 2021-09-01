@@ -176,8 +176,9 @@
 
 <body>
 <jsp:include page="../main/header.jsp"/>
-<nav class="leftmenu"><jsp:include page="./leftMenu.jsp"/></nav>
-    <article class="container" >
+<jsp:include page="./leftMenu.jsp"/>
+
+    <article class="container" style="background-color: green; float:right; width: 70%;">
         <div class="page-header">
             <div class="col-md-6 col-md-offset-3">
                 <h3>회원정보수정</h3>

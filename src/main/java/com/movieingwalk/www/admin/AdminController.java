@@ -57,10 +57,24 @@ public class AdminController {
 		return "admin/adLogout";
 	}
 	
-	@RequestMapping(value="/membersInfo")
+	@RequestMapping(value="/mInfo_udateSort")
+	public String memberManagement1(Model model) {
+		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
+		memberList=adminService.showMembersInfo1();
+		model.addAttribute("membersInfo", memberList);
+		return "admin/memberManagement";
+	}
+	@RequestMapping(value="/mInfo_unameSort")
+	public String memberManagement2(Model model) {
+		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
+		memberList=adminService.showMembersInfo2();
+		model.addAttribute("membersInfo", memberList);
+		return "admin/memberManagement";
+	}
+	@RequestMapping(value="/mInfo_uidxSort")
 	public String memberManagement(Model model) {
 		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
-		memberList=adminService.showMembersInfo();
+		memberList=adminService.showMembersInfo3();
 		model.addAttribute("membersInfo", memberList);
 		return "admin/memberManagement";
 	}
