@@ -11,8 +11,8 @@
 <meta charset="UTF-8">
 <title>Mypage</title>
 <link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
-<link href="./../../css/index.css" rel ="stylesheet" type="text/css">
-<script src="https://kit.fontawesome.com/8eb5905426.js"></script>
+
+<!-- <script src="https://kit.fontawesome.com/8eb5905426.js"></script> -->
 <script type="text/javascript">
 
 </script>

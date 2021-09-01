@@ -15,6 +15,11 @@ public class LoginService {
 		loginDao.registerMember(memberBean);
 	}
 	
+	//아이디 존재 여부(회원가입중복)
+	public MemberBean check_Id(String u_id) {
+		return loginDao.check_Id(u_id);
+	}
+	
 	//아이디 존재 여부
 	public int checkId(MemberBean memberBean) {
 		return loginDao.checkId(memberBean);

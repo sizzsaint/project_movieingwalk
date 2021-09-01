@@ -8,7 +8,7 @@
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
-<nav class="leftmenu"><jsp:include page="./leftMenu.jsp"/></nav>
+<jsp:include page="./leftMenu.jsp"/>
 <!-- 나의된리뷰 -->
 <table class="myreview">
 

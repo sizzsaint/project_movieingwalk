@@ -37,16 +37,18 @@ public class LoginController {
 		return "login/registerOK";
 	}
 	
-	@RequestMapping(value="/idCheck", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody int idCheck(@RequestParam(required=false) String u_id, Model model) {
-//		String u_id2 = (String) model.getAttribute("u_id");
-		System.out.println("u_id-->" +u_id);
-		MemberBean mb = new MemberBean();
-		mb.setU_id(u_id);
-		int cnt = loginService.checkId(mb);
-		System.out.println(cnt);
-		model.addAttribute("cnt", cnt );
-		return cnt;
+	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
+	@ResponseBody
+	public MemberBean idCheck(@RequestParam(required=false)String u_id, Model model) {
+		System.out.println("u_id=" + u_id);
+		MemberBean memberBean = new MemberBean();
+		if(u_id != "") {
+			memberBean = loginService.check_Id(u_id);
+		}else {
+			memberBean.setU_id(u_id);
+		}
+		System.out.println("u_id=" + u_id);
+		return memberBean;
 	}
 	
 	@RequestMapping(value="/loginMember", method = RequestMethod.GET)

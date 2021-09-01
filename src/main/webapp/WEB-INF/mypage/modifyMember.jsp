@@ -2,7 +2,7 @@
 <%@page import="java.io.*, java.text.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-<c:set var = "u_idx" value="${memberBean.u_idx}"/>
+<c:set var = "u_id" value="${memberBean.u_id}"/>
 
 <!DOCTYPE html>
 <html>
@@ -14,8 +14,6 @@
     <title>MovieingWalk 회원정보수정</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href="./../../css/mypage.css" rel ="stylesheet" type="text/css">
-
 
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
@@ -38,7 +36,7 @@
  $(document).ready(function() {
 
      $('form').on('submit', function () {
-         var inval_Arr = new Array(7).fill(false);
+         var inval_Arr = new Array(8).fill(false);
          if (idJ.test($('#mem_id').val())) { inval_Arr[0] = true; } else {
              inval_Arr[0] = false;
              alert('아이디를 확인하세요.'); return false;
@@ -132,10 +130,10 @@
              if (year > yearNow || year < 1900) {
                  $('#birth_check').text('생년월일을 확인해주세요');
                  $('#birth_check').css('color', 'red');
-             } else if (month < 1 || month > 12) {
+             } else if (month < 01 || month > 12) {
                  $('#birth_check').text('생년월일을 확인해주세요 ');
                  $('#birth_check').css('color', 'red');
-             } else if (day < 1 || day > 31) {
+             } else if (day < 01 || day > 31) {
                  $('#birth_check').text('생년월일을 확인해주세요 ');
                  $('#birth_check').css('color', 'red');
              } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
@@ -185,10 +183,10 @@
         </div>
         <div class="col-sm-6 col-md-offset-3">
             <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
-            <input type="hidden" name="u_idx" value="<c:out value="${memberBean.u_idx}"/>">
+
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
-                        name="u_id"  placeholder="ID" value="<c:out value="${memberBean.u_id}"/>" readonly="readonly">
+                        name="mem_id"  placeholder="ID" value="<c:out value="${memberBean.u_id}"/>" readonly="readonly">
                     <div class="eheck_font" id="id_check" ></div>
                 </div>
                 <div class="form-group">
