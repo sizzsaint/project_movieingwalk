@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>회원정보 수정</title>
+    <title>회원가입</title>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -59,14 +59,18 @@
          	else if ($('#mem_id').val() != '') { 
              	var mem_id = $('#mem_id').val();
              	var u_id = mem_id ;
+             	var serializeData = $("#usercheck").serialize();
+         		console.log(serializeData);
              	$.ajax({
                  	async: true,
                  	type: 'POST',
-                 	data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
+//                  	data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
+					data : {"u_id":u_id},
                  	url: '/idCheck',
-                 	dateType: 'json',
+                 	dataType: 'text',
                  	contentType: "application/json; charset=UTF-8",
                  	success: function (data) {
+                 	//	console.log(data);
                      	if (data.cnt > 0) {
                        		$('#id_check').text('중복된 아이디 입니다.');
                          	$('#id_check').css('color', 'red'); $("#usercheck").attr("disabled", true);
@@ -197,10 +201,10 @@
              if (year > yearNow || year < 1900) {
                  $('#birth_check').text('생년월일을 확인해주세요');
                  $('#birth_check').css('color', 'red');
-             } else if (month < 1 || month > 12) {
+             } else if (month < 01 || month > 12) {
                  $('#birth_check').text('생년월일을 확인해주세요 ');
                  $('#birth_check').css('color', 'red');
-             } else if (day < 1 || day > 31) {
+             } else if (day < 01 || day > 31) {
                  $('#birth_check').text('생년월일을 확인해주세요 ');
                  $('#birth_check').css('color', 'red');
              } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
@@ -247,7 +251,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
-            <form action="/registmember" method="post" role="form" id="usercheck" name="member">
+            <sf:form action="/registmember" method="post" role="form" id="usercheck" name="member" modelAttribute="member">
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
                         name="u_id"  placeholder="ID" value="${u_id}">
@@ -292,7 +296,7 @@
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">회원가입</button>
                 </div>
-            </form>
+            </sf:form>
         </div>
     </article>
 

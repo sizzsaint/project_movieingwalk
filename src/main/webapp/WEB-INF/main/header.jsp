@@ -23,7 +23,7 @@
 		<table style="color: white;">
 			<tr>
 				<td width="30%"></td>
-				<td width="30%"><a href="#"><img
+				<td width="30%"><a href="/"><img
 						src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
 				<td width="30%"><c:choose>
 						<c:when test="${mvId == null }">
@@ -53,9 +53,14 @@
 			<li><a href="#">예매</a></li>
 		</ul>
 		<ul class="my_page">
-			<li><a href="#">마이페이지</a></li>
+			<li>
+			<c:choose>
+			<c:when test="${mvId == null}"><a href="/loginMember">마이페이지</a></c:when>
+				<c:otherwise><a href="/mypage?u_id=<c:out value="${mvId}"/>">마이페이지</a></c:otherwise>
+			</c:choose>
+			</li>
 		</ul>
 	</nav>
 
-</body>
+</body>D
 </html>
