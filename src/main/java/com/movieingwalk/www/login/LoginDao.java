@@ -14,11 +14,28 @@ public class LoginDao {
 	public void registerMember(MemberBean memberBean) {
 		loginMapper.registerMember(memberBean);
 	}
-
 	
-	public void loginMember(MemberBean memberBean) {
-		loginMapper.loginMember(memberBean);
+	public int checkId(MemberBean memberBean) {
+		return loginMapper.checkId(memberBean);
 	}
-=======
->>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
+	
+	public MemberBean loginMember(MemberBean memberBean) {
+		return loginMapper.loginMember(memberBean);
+	}
+	
+	public int searchId(MemberBean memberBean) {
+		return loginMapper.searchId(memberBean);
+	}
+	public MemberBean showId(MemberBean memberBean) {
+		return loginMapper.showId(memberBean);
+	}
+	
+	public int searchPw(MemberBean memberBean) {
+		return loginMapper.searchPw(memberBean);
+	}
+	
+	public MemberBean showPw(MemberBean memberBean) {
+		return loginMapper.showPw(memberBean);
+	}
+	
 }

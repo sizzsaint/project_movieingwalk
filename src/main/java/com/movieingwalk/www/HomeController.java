@@ -15,5 +15,7 @@ public class HomeController {
 		model.addAttribute("now", new Date());
 		return "main/index";
 
+
+
 	}
 }

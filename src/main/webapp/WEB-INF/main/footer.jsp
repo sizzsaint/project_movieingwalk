@@ -5,11 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>movieingwalk</title>
-<<<<<<< HEAD
+
 <link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
-=======
 <link href="./../../css/index.css" rel ="stylesheet" type="text/css">
->>>>>>> 9b4de4f47d48f7fcaec887cb1183d660801b9378
+
 </head>
 <body>
 
