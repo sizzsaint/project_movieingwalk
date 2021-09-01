@@ -12,8 +12,8 @@
   <nav id="leftMenu">
     <ul class="mypage">
       <li><a class="mypage" href="/mypage/myreviewlist?u_id=${memberBean.u_id}">리뷰</a></li>
-      <li><a href="#news">컬렉션</a></li>
-      <li><a href="#contact">예매내역</a></li>
+      <li><a href="mapage/mycollectionlist?u_id=${memberBean.u_id }">컬렉션</a></li>
+      <li><a href="#ticket">예매내역</a></li>
       <li><a href="/mypage/modify?u_id=${memberBean.u_id}">회원정보수정</a></li>
     </ul>
     </nav>
