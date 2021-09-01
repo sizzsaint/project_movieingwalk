@@ -164,11 +164,29 @@ alter table member change column u_id  u_id varchar(20) not null unique;
 update member set u_admin='Y' where u_idx=1;
 update member set u_admin='N' where u_idx=2;
 
+desc member;
+update member set u_date=now() where u_idx=3;
 
+drop table movie;
+CREATE TABLE movie (
+       m_idx                int NOT NULL,
+       m_title              varchar(30) ,
+       m_date               datetime ,
+       m_director           varchar(10) ,
+       m_actor1             varchar(10) ,
+       m_actor2             varchar(10) ,
+       m_actor3             varchar(10) ,
+       m_actor4             varchar(10) ,
+       m_actor5             varchar(10) ,
+       m_actor6             varchar(10) ,
+       m_actor7             varchar(10) ,
+       m_actor8             varchar(10) ,
+       o_idx                int,
+       s_idx                int,
+       m_story              varchar(100) ,
+PRIMARY KEY (m_idx))ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-
-
-
-
+insert into movie(m_idx,m_title,m_date) values(20192194,'인질','2021-08-18');
+insert into movie(m_idx,m_title,m_date) values(20192986,'프리 가이','2021-08-18');
+insert into movie(m_idx,m_title,m_date) values(20196270,'싱크홀','2021-08-11');
+insert into movie(m_idx,m_title,m_date) values(20204117,'모가디슈','2021-07-28');
