@@ -14,7 +14,7 @@ public class LoginDao {
 	public void registerMember(MemberBean memberBean) {
 		loginMapper.registerMember(memberBean);
 	}
-<<<<<<< HEAD
+
 	
 	public void loginMember(MemberBean memberBean) {
 		loginMapper.loginMember(memberBean);
