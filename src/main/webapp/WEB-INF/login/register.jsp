@@ -60,15 +60,16 @@
              	var mem_id = $('#mem_id').val();
              	var u_id = mem_id ;
              	var serializeData = $("#usercheck").serialize();
-         		console.log(serializeData);
+
+         		console.log(u_id);
              	$.ajax({
                  	async: true,
                  	type: 'POST',
 //                  	data: {"u_id":u_id},//mem_id라는 이름으로 mem_id라는 데이터를 
-					data : {"u_id":u_id},
-                 	url: '/idCheck',
-                 	dataType: 'text',
-                 	contentType: "application/json; charset=UTF-8",
+					data : u_id ,
+                 	url : "/idCheck",
+                 	dataType: 'json',
+                 	contentType: 'application/json; charset=UTF-8',
                  	success: function (data) {
                  	//	console.log(data);
                      	if (data.cnt > 0) {
@@ -96,7 +97,7 @@
      });//blur
      
      $('form').on('submit', function () {
-         var inval_Arr = new Array(7).fill(false);
+         var inval_Arr = new Array(8).fill(false);
          if (idJ.test($('#mem_id').val())) { inval_Arr[0] = true; } else {
              inval_Arr[0] = false;
              alert('아이디를 확인하세요.'); return false;
@@ -143,18 +144,6 @@
         	 }
      });
      	
-      /*
-      $('#mem_id').blur(function () {
-         if (idJ.test($('#mem_id').val())) {
-             console.log('true');
-             $('#id_check').text('');
-         } else {
-             console.log('false');
-             $('#id_check').text('6~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.');
-             $('#id_check').css('color', 'red');
-         }
-     }); */
-     
      $('#mem_pw').blur(function () {
          if (pwJ.test($('#mem_pw').val())) {
              console.log('true');

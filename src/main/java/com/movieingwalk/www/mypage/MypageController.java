@@ -35,7 +35,7 @@ public class MypageController {
 	}
 	
 	
-// 수정폼 불러오기
+	// 수정폼 불러오기
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String modifyMember(Model model, @RequestParam("u_id") String u_id) {
 		logger.debug("회원정보수정폼");
