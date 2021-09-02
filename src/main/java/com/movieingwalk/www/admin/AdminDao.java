@@ -22,7 +22,7 @@ public class AdminDao {
 	public MemberBean showAdId(MemberBean memberBean) {
 		return adminMapper.showAdId(memberBean);
 	}
-	
+
 	public ArrayList<MemberBean> showMembersInfo1(){
 		return adminMapper.showMembersInfo1();
 	}

@@ -190,3 +190,9 @@ insert into movie(m_idx,m_title,m_date) values(20192194,'인질','2021-08-18');
 insert into movie(m_idx,m_title,m_date) values(20192986,'프리 가이','2021-08-18');
 insert into movie(m_idx,m_title,m_date) values(20196270,'싱크홀','2021-08-11');
 insert into movie(m_idx,m_title,m_date) values(20204117,'모가디슈','2021-07-28');
+
+select* from member;
+delete from member where u_idx=2;
+delete from member where u_idx=3;
+delete from member where u_idx=4;
+delete from member where u_idx=5;

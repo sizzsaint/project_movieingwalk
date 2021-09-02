@@ -17,13 +17,13 @@ public interface AdminMapper {
 	public MemberBean showAdId(MemberBean memberBean);
 	
 	//등록날짜
-	@Select("select * from MEMBER order by u_date desc")
+	@Select("select * from MEMBER order by u_date")
 	public ArrayList<MemberBean> showMembersInfo1();
 	//회원명
-	@Select("select * from MEMBER order by u_name desc")
+	@Select("select * from MEMBER order by u_name")
 	public ArrayList<MemberBean> showMembersInfo2();
 	//아이디
-	@Select("select * from MEMBER order by u_idx desc")
+	@Select("select * from MEMBER order by u_id")
 	public ArrayList<MemberBean> showMembersInfo3();	
 	/*--------------------------------------------------------------*/
 	
