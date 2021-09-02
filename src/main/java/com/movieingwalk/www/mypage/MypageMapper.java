@@ -43,7 +43,7 @@ public interface MypageMapper {
 	})
 	MemberBean modifyMemberView(@Param("u_id") String u_id );
 	
-	final String MODIFY_MEMBER = " UPDATE MEMBER set u_password = #{u_password}, u_name=#{u_name} ,"
+	final String MODIFY_MEMBER = " UPDATE MEMBER set u_password = #{u_password}, "
 			+ "u_phone=#{u_phone}, u_email=#{u_email} where u_id = #{u_id}";
 	@Update(MODIFY_MEMBER)
 	void modifyMember(MemberBean memberBean);

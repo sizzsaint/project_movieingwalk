@@ -15,7 +15,7 @@ public class LoginDao {
 		loginMapper.registerMember(memberBean);
 	}
 	//회원가입중복
-	public MemberBean check_Id(String u_id) {
+	public int check_Id(String u_id) {
 		return loginMapper.check_Id(u_id);
 	}
 	

@@ -120,7 +120,7 @@
      var birthJ = false; // 생년월일 birthJ 유효성 검사
      $('#mem_birth').blur(function () {
          var dateStr = $(this).val();
-         var year = Number(dateStr.substr(0, 3)); // 입력한 값의 0~4자리까지 (연) 
+         var year = Number(dateStr.substr(0, 4)); // 입력한 값의 0~4자리까지 (연) 
          var month = Number(dateStr.substr(4, 2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월) 
          var day = Number(dateStr.substr(6, 2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일) 
          var today = new Date(); // 날짜 변수 선언 
@@ -128,13 +128,13 @@
          if (dateStr.length <= 8) {
              // 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false를 반환합니다. 
              if (year > yearNow || year < 1900) {
-                 $('#birth_check').text('생년월일을 확인해주세요');
+                 $('#birth_check').text('생년월일(년도)을 확인해주세요');
                  $('#birth_check').css('color', 'red');
-             } else if (month < 01 || month > 12) {
-                 $('#birth_check').text('생년월일을 확인해주세요 ');
+             } else if (month < 1 || month > 12) {
+                 $('#birth_check').text('생년월일(월)을 확인해주세요 ');
                  $('#birth_check').css('color', 'red');
-             } else if (day < 01 || day > 31) {
-                 $('#birth_check').text('생년월일을 확인해주세요 ');
+             } else if (day < 1 || day > 31) {
+                 $('#birth_check').text('생년월일(일)을 확인해주세요 ');
                  $('#birth_check').css('color', 'red');
              } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
                  $('#birth_check').text('생년월일을 확인해주세요 ');
@@ -176,10 +176,10 @@
 <jsp:include page="../main/header.jsp"/>
 <jsp:include page="./leftMenu.jsp"/>
 
-    <article class="container" style="background-color: green; float:right; width: 70%;">
+    <article class="container" style="float:left; width: 70%; color:white;">
         <div class="page-header">
             <div class="col-md-6 col-md-offset-3">
-                <h3>회원정보수정</h3>
+                <h3><b>회원정보수정</b></h3>
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
@@ -187,7 +187,7 @@
 
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
-                        name="mem_id"  placeholder="ID" value="<c:out value="${memberBean.u_id}"/>" readonly="readonly">
+                        name="u_id"  placeholder="ID" value="<c:out value="${memberBean.u_id}"/>" readonly="readonly">
                     <div class="eheck_font" id="id_check" ></div>
                 </div>
                 <div class="form-group">
@@ -231,8 +231,12 @@
                 </div>
             </form>
         </div>
+
     </article>
-<jsp:include page="../main/footer.jsp"/>
+
+    <jsp:include page="../main/footer.jsp"/>
+
+
 </body>
 
 </html>
