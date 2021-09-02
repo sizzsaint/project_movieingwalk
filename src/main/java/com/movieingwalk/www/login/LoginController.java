@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,19 +37,17 @@ public class LoginController {
 		model.addAttribute("result", 1); // 뷰 폼값 자동 매핑
 		return "login/registerOK";
 	}
-	
-	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
 	@ResponseBody
-	public MemberBean idCheck(@RequestParam(required=false)String u_id, Model model) {
+	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
+	public  int idCheck(@RequestBody String u_id, Model model) {
+		int result = loginService.check_Id(u_id);
+		System.out.println(result);
+		model.addAttribute("u_id",u_id);
+		model.addAttribute("result",result);
 		System.out.println("u_id=" + u_id);
-		MemberBean memberBean = new MemberBean();
-		if(u_id != "") {
-			memberBean = loginService.check_Id(u_id);
-		}else {
-			memberBean.setU_id(u_id);
-		}
-		System.out.println("u_id=" + u_id);
-		return memberBean;
+
+		return result;
+
 	}
 	
 	@RequestMapping(value="/loginMember", method = RequestMethod.GET)

@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<!-- <link href="./../../css/mypage.css" rel="stylesheet" type="text/css">
- -->
+<title>sideMenu bar</title>
+
 </head>
 <body>
   <nav id="leftMenu" style=" float:left; width:30%;">
