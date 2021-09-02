@@ -20,10 +20,10 @@
 			<p>컨텐츠 관리</p>
 		</li>
 		<li>
-			<input type="button" value="영화" onclick="location.href='/moviesInfo'">
+			<input type="button" value="영화" onclick="location.href='/mInfo_mdateSort'">
 		</li>
 		<li>
-			<input type="button" value="리뷰" onclick="location.href='/reviewsInfo'">
+			<input type="button" value="리뷰" onclick="location.href='rInfo_ridxSort'">
 		</li>
 	</ul>
 </aside>

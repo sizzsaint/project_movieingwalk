@@ -28,6 +28,17 @@ CREATE TABLE member(
 PRIMARY KEY (u_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+insert into member(u_id,u_password,u_name,u_email,u_phone,u_age,u_date,u_sex,u_admin)
+values('apple','apple','사과','apple@daum.net','010-0000-0000',10,now(),'여','Y');
+
+insert into member(u_id,u_password,u_name,u_email,u_phone,u_age,u_date,u_sex,u_admin)
+values('banana','banana','바나나','banana@daum.net','010-1111-1111',11,now(),'남','Y');
+insert into member(u_id,u_password,u_name,u_email,u_phone,u_age,u_date,u_sex,u_admin)
+values('kiwi','kiwi','키위','kiwi@daum.net','010-2222-3333',20,now(),'여','Y');
+insert into member(u_id,u_password,u_name,u_email,u_phone,u_age,u_date,u_sex,u_admin)
+values('orange','orange','오렌지','orange@daum.net','010-5555-5555',55,now(),'남','N');
+insert into member(u_id,u_password,u_name,u_email,u_phone,u_age,u_date,u_sex,u_admin)
+values('water','water','물','water@daum.net','010-6666-6666',34,now(),'여','N');
 CREATE TABLE ticket(
        t_idx                int NOT NULL auto_increment, #티켓번호
        u_id                varchar(20) NOT NULL, #유저아이디
@@ -92,6 +103,8 @@ CREATE TABLE review (
 PRIMARY KEY (r_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+insert into movieingwalk.review(r_idx,u_id,m_idx,r_star,r_date,r_likes,r_hits,r_comments) values(1,'banana',20192194,50,now(),100,120,5);
+
 CREATE TABLE comment (
        c_idx                int NOT NULL auto_increment, #코맨트번호
        u_id                varchar(20) , # 유저아이디
@@ -100,8 +113,6 @@ CREATE TABLE comment (
  PRIMARY KEY (c_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-<<<<<<< HEAD
 select * from member;
 
 ALTER TABLE `movieingwalk`.`review` 
@@ -149,10 +160,10 @@ insert into movie(m_idx,m_title,m_date) values(20192986,'프리 가이','2021-08
 insert into movie(m_idx,m_title,m_date) values(20196270,'싱크홀','2021-08-11');
 insert into movie(m_idx,m_title,m_date) values(20204117,'모가디슈','2021-07-28');
 
+
+
 select* from member;
 delete from member where u_idx=2;
 delete from member where u_idx=3;
 delete from member where u_idx=4;
 delete from member where u_idx=5;
-=======
->>>>>>> 69b5ec553a0676a7d788dd715166ce8f5995a856

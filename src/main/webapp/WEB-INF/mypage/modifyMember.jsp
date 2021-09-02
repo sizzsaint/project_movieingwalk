@@ -14,7 +14,8 @@
     <title>MovieingWalk 회원정보수정</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<!-- header+footer>-->
+<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
     
@@ -232,6 +233,7 @@
             </form>
         </div>
     </article>
+
 <jsp:include page="../main/footer.jsp"/>
 </body>
 

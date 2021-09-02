@@ -7,8 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
+<link href="./../../css/index.css" rel ="stylesheet" type="text/css">
 <link href="./../../css/adSection.css" rel ="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
+
+<style>
+table{
+	padding:0;
+	margin:0;
+}
+</style>
+
 </head>
 <body>
 <!-- adHeader고정 -->
@@ -17,10 +26,6 @@
 <jsp:include page="./adAside.jsp"/>
 
 <script type="text/javascript">
-function mInfoDel(${info.u_id}){
-	alert('데이터를 삭제합니다.')
-	location.href='/mInfo_udateSort'
-}
 function sortChange(e){
 	if(e.value == "u_date"){
 		location.href='/mInfo_udateSort'
@@ -40,7 +45,7 @@ function sortChange(e){
 			<td width="15%"><h1>회원목록</h1></td>
 			<td width="69%">
 			<!-- 검색창 -->
- 				<div id="search">
+ 				<div class="search">
     				<input type="text" placeholder="아이디를 검색하세요.">
     				<a href="#"><i class="fas fa-search fa-2x"></i></a>
 				</div>
@@ -59,6 +64,7 @@ function sortChange(e){
 		</tr>
 	</table>
 	
+	<form id="frm" method="GET" action="/deleteMember">
 	<!-- content 테이블 -->
 	<table>
 		<tr style="text-align: center; font-weight: bold;">
@@ -70,9 +76,9 @@ function sortChange(e){
 			<td>연락처</td><!-- u_phone -->
 			<td>가입일</td><!-- u_date -->
 			<td>관리자 유무</td><!-- u_admin-->
-			<td></td>
+			<td>회원 삭제</td>
 		</tr>
-		<c:forEach items="${membersInfo}" var="info">
+		<c:forEach items="${membersInfo}" var="info" varStatus="status">
 		<tr> 
 			<td>${info.u_id}</td><!-- u_id-->
 			<td>${info.u_name}</td><!-- u_name-->
@@ -83,11 +89,12 @@ function sortChange(e){
 			<td>${info.u_date}</td><!-- u_date -->
 			<td>${info.u_admin}</td><!-- u_admin-->
 			<td>
-				<input type="button" value="삭제" onclick="mInfoDel()">
+				<input type="submit" name="u_id" id="u_id" value="${info.u_id }">
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
+	</form>
 </section>
 
 </body>
