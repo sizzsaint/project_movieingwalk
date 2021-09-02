@@ -21,6 +21,17 @@ function mInfoDel(${info.u_id}){
 	alert('데이터를 삭제합니다.')
 	location.href='/mInfo_udateSort'
 }
+function sortChange(e){
+	if(e.value == "u_date"){
+		location.href='/mInfo_udateSort'
+	}
+	else if(e.value == "u_name"){
+		location.href='/mInfo_unameSort'
+	}
+	else{
+		location.href='/mInfo_uidxSort'
+	}
+}
 </script>
 
 <section>
@@ -29,20 +40,21 @@ function mInfoDel(${info.u_id}){
 			<td width="15%"><h1>회원목록</h1></td>
 			<td width="69%">
 			<!-- 검색창 -->
- 				<div class="search">
-    				<input type="text" placeholder="검색하세요.">
+ 				<div id="search">
+    				<input type="text" placeholder="아이디를 검색하세요.">
     				<a href="#"><i class="fas fa-search fa-2x"></i></a>
 				</div>
 			</td>
 			<td width="15%">
-				<form style="text-align: center">
+				<div style="text-align: center">
 					<h3>정렬 방식</h3>
-					<select name="sort" id="sort" onchange="location.href=this.value">
-						<option value="/mInfo_udateSort">등록날짜</option>
-						<option value="/mInfo_unameSort">회원명</option>
-						<option value="/mInfo_uidxSort">아이디</option>
+					<select name="sort" id="sort" onchange="sortChange(this)">
+						<option selected>--정렬방식--</option>
+						<option value="u_date">등록날짜</option>
+						<option value="u_name">회원명</option>
+						<option value="u_id">아이디</option>
 					</select>
-				</form>
+				</div>
 			</td>
 		</tr>
 	</table>
