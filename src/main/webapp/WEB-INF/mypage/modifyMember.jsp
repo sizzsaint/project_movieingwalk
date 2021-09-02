@@ -215,11 +215,11 @@
     <article class="container" style="float:left; width: 70%; color:white;">
         <div class="page-header">
             <div class="col-md-6 col-md-offset-3">
-                <h3><b>회원정보수정</b></h3>
+                <h3 align="center"><b>회원정보수정</b></h3>
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
-            <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
+          	    <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
 
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
@@ -259,7 +259,6 @@
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
                      <input type="text" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" checked="checked" name="u_sex" readonly="readonly"> 
-
                 </div>
 
                 <div class="form-group text-center">
@@ -267,7 +266,6 @@
                 </div>
             </form>
         </div>
-
     </article>
 
     <jsp:include page="../main/footer.jsp"/>
