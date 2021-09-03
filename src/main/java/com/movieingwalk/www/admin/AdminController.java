@@ -63,6 +63,7 @@ public class AdminController {
 	@RequestMapping(value="/deleteMember", method = RequestMethod.GET)
 	public String deleteMember(Model model, @RequestParam String u_id) {
 		adminService.deleteMember(u_id);
+		System.out.println(u_id);
 		model.addAttribute("remove", "member");
 		return "admin/removeOK";
 	}

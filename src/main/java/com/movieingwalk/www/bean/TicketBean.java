@@ -5,8 +5,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TicketBean {
 	
-	int t_idx, u_idx, m_idx, theater_idx, seat_idx;
-	String t_date;
+	int t_idx, m_idx, theater_idx, seat_idx;
+	String t_date, u_id;
+
+	public String getU_id() {
+		return u_id;
+	}
+
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
 
 	public int getM_idx() {
 		return m_idx;
@@ -24,13 +32,6 @@ public class TicketBean {
 		this.t_idx = t_idx;
 	}
 
-	public int getU_idx() {
-		return u_idx;
-	}
-
-	public void setU_idx(int u_idx) {
-		this.u_idx = u_idx;
-	}
 
 	public int getTheater_idx() {
 		return theater_idx;

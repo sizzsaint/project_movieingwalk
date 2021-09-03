@@ -22,10 +22,10 @@
 	<header>
 		<table style="color: white;">
 			<tr>
-				<td width="30%"></td>
-				<td width="30%"><a href="/"><img
+				<td width="40%"></td>
+				<td><a href="/"><img 
 						src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
-				<td width="30%"><c:choose>
+				<td width="40%"><c:choose>
 						<c:when test="${mvId == null }">
 							<input type="button" value="로그인"
 								onclick="location.href='loginMember'">

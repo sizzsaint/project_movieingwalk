@@ -14,13 +14,25 @@ public class MypageDao {
 		return mypageMapper.mypageMain(u_id);
 	}
 	
+	//수정폼
 	public MemberBean modifyMemberView(String u_id) {
 		return mypageMapper.modifyMemberView(u_id);
 	}
 	
+	//수정처리
 	public  void modifyMember(MemberBean memberBean) {
 		 mypageMapper.modifyMember(memberBean);
 		}
+	
+	//회원탈퇴
+	public MemberBean resignMember(String u_id) {
+		return mypageMapper.mypageMain(u_id);
+	}
+	
+	//탈퇴처리
+	public void resignMemberOK(MemberBean memberBean) {
+		mypageMapper.resignMember(memberBean);
+	}
 	
 
 }

@@ -1,5 +1,7 @@
 package com.movieingwalk.www.mypage;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -17,6 +19,7 @@ import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
 import com.movieingwalk.www.login.LoginController;
+import com.movieingwalk.www.login.LoginService;
 
 @Controller
 @SessionAttributes("u_id")
@@ -26,6 +29,8 @@ public class MypageController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	MypageService mypageService;
+	@Autowired
+	LoginService loginService;
 
 	//mypage main
 	@RequestMapping(value = "" , method= RequestMethod.GET)
@@ -41,8 +46,6 @@ public class MypageController {
 	// 수정폼 불러오기
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String modifyMember(Model model, @RequestParam("u_id") String u_id ) {
-	
-		
 		logger.debug("회원정보수정폼");
 		MemberBean memberBean = mypageService.modifyMemberView(u_id);
 		model.addAttribute("u_id", u_id);
@@ -61,10 +64,42 @@ public class MypageController {
 		return "mypage/modifyMemberOK";
 		
 	}
+	//탈퇴폼
+	@RequestMapping(value = "/resign", method = RequestMethod.GET)
+	public String resignMember(Model model, @RequestParam("u_id") String u_id) {
+		logger.debug("회원탈퇴폼");
+		MemberBean memberBean = mypageService.resignMember(u_id);
+		model.addAttribute("u_id", u_id);
+		model.addAttribute("memberBean", memberBean);
+		return "mypage/resignMember";
+	}
+	
+	//탈퇴처리
+	@RequestMapping(value = "/resign", method = RequestMethod.POST)
+	public String resignMemberOK(
+			MemberBean memberBean,
+			Model model,
+			HttpSession session) {
+		logger.debug("회원탈퇴처리");
+		MemberBean u_id1 = loginService.loginMember(memberBean);
+		String existPw = u_id1.getU_password();
+		String inputPw = memberBean.getU_password();
+		
+		if(existPw.equals(inputPw)) {
+			mypageService.resignMemberOK(memberBean);
+			model.addAttribute("result","same");
+			model.addAttribute("memberBean", memberBean);
+			session.invalidate();
+		}else {
+			model.addAttribute("result","diff");
+		}
+		return "mypage/resignMemberOK";
+	}
 	//리뷰 목록 처리
 	@RequestMapping(value = "/myreviewlist", method = RequestMethod.GET)
 	public String myReview(ReviewBean ReviewBean, Model model, @RequestParam("u_id")String u_id) {
 		MemberBean memberBean = mypageService.mypageMain(u_id);
+		ArrayList<ReviewBean> reviewList = new ArrayList<ReviewBean>();
 		model.addAttribute("memberBean", memberBean);
 		return "mypage/myreviewlist";
 	}
@@ -72,6 +107,7 @@ public class MypageController {
 	@RequestMapping(value = "/mycollectionlist", method = RequestMethod.GET)
 	public String myReview(CollectionBean collectionBean, Model model, @RequestParam("u_id")String u_id) {
 		MemberBean memberBean = mypageService.mypageMain(u_id);
+		ArrayList<CollectionBean> collectionList = new ArrayList<CollectionBean>();
 		model.addAttribute("memberBean", memberBean);
 		return "mypage/myreviewlist";
 	}
