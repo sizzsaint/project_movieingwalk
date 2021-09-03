@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 
 <title>movieingwalk</title>
-<link href="./../../css/layout.css" rel="stylesheet" type="text/css">
-<link href="./../../css/index.css" rel="stylesheet" type="text/css">
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/index.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function showPopup() {
 		window.open("registmember", "a",
@@ -44,7 +44,7 @@
 
 	<nav id="menu">
 		<ul class="movie">
-			<li><a href="#">영화</a></li>
+			<li><a href="/movieinfo/Main">영화</a></li>
 		</ul>
 		<ul class="collection">
 			<li><a href="#">컬렉션</a></li>

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+#details{
+	border:1px solid gray;
+	height: 405px;
+	position:static;
+}
+
+#details .poster_area{
+	margin-right:20px; 
+	color:gray;
+	posision:relative;
+	float:left;
+}
+
+#details .info_area{ 
+	margin-right:20px; 
+	padding:20px;
+	color:gray;
+	border:1px solid gray;
+	position:relative;
+	float:left;
+}
+
+#details .ott_area{
+	border:1px solid gray; 
+	position:relative;
+	color:gray;
+	padding:10px;
+	float:left;
+}
+
+#overview{
+	border:1px solid gray;
+}
+
+#overview .overview_area{
+		border:1px solid gray; 
+		color:gray;
+		text-align: left;
+		position: relative;
+}
+
+#credit{
+	border:1px solid gray;
+	height:300px;
+}
+
+#credit .credit_area #director{
+	position:relative;
+	float:left;
+	margin-right:10px;
+}
+
+#credit .credit_area #actor{
+	position:relative;
+	float:left;
+	margin-right:10px;
+}
+
+
+#reviews{
+	border:1px solid gray;
+	color:white;
+}
+
+#reviews .review_area {
+	list-style:none;
+	border:1px solid gray;
+	position:relative;
+	color:white;
+}
+
+#reviews .review_area #review {
+	border:1px solid gray;
+	position:relative;
+	color:white;
+}
