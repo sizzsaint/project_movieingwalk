@@ -35,11 +35,25 @@ public class TicketingController {
 			logger.debug("ticketingScheduled called!!!");
 		return "ticketing/ticketingScheduled";
 	}
-	// 예매하기
+	// 날짜와 시간 지역선택
 	@RequestMapping(value="/ticketings", method = RequestMethod.GET)
 	public String ticketings(TicketBean ticketBean) {
 			logger.debug("ticketingScheduled called!!!");
 		return "ticketing/ticketing";
+	}
+	
+	// 좌석선택
+	@RequestMapping(value="/ticketings2", method = RequestMethod.GET)
+	public String ticketings2(TicketBean ticketBean) {
+			logger.debug("ticketing2 called!!!");
+		return "ticketing/ticketing2";
+	}
+	
+	// 예매확인
+	@RequestMapping(value="/ticketdetails", method = RequestMethod.GET)
+	public String ticketdetails(TicketBean ticketBean) {
+			logger.debug("ticketdetails called!!!");
+		return "ticketing/ticketdetails";
 	}
 	
 }
