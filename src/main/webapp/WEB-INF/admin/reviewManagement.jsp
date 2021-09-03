@@ -9,12 +9,31 @@
 <title>관리자 페이지</title>
 <link href="./../../css/adSection.css" rel ="stylesheet" type="text/css">
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
+
+<style>
+table{
+	padding:0;
+	margin:0;
+}
+</style>
+
 </head>
 <body>
 <!-- adHeader고정 -->
 <jsp:include page="./adHeader.jsp"/>
 <!-- adAside(좌측)고정 -->
 <jsp:include page="./adAside.jsp"/>
+
+<script type="text/javascript">
+function sortChange(e){
+	if(e.value == "r_idx"){
+		location.href='/rInfo_ridxSort'
+	}
+	else{
+		location.href='/rInfo_rdateSort'
+	}
+}
+</script>
 
 <section>
 	<table>
@@ -28,11 +47,19 @@
 				</div>
 			</td>
 			<td width="15%">
-				
+				<div style="text-align: center">
+					<h3>정렬 방식</h3>
+					<select name="sort" id="sort" onchange="sortChange(this)">
+						<option selected>--정렬방식--</option>
+						<option value="r_idx">리뷰번호</option>
+						<option value="r_date">등록날짜</option>
+					</select>
+				</div>
 			</td>
 		</tr>
 	</table>
 	
+	<form id="frm" method="GET" action="/deleteReview">
 	<!-- content 테이블 -->
 	<table>
 		<tr style="text-align: center; font-weight: bold;">
@@ -53,11 +80,12 @@
 			<td>${info.r_date}</td>
 			<td>${info.r_comments}</td>
 			<td>
-				<input type="button" value="삭제" onclick="mInfoDel()">
+				<input type="submit" name="r_idx" id="r_idx" value="${info.r_idx }">
 			</td>
 		</tr>
 		</c:forEach>
 	</table>
+	</form>
 </section>
 
 </body>

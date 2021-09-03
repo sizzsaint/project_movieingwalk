@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
@@ -57,6 +59,28 @@ public class AdminController {
 		return "admin/adLogout";
 	}
 	
+	//회원삭제
+	@RequestMapping(value="/deleteMember", method = RequestMethod.GET)
+	public String deleteMember(Model model, @RequestParam String u_id) {
+		adminService.deleteMember(u_id);
+		model.addAttribute("remove", "member");
+		return "admin/removeOK";
+	}
+	//영화삭제
+	@RequestMapping(value="/deleteMovie", method = RequestMethod.GET)
+	public String deleteMovie(Model model, @RequestParam String m_title) {
+		adminService.deleteMovie(m_title);
+		model.addAttribute("remove", "movie");
+		return "admin/removeOK";
+	}
+	//리뷰삭제
+	@RequestMapping(value="/deleteReview", method = RequestMethod.GET)
+	public String deleteReview(Model model, @RequestParam String r_idx) {
+		adminService.deleteMovie(r_idx);
+		model.addAttribute("remove", "review");
+		return "admin/removeOK";
+	}
+	
 	@RequestMapping(value="/mInfo_udateSort")
 	public String memberManagement1(Model model) {
 		ArrayList<MemberBean> memberList = new ArrayList<MemberBean>();
@@ -79,18 +103,41 @@ public class AdminController {
 		return "admin/memberManagement";
 	}
 	
-	@RequestMapping(value="/moviesInfo")
+	
+	@RequestMapping(value="/mInfo_mdateSort")
+	public String movieManagement1(Model model) {
+		ArrayList<MovieBean> movieList = new ArrayList<MovieBean>();
+		movieList = adminService.showMoviesInfo1();
+		model.addAttribute("moviesInfo", movieList);
+		return "admin/movieManagement";
+	}
+	@RequestMapping(value="/mInfo_midxSort")
+	public String movieManagement2(Model model) {
+		ArrayList<MovieBean> movieList = new ArrayList<MovieBean>();
+		movieList = adminService.showMoviesInfo2();
+		model.addAttribute("moviesInfo", movieList);
+		return "admin/movieManagement";
+	}
+	@RequestMapping(value="/mInfo_mtitleSort")
 	public String movieManagement(Model model) {
 		ArrayList<MovieBean> movieList = new ArrayList<MovieBean>();
-		movieList = adminService.showMoviesInfo();
+		movieList = adminService.showMoviesInfo3();
 		model.addAttribute("moviesInfo", movieList);
 		return "admin/movieManagement";
 	}
 	
-	@RequestMapping(value="/reviewsInfo")
-	public String reviewManagement(Model model) {
+	
+	@RequestMapping(value="/rInfo_ridxSort")
+	public String reviewManagement1(Model model) {
 		ArrayList<ReviewBean> reviewList = new ArrayList<ReviewBean>();
-		reviewList = adminService.showReviewsInfo();
+		reviewList = adminService.showReviewsInfo1();
+		model.addAttribute("reviewsInfo", reviewList);
+		return "admin/reviewManagement";
+	}
+	@RequestMapping(value="/rInfo_rdateSort")
+	public String reviewManagement2(Model model) {
+		ArrayList<ReviewBean> reviewList = new ArrayList<ReviewBean>();
+		reviewList = adminService.showReviewsInfo2();
 		model.addAttribute("reviewsInfo", reviewList);
 		return "admin/reviewManagement";
 	}
