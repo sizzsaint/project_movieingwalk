@@ -5,11 +5,13 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
@@ -17,6 +19,7 @@ import com.movieingwalk.www.bean.ReviewBean;
 import com.movieingwalk.www.login.LoginController;
 
 @Controller
+@SessionAttributes("u_id")
 @RequestMapping("/mypage")
 public class MypageController {
 
@@ -35,9 +38,11 @@ public class MypageController {
 	}
 	
 	
-// 수정폼 불러오기
+	// 수정폼 불러오기
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public String modifyMember(Model model, @RequestParam("u_id") String u_id) {
+	public String modifyMember(Model model, @RequestParam("u_id") String u_id ) {
+	
+		
 		logger.debug("회원정보수정폼");
 		MemberBean memberBean = mypageService.modifyMemberView(u_id);
 		model.addAttribute("u_id", u_id);

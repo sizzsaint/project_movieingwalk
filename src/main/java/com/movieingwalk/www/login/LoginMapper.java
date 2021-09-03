@@ -11,10 +11,14 @@ public interface LoginMapper {
 	String u_id, u_password, u_name, u_email, u_phone, u_date, u_sex, u_admin;
  * 
  */
-		final String REGISTER = " INSERT INTO MEMBER(u_id,u_password,u_name,u_phone,u_sex,u_email,u_age )"
-				+ " values( #{u_id}, #{u_password}, #{u_name}, #{u_phone}, #{u_sex}, #{u_email}, #{u_age} )";
+		final String REGISTER = " INSERT INTO MEMBER(u_id,u_password,u_name,u_phone,u_sex,u_email,u_age,u_date )"
+				+ " values( #{u_id}, #{u_password}, #{u_name}, #{u_phone}, #{u_sex}, #{u_email}, #{u_age}, curdate() )";
 	@Insert(REGISTER)
 	void registerMember(MemberBean memberBean);
+	
+	//회원가입 아이디존재여부
+	@Select("SELECT count(*) from MEMBER where u_id=#{u_id}")
+	public int check_Id(String u_id);
 
 	//아이디 존재 여부 확인
 	@Select("SELECT count(*) from MEMBER where u_id=#{u_id}")

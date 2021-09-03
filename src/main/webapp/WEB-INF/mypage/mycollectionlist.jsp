@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body >
 <jsp:include page="../main/header.jsp"/>
-<nav class="leftmenu"><jsp:include page="./leftMenu.jsp"/></nav>
+<jsp:include page="./leftMenu.jsp"/>
 <!-- 나의된리뷰 -->
-<table class="mycollection">
+<table class="mycollection" style="color:white;">
 
 	<thead>
 		<tr>
