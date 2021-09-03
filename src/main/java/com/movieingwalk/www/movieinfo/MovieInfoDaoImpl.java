@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.movieingwalk.www.bean.MovieBean;
+import com.movieingwalk.www.bean.ReviewBean;
 
 @Repository
 public class MovieInfoDaoImpl implements MovieInfoDao{
@@ -16,6 +17,10 @@ public class MovieInfoDaoImpl implements MovieInfoDao{
 	
 	public ArrayList<String> getReviewRank() {
 		return movieInfoMapper.getReviewRank();
+	}
+	
+	public ArrayList<ReviewBean> getReviewList(int m_idx){
+		return movieInfoMapper.getRevieList(m_idx);
 	}
 
 }

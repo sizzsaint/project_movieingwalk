@@ -223,8 +223,12 @@
                 </div>
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
+<<<<<<< HEAD
                      <input type="text" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" checked="checked" name="u_sex" readonly="readonly"> 
 
+=======
+                     <c:out value="${memberBean.u_sex}"/>
+>>>>>>> eb666bf24dbdbe6657e23d26ff617dc6cd7295e9
                 </div>
 
                 <div class="form-group text-center">
@@ -233,7 +237,14 @@
             </form>
         </div>
     </article>
+<<<<<<< HEAD
 <jsp:include page="../main/footer.jsp"/>
+=======
+<footer>
+    <jsp:include page="../main/footer.jsp"/>
+</footer>
+
+>>>>>>> eb666bf24dbdbe6657e23d26ff617dc6cd7295e9
 </body>
 
 </html>
