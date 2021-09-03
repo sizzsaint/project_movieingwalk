@@ -258,7 +258,7 @@
                 </div>
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
-                     <input type="text" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" checked="checked" name="u_sex" readonly="readonly"> 
+                     <c:out value="${memberBean.u_sex}"/>
                 </div>
 
                 <div class="form-group text-center">
@@ -267,9 +267,9 @@
             </form>
         </div>
     </article>
-
+<footer>
     <jsp:include page="../main/footer.jsp"/>
-
+</footer>
 
 </body>
 
