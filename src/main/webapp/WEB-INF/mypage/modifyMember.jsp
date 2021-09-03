@@ -2,7 +2,7 @@
 <%@page import="java.io.*, java.text.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-<c:set var = "u_id" value="${memberBean.u_id}"/>
+<c:set var = "u_idx" value="${memberBean.u_idx}"/>
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +14,8 @@
     <title>MovieingWalk 회원정보수정</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="./../../css/mypage.css" rel ="stylesheet" type="text/css">
+
 
     <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript">
@@ -28,14 +30,62 @@
     // 이메일 검사 정규식
     var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     // 휴대폰 번호 정규식
-    var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+    var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{4})?([0-9]{4})$/;
 
     var birthJ = false;
     //아이디 중복확인
  
  $(document).ready(function() {
 
-	 //비밀번호 정규식 검사
+     $('form').on('submit', function () {
+         var inval_Arr = new Array(7).fill(false);
+         if (idJ.test($('#mem_id').val())) { inval_Arr[0] = true; } else {
+             inval_Arr[0] = false;
+             alert('아이디를 확인하세요.'); return false;
+         } // 비밀번호가 같은 경우 && 비밀번호 정규식
+         if (($('#mem_pw').val() == ($('#mem_pw2').val())) && pwJ.test($('#mem_pw').val())) {
+             inval_Arr[1] = true;
+         } else {
+             inval_Arr[1] = false; alert('비밀번호를 확인하세요.'); return false;
+         } // 이름 정규식
+         if (nameJ.test($('#mem_name').val())) { inval_Arr[2] = true; } else {
+             inval_Arr[2] = false; alert('이름을 확인하세요.');
+             return false;
+         } // 생년월일 정규식
+         if (birthJ) {
+             console.log(birthJ); inval_Arr[3] = true;
+         } else {
+             inval_Arr[3] = false; alert('생년월일을 확인하세요.');
+             return false;
+         } // 이메일 정규식
+         if (mailJ.test($('#mem_email').val())) {
+             console.log(phoneJ.test($('#mem_email').val()));
+             inval_Arr[4] = true;
+         } else {
+             inval_Arr[4] = false; alert('이메일을 확인하세요.');
+             return false;
+         } // 휴대폰번호 정규식
+         if (phoneJ.test($('#mem_phone').val())) {
+             console.log(phoneJ.test($('#mem_phone').val()));
+             inval_Arr[5] = true;
+         } else { inval_Arr[5] = false; alert('휴대폰 번호를 확인하세요.'); return false; }
+         //성별 확인
+         if (member.mem_gender[0].checked == false && member.mem_gender[1].checked == false) {
+             inval_Arr[6] = false; alert('성별을 확인하세요.');
+             return false;
+
+         } else inval_Arr[7] = true; //전체 유효성 검사
+         var validAll = true; for (var i = 0; i < inval_Arr.length; i++) {
+             if (inval_Arr[i] == false) {
+                 validAll = false;
+             }
+         } if (validAll == true) { // 유효성 모두 통과
+             alert('MovieingWalk 가족이 되어주셔 감사합니다.');
+         } else { alert('정보를 다시 확인하세요.');
+        	 }
+     });
+     	
+     
      $('#mem_pw').blur(function () {
          if (pwJ.test($('#mem_pw').val())) {
              console.log('true');
@@ -45,81 +95,71 @@
              $('#pw_check').text('특수기호와 숫자 문자를 하나이상씩 조합하여 8자이상 입력하세요.');
              $('#pw_check').css('color', 'red');
          }
-     });
-	 
-	 //1~2 패스워드 일치 확인
+     }); //1~2 패스워드 일치 확인
      $('#mem_pw2').blur(function () {
          if ($('#mem_pw').val() != $(this).val()) {
              $('#pw2_check').text('비밀번호가 일치하지 않습니다.');
              $('#pw2_check').css('color', 'red');
          } else { $('#pw2_check').text(''); }
-     });
-	 
-	 //이름에 특수문자 들어가지 않도록 설정
+     }); //이름에 특수문자 들어가지 않도록 설정
      $("#mem_name").blur(function () {
          if (nameJ.test($(this).val())) {
              console.log(nameJ.test($(this).val()));
-             $("#name_check").text('');
+             $("#name_check").text('')
+                 ;
          } else {
              $('#name_check').text('한글 2~4자 이내로 입력하세요. (특수기호, 공백 사용 불가)');
              $('#name_check').css('color', 'red');
          }
-     });
-	
-	 
-	 // 생일 유효성 검사
-	     var birthJ = true; // 생년월일 birthJ 유효성 검사
-	     $('#mem_birth').blur(function () {
-	         var dateStr = $(this).val();
-	         var year = Number(dateStr.substr(0, 4)); // 입력한 값의 0~4자리까지 (연) 
-	         var month = Number(dateStr.substr(4, 2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월) 
-	         var day = Number(dateStr.substr(6, 2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일) 
-	         var today = new Date(); // 날짜 변수 선언 
-	         var yearNow = today.getFullYear(); // 올해 연도 가져옴 
-
-	         if (dateStr.length <= 9) {
-	             // 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false를 반환합니다. 
-	             if (year > yearNow || year < 1900) {
-	                 $('#birth_check').text('생년월일을(년) 확인해주세요');
-	                 $('#birth_check').css('color', 'red');
-	             } else if (month < 1 || month > 12) {
-	                 $('#birth_check').text('생년월일을(월) 확인해주세요 ');
-	                 $('#birth_check').css('color', 'red');
-	             } else if (day < 1 || day > 31) {
-	                 $('#birth_check').text('생년월일을(일) 확인해주세요 ');
-	                 $('#birth_check').css('color', 'red');
-	             } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
-	                 $('#birth_check').text('생년월일을(31일) 확인해주세요 ');
-	                 $('#birth_check').css('color', 'red');
-	             } else if (month == 2) {
-	                 var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-	                 if (day > 29 || (day == 29 && !isleap)) {
-	                     $('#birth_check').text('생년월일을(윤년) 확인해주세요 ');
-	                     $('#birth_check').css('color', 'red');
-	                 } else {
-	                     $('#birth_check').text('');
-	                     birthJ = true;
-	                 }
-	             } else if (dateStr.length != 8){
-	                 $('#birth_check').text('생년월일 형식을 맞춰주세요');
-	               	 $('#birth_check').css('color','red');
-	             } else  {
-                 $('#birth_check').text('');
-                 birthJ = true;
-             }
-	         }//end of if
-	     }); // 생일유효성 검사 //
-     
-	 //이메일 정규식 검사
-	 $("#mem_email").blur(function () {
+     }); $("#mem_email").blur(function () {
          if (mailJ.test($(this).val())) {
              $("#email_check").text('');
          } else {
              $('#email_check').text('이메일 양식을 확인해주세요.');
              $('#email_check').css('color', 'red');
          }
-     });
-     
+     }); // 생일 유효성 검사
+     var birthJ = false; // 생년월일 birthJ 유효성 검사
+     $('#mem_birth').blur(function () {
+         var dateStr = $(this).val();
+         var year = Number(dateStr.substr(0, 3)); // 입력한 값의 0~4자리까지 (연) 
+         var month = Number(dateStr.substr(4, 2)); // 입력한 값의 4번째 자리부터 2자리 숫자 (월) 
+         var day = Number(dateStr.substr(6, 2)); // 입력한 값 6번째 자리부터 2자리 숫자 (일) 
+         var today = new Date(); // 날짜 변수 선언 
+         var yearNow = today.getFullYear(); // 올해 연도 가져옴 
+         if (dateStr.length <= 8) {
+             // 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false를 반환합니다. 
+             if (year > yearNow || year < 1900) {
+                 $('#birth_check').text('생년월일을 확인해주세요');
+                 $('#birth_check').css('color', 'red');
+             } else if (month < 1 || month > 12) {
+                 $('#birth_check').text('생년월일을 확인해주세요 ');
+                 $('#birth_check').css('color', 'red');
+             } else if (day < 1 || day > 31) {
+                 $('#birth_check').text('생년월일을 확인해주세요 ');
+                 $('#birth_check').css('color', 'red');
+             } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
+                 $('#birth_check').text('생년월일을 확인해주세요 ');
+                 $('#birth_check').css('color', 'red');
+             } else if (month == 2) {
+                 var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+                 if (day > 29 || (day == 29 && !isleap)) {
+                     $('#birth_check').text('생년월일을 확인해주세요 ');
+                     $('#birth_check').css('color', 'red');
+                 } else {
+                     $('#birth_check').text('');
+                     birthJ = true;
+                 }
+             } else {
+                 $('#birth_check').text('');
+                 birthJ = true;
+             }//end of if
+         } else {
+             //1.입력된 생년월일이 8자 초과할때 : auth:false
+             $('#birth_check').text('생년월일을 확인해주세요 ');
+             $('#birth_check').css('color', 'red');
+         }
+     }); //End of method /*
      // 휴대전화
      $('#mem_phone').blur(function () {
          if (phoneJ.test($(this).val())) {
@@ -130,97 +170,22 @@
              $('#phone_check').css('color', 'red');
          }
      });
-     
-	     // submit검사 
-	     $('form').on('submit', function () {
-	         var inval_Arr = new Array().fill(false);
-	         if (idJ.test($('#u_id').val())) {
-	        	 inval_Arr[0] = true;
-	         } else {
-	             inval_Arr[0] = false;
-	             alert('아이디를 확인하세요.');
-	             return false;
-	         }
-	         // 비밀번호가 같은 경우 && 비밀번호 정규식
-	         if (($('#mem_pw').val() == ($('#mem_pw2').val())) && pwJ.test($('#mem_pw').val())) {
-	             inval_Arr[1] = true;
-	         } else {
-	             inval_Arr[1] = false;
-	             alert('비밀번호를 확인하세요.');
-	             return false;
-	         }
-	         // 이름 정규식
-	         if (nameJ.test($('#mem_name').val())) {
-	        	 inval_Arr[2] = true;
-	        	 } else {
-	             inval_Arr[2] = false;
-	             alert('이름을 확인하세요.');
-	             return false;
-	         }
-	         // 생년월일 정규식
-	         if (birthJ) {
-	             console.log(birthJ);
-	             inval_Arr[3] = true;
-	         } else {
-	             inval_Arr[3] = false;
-	             alert('생년월일을 확인하세요.');
-	             return false;
-	         }
-	         // 이메일 정규식
-	         if (mailJ.test($('#mem_email').val())) {
-	             console.log(phoneJ.test($('#mem_email').val()));
-	             inval_Arr[4] = true;
-	         } else {
-	             inval_Arr[4] = false;
-	             alert('이메일을 확인하세요.');
-	             return false;
-	         } 
-	         // 휴대폰번호 정규식
-	         if (phoneJ.test($('#mem_phone').val())) {
-	             console.log(phoneJ.test($('#mem_phone').val()));
-	             inval_Arr[5] = true;
-	         } else {
-	        	 inval_Arr[5] = false;
-	        	 alert('휴대폰 번호를 확인하세요.');
-	        	 return false;
-	         }
-	         //성별 확인
-	         if (member.mem_gender[0].checked == false && member.mem_gender[1].checked == false) {
-	             inval_Arr[6] = false;
-	             alert('성별을 확인하세요.');
-	             return false;
-	         } else{
-	        	 inval_Arr[6] = true;
-	         }
-	         //전체 유효성 검사
-	         var validAll = true;
-	         for (var i = 0; i < inval_Arr.length; i++) {
-	             if (inval_Arr[i] == false) {
-	                 validAll = false;
-	             }
-	         } if (validAll == true) { // 유효성 모두 통과
-	             alert('MovieingWalk 가족이 되어주셔 감사합니다.');
-	         } else { alert('정보를 다시 확인하세요.');
-	        	 }
-	     });  //폼정규식검사//
-}); //ready//
-
+});
  </script>
 </head>
 
 <body>
 <jsp:include page="../main/header.jsp"/>
-<jsp:include page="./leftMenu.jsp"/>
-
-    <article class="container" style="float:left; width: 70%; color:white;">
+<nav class="leftmenu"><jsp:include page="./leftMenu.jsp"/></nav>
+    <article class="container" >
         <div class="page-header">
             <div class="col-md-6 col-md-offset-3">
-                <h3 align="center"><b>회원정보수정</b></h3>
+                <h3>회원정보수정</h3>
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
-          	    <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
-
+            <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
+            <input type="hidden" name="u_idx" value="<c:out value="${memberBean.u_idx}"/>">
                 <div class="form-group">
                     <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
                         name="u_id"  placeholder="ID" value="<c:out value="${memberBean.u_id}"/>" readonly="readonly">
@@ -258,7 +223,12 @@
                 </div>
                 <div class="form-group">
                     <label for="mem_gender">성별 </label>
+<<<<<<< HEAD
+                     <input type="text" id="mem_gender" value="<c:out value="${memberBean.u_sex}"/>" checked="checked" name="u_sex" readonly="readonly"> 
+
+=======
                      <c:out value="${memberBean.u_sex}"/>
+>>>>>>> eb666bf24dbdbe6657e23d26ff617dc6cd7295e9
                 </div>
 
                 <div class="form-group text-center">
@@ -267,10 +237,14 @@
             </form>
         </div>
     </article>
+<<<<<<< HEAD
+<jsp:include page="../main/footer.jsp"/>
+=======
 <footer>
     <jsp:include page="../main/footer.jsp"/>
 </footer>
 
+>>>>>>> eb666bf24dbdbe6657e23d26ff617dc6cd7295e9
 </body>
 
 </html>

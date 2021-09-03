@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>    
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -9,11 +8,10 @@
 <title>MovieiengWalk</title>
 
 
-
-<!-- jQuery Framework ÂüÁ¶ÇÏ±â -->
+<!-- jQuery Framework ì°¸ì¡°í•˜ê¸° -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   
-<!-- »ç¿ëÀÚ ½ºÅ©¸³Æ® ºí·Ï -->
+<!-- ì‚¬ìš©ì ìŠ¤í¬ë¦½íŠ¸ ë¸”ë¡ -->
  <script type="text/javascript">
  
  $(function(){
@@ -35,9 +33,9 @@
 	    			var poster_img = json.poster_path;
 	    			var m_idx = json.id;
 	    					
-	    			//Ãâ·ÂÀ» À§ÇÑ µ¿Àû ¿ä¼Ò »ı¼º
+	    			//ì¶œë ¥ì„ ìœ„í•œ ë™ì  ìš”ì†Œ ìƒì„±
 	    			reviewtable +="<td>";
-	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style=width:170px;' alt=''/></a>";
+	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style=width:200px;' alt=''/></a>";
 	    			reviewtable +="<p>"+title+"</p>";
 	    			reviewtable += "</td>";
 	    			
@@ -52,55 +50,77 @@
 
  $(function(){
 
-		const genreList = ['18,80', '10749', '35', '28', '9648', '14', '99', '16']
-		const genreNameList = ['crimeThriller','romance', 'comedy', 'action', 'mystery', 'fantasy', 'documentary','animation']	
-		
-		for(i=0;i<genreList.length;i++){
-			
-			var genreIndex = genreList[i];
-			var genreName = genreNameList[i];
-			
-			genretable = "<tr id="+genreName+">";
-			
 		$.ajax({
-				
-	  		url: "https://api.themoviedb.org/3/discover/movie?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="+genreIndex+"&with_watch_monetization_types=flatrate",
-	  		type: "get",
-	  		dataType: "json",
-	  		cache : false,
-	  		timeout : 30000,
-	  		success: function(json) {
-	  				var result = json.results;
-	  				
-	  				for(var j=0; j<5;j++){
-	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
-	    			var title = result[j].title;
-	    			var poster_img = result[j].poster_path;
-	    					
-	    			//Ãâ·ÂÀ» À§ÇÑ µ¿Àû ¿ä¼Ò »ı¼º
-	    			genretable +="<td>";
-	    			genretable += "<img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/>";
-	    			genretable +="<p>"+title+"</p>";
-	    			genretable += "</td>";
-	  				}
-	  				genretable += "</tr>"
-	  			
-	    			$("#genretable").html(genretable);
-	  		},
-	   		 error : function(xhr, textStatus, errorThrown){
-	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
-	    		}
-		});
+					
+			  		url: "https://api.themoviedb.org/3/discover/movie?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=18%2C80&watch_region=KR&with_watch_monetization_types=flatrate",
+			  		type: "get",
+			  		dataType: "json",
+			  		success: function(json) {
+			  				var genretable = "<div id='crimeThriller'>";
+			  			
+			  				var result = json.results;
+			  				
+			  				for(var j=0; j<6; j++){
+			  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			  			    var m_idx = result[j].id;
+			    			var title = result[j].title;
+			    			var poster_img = result[j].poster_path;
+			    					
+			    			//ì¶œë ¥ì„ ìœ„í•œ ë™ì  ìš”ì†Œ ìƒì„±
+			    			genretable +="<div style='float:left; margin-right:10px;'>";
+			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
+			    			genretable +="<p>"+title+"</p>";
+			    			genretable += "</div>";
+			  				}
+			  				genretable += "</div>"
 
- }
+			    			$("#genre_console").html(genretable);
+			  		},
+			   		 error : function(xhr, textStatus, errorThrown){
+			    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+			    		}
+				});
+
  });
 
  $(function(){
-		//Àå¸£º° µå·Ó´Ù¿î
+		//ì¥ë¥´ë³„ ë“œë¡­ë‹¤ìš´
+			//1depthì— ëŒ€í•œ change ì´ë²¤íŠ¸ ì •ì˜
+			$('#category1').change(function(){
+				//ì„ íƒëœ í•­ëª©ì´ ì§€ì‹œí•˜ëŠ” í•˜ìœ„ ì¹´í…Œê³ ë¦¬ í˜ì´ì§€ì˜ tr ì—´ê¸°
+				var genreCode = $("#category1 :selected").val();
+				var genreName = $("#category1 :selected").text();
 
-			//1depth¿¡ ´ëÇÑ change ÀÌº¥Æ® Á¤ÀÇ
-			$("#category1").on("change", function(){
-				//¼±ÅÃµÈ Ç×¸ñÀÌ Áö½ÃÇÏ´Â ÇÏÀ§ Ä«Å×°í¸® ÆäÀÌÁöÀÇ URL¿­±â
+				$.ajax({
+					
+			  		url: "https://api.themoviedb.org/3/discover/movie?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="+genreCode+"&watch_region=KR&with_watch_monetization_types=flatrate",
+			  		type: "get",
+			  		dataType: "json",
+			  		success: function(json) {
+			  				var genretable = "<div id='"+genreName+"'>";
+			  			
+			  				var result = json.results;
+			  				
+			  				for(var j=0; j<6; j++){
+			  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			  			    var m_idx = result[j].id;
+			    			var title = result[j].title;
+			    			var poster_img = result[j].poster_path;
+			    					
+			    			//ì¶œë ¥ì„ ìœ„í•œ ë™ì  ìš”ì†Œ ìƒì„±
+			    			genretable +="<div style='float:left; margin-right:10px;'>";
+			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
+			    			genretable +="<p>"+title+"</p>";
+			    			genretable += "</div>";
+			  				}
+			  				genretable += "</div>"
+
+			    			$("#genre_console").html(genretable);
+			  		},
+			   		 error : function(xhr, textStatus, errorThrown){
+			    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+			    		}
+				});
 				
 			});
 	 });
@@ -108,34 +128,30 @@
 
 </head>
 <body>
-<h3>ÃÖ±Ù ¸®ºä°¡ µî·ÏµÈ ¿µÈ­</h3>
+<jsp:include page="../main/header.jsp"/>
+
+<h3>ìµœê·¼ ë¦¬ë·°ê°€ ë“±ë¡ëœ ì˜í™”</h3>
 <table id="newReviewlist"></table>
 <hr>
-<h3>Àå¸£º° ¿µÈ­º¸±â</h3>
+<h3>ì¥ë¥´ë³„ ì˜í™”ë³´ê¸°</h3>
 <div class="exec">
-
-				<!-- °¢ ´Ü°èº° dropdownÀ» Ç¥½ÃÇÒ spanÅÂ±× -->
-				<span id="category1">
 				
-				<!-- 1depth Ä«Å×°í¸® -->
-				<select name="category1" id="category1">
-					<option value="¹üÁË/½º¸±·¯" data-target="#crimeThriller">¹üÁË/½º¸±·¯</option>
-					<option value="·Î¸Ç½º" data-target="#romance">·Î¸Ç½º</option>
-					<option value="ÄÚ¹Ìµğ" data-target="#comedy">ÄÚ¹Ìµğ</option>
-					<option value="¾×¼Ç" data-target="#action">¾×¼Ç</option>
-					<option value="¹Ì½ºÅÍ¸®" data-target="#mystery">¹Ì½ºÅÍ¸®</option>
-					<option value="ÆÇÅ¸Áö" data-target="#fantasy">ÆÇÅ¸Áö</option>
-					<option value="´ÙÅ¥¸àÅÍ¸®" data-target="#documentary">´ÙÅ¥¸àÅÍ¸®</option>
-					<option value="¾Ö´Ï¸ŞÀÌ¼Ç" data-target="#animation">¾Ö´Ï¸ŞÀÌ¼Ç</option>
-				</select>
-				<table id="genretable">
-				
-				</table>
+	<!-- 1depth ì¹´í…Œê³ ë¦¬ -->
+	<select name="category1" id="category1">
+		<option value="18,80">ë²”ì£„/ìŠ¤ë¦´ëŸ¬</option>
+		<option value="10749">ë¡œë§¨ìŠ¤</option>
+		<option value="35">ì½”ë¯¸ë””</option>
+		<option value="28">ì•¡ì…˜</option>
+		<option value="9648">ë¯¸ìŠ¤í„°ë¦¬</option>
+		<option value="14">íŒíƒ€ì§€</option>
+		<option value="99">ë‹¤íë©˜í„°ë¦¬</option>
+		<option value="16">ì• ë‹ˆë©”ì´ì…˜</option>
+	</select>
 
-				</span>
-		</div>
-		<!-- ÃÖÁ¾ ¼±ÅÃ °á°ú¸¦ Ç¥½ÃÇÒ °÷ -->
-		<table class="console"></table>
+<!-- ìµœì¢… ì„ íƒ ê²°ê³¼ë¥¼ í‘œì‹œí•  ê³³ -->
+<div id="genre_console">
+
+</div>
 		
 </body>
 </html>

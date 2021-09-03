@@ -11,10 +11,11 @@
 <title>로그인확인</title>
 </head>
 <body>
+했다
 <c:if test="${result eq 'same'}">
 	<script type="text/javascript">
 		alert('로그인 되었습니다.')
-		location.href='/mInfo_udateSort'
+		location.href='/afterIndex'
 	</script>
 </c:if>
 <c:if test="${result eq 'noID'}">
