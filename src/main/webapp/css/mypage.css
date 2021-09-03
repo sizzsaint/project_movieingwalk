@@ -1,24 +1,19 @@
 @charset "UTF-8";
 /*nav*/
-nav #leftMenu {
+nav .leftmenu {
 	text-align: center;
 	border-right: 1px solid white;
 	border-bottom : 1px solid 0;
 	border-top: 0px solid white;
-	
 	float: left;
 	width : 350px;
-	display:block;
+
 }
 nav ul{
 	list-style: none;
 	display: inline-block;
-	/*position: relative;*/
+	position: relative;
 	margin: 25px 80px;
-}
-nav ul li{
-	list-style: none;
-	text-align: center;
 }
 nav ul li a{
 	text-decoration : none;
@@ -38,18 +33,15 @@ nav ul li:hover a{
 }
 
 article .container{
-	/*float: left;*/
-	float:right;
-	width:80%;
-	
-}
+	float: left;
+	}
 
 
-/*body { min-height: 100vh;
+body { min-height: 100vh;
     .input-form { max-width: 680px; margin-top: 80px; padding: 32px;
 	background: #fff; -webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px; -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 	box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15) }
-	}*/
+	}
