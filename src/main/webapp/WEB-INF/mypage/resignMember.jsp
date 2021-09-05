@@ -35,12 +35,11 @@
 							 placeholder="비밀번호" required="required"/>
 						</li>
 					</ul>
-				</li>	
-				
-				<li id="login_btn">
-					<input type="submit" value="탈퇴하기">
-					<input type="button" onclick="history.go(-1)" value="돌아가기">
 				</li>
+				</ul>
+			<ul id="btns">	
+				<li><input type="submit" value="탈퇴하기"></li>
+				<li><input type="button" onclick="history.go(-1)" value="돌아가기"></li>
 			</ul>
 
 		</div>	

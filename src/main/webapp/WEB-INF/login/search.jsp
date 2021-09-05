@@ -12,7 +12,7 @@
 <script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>﻿
 
 <!-- header+footer>-->
-<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
+<!-- <link href="./../../css/layout.css" rel ="stylesheet" type="text/css"> -->
 <!-- section -->
 <link href="./../../css/search.css" rel ="stylesheet" type="text/css">
 
