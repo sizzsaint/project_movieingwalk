@@ -11,8 +11,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model model) {
 
-		model.addAttribute("message", "좋은 아침");
-		model.addAttribute("now", new Date());
 		return "main/index";
 
 

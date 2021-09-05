@@ -22,34 +22,7 @@
 			<input type="text" placeholder="보고싶은 영화를 검색하세요."> <a href="#"><i
 				class="fas fa-search fa-lg"></i></a>
 		</div>
-
-		<!-- Walker추천작 -->
-		<table class="show">
-			<!-- 영화 포스터 출력부-->
-			<thead>
-				<tr>
-					<th colspan="5"><i class="fas fa-angle-right"></i> Walker추천작</th>
-				</tr>
-				<tr>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-				</tr>
-			</thead>
-
-			<!-- 영화제목 -->
-			<tbody>
-				<tr>
-					<td>영화제목1</td>
-					<td>영화제목2</td>
-					<td>영화제목3</td>
-					<td>영화제목4</td>
-					<td>영화제목5</td>
-				</tr>
-			</tbody>
-		</table>
+<jsp:include page="./recommand.jsp"/>
 
 		<!-- 최신등록된리뷰 -->
 		<table class="review">
