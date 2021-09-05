@@ -16,6 +16,10 @@ public interface LoginMapper {
 	@Insert(REGISTER)
 	void registerMember(MemberBean memberBean);
 
+	//회원가입 아이디존재여부
+	@Select("SELECT count(*) from MEMBER where u_id=#{u_id}")
+	public int check_Id(String u_id);
+	
 	//아이디 존재 여부 확인
 	@Select("SELECT count(*) from MEMBER where u_id=#{u_id}")
 	public int checkId(MemberBean memberBean);
