@@ -1,5 +1,6 @@
 package com.movieingwalk.www.mypage;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -48,6 +49,10 @@ public interface MypageMapper {
 	@Update(MODIFY_MEMBER)
 	void modifyMember(MemberBean memberBean);
 
+	//탈퇴처리
+	final String RESIGN_MEMBER = " DELETE FROM MEMBER WHERE u_id=#{u_id} and u_password=#{u_password}";
+	@Delete(RESIGN_MEMBER)
+	void resignMember(MemberBean memberBean);
 }
 
 

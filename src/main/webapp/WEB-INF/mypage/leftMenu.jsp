@@ -14,6 +14,7 @@
       <li><a href="/mypage/mycollectionlist?u_id=${memberBean.u_id }">컬렉션</a></li>
       <li><a href="#ticket">예매내역</a></li>
       <li><a href="/mypage/modify?u_id=${memberBean.u_id}">회원정보수정</a></li>
+      <li><a href="/mypage/resign?u_id=${memberBean.u_id}">탈퇴하기</a></li>
     </ul>
   </nav>
 </body>

@@ -22,5 +22,13 @@ public class MypageDao {
 		 mypageMapper.modifyMember(memberBean);
 		}
 	
-
+	//회원탈퇴
+	public MemberBean resignMember(String u_id) {
+		return mypageMapper.mypageMain(u_id);
+	}
+	
+	//탈퇴처리
+	public void resignMemberOK(MemberBean memberBean) {
+		mypageMapper.resignMember(memberBean);
+	}
 }
