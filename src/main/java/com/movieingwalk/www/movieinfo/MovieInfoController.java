@@ -26,24 +26,23 @@ public class MovieInfoController {
 	
 	
 	private static final Logger logger = LoggerFactory.getLogger(MovieInfoController.class);
-	
+	//영화메인 페이지
 	@RequestMapping(value="/Main", method = RequestMethod.GET)
 	public String getReviewRank(Model model) {
 		logger.debug("영화 정보 메인 페이지 호출");
 		ArrayList<String> newReviewMList = movieInfoService.getReviewRank();
-		//String[] genreList = {"18,80", "10749", "35", "28", "9648", "14", "99", "16"};
-		//String[] genreNameList = {"crimeThriller","romance", "comedy", "action", "mystery", "fantasy", "documentary","animation"};
-		//ArrayList<String[]>  genreList = new ArrayList<String[]>(Arrays.asList("18,80", "10749", "35", "28", "9648", "14", "99", "16"));
-		//ArrayList<String[]> genreNameList = new ArrayList<String[]>(Arrays.asList("crimeThriller","romance", "comedy", "action", "mystery", "fantasy", "documentary","animation"));
 		model.addAttribute("newReviewMList", newReviewMList);
-		//model.addAttribute("genreList", genreList);
-		//model.addAttribute("genreNameList", genreNameList);
+		
 		return "/movieinfo/Main";
 	}
-	
+	//영화 상세정보 페이지 
 	@RequestMapping(value="/MovieDetail", method=RequestMethod.GET)
-	public String getMovieDetail(Model model, @RequestParam("m_idx") String m_idx) {
+	public String getMovieDetail(Model model, @RequestParam("m_idx") int m_idx) {
+		logger.debug("영화 상세정보 페이지 호출");
+		
+		ArrayList<ReviewBean> reviewBeanList = movieInfoService.getReviewList(m_idx);
 		model.addAttribute("m_idx",m_idx);
+		model.addAttribute("reviewBeanList", reviewBeanList);
 		return "/movieinfo/MovieDetail";
 	}
 

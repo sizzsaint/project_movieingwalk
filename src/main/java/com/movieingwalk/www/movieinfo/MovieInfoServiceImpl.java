@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.movieingwalk.www.bean.MovieBean;
+import com.movieingwalk.www.bean.ReviewBean;
 
 @Service
 public class MovieInfoServiceImpl {
@@ -16,5 +17,9 @@ public class MovieInfoServiceImpl {
 	
 	public ArrayList<String> getReviewRank() {
 		return movieInfoDao.getReviewRank();
+	}
+	
+	public ArrayList<ReviewBean> getReviewList(int m_idx){
+		return movieInfoDao.getReviewList(m_idx);
 	}
 }

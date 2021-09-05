@@ -1,5 +1,7 @@
 package com.movieingwalk.www.mypage;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -44,8 +46,6 @@ public class MypageController {
 	// 수정폼 불러오기
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public String modifyMember(Model model, @RequestParam("u_id") String u_id ) {
-	
-		
 		logger.debug("회원정보수정폼");
 		MemberBean memberBean = mypageService.modifyMemberView(u_id);
 		model.addAttribute("u_id", u_id);
@@ -64,21 +64,6 @@ public class MypageController {
 		return "mypage/modifyMemberOK";
 		
 	}
-	//리뷰 목록 처리
-	@RequestMapping(value = "/myreviewlist", method = RequestMethod.GET)
-	public String myReview(ReviewBean ReviewBean, Model model, @RequestParam("u_id")String u_id) {
-		MemberBean memberBean = mypageService.mypageMain(u_id);
-		model.addAttribute("memberBean", memberBean);
-		return "mypage/myreviewlist";
-	}
-	// 콜렉션 목록 처리
-	@RequestMapping(value = "/mycollectionlist", method = RequestMethod.GET)
-	public String myReview(CollectionBean collectionBean, Model model, @RequestParam("u_id")String u_id) {
-		MemberBean memberBean = mypageService.mypageMain(u_id);
-		model.addAttribute("memberBean", memberBean);
-		return "mypage/myreviewlist";
-	}
-	
 	//탈퇴폼
 	@RequestMapping(value = "/resign", method = RequestMethod.GET)
 	public String resignMember(Model model, @RequestParam("u_id") String u_id) {
@@ -110,4 +95,24 @@ public class MypageController {
 		}
 		return "mypage/resignMemberOK";
 	}
+	//리뷰 목록 처리
+	@RequestMapping(value = "/myreviewlist", method = RequestMethod.GET)
+	public String myReview(ReviewBean ReviewBean, Model model, @RequestParam("u_id")String u_id) {
+		MemberBean memberBean = mypageService.mypageMain(u_id);
+		ArrayList<ReviewBean> reviewList = new ArrayList<ReviewBean>();
+		model.addAttribute("memberBean", memberBean);
+		return "mypage/myreviewlist";
+	}
+	// 콜렉션 목록 처리
+	@RequestMapping(value = "/mycollectionlist", method = RequestMethod.GET)
+	public String myReview(CollectionBean collectionBean, Model model, @RequestParam("u_id")String u_id) {
+		MemberBean memberBean = mypageService.mypageMain(u_id);
+		ArrayList<CollectionBean> collectionList = new ArrayList<CollectionBean>();
+		model.addAttribute("memberBean", memberBean);
+		return "mypage/myreviewlist";
+	}
+	
+
+	
+
 }

@@ -8,11 +8,11 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.movieingwalk.www.bean.MemberBean;
 
@@ -37,17 +37,17 @@ public class LoginController {
 		model.addAttribute("result", 1); // 뷰 폼값 자동 매핑
 		return "login/registerOK";
 	}
-	@ResponseBody
-	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
-	public  int idCheck(@RequestBody String u_id, Model model) {
-		int result = loginService.check_Id(u_id);
-		System.out.println(result);
-		model.addAttribute("u_id",u_id);
-		model.addAttribute("result",result);
-		System.out.println("u_id=" + u_id);
-
-		return result;
-
+	
+	@RequestMapping(value="/idCheck", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody int idCheck(@RequestParam(required=false) String u_id, Model model) {
+//		String u_id2 = (String) model.getAttribute("u_id");
+		System.out.println("u_id-->" +u_id);
+		MemberBean mb = new MemberBean();
+		mb.setU_id(u_id);
+		int cnt = loginService.checkId(mb);
+		System.out.println(cnt);
+		model.addAttribute("cnt", cnt );
+		return cnt;
 	}
 	
 	@RequestMapping(value="/loginMember", method = RequestMethod.GET)
@@ -58,7 +58,7 @@ public class LoginController {
 	@RequestMapping(value = "/loginMember", method = RequestMethod.POST)
 	public String loginOK(MemberBean bean,Model model,HttpSession session) {
 		int checkId = loginService.checkId(bean);
-		
+			
 		//입력한 아이디가 존재한다면
 		if(checkId > 0) {
 			MemberBean result=loginService.loginMember(bean);

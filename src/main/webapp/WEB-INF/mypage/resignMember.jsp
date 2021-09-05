@@ -24,7 +24,6 @@
 						<li>
 						<span>아이디</span>
 						<sf:input path="u_id" type="text" id="u_id" name="u_id" size="20" value="${u_id}" readonly="true"/>
-				
 						</li>
 						<li>
 							<span>비밀번호</span>
