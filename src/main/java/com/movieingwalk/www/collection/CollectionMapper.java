@@ -1,5 +1,6 @@
 package com.movieingwalk.www.collection;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -11,7 +12,8 @@ import com.movieingwalk.www.bean.MemberBean;
 
 @Mapper
 public interface CollectionMapper {
-
+	
+	
 	final String CollectionDetail = " SELECT * from collection where u_id=#{u_id}";
 	@Select(CollectionDetail)
 	@Results(id="allResult", value= {
@@ -33,7 +35,12 @@ public interface CollectionMapper {
 	CollectionBean col_datail(@Param("col_idx")int col_idx);
 	
 	
+	//컬렉션 만들기
 	
+	final String INSERT_COLLECTION ="insert into collection(u_id, col_title, col_memo, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx, col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx)"
+									+"values (#{u_id}, #{col_title}, #{col_memo}, #{col_movie1_idx}, #{col_movie2_idx}, #{col_movie3_idx}, #{col_movie4_idx}, #{col_movie5_idx}, #{col_movie6_idx}, #{col_movie7_idx}, #{col_movie8_idx}, #{col_movie9_idx}, #{col_movie10_idx})";
+	@Insert(INSERT_COLLECTION)
+	void writeCollection(CollectionBean collectionBean); 
 	
 	
 	

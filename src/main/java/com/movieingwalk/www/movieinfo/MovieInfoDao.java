@@ -2,6 +2,7 @@ package com.movieingwalk.www.movieinfo;
 
 import java.util.ArrayList;
 
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
 
@@ -11,5 +12,6 @@ public interface MovieInfoDao {
 	ArrayList<String> getReviewRank();
 	
 	ArrayList<ReviewBean> getReviewList(int m_idx);
-
+	
+	ArrayList<CollectionBean> getCollectionList(int m_idx);
 }

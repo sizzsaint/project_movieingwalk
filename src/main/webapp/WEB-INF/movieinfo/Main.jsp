@@ -7,6 +7,8 @@
 <meta charset="EUC-KR">
 <title>MovieiengWalk</title>
 
+<!-- css설정 -->
+<link href="../css/MovieMain.css" rel ="stylesheet" type="text/css">
 
 <!-- jQuery Framework 참조하기 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -14,6 +16,7 @@
 <!-- 사용자 스크립트 블록 -->
  <script type="text/javascript">
  
+ //최근 리뷰가 등록된 영화
  $(function(){
 		 var reviewtable="";
 		 
@@ -36,7 +39,7 @@
 	    			//출력을 위한 동적 요소 생성
 	    			reviewtable +="<td>";
 	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style=width:200px;' alt=''/></a>";
-	    			reviewtable +="<p>"+title+"</p>";
+	    			reviewtable +="<p style='color:white'>"+title+"</p>";
 	    			reviewtable += "</td>";
 	    			
 	    			$("#newReviewlist").html(reviewtable);
@@ -47,7 +50,7 @@
 		});
 	  		}   
 });
-
+//범죄&스릴러 장르 기본 출력
  $(function(){
 
 		$.ajax({
@@ -69,7 +72,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
-			    			genretable +="<p>"+title+"</p>";
+			    			genretable +="<p style='color:white'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -83,8 +86,8 @@
 
  });
 
+//장르별 드롭다운
  $(function(){
-		//장르별 드롭다운
 			//1depth에 대한 change 이벤트 정의
 			$('#category1').change(function(){
 				//선택된 항목이 지시하는 하위 카테고리 페이지의 tr 열기
@@ -110,7 +113,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
-			    			genretable +="<p>"+title+"</p>";
+			    			genretable +="<p style='color:white'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -124,17 +127,57 @@
 				
 			});
 	 });
+ 
+//요즘 뜨는 영화
+ $(function(){
+	 
+	 $.ajax({
+			
+	  		url: "http://api.themoviedb.org/3/movie/top_rated?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&page=1&region=KR",
+	  		type: "get",
+	  		dataType: "json",
+	  		success: function(json) {
+	  				var genretable = "<div class='topRated'>";
+	  			
+	  				var result = json.results;
+	  				
+	  				for(var j=0; j<6; j++){
+	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+	  			    var m_idx = result[j].id;
+	    			var title = result[j].title;
+	    			var poster_img = result[j].poster_path;
+	    					
+	    			//출력을 위한 동적 요소 생성
+	    			genretable +="<div style='float:left; margin-right:10px;'>";
+	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
+	    			genretable +="<p style='color:white'>"+title+"</p>";
+	    			genretable += "</div>";
+	  				}
+	  				genretable += "</div>"
+
+	    			$("#hotMovies").html(genretable);
+	  		},
+	   		 error : function(xhr, textStatus, errorThrown){
+	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+	    		}
+		});
+
+	 
+ })
 </script>
 
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
 
-<h3>최근 리뷰가 등록된 영화</h3>
+<h3 style='color:white'>최근 리뷰가 등록된 영화</h3>
 <table id="newReviewlist"></table>
 <hr>
-<h3>장르별 영화보기</h3>
-<div class="exec">
+<h3 style='color:white'>요즘 뜨는 영화</h3>
+<div id="hotMovies"></div>
+<hr>
+<h3 style='color:white'>장르별 영화보기</h3>
+<div class="dropdown">
 				
 	<!-- 1depth 카테고리 -->
 	<select name="category1" id="category1">
@@ -147,11 +190,12 @@
 		<option value="99">다큐멘터리</option>
 		<option value="16">애니메이션</option>
 	</select>
-
+</div>
 <!-- 최종 선택 결과를 표시할 곳 -->
 <div id="genre_console">
 
 </div>
+
 		
 </body>
 </html>

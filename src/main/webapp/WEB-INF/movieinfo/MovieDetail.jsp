@@ -83,7 +83,7 @@
 	  		success: function(json) {
 	  			
 	  			    var ottRaw = json.results.KR.flatrate;
-	  			    var ottList ="<div class='ott_area'><h3 style='color:white'>바로 재생</h3>";
+	  			    var ottList ="<div class='ott_area'><h3 style='color:white'>스트리밍 가능한 곳</h3>";
 	  			    
 	    			$(ottRaw).each(function(key,value){
 	    				var ottName = value.provider_name;
@@ -170,6 +170,7 @@
 		//url = "./review/reviewDetail?r_idx="+${review.r_dix};
 		//window.open(url,"post");
 	//}
+ //function MoreCollection(${review.r_dix})
  
  
  </script>
@@ -178,33 +179,47 @@
 <jsp:include page="../main/header.jsp"/>
 
 <div id="details"></div>
+
 <div id="overview"></div>
+
 <div id="credit">
 <ul class="credit_area">
 </div>
+
 <div id="reviews">
 <h3>리뷰</h3>
 	 <input type="button" value="리뷰 더보기" onClick="MoreReview(${review.r_dix})">
 	 <ul class="review_area">
 
-	 <c:forEach var="review" items="${reviewBeanList}">
+	 <c:forEach var="review" items="${reviewBeanList}" begin="0" end="2" step="1">
 	 <li id="review">
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
 	 <a href="./review/reviewDetail?r_idx="+${review.r_idx}><p>${review.r_memo}</p></a>
-	 <div>
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <a href="./review/reviewDetail?r_idx="+${review.r_idx}>스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a>
+	 <p><a href="./review/reviewDetail?r_idx="+${review.r_idx}>스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
+	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
-	 
-	 </li>
 	 </c:forEach>
+	 </li>
 	 </ul>
+</div>
+
+<div id="collections">
+<h3 style='color:white'>해당 영화가 담긴 컬렉션들</h3>
+<input type="button" value="컬렉션 더보기" onClick="MoreCollection(${review.r_dix})">
+<ul class="collection_area">
+ <c:forEach var="collection" items="${collectionBeanList}" begin="1" end="5" step="1">
+ <li id="collection">
+ ${collection.col_title}
+ </c:forEach>
+</ul>
 </div>
 </body>
 </html>

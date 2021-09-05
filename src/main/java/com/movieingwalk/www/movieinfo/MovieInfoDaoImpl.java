@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
 
@@ -21,6 +22,10 @@ public class MovieInfoDaoImpl implements MovieInfoDao{
 	
 	public ArrayList<ReviewBean> getReviewList(int m_idx){
 		return movieInfoMapper.getRevieList(m_idx);
+	}
+	
+	public ArrayList<CollectionBean> getCollectionList(int m_idx){
+		return movieInfoMapper.getCollectionList(m_idx);
 	}
 
 }

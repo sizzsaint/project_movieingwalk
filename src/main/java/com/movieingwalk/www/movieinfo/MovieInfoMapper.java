@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
 
@@ -24,9 +26,9 @@ public interface MovieInfoMapper {
 
 	
 	//영화 리뷰 추출
-	final String SELECT_REVIEW_BY_MID = "select r_idx, u_id, m_idx, r_star, r_date, r_likes, r_hits, r_comments, r_memo, r_spoiler from review where m_idx = #{m_idx}";
+	final String SELECT_REVIEW_BY_MIDX = "select r_idx, u_id, m_idx, r_star, r_date, r_likes, r_hits, r_comments, r_memo, r_spoiler from review where m_idx = #{m_idx}";
 	
-	@Select(SELECT_REVIEW_BY_MID)
+	@Select(SELECT_REVIEW_BY_MIDX)
 	@Results(id="reviewResult", value={
 			@Result(property="r_idx",column="r_idx"),
 			@Result(property="u_id",column="u_id"),
@@ -41,6 +43,29 @@ public interface MovieInfoMapper {
 	})
 	ArrayList<ReviewBean> getRevieList(@Param("m_idx") int m_idx);
 
+	
+	//영화가 담긴 컬렉션 추출
+	final String SELECT_COLLECTION_BY_MIDX = "select col_idx, u_id, col_title, col_memo, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx, col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx from collection "
+			+ "where col_movie1_idx = #{m_idx} or col_movie2_idx = #{m_idx} or col_movie3_idx = #{m_idx} or col_movie4_idx = #{m_idx} or col_movie5_idx = #{m_idx} or col_movie6_idx = #{m_idx} or col_movie7_idx = #{m_idx} or col_movie8_idx = #{m_idx} or col_movie9_idx = #{m_idx} or col_movie10_idx = #{m_idx}";
+	
+	@Select(SELECT_COLLECTION_BY_MIDX)
+	@Results(id="colResult", value= {
+			@Result(property="col_idx",column="col_idx"),
+			@Result(property="u_id",column="u_id"),
+			@Result(property="col_title",column="col_title"),
+			@Result(property="col_memo",column="col_memo"),
+			@Result(property="col_movie1_idx",column="col_movie1_idx"),
+			@Result(property="col_movie2_idx",column="col_movie2_idx"),
+			@Result(property="col_movie3_idx",column="col_movie3_idx"),
+			@Result(property="col_movie4_idx",column="col_movie4_idx"),
+			@Result(property="col_movie5_idx",column="col_movie5_idx"),
+			@Result(property="col_movie6_idx",column="col_movie6_idx"),
+			@Result(property="col_movie7_idx",column="col_movie7_idx"),
+			@Result(property="col_movie8_idx",column="col_movie8_idx"),
+			@Result(property="col_movie9_idx",column="col_movie9_idx"),
+			@Result(property="col_movie10_idx",column="col_movie10_idx")
+	})
+	ArrayList<CollectionBean> getCollectionList(@Param("m_idx") int m_idx);
 			
 			
 }

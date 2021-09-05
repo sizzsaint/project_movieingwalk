@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
 
@@ -41,8 +42,10 @@ public class MovieInfoController {
 		logger.debug("영화 상세정보 페이지 호출");
 		
 		ArrayList<ReviewBean> reviewBeanList = movieInfoService.getReviewList(m_idx);
+		ArrayList<CollectionBean> collectionBeanList = movieInfoService.getCollectionList(m_idx);
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("reviewBeanList", reviewBeanList);
+		model.addAttribute("collectionBeanList", collectionBeanList);
 		return "/movieinfo/MovieDetail";
 	}
 

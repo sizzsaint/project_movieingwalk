@@ -76,3 +76,8 @@
 	position:relative;
 	color:white;
 }
+
+#collections{
+	border:1px solid gray;
+	color:white;
+}
