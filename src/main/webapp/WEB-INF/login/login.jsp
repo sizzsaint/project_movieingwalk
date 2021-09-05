@@ -12,7 +12,7 @@
 <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>﻿
 
 <!-- header+footer>-->
-<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
+<!-- <link href="./../../css/layout.css" rel ="stylesheet" type="text/css"> -->
 <!-- login_section -->
 <link href="./../../css/login.css" rel ="stylesheet" type="text/css">
 <title>로그인</title>

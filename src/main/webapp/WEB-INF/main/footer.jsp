@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>movieingwalk</title>
 
-<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
-<link href="./../../css/index.css" rel ="stylesheet" type="text/css">
+<!-- css -->
+<link href="./../../css/footer.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>

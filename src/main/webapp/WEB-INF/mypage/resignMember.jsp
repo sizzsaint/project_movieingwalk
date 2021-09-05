@@ -9,6 +9,9 @@
 <meta charset="UTF-8">
 <title>Movieing Walk</title>
 <link href="./../../css/login.css" rel ="stylesheet" type="text/css">
+<style>
+
+</style>
 </head>
 <body>
 <!-- header고정 -->

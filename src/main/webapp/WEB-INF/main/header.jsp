@@ -6,10 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>movieingwalk</title>
-<link href="../css/layout.css" rel="stylesheet" type="text/css">
-<link href="../css/index.css" rel="stylesheet" type="text/css">
+
+<!-- css -->
+<link href="./../../css/header.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript">
 	function showPopup() {
 		window.open("registmember", "a",
@@ -18,14 +19,13 @@
 </script>
 </head>
 <body>
-
 	<header>
-		<table style="color: white;">
+		<table>
 			<tr>
-				<td width="40%"></td>
-				<td><a href="/"><img 
-						src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
-				<td width="40%"><c:choose>
+				<td width="30%"></td>
+				<td width="30%"><a href="/">
+				<img src="./../../imgdata/mwlogo1.png" alt="movieingwalk_logo"></a></td>
+				<td width="30%"><c:choose>
 						<c:when test="${mvId == null }">
 							<input type="button" value="로그인"
 								onclick="location.href='loginMember'">
@@ -33,7 +33,7 @@
 								onclick="showPopup()">
 						</c:when>
 						<c:otherwise>
-							<h2>${mvId }님환영합니다.</h2>
+							<h2>${mvId }님 환영합니다.</h2>
 							<input type="button" value="로그아웃"
 								onclick="location.href='/logoutMember'">
 						</c:otherwise>
@@ -44,13 +44,13 @@
 
 	<nav id="menu">
 		<ul class="movie">
-			<li><a href="/movieinfo/Main">영화</a></li>
+			<li><a href="#">영화</a></li>
 		</ul>
 		<ul class="collection">
 			<li><a href="#">컬렉션</a></li>
 		</ul>
 		<ul class="ticketing">
-			<li><a href="/ticket">예매</a></li>
+			<li><a href="#">예매</a></li>
 		</ul>
 		<ul class="my_page">
 			<li>

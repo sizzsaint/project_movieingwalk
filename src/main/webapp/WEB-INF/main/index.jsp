@@ -5,19 +5,22 @@
 <head>
 <meta charset="utf-8">
 <title>movieingwalk</title>
-<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
-<link href="./../../css/index.css" rel ="stylesheet" type="text/css">
+
+<!-- css -->
+<link href="./../../css/index.css" rel="stylesheet" type="text/css">
+
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
 </head>
+
 <body>
 <!-- header고정 -->
 <jsp:include page="./header.jsp"/>
 
-<section>
+<section class="index">
 <!-- 검색창 -->
  <div class="search">
-    <input type="text" placeholder="영화를 검색하세요.">
-    <a href="#"><i class="fas fa-search fa-2x"></i></a>
+    <input type="text" placeholder="보고싶은 영화를 검색하세요.">
+    <a href="#"><i class="fas fa-search fa-lg"></i></a>
 </div>
 
 <!-- Walker추천작 -->

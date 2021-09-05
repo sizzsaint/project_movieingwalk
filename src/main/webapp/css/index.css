@@ -1,80 +1,85 @@
-/*검색*/
-section{
-	margin-top: 50px;
+/*.index     main->index.jsp->section*/
+.index{
+	margin: 10px 0 0 0;
+	min-height: 100%;
 }
 
-section .search {
+.index .search {
     position: relative;
     text-align: center;
-    width: 700px;
-    height: 100px;
+    width: 100%;
+    height: 60px;
     margin: 0 auto;
 }
-section .search input {
-    width: 100%;
+.index .search input {
+    width: 50%;
+    height: 30px;
     border-radius: 25px;
     border: 1px solid #bbb;
     margin: 15px 0;
     padding: 15px 12px;
     color: #b7b7b7;
-    font-size: 15px;
+    font-size: 10px;
 }
-section .search a .fa-search {
+.index .search a .fa-search {
     position: absolute;
-    right: 20px;
-    top: 25px;
+    right: 330px;
+    top: 24px;
     margin: 0;
 }
-section .search a:hover{
+.index .search a:hover{
 	color:#f4511e;
 }
 
-table{
+.index .show{
 	margin-bottom:90px;
 }
 
 /*Walker추천작, 최신등록된리뷰, 현재상영작*/
-section .show,
-section .review{
+.index .show,
+.index .review{
 	width:80%;
 	margin-left:10%;
 	margin-right:10%;
+	margin-bottom: 50px;
 }
-section .show thead th,
-section .review thead th{
-	font-size: 30px;
+.index .show thead th,
+.index .review thead th{
+	font-size: 15px;
 	color:#ffffff;
 	text-align:left;
 	padding-bottom: 20px;
 }
-section .show thead td img{
-	height:350px;
+.index .show thead td img{
+	height:165px;
 	border-radius:5px;
 	display: block;
 	margin: 0px auto;
 }
-section .show tbody td{
-	font-size: 20px;
+.index .show tbody td{
+	font-size: 11px;
+	font-weight: bold;
 	color:#ffffff;
 	text-align:center;
 	padding-bottom: 20px;
 }
-section .review thead td{
+.index .review thead td{
     color: #168;
-    font-size: 25px;
+    font-size: 12px;
     background: #f0f6f9;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ddd;
 }
-section .review tbody img{
+.index .review tbody img{
 	height:105px;
 	border-radius:5px;
 }
-section .review tbody td{
+.index .review tbody td{
 	padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: center;
-    font-size: 20px;
+    font-size: 12px;
+    font-weight: bold;
 	color:#ffffff;
 }

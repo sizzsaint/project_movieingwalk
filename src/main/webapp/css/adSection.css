@@ -1,46 +1,71 @@
-section{
-	width:80%;
+.adSection{
+	width:85%;
 	height:90%;
-	float:right;
-	margin: 70px 70px 0 0;
+	float:left;
+	margin: 20px 0 0 60px;
 	background-color: #e8e8e8;
 }
-section table{
+
+.adSection table{
 	width:100%;
 	border:1px solid black;
 }
-section tr,
-section td{
+
+.adSection tr,
+.adSection td{
 	border:1px solid black;
-}
-section h1{
-	color: black;
-	font-size:40px;
-	text-align: center;
+	height: 10px;
 }
 
-section .search {
+.adSection h1{
+	color: black;
+	font-size:12px;
+	text-align: center;
+}
+.adSection h3{
+	color: black;
+	font-size:12px;
+	text-align: center;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.adSection select{
+	font-size: 10px;
+	margin-bottom: 10px;
+}
+
+.adSection .search {
     position: relative;
     text-align: center;
-    width: 700px;
-    height: 100px;
+    width: 500px;
+    height: 45px;
     margin: 0 auto;
 }
-section .search input {
+
+.adSection .search input {
     width: 100%;
     border-radius: 25px;
     border: 1px solid #bbb;
-    margin: 15px 0;
-    padding: 15px 12px;
+    margin: 10px 0;
+    padding: 7px 5px;
     color: #b7b7b7;
-    font-size: 15px;
+    font-size: 10px;
 }
-section .search a .fa-search {
+
+.adSection .search a .fa-search {
     position: absolute;
-    right: 20px;
-    top: 25px;
+    right: 15px;
+    top: 17px;
     margin: 0;
 }
-section .search a:hover{
+
+.adSection .search a:hover{
 	color:#f4511e;
+}
+
+.adSection #frm tr,
+.daSection #frm td{
+	font-size:10px;
+	text-align: center;
 }
