@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- jQuery Framework 참조하기 -->
-<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>﻿
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>﻿
 
 <!-- header+footer>-->
 <!-- <link href="./../../css/layout.css" rel ="stylesheet" type="text/css"> -->
@@ -23,8 +23,8 @@
 <!-- header고정 -->
 <jsp:include page="../main/header.jsp"/>
 
-<section>
-	<div id="search_box" style="margin:0 auto;">
+<section class="search">
+	<div id="search_box">
 		<h2>회원 아이디/비밀번호를 잊으셨습니까?</h2>
 		
 		<!-- 아이디찾기 부분 -->

@@ -23,9 +23,9 @@
 <!-- header고정 -->
 <jsp:include page="../main/header.jsp"/>
 
-<section>
+<section class="login">
 	<form action="/loginMember" method="post">
-		<div id="login_box" style="margin:0 auto;">
+		<div id="login_box" style="margin:50px auto;">
 			<h2>로그인</h2>
 			<ul id="input_button">
 				<li id="id_pass">
