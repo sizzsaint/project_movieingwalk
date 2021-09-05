@@ -2,7 +2,7 @@
 <%@page import="java.io.*, java.text.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-<c:set var = "u_id" value="${memberBean.u_id}"/>
+<c:set var = "memberBean" value="${memberBean}"/>
 
 <!DOCTYPE html>
 <html>
@@ -219,10 +219,10 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-offset-3">
-          	    <form action="/mypage/modify" method="post" role="form" id="usercheck" name="member">
+          	    <sf:form action="/mypage/modify" method="post" role="form" id="usercheck" name="modifymember" modelAttribute="memberBean">
 
                 <div class="form-group">
-                    <label for="id">아이디</label> <input type="text" class="form-control" id="mem_id"
+                    <label for="id">아이디</label> <input type="text" class="form-control" id="u_id"
                         name="u_id"  placeholder="ID" value="<c:out value="${memberBean.u_id}"/>" readonly="readonly">
                     <div class="eheck_font" id="id_check" ></div>
                 </div>
@@ -264,12 +264,12 @@
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">수정하기</button>
                 </div>
-            </form>
+            </sf:form>
         </div>
     </article>
-<footer>
+
     <jsp:include page="../main/footer.jsp"/>
-</footer>
+
 
 </body>
 

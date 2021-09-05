@@ -18,7 +18,6 @@ public class LoginDao {
 	public int check_Id(String u_id) {
 		return loginMapper.check_Id(u_id);
 	}
-	
 	public int checkId(MemberBean memberBean) {
 		return loginMapper.checkId(memberBean);
 	}

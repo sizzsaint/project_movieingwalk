@@ -9,10 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <!-- jQuery Framework 참조하기 -->
-<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>﻿
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>﻿
 
 <!-- header+footer>-->
-<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
+<!-- <link href="./../../css/layout.css" rel ="stylesheet" type="text/css"> -->
 <!-- login_section -->
 <link href="./../../css/login.css" rel ="stylesheet" type="text/css">
 <title>로그인</title>
@@ -23,9 +23,9 @@
 <!-- header고정 -->
 <jsp:include page="../main/header.jsp"/>
 
-<section>
+<section class="login">
 	<form action="/loginMember" method="post">
-		<div id="login_box" style="margin:0 auto;">
+		<div id="login_box" style="margin:50px auto;">
 			<h2>로그인</h2>
 			<ul id="input_button">
 				<li id="id_pass">

@@ -64,7 +64,7 @@ function sortChange(e){
 		</tr>
 	</table>
 	
-	<form id="frm" method="GET" action="/deleteMember">
+	<form id="frm" method="GET" action="/deleteMember"  >
 	<!-- content 테이블 -->
 	<table>
 		<tr style="text-align: center; font-weight: bold;">
@@ -89,7 +89,8 @@ function sortChange(e){
 			<td>${info.u_date}</td><!-- u_date -->
 			<td>${info.u_admin}</td><!-- u_admin-->
 			<td>
-				<input type="submit" name="u_id" id="u_id" value="${info.u_id }">
+	 		
+			<input type="submit" name="u_id" id="u_id" value="${info.u_id}"/>
 			</td>
 		</tr>
 		</c:forEach>

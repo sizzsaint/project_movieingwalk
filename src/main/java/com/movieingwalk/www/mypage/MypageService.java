@@ -27,4 +27,15 @@ public class MypageService {
 		
 	}
 	
+	//회원탈퇴
+	public MemberBean resignMember(String u_id) {
+		// TODO Auto-generated method stub
+		return mypageDao.resignMember(u_id);
+	}
+	
+	//탈퇴처리
+	public void resignMemberOK(MemberBean memberBean) {
+		mypageDao.resignMemberOK(memberBean);
+	}
+	
 }

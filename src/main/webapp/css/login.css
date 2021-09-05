@@ -1,91 +1,80 @@
-section{
+.login{
 	min-height: 100%;
-	padding-bottom:50px;
-	font-family: "맑은 고딕", "돋움";
-	font-size: 12px;
 	color:#ffffff;
 	width: 100%;
 	text-align:center;
 }
 
-ul{
+.login ul,
+.login li{
 	list-style-type: none;
+	padding-left:8px;
 }
 
-#login_box{
-	width:700px;
-	height:400px;
+.login #login_box{
+	width:400px;
+	height:250px;
 	border: solid 1px #bbbbbb;
 	border-radius: 15px;
-	padding: 10px 0 0 15px;
-	margin: 0 auto;
+	margin: 50px auto;
 	text-align:left;
 }
 
-h2{
-	font-size: 35px;
-	font-family: "Arial";
+.login #login_box h2{
+	font-size: 15px;
 	font-weight: bold;
 	text-align:center;
-	margin-bottom: 50px;
-	margin-top: 40px;
+	margin-bottom:25px;
+	margin-top: 30px;
+	padding-bottom:5px;
 }
 
-#id_pass #ad input{
-	width:350px;
-	height: 36px;
-}
-#id_pass input{
-	width:220px;
-	height: 36px;
+.login #id_pass input{
+	width:180px;
+	height: 23px;
+	font-size:10px;
 }
 
-#id_pass, #login_btn{
+.login #id_pass, #login_btn{
 	display:inline-block;
 	vertical-align: top;	
 }
 
-#id_pass span{
+.login #id_pass span{
 	display: inline-block;
-	width: 150px;
-	font-size: 27px;
+	width: 62px;
+	font-size: 13px;
 	margin-bottom:20px;
 }
 
-#pass{
+.login #pass{
 	margin-top: 3px;
 }
 
-#login_btn input{
-	margin-left: 15px;
+.login #login_btn input{
+	margin-left: 5px;
 	padding: 12px;
 	border-radius: 6px;
-	height: 111px;
-	width: 115px;
+	height: 73px;
+	width: 70px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 13px;
 }
 
-#btns{
-	margin: 20px 0 0 0;
+.login #btns{
+	margin: 18px 0 0 0;
 	text-decoration: underline;
 }
 
-#btns li{
-	margin-left: 10px;
+.login #btns li{
+	margin-left: 16px;
 	display: inline;
 }
 
-#btns input{
-	width: 260px;
-	height: 50px;
-	margin: 5px;
+.login #btns input{
+	width: 156px;
+	height: 33px;
 	border-radius: 6px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 11px;
 }
-
-
-
-
-

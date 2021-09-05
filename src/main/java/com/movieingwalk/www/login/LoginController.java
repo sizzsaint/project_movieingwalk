@@ -38,6 +38,7 @@ public class LoginController {
 		model.addAttribute("result", 1); // 뷰 폼값 자동 매핑
 		return "login/registerOK";
 	}
+	
 	@ResponseBody
 	@RequestMapping(value="/idCheck", method = RequestMethod.POST)
 	public  int idCheck(@RequestBody String u_id, Model model) {

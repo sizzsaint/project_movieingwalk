@@ -1,77 +1,80 @@
-section{
+.search{
 	min-height: 100%;
-	padding-bottom:50px;
-	font-family: "맑은 고딕", "돋움";
-	font-size: 12px;
 	color:#ffffff;
 	width: 100%;
 	text-align:center;
 }
 
-ul{
+ul,li{
 	list-style: none;
 	padding:0;	
 }
-#search_box{
-	width:1800px;
-	height:700px;
+
+.search #search_box{
+	width:800px;
+	height:310px;
 	border: solid 1px #bbbbbb;
 	border-radius: 15px;
-	padding: 10px 0 0 15px;
-	margin: 0 auto;
-	text-align:left;
+	margin: 50px auto;
+	text-align:center;
 }
-#search_box table{
-	margin:0 auto;
-	width: 700px;
+.search #search_box table{
+	width: 400px;
 }
 
-h2{
-	font-size: 35px;
-	font-family: "Arial";
+.search h2{
+	font-size: 13px;
 	font-weight: bold;
 	text-align:center;
-	margin-bottom: 50px;
-	margin-top: 40px;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
-form{
+.search form{
 	width:49%;
 	float:left;
 }
-#idSearchForm{
+
+.search #idSearchForm{
 	border-right: 1px solid #ffffff;
 }
-#pwSearchForm{
+
+.search #pwSearchForm{
 	border-left: 1px solid #ffffff;
 }
-#search_id input,
-#search_pw input{
-	width:240px;
-	height: 40px;
+
+.search #search{
+	margin-top:30px;
 }
-#search_id, #btn,
-#search_pw, #btn{
+
+.search #search_id input,
+.search #search_pw input{
+	width:150px;
+	height: 18px;
+	font-size: 10px;
+}
+.search #search_id, #btn,
+.search #search_pw, #btn{
 	display:inline-block;
 	vertical-align: top;	
 }
 
-#search_id span,
-#search_pw span{
+.search #search_id span,
+.search #search_pw span{
 	display: inline-block;
-	width: 230px;
-	font-size: 29px;
-	margin:3px 0 20px 100px;
+	width: 100px;
+	font-size: 13px;
+	margin:3px 0 13px 0px;
 }
 
-#btn input{
-	margin:60px 30px 0 0;
-	padding: 12px;
+.search #btn input{
+	margin:0 50px 0 0;
 	border-radius: 6px;
-	height: 70px;
-	width: 200px;
+	height: 30px;
+	width: 80px;
 	font-weight: bold;
-	font-size: 23px;
+	font-size: 11px;
+	text-align:center;
 }
 
 

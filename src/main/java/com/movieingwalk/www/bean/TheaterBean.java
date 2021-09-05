@@ -3,7 +3,7 @@ package com.movieingwalk.www.bean;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CinemaBean {
+public class TheaterBean {
 	int theater_idx, theater_seats;
 	String theater_location;
 

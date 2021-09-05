@@ -8,6 +8,7 @@ nav #leftMenu {
 	
 	float: left;
 	width : 350px;
+	background-color: yellow;
 	display:block;
 }
 nav ul{

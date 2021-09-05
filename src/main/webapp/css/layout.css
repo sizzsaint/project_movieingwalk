@@ -9,7 +9,7 @@ html,body {
 /*header*/
 header{
 	background: #070720;
-	height:400px;
+	height:250px;
 }
 header table{
 	height:400px;
@@ -23,11 +23,14 @@ header table td{
 header table td h2{
 	font-weight: bold;
 }
-header img{
+header table tr td img{
 	padding: 5px 0 17px;
 	display: block;
 	margin: 0px auto;
-	width:380px;
+	width: 50%;
+	height: 50%;
+	
+
 }
 header td input[type=button]{
 	background-color: #f4511e;
@@ -84,8 +87,11 @@ footer{
 	color: #ffffff;
 	text-align:center;
 	padding:10px;
+<<<<<<< HEAD
+=======
 	position: relative;
 	
+>>>>>>> eb666bf24dbdbe6657e23d26ff617dc6cd7295e9
 }
 footer p{
 	font-weight: bold;

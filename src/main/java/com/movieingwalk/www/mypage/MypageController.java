@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,15 +18,17 @@ import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
 import com.movieingwalk.www.login.LoginController;
+import com.movieingwalk.www.login.LoginService;
 
 @Controller
-@SessionAttributes("u_id")
 @RequestMapping("/mypage")
 public class MypageController {
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	@Autowired
 	MypageService mypageService;
+	@Autowired
+	LoginService loginService;
 
 	//mypage main
 	@RequestMapping(value = "" , method= RequestMethod.GET)
@@ -52,15 +55,15 @@ public class MypageController {
 
 	// 수정처리
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyMemberOK(MemberBean memberBean, @RequestParam("u_id") String u_id, Model model) {
+	public String modifyMemberOK( @ModelAttribute MemberBean memberBean, Model model) {
 		logger.info("회원정보수정처리");
-		memberBean.setU_id(u_id);
+
 		mypageService.modifyMember(memberBean);
-		model.addAttribute("u_id", u_id);
+		model.addAttribute("memberBean",memberBean);
 
 		return "mypage/modifyMemberOK";
-		
 	}
+	
 	//리뷰 목록 처리
 	@RequestMapping(value = "/myreviewlist", method = RequestMethod.GET)
 	public String myReview(ReviewBean ReviewBean, Model model, @RequestParam("u_id")String u_id) {
@@ -74,5 +77,37 @@ public class MypageController {
 		MemberBean memberBean = mypageService.mypageMain(u_id);
 		model.addAttribute("memberBean", memberBean);
 		return "mypage/myreviewlist";
+	}
+	
+	//탈퇴폼
+	@RequestMapping(value = "/resign", method = RequestMethod.GET)
+	public String resignMember(Model model, @RequestParam("u_id") String u_id) {
+		logger.debug("회원탈퇴폼");
+		MemberBean memberBean = mypageService.resignMember(u_id);
+		model.addAttribute("u_id", u_id);
+		model.addAttribute("memberBean", memberBean);
+		return "mypage/resignMember";
+	}
+	
+	//탈퇴처리
+	@RequestMapping(value = "/resign", method = RequestMethod.POST)
+	public String resignMemberOK(
+			MemberBean memberBean,
+			Model model,
+			HttpSession session) {
+		logger.debug("회원탈퇴처리");
+		MemberBean u_id1 = loginService.loginMember(memberBean);
+		String existPw = u_id1.getU_password();
+		String inputPw = memberBean.getU_password();
+		
+		if(existPw.equals(inputPw)) {
+			mypageService.resignMemberOK(memberBean);
+			model.addAttribute("result","same");
+			model.addAttribute("memberBean", memberBean);
+			session.invalidate();
+		}else {
+			model.addAttribute("result","diff");
+		}
+		return "mypage/resignMemberOK";
 	}
 }

@@ -4,10 +4,10 @@ aside{
 	background: #0b0c2a;
 	color:#ffffff;
 	display:block;
-	width:250px;
+	width:70px;
 	float:left;
 	height:92%;
-	margin: 70px 0 0 70px;
+	margin: 70px 0 0 10px;
 }
 aside ul{
 	list-style: none;
@@ -18,18 +18,20 @@ aside li{
 	text-align: center;
 }
 aside ul li p{
-	font-size:30px;
+	font-size:13px;
 	font-weight: bold;
 }
 
 aside ul li input[type=button]{
+	width:80px;
+	height: 30px;
 	background-color: #f4511e;
   	border: none;
   	border-radius:5px;
   	color: white;
- 	padding: 16px 32px;
+ 	padding: 5px 10px;
   	text-align: center;
-  	font-size: 20px;
+  	font-size: 11px;
   	font-weight: bold;
   	margin: 20px 0;
   	opacity: 0.6;
