@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+textarea #r_memo {
+resize: none;
+}
+
+
+.r_star h3, div {
+	text-align:center;
+	color: white;
+	
+}
+.r_star div{
+	border-bottom: 10px;
+	margin : 20px auto;
+}
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 3.5rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #ffffff;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-fill-color: #fff58c;
+}

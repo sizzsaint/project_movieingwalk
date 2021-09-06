@@ -12,11 +12,11 @@
 	 
 	 $.ajax({
 			
-	  		url: "http://api.themoviedb.org/3/movie/top_rated?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&page=1&region=KR",
+	  		url: "https://api.themoviedb.org/3/movie/now_playing?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&page=1",
 	  		type: "get",
 	  		dataType: "json",
 	  		success: function(json) {
-	  				var genretable = "<div class='topRated'>";
+	  				var genretable = "<div class='nowscreening'>";
 	  			
 	  				var result = json.results;
 	  				
@@ -34,7 +34,7 @@
 	  				}
 	  				genretable += "</div>"
 
-	    			$("#hotMovies").html(genretable);
+	    			$("#nowscreening").html(genretable);
 	  		},
 	   		 error : function(xhr, textStatus, errorThrown){
 	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
@@ -48,12 +48,12 @@
 <body>
 <table class="show">
 <thead>
-<tr><th><i class="fas fa-angle-right"></i> Walker추천작</th></tr>
+<tr><th><i class="fas fa-angle-right"></i> 현재상영중</th></tr>
 </thead>
 	<tbody>
 	<tr>
 	<td>
-	<div id="hotMovies"></div></td></tr></tbody>
+	<div id="nowscreening"></div></td></tr></tbody>
 </table>
 
 </body>

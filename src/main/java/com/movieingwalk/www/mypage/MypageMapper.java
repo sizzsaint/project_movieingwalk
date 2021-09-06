@@ -53,6 +53,8 @@ public interface MypageMapper {
 	final String RESIGN_MEMBER = " DELETE FROM MEMBER WHERE u_id=#{u_id} and u_password=#{u_password}";
 	@Delete(RESIGN_MEMBER)
 	void resignMember(MemberBean memberBean);
+	
+
 }
 
 

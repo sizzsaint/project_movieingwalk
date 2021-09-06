@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내컬렉션</title>
 </head>
 <body >
 <jsp:include page="../main/header.jsp"/>
@@ -14,7 +14,7 @@
 
 	<thead>
 		<tr>
-			<th colspan="6"><i class="fas fa-angle-right"></i> 내가등록한리뷰</th>
+			<th colspan="6"><i class="fas fa-angle-right"></i> 나의컬렉션</th>
 		</tr>
 		<tr>
 			<td width="7%"></td>
@@ -41,7 +41,7 @@
 	</tbody>
 	<thead>
 		<tr>
-			<th colspan="6"><i class="fas fa-angle-right"></i> 내가좋아요한리뷰</th>
+			<th colspan="6"><i class="fas fa-angle-right"></i> 내가좋아한 컬렉션</th>
 		</tr>
 		<tr>
 			<td width="7%"></td>

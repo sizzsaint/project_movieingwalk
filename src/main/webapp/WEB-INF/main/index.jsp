@@ -60,33 +60,7 @@
 			</tbody>
 		</table>
 
-		<!-- 현재 상영작 -->
-		<table class="show">
-			<!-- 영화 포스터 출력부-->
-			<thead>
-				<tr>
-					<th colspan="5"><i class="fas fa-angle-right"></i> 현재상영작</th>
-				</tr>
-				<tr>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-					<td><a href="#"><img src="./../../imgdata/test.PNG"></a></td>
-				</tr>
-			</thead>
-
-			<!-- 영화제목 -->
-			<tbody>
-				<tr>
-					<td>영화제목1</td>
-					<td>영화제목2</td>
-					<td>영화제목3</td>
-					<td>영화제목4</td>
-					<td>영화제목5</td>
-				</tr>
-			</tbody>
-		</table>
+<jsp:include page="./screening.jsp"/>
 
 	</section>
 
