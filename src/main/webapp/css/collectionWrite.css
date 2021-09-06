@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+#selected {
+	border : 1px solid gray;
+	float:left;
+}
+
+#selected #selectedList{
+	list-style:none;
+	position:relative;
+	float:left;
+}
+
+
+#selected #selectedList .card{
+	position:relative; 
+	float:left;
+}
+
+#selected #selectedList .card .m_idx{
+	display:none;
+}

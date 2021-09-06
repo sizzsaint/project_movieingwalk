@@ -38,9 +38,9 @@ public interface CollectionMapper {
 	//컬렉션 만들기
 	
 	final String INSERT_COLLECTION ="insert into collection(u_id, col_title, col_memo, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx, col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx)"
-									+"values (#{u_id}, #{col_title}, #{col_memo}, #{col_movie1_idx}, #{col_movie2_idx}, #{col_movie3_idx}, #{col_movie4_idx}, #{col_movie5_idx}, #{col_movie6_idx}, #{col_movie7_idx}, #{col_movie8_idx}, #{col_movie9_idx}, #{col_movie10_idx})";
+									+"values (#{u_id}, #{col_title}, #{col_memo}, #{col_midx1}, #{col_midx2}, #{col_midx3}, #{col_midx4}, #{col_midx5}, #{col_midx6}, #{col_midx7}, #{col_midx8}, #{col_midx9}, #{col_midx10})";
 	@Insert(INSERT_COLLECTION)
-	void writeCollection(CollectionBean collectionBean); 
+	void insertCollection(CollectionBean collectionBean); 
 	
 	
 	

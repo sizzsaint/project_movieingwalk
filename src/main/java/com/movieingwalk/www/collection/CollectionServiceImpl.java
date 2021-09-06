@@ -11,8 +11,8 @@ public class CollectionServiceImpl {
 	@Autowired
 	CollectionDaoImpl collectionDao;
 	
-	public void writeCollection(CollectionBean collectionBean) {
-		collectionDao.writeCollection(collectionBean);
+	public void insertCollection(CollectionBean collectionBean) {
+		collectionDao.insertCollection(collectionBean);
 
 	}
 }

@@ -8,6 +8,6 @@ public interface CollectionDao {
 	
 	public CollectionBean col_datail(int col_idx);
 	
-	public void writeCollection(CollectionBean collectionBean);
+	public void insertCollection(CollectionBean collectionBean);
 
 }
