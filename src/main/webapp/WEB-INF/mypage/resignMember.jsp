@@ -9,17 +9,15 @@
 <meta charset="UTF-8">
 <title>Movieing Walk</title>
 <link href="./../../css/login.css" rel ="stylesheet" type="text/css">
-<style>
 
-</style>
 </head>
 <body>
 <!-- header고정 -->
 <jsp:include page="../main/header.jsp"/>
-
-<section>
+<jsp:include page="./leftMenu.jsp"/>
+<section class="login">
 	<sf:form action="/mypage/resign" method="post" modelAttribute="memberBean" >
-		<div id="login_box" style="margin:0 auto;">
+		<div id="login_box" style="margin:50px auto;">
 			<h2>탈퇴하기</h2>
 			<ul id="input_button">
 				<li id="id_pass">
@@ -41,7 +39,6 @@
 				<li><input type="submit" value="탈퇴하기"></li>
 				<li><input type="button" onclick="history.go(-1)" value="돌아가기"></li>
 			</ul>
-
 		</div>	
 	</sf:form>
 </section>
