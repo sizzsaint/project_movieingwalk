@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,6 +71,7 @@
  </script>
 </head>
 <body>
+
 <jsp:include page="../main/header.jsp"/>
 
 	<!-- 	int r_idx, m_idx, r_star, r_likes, r_hits, r_comments;
@@ -89,31 +91,32 @@
 		<section>
 			<form action="/review/write" method="post" role="form" id="writeReview"
 				name="writeReview">
-				<input type="hidden" name="" value="${m_idx}">
+				<input type="hidden" name="u_id" value="${memberBean.u_id}">
+				<input type="hidden" name="m_idx" value="${m_idx}">
 				<div>
 					<div>
-						<label for="star-rating"><c:out value="${member.u_id}" />님의
+						<label for="star-rating"><c:out value="${memberBean.u_id}" />님의
 							평점</label>
 
 						<div class="star-rating space-x-4 mx-auto">
-							<input type="radio" id="5-stars" name="rating" value="5"
+							<input type="radio" id="5-stars" name="r_star" value="5"
 								v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
-							<input type="radio" id="4-stars" name="rating" value="4"
+							<input type="radio" id="4-stars" name="r_star" value="4"
 								v-model="ratings" /> <label for="4-stars" class="star">★</label>
-							<input type="radio" id="3-stars" name="rating" value="3"
+							<input type="radio" id="3-stars" name="r_star" value="3"
 								v-model="ratings" /> <label for="3-stars" class="star">★</label>
-							<input type="radio" id="2-stars" name="rating" value="2"
+							<input type="radio" id="2-stars" name="r_star" value="2"
 								v-model="ratings" /> <label for="2-stars" class="star">★</label>
-							<input type="radio" id="1-star" name="rating" value="1"
+							<input type="radio" id="1-star" name="r_star" value="1"
 								v-model="ratings" /> <label for="1-star" class="star">★</label>
 						</div>
 					
 						<div>
-							<label for="r_spoiler">스포일러</label> <input id="r_spoiler"
-								type="checkbox" value="Y">
+							<label for="r_spoiler">스포일러</label> 
+							<input id="r_spoiler" name="r_spoiler" type="checkbox" value="Y">
 						</div>
 						<div>
-							<textarea class="r_memo"name="r_memo" id="r_memo" rows="10" cols="70"></textarea>
+							<textarea class="r_memo"name="r_memo" id="r_memo" rows="10" cols="70" placeholder="리뷰를입력해주세요"></textarea>
 						</div>
 					</div>
 					<div>

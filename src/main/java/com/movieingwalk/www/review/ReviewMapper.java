@@ -13,7 +13,7 @@ public interface ReviewMapper {
 	
 	
 	final String WRITEREVIEW  ="INSERT INTO REVIEW ( m_idx, r_star, u_id, r_date, r_memo, r_spoiler)"
-			+ "values ( #{m_idx}, #{r_star}, #{u_id}, #{r_date}, #{r_memo}, #{r_spoiler})";
+			+ "values ( #{m_idx}, #{r_star}, #{u_id}, now(), #{r_memo}, #{r_spoiler})";
 	@Insert(WRITEREVIEW)
 	void writeReview(ReviewBean bean);
 

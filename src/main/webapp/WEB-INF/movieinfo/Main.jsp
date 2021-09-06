@@ -141,7 +141,7 @@
 	  			
 	  				var result = json.results;
 	  				
-	  				for(var j=0; j<6; j++){
+	  				for(var j=0; j<10; j++){
 	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 	  			    var m_idx = result[j].id;
 	    			var title = result[j].title;
@@ -150,7 +150,7 @@
 	    			//출력을 위한 동적 요소 생성
 	    			genretable +="<div style='float:left; margin-right:10px;'>";
 	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
-	    			genretable +="<p style='color:white'>"+title+"</p>";
+	    			genretable +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
 	    			genretable += "</div>";
 	  				}
 	  				genretable += "</div>"

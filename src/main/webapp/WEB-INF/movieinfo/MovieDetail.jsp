@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>   
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
     
 <!DOCTYPE html>
 <html>
@@ -181,11 +183,11 @@
 <div id="details"></div>
 
 <!-- 리뷰 하기 -->
-<form class="r_star" action="/review/write" >
+<form class="r_star" action="/review/write">
 
 <h3>평가하기</h3>
-<input type="hidden" name="u_id" value="${u_id}">
-<input type="hidden" name="m_idx"value="${m_idx}">
+<input type="text" name="u_id" value="${memberBean.u_id}"/>
+<input type="hidden" name="m_idx"value="${m_idx}"/>
 <div class="star-rating space-x-4 mx-auto">
 	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
 	<input type="submit" id="4-stars" name="r_star" value="4" v-model="ratings" /> <label for="4-stars" class="star">★</label>
@@ -203,7 +205,7 @@
 
 <div id="reviews">
 <h3 style='color:white'>리뷰</h3>
-	 <input type="button" value="리뷰 더보기" onClick="MoreReview(${review.r_dix})">
+	 <input type="button" value="리뷰 더보기" onClick="MoreReview(${review.r_idx})">
 	 <ul class="review_area">
 
 	 <c:forEach var="review" items="${reviewBeanList}" begin="0" end="2" step="1">

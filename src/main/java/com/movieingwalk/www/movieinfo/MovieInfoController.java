@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.movieingwalk.www.bean.CollectionBean;
+import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.mypage.MypageService;
 
 
 @Controller
@@ -24,6 +28,8 @@ public class MovieInfoController {
 	
 	@Autowired
 	MovieInfoServiceImpl movieInfoService;
+	@Autowired
+	MypageService mypageService;
 	
 	
 	private static final Logger logger = LoggerFactory.getLogger(MovieInfoController.class);
@@ -38,7 +44,7 @@ public class MovieInfoController {
 	}
 	//영화 상세정보 페이지 
 	@RequestMapping(value="/MovieDetail", method=RequestMethod.GET)
-	public String getMovieDetail(Model model, @RequestParam("m_idx") int m_idx) {
+	public String getMovieDetail(Model model, @RequestParam("m_idx") int m_idx, MemberBean memberBean) {
 		logger.debug("영화 상세정보 페이지 호출");
 		
 		ArrayList<ReviewBean> reviewBeanList = movieInfoService.getReviewList(m_idx);
@@ -46,6 +52,9 @@ public class MovieInfoController {
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("reviewBeanList", reviewBeanList);
 		model.addAttribute("collectionBeanList", collectionBeanList);
+	
+		model.addAttribute("memberBean",memberBean);
+
 		return "/movieinfo/MovieDetail";
 	}
 
