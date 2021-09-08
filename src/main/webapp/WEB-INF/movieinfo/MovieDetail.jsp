@@ -183,10 +183,9 @@
 <div id="details"></div>
 
 <!-- 리뷰 하기 -->
-<form class="r_star" action="/review/write">
+<form class="r_star" action="/review/writeReview">
 
 <h3>평가하기</h3>
-<input type="text" name="u_id" value="${memberBean.u_id}"/>
 <input type="hidden" name="m_idx"value="${m_idx}"/>
 <div class="star-rating space-x-4 mx-auto">
 	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>

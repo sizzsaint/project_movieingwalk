@@ -30,22 +30,17 @@ public class ReviewController {
 	MypageService mypageService;
 	
 	//리뷰쓰기 폼
-	@GetMapping(value="/write")
-	public String writeReview(
-			@RequestParam("u_id") String u_id,
-			int m_idx,
-			int r_star,
-			Model model
-			){
-		model.addAttribute("u_id",u_id);
-		model.addAttribute("m_idx",m_idx);
-		model.addAttribute("r_star",r_star);
+	@GetMapping(value="/writeReview")
+	public String writeReview(@RequestParam("m_idx") int m_idx, Model model, ReviewBean reviewBean){
 		logger.debug("리뷰작성폼");
+		
+		model.addAttribute("m_idx",m_idx);
+		model.addAttribute("reviewBean", reviewBean);
 		return "review/writeReview";
 	}
 	
 	//리뷰쓰기 처리
-	@PostMapping(value="/write")
+	@PostMapping(value="/writeReviewOK")
 	public String writeReviewOK(ReviewBean bean, Model model, int m_idx) {
 		logger.debug("리뷰작성완료");
 		service.writeReview(bean);

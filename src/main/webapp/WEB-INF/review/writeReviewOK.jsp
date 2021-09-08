@@ -8,8 +8,8 @@
 </head>
 <body>
 		<script type="text/javascript">
-			alert('리뷰가등록되었습니다.')
-			location.href='/movieinfo/MovieDetail?m_idx='${m_idx}''
+			alert('리뷰가 등록되었습니다.')
+			location.href="/movieinfo/MovieDetail?m_idx="+${m_idx};
 		</script>
 </body>
 </html>

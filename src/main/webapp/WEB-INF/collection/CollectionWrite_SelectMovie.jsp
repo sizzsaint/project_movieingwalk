@@ -42,7 +42,7 @@
 	  				}else{
 	  					searchResult += "<img onClick='selectMovie(" +m_idx+ ")' src='../imgdata/img_ready.png' width='170' height='255' alt='/'>";
 	  				}
-	  				searchResult += "<p>"+title+"</p></div>";
+	  				searchResult += "<p style='text-align:center;' width='170px' height='81px'>"+title+"</p></div>";
 	  			})
 	  			$("#console").html(searchResult);
 	  		},
@@ -71,7 +71,7 @@ function selectMovie(m_idx){
     			}else{
     				selected += "<img src='../imgdata/img_ready.png' width='100px' height='150px' alt='/'>";
     			}
-    			selected += "<p style='color:red;'>"+title+"</p>"
+    			selected += "<p style='color:red; text-align:center;' width='170px' height='81px'>"+title+"</p>"
     			selected += "<p class='m_idx'>"+m_idx+"</p>";
     			$("#selectedList").append(selected);
 	  		},

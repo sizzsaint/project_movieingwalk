@@ -38,8 +38,8 @@
 	    					
 	    			//출력을 위한 동적 요소 생성
 	    			reviewtable +="<td>";
-	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style=width:200px;' alt=''/></a>";
-	    			reviewtable +="<p style='color:white'>"+title+"</p>";
+	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:200px;' alt=''/></a>";
+	    			reviewtable +="<p style='color:white width:170; height:81;'>"+title+"</p>";
 	    			reviewtable += "</td>";
 	    			
 	    			$("#newReviewlist").html(reviewtable);
@@ -71,8 +71,8 @@
 			    					
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
-			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white'>"+title+"</p>";
+			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
+			    			genretable +="<p style='color:white width:170; height:81;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -112,8 +112,8 @@
 			    					
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
-			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white'>"+title+"</p>";
+			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
+			    			genretable +="<p style='color:white width:170; height:81;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
