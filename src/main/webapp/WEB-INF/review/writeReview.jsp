@@ -128,7 +128,7 @@ if(session.getAttribute("mvId")==null){
 	<article>
 		<section>
 			<div>
-				<button type="button" onclick="location.href=history.go(-1)"></button>
+				<button type="button" onclick="location.href='history.go(-1)'">뒤로가기</button>
 				<div>
 					<h3 class="m_name">리뷰 작성하기</h3>
 				</div>

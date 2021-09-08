@@ -1,5 +1,8 @@
 package com.movieingwalk.www.review;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +12,17 @@ import com.movieingwalk.www.bean.ReviewBean;
 public class ReviewService {
 
 	@Autowired
-	ReviewDao dao;
-	
+	ReviewDao reviewdao;
+	//리뷰작성
 	public void writeReview(ReviewBean bean) {
-		dao.writeReview(bean);
+		reviewdao.writeReview(bean);
+	}
+	//리뷰리스트
+	public ArrayList<ReviewBean> getReviewList(int m_idx){
+		return reviewdao.getReviewList(m_idx);
+	}
+	
+	public ReviewBean getReviewDetail(int r_idx) {
+		return reviewdao.getReviewDetail(r_idx);
 	}
 }

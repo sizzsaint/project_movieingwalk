@@ -1,5 +1,8 @@
 package com.movieingwalk.www.review;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.movieingwalk.www.bean.MemberBean;
@@ -25,7 +29,7 @@ public class ReviewController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
-	ReviewService service;
+	ReviewService reviewservice;
 	@Autowired
 	MypageService mypageService;
 	
@@ -43,9 +47,39 @@ public class ReviewController {
 	@PostMapping(value="/writeReviewOK")
 	public String writeReviewOK(ReviewBean bean, Model model, int m_idx) {
 		logger.debug("리뷰작성완료");
-		service.writeReview(bean);
+		reviewservice.writeReview(bean);
 		model.addAttribute("m_idx",m_idx);
 		return "review/writeReviewOK";
+	}
+	
+	//리뷰 리스트
+	@RequestMapping(value="/reviewList", method=RequestMethod.GET)
+	public String reviewList(Model model, @RequestParam("m_idx") int m_idx,  @RequestParam(defaultValue="1") int curPage) {
+		logger.debug("리뷰리스트 페이지 호출");
+		ArrayList<ReviewBean> reviewBeanList = reviewservice.getReviewList(m_idx);
+		model.addAttribute("m_idx",m_idx);
+		model.addAttribute("reviewBeanList", reviewBeanList);
+		
+		int listCnt = reviewBeanList.size();
+		Paging paging = new Paging(listCnt, curPage);
+		
+		model.addAttribute("listCnt", listCnt);
+		model.addAttribute("paging", paging);
+		return "review/reviewList";
+	}
+	
+	//리뷰 상세보기
+	@RequestMapping(value="/reviewDetail", method=RequestMethod.GET)
+	public String reviewDetail(Model model, @RequestParam("r_idx") int r_idx) {
+		logger.debug("리뷰 상세보기 페이지 호출");
+		
+		ReviewBean reviewBean = reviewservice.getReviewDetail(r_idx);
+		model.addAttribute("r_idx", r_idx);
+		model.addAttribute(reviewBean);
+		
+		//reviewservice.hitup(r_idx);
+		
+		return "review/reviewDetail";
 	}
 
 }
