@@ -15,4 +15,9 @@ public class CollectionServiceImpl {
 		collectionDao.insertCollection(collectionBean);
 
 	}
+	
+	public CollectionBean col_datail(int col_idx) {
+		return collectionDao.col_datail(col_idx);
+		
+	}
 }

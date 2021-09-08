@@ -57,7 +57,7 @@ function formCheck(){
 		alert("영화의 갯수는 10개를 선택해주세요.");
 		return false;
 	}
-	form.submit();
+	document.getElementById("collectionForm").submit();
 }
 
 </script>
@@ -66,7 +66,7 @@ function formCheck(){
 <jsp:include page="../main/header.jsp"/>
 
 <h2 style='color:white'>컬렉션 만들기</h2>
-<sf:form action="CollectionWriteOk" modelAttribute="collectionBean">
+<sf:form action="CollectionWriteOk" id="collectionForm" modelAttribute="collectionBean">
 <table border="1" style='color:white'>
 <tr><td>제목</td><td><sf:input path="col_title" id="title" size="20" maxlegth="20"/>
 <sf:errors path="col_title"/>

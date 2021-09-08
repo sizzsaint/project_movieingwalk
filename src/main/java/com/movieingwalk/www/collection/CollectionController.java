@@ -1,5 +1,7 @@
 package com.movieingwalk.www.collection;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,15 +51,14 @@ public class CollectionController {
 		return "/collection/CollectionWriteOk";
 	}
 	
-	
-	
-	
-
 	//콜렉션상세보기
-	//@RequestMapping(value="/collectiondetail", method = RequestMethod.GET)
-	//public String col_detail(Model model, CollectionBean collectionBean, @RequestParam("col_idx")String col_idx) {
-	//	logger.debug("콜렉션상세보기페이지");
-	//	model.addAttribute("colBean",collectionBean);
-	//	return "/collection/collection_detail";
-//	}
+	@RequestMapping(value="/collectiondetail", method = RequestMethod.GET)
+	public String col_detail(Model model,
+			CollectionBean collectionBean,
+			@RequestParam("col_idx")int col_idx) {
+		logger.debug("콜렉션상세보기페이지");
+		collectionBean = collectionService.col_datail(col_idx);
+		model.addAttribute("collectionBean",collectionBean);
+		return "/collection/collection_detail";
+	}
 }
