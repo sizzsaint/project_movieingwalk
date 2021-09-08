@@ -1,5 +1,7 @@
 package com.movieingwalk.www.mypage;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -8,6 +10,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import com.movieingwalk.www.bean.MemberBean;
+import com.movieingwalk.www.bean.ReviewBean;
 
 @Mapper
 public interface MypageMapper {
@@ -54,6 +57,22 @@ public interface MypageMapper {
 	@Delete(RESIGN_MEMBER)
 	void resignMember(MemberBean memberBean);
 	
+	//마이페이지 리뷰리스트
+	final String MYPAGE_REVIEWLIST = "select r_idx, u_id, m_idx, r_star, r_date, r_likes, r_hits, r_comments, r_memo, r_spoiler from review where u_id = #{u_id}";
+	@Select(MYPAGE_REVIEWLIST)
+	@Results(id="mypagereview", value={
+			@Result(property="r_idx",column="r_idx"),
+			@Result(property="u_id",column="u_id"),
+			@Result(property="m_idx",column="m_idx"),
+			@Result(property="r_star",column="r_star"),
+			@Result(property="r_date",column="r_date"),
+			@Result(property="r_likes",column="r_likes"),
+			@Result(property="r_hits",column="r_hits"),
+			@Result(property="r_comments",column="r_comments"),
+			@Result(property="r_memo",column="r_memo"),
+			@Result(property="r_spoiler",column="r_spoiler")
+	})
+	ArrayList<ReviewBean> getMyReview(@Param("u_id")String u_id);
 
 }
 

@@ -41,8 +41,8 @@ if(session.getAttribute("mvId")==null){
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
-	 </c:forEach>
 	 </li>
+	 </c:forEach>
 	 </ul>
 </div>
 

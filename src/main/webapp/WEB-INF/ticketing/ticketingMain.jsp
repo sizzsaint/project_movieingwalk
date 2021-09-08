@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,65 +11,50 @@
 <jsp:include page="../main/header.jsp"/>
 
 </head>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+ <script type="text/javascript"> 
+ $(function(){
+	 $.ajax({			
+	  		url: "https://api.themoviedb.org/3/movie/now_playing?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&page=1",
+	  		type: "get",
+	  		dataType: "json",
+	  		success: function(json) {
+	  				var genretable = "<div class='nowscreening'>";
+	  			
+	  				var result = json.results;
+	  				
+	  				for(var j=0; j<10; j++){
+	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+	  			    var m_idx = result[j].id;
+	    			var title = result[j].title;
+	    			var poster_img = result[j].poster_path;
+	    					
+	    			//출력을 위한 동적 요소 생성
+	    			genretable +="<div style='float:left; margin-right:10px;'>";
+	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
+	    			genretable +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
+	    			genretable += "</div>";
+	  				}
+	  				genretable += "</div>"
+
+	    			$("#nowscreening").html(genretable);
+	  		},
+	   		 error : function(xhr, textStatus, errorThrown){
+	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+	    		}
+		});
+	 
+ })
+ </script>
+</head>
 <body>
-<nav class="menu" style="float: left; width: 20%"><jsp:include page="./menu.jsp"/></nav>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<center>
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-			예매율 순위1<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위2<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG">><br>
-		예매율 순위3<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위4<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위5<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위6<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위7<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위8<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위9<br>
-		<input type="button" value="예매" onclick="location.href='/ticketings'"><br>
-	</div>
-</center>
-	</body>
+<nav class="menu" style="float: left; width: 100%"><jsp:include page="./menu.jsp"/></nav>
+	<table class="show">
+	<tbody>
+		<tr>
+			<td>
+			<div id="nowscreening"></div></td></tr>
+	</tbody>
+	</table>
+</body>
 </html>

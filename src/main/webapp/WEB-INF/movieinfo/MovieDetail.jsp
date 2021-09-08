@@ -144,7 +144,7 @@
 	  			var cast = json.cast;
 	  			var actorList = "";
 	  			
-	  			for(i=0;i<8;i++){
+	  			for(i=0;i<5;i++){
 	  				var actorName = cast[i].name;
 	  				var profile_img = cast[i].profile_path;
 	  				var character = cast[i].character;
@@ -155,8 +155,8 @@
 	  				}else{
 	  					actorList += "<li id='actor'><img src='../imgdata/img_ready.png' width='100' height='120' alt='/'>";
 	  				}
-	  				actorList += "<p style='color:white'>"+actorName+"</p>";
-	  				actorList += "<p style='color:gray'>"+character+"</p></li>";
+	  				actorList += "<p style='color:white; width:100px;'>"+actorName+"</p>";
+	  				actorList += "<p style='color:gray; width:100px;'>"+character+"</p></li>";
 	  					
 	  				}
 	  			$(".credit_area").append(actorList);
@@ -200,7 +200,7 @@
 <div id="overview"></div>
 
 <div id="credit">
-<ul class="credit_area"> 
+<ul class="credit_area"></ul>
 </div>
 
 <div id="reviews">
@@ -223,8 +223,8 @@
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
-	 </c:forEach>
 	 </li>
+	 </c:forEach>
 	 </ul>
 </div>
 

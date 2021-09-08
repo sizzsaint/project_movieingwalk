@@ -47,4 +47,6 @@ public interface ReviewMapper {
 	@Select(SELECT_REVIEWDETAIL)
 	@ResultMap("reviewResult")
 	ReviewBean getReviewDetail(@Param("r_idx") int r_idx);
+	
+
 }

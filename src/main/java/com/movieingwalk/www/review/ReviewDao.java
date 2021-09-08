@@ -25,4 +25,6 @@ public class ReviewDao {
 	public ReviewBean getReviewDetail(int r_idx) {
 		return reviewmapper.getReviewDetail(r_idx);
 	}
+	
+
 }

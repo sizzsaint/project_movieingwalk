@@ -25,4 +25,6 @@ public class ReviewService {
 	public ReviewBean getReviewDetail(int r_idx) {
 		return reviewdao.getReviewDetail(r_idx);
 	}
+	
+
 }

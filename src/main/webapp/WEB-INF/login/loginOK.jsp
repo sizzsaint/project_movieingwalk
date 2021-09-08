@@ -14,7 +14,7 @@
 <c:if test="${result eq 'same'}">
 	<script type="text/javascript">
 		alert('로그인 되었습니다.')
-		history.bakc();
+		history.go(-2);
 	</script>
 </c:if>
 <c:if test="${result eq 'noID'}">
