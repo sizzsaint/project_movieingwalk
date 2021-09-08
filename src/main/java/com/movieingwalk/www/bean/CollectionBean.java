@@ -1,12 +1,10 @@
 package com.movieingwalk.www.bean;
 
 import org.springframework.stereotype.Repository;
-
 @Repository
 public class CollectionBean {
 
-	int col_idx, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx,
-			col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx;
+	int col_idx, col_midx1, col_midx2, col_midx3, col_midx4, col_midx5, col_midx6, col_midx7, col_midx8, col_midx9, col_midx10;
 
 	String col_title, col_memo, u_id;
 
@@ -18,92 +16,84 @@ public class CollectionBean {
 		this.col_idx = col_idx;
 	}
 
-	public String getU_id() {
-		return u_id;
+	public int getCol_midx1() {
+		return col_midx1;
 	}
 
-	public void setU_id(String u_id) {
-		this.u_id = u_id;
+	public void setCol_midx1(int col_midx1) {
+		this.col_midx1 = col_midx1;
 	}
 
-	public int getCol_movie1_idx() {
-		return col_movie1_idx;
+	public int getCol_midx2() {
+		return col_midx2;
 	}
 
-	public void setCol_movie1_idx(int col_movie1_idx) {
-		this.col_movie1_idx = col_movie1_idx;
+	public void setCol_midx2(int col_midx2) {
+		this.col_midx2 = col_midx2;
 	}
 
-	public int getCol_movie2_idx() {
-		return col_movie2_idx;
+	public int getCol_midx3() {
+		return col_midx3;
 	}
 
-	public void setCol_movie2_idx(int col_movie2_idx) {
-		this.col_movie2_idx = col_movie2_idx;
+	public void setCol_midx3(int col_midx3) {
+		this.col_midx3 = col_midx3;
 	}
 
-	public int getCol_movie3_idx() {
-		return col_movie3_idx;
+	public int getCol_midx4() {
+		return col_midx4;
 	}
 
-	public void setCol_movie3_idx(int col_movie3_idx) {
-		this.col_movie3_idx = col_movie3_idx;
+	public void setCol_midx4(int col_midx4) {
+		this.col_midx4 = col_midx4;
 	}
 
-	public int getCol_movie4_idx() {
-		return col_movie4_idx;
+	public int getCol_midx5() {
+		return col_midx5;
 	}
 
-	public void setCol_movie4_idx(int col_movie4_idx) {
-		this.col_movie4_idx = col_movie4_idx;
+	public void setCol_midx5(int col_midx5) {
+		this.col_midx5 = col_midx5;
 	}
 
-	public int getCol_movie5_idx() {
-		return col_movie5_idx;
+	public int getCol_midx6() {
+		return col_midx6;
 	}
 
-	public void setCol_movie5_idx(int col_movie5_idx) {
-		this.col_movie5_idx = col_movie5_idx;
+	public void setCol_midx6(int col_midx6) {
+		this.col_midx6 = col_midx6;
 	}
 
-	public int getCol_movie6_idx() {
-		return col_movie6_idx;
+	public int getCol_midx7() {
+		return col_midx7;
 	}
 
-	public void setCol_movie6_idx(int col_movie6_idx) {
-		this.col_movie6_idx = col_movie6_idx;
+	public void setCol_midx7(int col_midx7) {
+		this.col_midx7 = col_midx7;
 	}
 
-	public int getCol_movie7_idx() {
-		return col_movie7_idx;
+	public int getCol_midx8() {
+		return col_midx8;
 	}
 
-	public void setCol_movie7_idx(int col_movie7_idx) {
-		this.col_movie7_idx = col_movie7_idx;
+	public void setCol_midx8(int col_midx8) {
+		this.col_midx8 = col_midx8;
 	}
 
-	public int getCol_movie8_idx() {
-		return col_movie8_idx;
+	public int getCol_midx9() {
+		return col_midx9;
 	}
 
-	public void setCol_movie8_idx(int col_movie8_idx) {
-		this.col_movie8_idx = col_movie8_idx;
+	public void setCol_midx9(int col_midx9) {
+		this.col_midx9 = col_midx9;
 	}
 
-	public int getCol_movie9_idx() {
-		return col_movie9_idx;
+	public int getCol_midx10() {
+		return col_midx10;
 	}
 
-	public void setCol_movie9_idx(int col_movie9_idx) {
-		this.col_movie9_idx = col_movie9_idx;
-	}
-
-	public int getCol_movie10_idx() {
-		return col_movie10_idx;
-	}
-
-	public void setCol_movie10_idx(int col_movie10_idx) {
-		this.col_movie10_idx = col_movie10_idx;
+	public void setCol_midx10(int col_midx10) {
+		this.col_midx10 = col_midx10;
 	}
 
 	public String getCol_title() {
@@ -122,4 +112,12 @@ public class CollectionBean {
 		this.col_memo = col_memo;
 	}
 
+	public String getU_id() {
+		return u_id;
+	}
+
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
 }
+	

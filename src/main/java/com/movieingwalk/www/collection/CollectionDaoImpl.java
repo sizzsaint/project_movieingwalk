@@ -14,8 +14,8 @@ public class CollectionDaoImpl {
 	@Autowired
 	private CollectionMapper collectionMapper;
 	
-	public void writeCollection(CollectionBean collectionBean) {
-		collectionMapper.writeCollection(collectionBean);
+	public void insertCollection(CollectionBean collectionBean) {
+		collectionMapper.insertCollection(collectionBean);
 	}
 
 	
