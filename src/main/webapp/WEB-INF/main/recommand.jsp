@@ -20,7 +20,7 @@
 	  			
 	  				var result = json.results;
 	  				
-	  				for(var j=0; j<10; j++){
+	  				for(var j=0; j<8; j++){
 	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 	  			    var m_idx = result[j].id;
 	    			var title = result[j].title;
