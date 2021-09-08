@@ -168,10 +168,11 @@
  });
  });
  
- //function MoreReview(${review.r_dix}){
-		//url = "./review/reviewDetail?r_idx="+${review.r_dix};
-		//window.open(url,"post");
-	//}
+ function MoreReview(${review.m_dix}){
+	 
+		url = "../review/reviewList?m_idx="+m_idx;
+		window.open(url,"post");
+	}
  //function MoreCollection(${review.r_dix})
  
  
@@ -204,7 +205,7 @@
 
 <div id="reviews">
 <h3 style='color:white'>리뷰</h3>
-	 <input type="button" value="리뷰 더보기" onClick="MoreReview(${review.r_idx})">
+	 <input type="button" value="리뷰 더보기" onClick="MoreReview(${review.m_idx})">
 	 <ul class="review_area">
 
 	 <c:forEach var="review" items="${reviewBeanList}" begin="0" end="2" step="1">
@@ -212,13 +213,13 @@
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="./review/reviewDetail?r_idx="+${review.r_idx}><p>${review.r_memo}</p></a>
+	 <a href="localhost:8888/review/reviewDetail?r_idx=${review.r_idx}"><p>${review.r_memo}</p></a>
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p><a href="./review/reviewDetail?r_idx="+${review.r_idx}>스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <p><a href="localhost:8888/review/reviewDetail?r_idx=${review.r_idx}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>

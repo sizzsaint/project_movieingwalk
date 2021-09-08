@@ -27,5 +27,5 @@ public class MovieInfoDaoImpl implements MovieInfoDao{
 	public ArrayList<CollectionBean> getCollectionList(int m_idx){
 		return movieInfoMapper.getCollectionList(m_idx);
 	}
-
+	
 }

@@ -16,6 +16,7 @@
  <script type="text/javascript">
  //영화 검색
  function searchMovie(){
+	 
 	 var searchStr = document.getElementById('searchStr').value;
 	 var urlRow = "https://api.themoviedb.org/3/search/movie?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&query=" +searchStr+ "&include_adult=true";
 	 var url = encodeURI(urlRow);
