@@ -44,7 +44,7 @@ public class MovieInfoController {
 	}
 	//영화 상세정보 페이지 
 	@RequestMapping(value="/MovieDetail", method=RequestMethod.GET)
-	public String getMovieDetail(Model model, @RequestParam("m_idx") int m_idx, MemberBean memberBean) {
+	public String getMovieDetail(Model model, @RequestParam("m_idx") int m_idx,String u_id) {
 		logger.debug("영화 상세정보 페이지 호출");
 		
 		ArrayList<ReviewBean> reviewBeanList = movieInfoService.getReviewList(m_idx);
@@ -52,7 +52,7 @@ public class MovieInfoController {
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("reviewBeanList", reviewBeanList);
 		model.addAttribute("collectionBeanList", collectionBeanList);
-	
+		MemberBean memberBean = mypageService.mypageMain(u_id);
 		model.addAttribute("memberBean",memberBean);
 
 		return "/movieinfo/MovieDetail";
