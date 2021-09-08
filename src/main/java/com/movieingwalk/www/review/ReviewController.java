@@ -35,11 +35,13 @@ public class ReviewController {
 			@RequestParam("u_id") String u_id,
 			int m_idx,
 			int r_star,
-			Model model
+			Model model,
+			HttpSession session
 			){
 		model.addAttribute("u_id",u_id);
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("r_star",r_star);
+		session.setAttribute("mvId", u_id);
 		logger.debug("리뷰작성폼");
 		return "review/writeReview";
 	}

@@ -91,11 +91,11 @@
 		<section>
 			<form action="/review/write" method="post" role="form" id="writeReview"
 				name="writeReview">
-				<input type="hidden" name="u_id" value="${memberBean.u_id}">
+				<input type="hidden" name="u_id" value="${u_id}">
 				<input type="hidden" name="m_idx" value="${m_idx}">
 				<div>
 					<div>
-						<label for="star-rating"><c:out value="${memberBean.u_id}" />님의
+						<label for="star-rating"><c:out value="${u_id}" />님의
 							평점</label>
 
 						<div class="star-rating space-x-4 mx-auto">
