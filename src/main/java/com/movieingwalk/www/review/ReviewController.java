@@ -77,9 +77,21 @@ public class ReviewController {
 		model.addAttribute("r_idx", r_idx);
 		model.addAttribute(reviewBean);
 		
-		//reviewservice.hitup(r_idx);
+		int hits = reviewservice.hitup(r_idx);
+		model.addAttribute(hits);
 		
 		return "review/reviewDetail";
 	}
-
+	
+	//좋아요 처리
+		@RequestMapping(value="/likeUpdate", method=RequestMethod.GET)
+		public String likeUpdate(Model model, @RequestParam("r_idx") int r_idx) {
+			logger.debug("리뷰 좋아요 처리페이지 호출");
+			
+			int likes = reviewservice.likeUpdate(r_idx);
+			model.addAttribute("r_idx", r_idx);
+			model.addAttribute(likes);
+			
+			return "review/likeUpdate";
+		}
 }

@@ -50,7 +50,6 @@ public class CollectionController {
 	
 	
 	
-	
 
 	//콜렉션상세보기
 	//@RequestMapping(value="/collectiondetail", method = RequestMethod.GET)

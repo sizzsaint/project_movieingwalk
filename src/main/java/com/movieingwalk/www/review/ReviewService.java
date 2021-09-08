@@ -25,4 +25,12 @@ public class ReviewService {
 	public ReviewBean getReviewDetail(int r_idx) {
 		return reviewdao.getReviewDetail(r_idx);
 	}
+	
+	public int hitup(int r_idx) {
+		return reviewdao.hitup(r_idx);
+	}
+	
+	public int likeUpdate(int r_idx) {
+		return reviewdao.likeUpdate(r_idx);
+	}
 }

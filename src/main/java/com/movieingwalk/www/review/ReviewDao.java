@@ -25,4 +25,12 @@ public class ReviewDao {
 	public ReviewBean getReviewDetail(int r_idx) {
 		return reviewmapper.getReviewDetail(r_idx);
 	}
+	
+	public int hitup(int r_idx) {
+		return reviewmapper.hitup(r_idx);
+	}
+	
+	public int likeUpdate(int r_idx) {
+		return reviewmapper.likeUpdate(r_idx);
+	}
 }

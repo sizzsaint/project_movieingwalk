@@ -28,7 +28,7 @@
 				<td width="30%"><c:choose>
 						<c:when test="${mvId == null }">
 							<input type="button" value="로그인"
-								onclick="location.href='loginMember'">
+								onclick="location.href='/loginMember'">
 							<input type="button" value="회원가입"
 								onclick="showPopup()">
 						</c:when>
