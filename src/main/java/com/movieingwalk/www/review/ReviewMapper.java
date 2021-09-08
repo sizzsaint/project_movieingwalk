@@ -62,10 +62,11 @@ public interface ReviewMapper {
 	
 	
 	//좋아요 올리기
-	final String UPDATE_LIKES = "update review set r_likes = r_likes + 1 where r_idx = #{r_idx}";
+	final String UPDATE_LIKES = "update review set r_likes = r_likes + 1 where r_idx = #{r_idx} ";
 	
 	@Update(UPDATE_LIKES)
 	int likeUpdate(int r_idx);
 	
+
 	
 }

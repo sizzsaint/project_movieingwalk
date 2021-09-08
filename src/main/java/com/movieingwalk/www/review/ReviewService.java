@@ -33,4 +33,6 @@ public class ReviewService {
 	public int likeUpdate(int r_idx) {
 		return reviewdao.likeUpdate(r_idx);
 	}
+	
+
 }

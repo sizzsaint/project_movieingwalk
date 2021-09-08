@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.movieingwalk.www.bean.ReviewBean;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 @Repository
 public class ReviewDao {
@@ -33,4 +34,6 @@ public class ReviewDao {
 	public int likeUpdate(int r_idx) {
 		return reviewmapper.likeUpdate(r_idx);
 	}
+	
+
 }
