@@ -1,9 +1,12 @@
 package com.movieingwalk.www.mypage;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.movieingwalk.www.bean.MemberBean;
+import com.movieingwalk.www.bean.ReviewBean;
 
 @Repository
 public class MypageDao {
@@ -31,4 +34,11 @@ public class MypageDao {
 	public void resignMemberOK(MemberBean memberBean) {
 		mypageMapper.resignMember(memberBean);
 	}
+	
+	//마이페이지 리뷰
+	public ArrayList<ReviewBean> getMyReview(String u_id){
+		return mypageMapper.getMyReview(u_id);
+	}
+	
+	
 }

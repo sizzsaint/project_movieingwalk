@@ -6,66 +6,52 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="./../../css/mypage.css" rel="stylesheet" type="text/css">
-
-</head>
-<body>
 <jsp:include page="../main/header.jsp"/>
-<nav class="menu"><jsp:include page="./menu.jsp"/></nav>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+ <script type="text/javascript"> 
+ $(function(){	 
+	 $.ajax({			
+	  		url: "https://api.themoviedb.org/3/movie/popular?api_key=9348030243f7b212abdd53ccc8412e24&language=ko&page=1",
+	  		type: "get",
+	  		dataType: "json",
+	  		success: function(json) {
+	  				var genretable = "<div class='popular'>";
+	  			
+	  				var result = json.results;
+	  				
+	  				for(var j=0; j<15; j++){
+	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+	  			    var m_idx = result[j].id;
+	    			var title = result[j].title;
+	    			var poster_img = result[j].poster_path;
+	    					
+	    			//출력을 위한 동적 요소 생성
+	    			genretable +="<div style='float:left; margin-right:10px;'>";
+	    			genretable +="<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
+	    			genretable +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
+	    			genretable +="<p style='color:pink; width:170; height:81;'>예매율 순위 높은 순</p>";
+	    			genretable +="<button class=btn_ticket><a href='/ticketings'>예매</button></a>";
+	    			genretable += "</div>";	    			
+	  				}
+	  				genretable += "</div>"
 
-<center>
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-			예매율 순위1<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위2<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG">><br>
-		예매율 순위3<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위4<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위5<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위6<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위7<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위8<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-	
-	<div style="border: 1px white; float: left; width: 30%; padding:10px;">
-		<img src="./../../imgdata/test.PNG"><br>
-		예매율 순위9<br>
-		<input type="button" value="예매" onclick=""><br>
-	</div>
-</center>
+	    			$("#popular").html(genretable);
+	  		},
+	   		 error : function(xhr, textStatus, errorThrown){
+	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+	    		}
+		});	 
+ })
+ </script>
+</head>
+<nav class="menu">
+<jsp:include page="./menu.jsp"/></nav>
+<body>
+<table class="show">
+	<tbody>
+	<tr>
+	<td>
+	<div id="popular"></div></td></tr></tbody>
+</table>
 </body>
 </html>

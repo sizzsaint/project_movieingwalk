@@ -1,5 +1,7 @@
 package com.movieingwalk.www.mypage;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -19,6 +21,7 @@ import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
 import com.movieingwalk.www.login.LoginController;
 import com.movieingwalk.www.login.LoginService;
+import com.movieingwalk.www.review.Paging;
 
 @Controller
 @RequestMapping("/mypage")
@@ -32,11 +35,13 @@ public class MypageController {
 
 	//mypage main
 	@RequestMapping(value = "" , method= RequestMethod.GET)
-	public String mypageMain(Model model, MemberBean memberBean,@RequestParam(required = false)String u_id) {
+	public String mypageMain(Model model, MemberBean memberBean,@RequestParam(required = false)String u_id,
+			HttpSession session) {
 		logger.info("Mypage메인");
 		MemberBean memberBeanMain = mypageService.mypageMain(u_id);
 		model.addAttribute("memberBean", memberBeanMain);
 		model.addAttribute("u_id", u_id);
+		session.setAttribute("u_id", u_id);
 		return "mypage/mypageMain";
 	}
 	
@@ -64,13 +69,6 @@ public class MypageController {
 		return "mypage/modifyMemberOK";
 	}
 	
-	//리뷰 목록 처리
-	@RequestMapping(value = "/myreviewlist", method = RequestMethod.GET)
-	public String myReview(ReviewBean ReviewBean, Model model, @RequestParam("u_id")String u_id) {
-		MemberBean memberBean = mypageService.mypageMain(u_id);
-		model.addAttribute("memberBean", memberBean);
-		return "mypage/myreviewlist";
-	}
 	// 콜렉션 목록 처리
 	@RequestMapping(value = "/mycollectionlist", method = RequestMethod.GET)
 	public String myReview(CollectionBean collectionBean, Model model, @RequestParam("u_id")String u_id) {
@@ -109,5 +107,21 @@ public class MypageController {
 			model.addAttribute("result","diff");
 		}
 		return "mypage/resignMemberOK";
+	}
+	
+	//마이페이지 리뷰
+	@RequestMapping(value="/myreviewlist", method =RequestMethod.GET)
+	public String myreViewList(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
+		logger.debug("마이페이지 리뷰");
+		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
+		model.addAttribute("u_id",u_id);
+		model.addAttribute("myReviewList",myReviewList);
+
+		int listCnt = myReviewList.size();
+		Paging paging = new Paging(listCnt, curPage);
+		
+		model.addAttribute("listCnt",listCnt);
+		model.addAttribute("paging",paging);
+		return "mypage/myreviewlist";
 	}
 }
