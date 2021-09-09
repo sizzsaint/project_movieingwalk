@@ -114,10 +114,10 @@ public class MypageController {
 	public String myreViewList(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
 		logger.debug("마이페이지 리뷰");
 		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
-//		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
+		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
 		model.addAttribute("u_id",u_id);
 		model.addAttribute("myReviewList",myReviewList);
-//		model.addAttribute("getMyLikeReview",getMyLikeReview);
+		model.addAttribute("getMyLikeReview",getMyLikeReview);
 
 		int listCnt = myReviewList.size();
 		Paging paging = new Paging(listCnt, curPage);

@@ -1,7 +1,7 @@
 /*전체*/
 html,body {
 	height: 100%;
-	width: 1080;
+	width: 1080px;
 	font-family: "Mulish", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	background: #0b0c2a;
@@ -13,7 +13,7 @@ html,body {
 header{
 	background: #070720;
 	height:150px;
-	width:100%;
+	width: 1080px;
 }
 
 header table{

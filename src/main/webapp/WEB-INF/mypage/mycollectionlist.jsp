@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내컬렉션</title>
+<title>MyCollection</title>
 </head>
 <body >
 <jsp:include page="../main/header.jsp"/>
