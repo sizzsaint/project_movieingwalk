@@ -1,10 +1,11 @@
 /*전체*/
 html,body {
 	height: 100%;
+	width: 1080;
 	font-family: "Mulish", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	background: #0b0c2a;
-	margin:0;
+	margin:0px auto;
 	padding:0;
 }
 

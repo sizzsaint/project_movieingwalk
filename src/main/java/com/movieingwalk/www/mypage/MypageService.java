@@ -45,4 +45,9 @@ public class MypageService {
 	public ArrayList<ReviewBean> getMyReview(String u_id){
 		return mypageDao.getMyReview(u_id);
 	}
+	
+	//마이페이지 리뷰좋아요
+//	public ArrayList<ReviewBean> getMyLikeReview(String u_id){
+//		return mypageDao.getMyLikeReview(u_id);
+//	}
 }

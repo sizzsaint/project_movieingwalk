@@ -11,11 +11,11 @@
 <jsp:include page="../main/header.jsp"/>
 <jsp:include page="./leftMenu.jsp"/>
 <!-- 나의된리뷰 -->
-<h2>나의리뷰보기</h2>
+<h2 style="color:white;">나의리뷰보기</h2>
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<div id="reviews">
+<div id="reviews" style="display:block;">
 	 <ul class="review_area" style="color:white; border:1px solid gray;">
 
 	 <c:forEach var="review" items="${myReviewList}">
@@ -38,7 +38,8 @@
 	 </ul>
 </div>
 
-<div>
+
+<div style="float: none;">
 	<c:if test="${pagination.curRange ne 1 }">
     	<a href="#" onClick="fn_paging(1)">[처음]</a> 
 	</c:if>

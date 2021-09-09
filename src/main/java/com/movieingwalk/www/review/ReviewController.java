@@ -86,7 +86,7 @@ public class ReviewController {
 		return "review/reviewDetail";
 	}
 	
-	//좋아요 처리
+		//좋아요 처리
 		@RequestMapping(value="/likeUpdate", method=RequestMethod.GET)
 		public String likeUpdate(Model model, @RequestParam("r_idx") int r_idx, @RequestParam("u_id") String u_id) {
 			logger.debug("리뷰 좋아요 처리페이지 호출");
@@ -101,4 +101,6 @@ public class ReviewController {
 			
 			return "review/likeUpdate";
 		}
+		
+
 }
