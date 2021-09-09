@@ -47,7 +47,7 @@
 			<li><a href="/movieinfo/Main">영화</a></li>
 		</ul>
 		<ul class="collection">
-			<li><a href="#">컬렉션</a></li>
+			<li><a href="/collection">컬렉션</a></li>
 		</ul>
 		<ul class="ticketing">
 			<li><a href="#">예매</a></li>

@@ -32,6 +32,9 @@ public class CollectionDaoImpl implements CollectionDao {
 		return collectionMapper.getCollectionList(m_idx);
 	}
 
+	public ArrayList<CollectionBean> getMainCollection(){
+		return collectionMapper.getMainCollection();
+	}
 
 	
 

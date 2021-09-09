@@ -75,4 +75,13 @@ public class CollectionController {
 		model.addAttribute("m_idx", m_idx);
 		return "/collection/collectionList";
 	}
+	
+	@RequestMapping(value="")
+	public String collectionMain(Model model) {
+		logger.debug("컬렉션메인");
+		ArrayList<CollectionBean> collectionBeanList = collectionService.getMainCollection();
+		model.addAttribute("collectionBeanList", collectionBeanList);
+
+		return "/collection/collectionMain";
+	}
 }

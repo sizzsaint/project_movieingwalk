@@ -27,4 +27,8 @@ public class CollectionServiceImpl {
 		// TODO Auto-generated method stub
 		return collectionDao.getCollectionList(m_idx);
 	}
+	
+	public ArrayList<CollectionBean> getMainCollection(){
+		return collectionDao.getMainCollection();
+	}
 }
