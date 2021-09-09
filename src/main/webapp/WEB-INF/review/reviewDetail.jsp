@@ -30,8 +30,7 @@ if(session.getAttribute("mvId")==null){
 		 alert("이미 좋아요를 누른 리뷰입니다.");
 		 return false;
 	 }else{
-		 alert(r_idx);
-		 alert(u_id);
+
 		 location.href="likeUpdate?r_idx="+r_idx+"&u_id="+u_id ;
 	 }
 	 

@@ -69,7 +69,7 @@ public interface CollectionMapper {
 	ArrayList<CollectionBean> getCollectionList(int m_idx);
 	
 	
-	final String SELECT_COL_LIKED = "select * from collection order by col_likes desc";
+	final String SELECT_COL_LIKED = "select * from collection order by col_likes desc limit 3";
 	@Select(SELECT_COL_LIKED)
 	@Results(id="mainResult", value= {
 			@Result(property="col_idx",column="col_idx"),

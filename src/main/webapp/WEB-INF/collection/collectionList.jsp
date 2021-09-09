@@ -17,15 +17,46 @@ if(session.getAttribute("mvId")==null){
 <meta charset="UTF-8">
 <title>MovieingWalk</title>
 
+<link href="../css/loading.css" rel ="stylesheet" type="text/css">
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
 
-$(function(){
 
+$(document).ready(function(){
+
+	var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="/" src="../imges/loading.gif" />')
+
+					.appendTo(document.body).hide();
+
+
+
+	$(window)	
+
+	.ajaxStart(function(){
+
+		loading.show();
+
+	})
+
+	.ajaxStop(function(){
+
+		loading.hide();
+
+	});
+
+});
+
+
+
+
+$(function(){
+	var cnt = 0;
 	<c:forEach items="${collectionBeanList}" var="collection">
 	
 	var list1 = new Array();
+	cnt += 1;
 	
 	list1.push("${collection.col_midx1}");
 	list1.push("${collection.col_midx2}");
@@ -37,11 +68,15 @@ $(function(){
 	list1.push("${collection.col_midx8}");
 	list1.push("${collection.col_midx9}");
 	list1.push("${collection.col_midx10}");
+
+	var col_idx = "${collection.col_idx}";
+
+	var collectionList = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = 'collectiondetail?col_idx="+col_idx+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 	for (var i=0;i<list1.length;i++){
 		m_idx = list1[i];
-		var collectionList = "<div id='collection_"+i+"' style='border:1px solid gray;'>";
-	$.ajax({
+	
+		$.ajax({
 		url: "https://api.themoviedb.org/3/movie/"+m_idx+"?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
 		type: "get",
 		dataType: "json",
@@ -49,24 +84,24 @@ $(function(){
 		async : false,
 		success: function(json) {
 			
-			var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			   var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 			var title = json.title;
 			var poster_img = json.poster_path;
 			var m_idx = json.id;
 					
 			//출력을 위한 동적 요소 생성
 			collectionList +="<div style='position:relative; border:1px solid gray; float:left; right-margin:10px'>";
-			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:170px;' alt=''/></a>";
+			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:120px;' alt=''/></a>";
 			collectionList +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
-			collectionList += "</div></div>";
-			
-			$("#collections").append(collectionList);
+			collectionList += "</div>";	
 		},
 		 error : function(xhr, textStatus, errorThrown){
 		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
 		}
+		
 });
-}
+}	collectionList +="</div>";
+	$("#collections").append(collectionList);
 	</c:forEach>
 			
 });
@@ -84,7 +119,7 @@ $(function(){
 	
 </div>
 
-<div style="color:white; display:inline-block;">
+<div style="color:white">
 	<c:if test="${pagination.curRange ne 1 }">
     	<a href="#" onClick="fn_paging(1)">[처음]</a> 
 	</c:if>
@@ -109,7 +144,7 @@ $(function(){
     </c:if>
 </div>
                 
-<div style="color:white; display:inline-block;">
+<div style="color:white">
          총 게시글 수 : ${pagination.listCnt } /    총 페이지 수 : ${pagination.pageCnt } / 현재 페이지 : ${pagination.curPage } / 현재 블럭 : ${pagination.curRange } / 총 블럭 수 : ${pagination.rangeCnt }
 </div>
 
