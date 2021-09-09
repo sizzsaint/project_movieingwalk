@@ -1,5 +1,7 @@
 package com.movieingwalk.www.collection;
 
+import java.util.ArrayList;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -60,5 +62,17 @@ public class CollectionController {
 		collectionBean = collectionService.col_datail(col_idx);
 		model.addAttribute("collectionBean",collectionBean);
 		return "/collection/collection_detail";
+	}
+	
+	//컬렉션 리스트
+	@RequestMapping(value="/collectionList", method=RequestMethod.GET)
+	public String collectionList(Model model,  @RequestParam("m_idx") int m_idx) {
+		
+		logger.debug("컬렉션 리스트");
+		ArrayList<CollectionBean> collectionBeanList = collectionService.getCollectionList(m_idx);
+	
+		model.addAttribute("collectionBeanList", collectionBeanList);
+		model.addAttribute("m_idx", m_idx);
+		return "/collection/collectionList";
 	}
 }

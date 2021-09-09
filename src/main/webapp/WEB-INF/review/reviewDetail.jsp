@@ -19,6 +19,25 @@ if(session.getAttribute("mvId")==null){
 <!-- jQuery Framework 참조하기 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
  
+ <!-- 사용자 스크립트 블록 -->
+ <script type="text/javascript">
+ var checkLike = ${checkLikes};
+ var r_idx = ${r_idx};
+ var u_id = '${u_id}';
+ function check123(){
+	 
+	 if(checkLike == "1"){
+		 alert("이미 좋아요를 누른 리뷰입니다.");
+		 return false;
+	 }else{
+		 alert(r_idx);
+		 alert(u_id);
+		 location.href="likeUpdate?r_idx="+r_idx+"&u_id="+u_id ;
+	 }
+	 
+ }
+ </script>
+ 
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
@@ -40,7 +59,7 @@ if(session.getAttribute("mvId")==null){
 	조회수 : ${reviewBean.r_hits}
 </div>
 <div id="buttons">
-<input type="button" value="좋아요" onClick="location.href='likeUpdate?r_idx=${reviewBean.r_idx}'">
+<input type="button" value="좋아요" onClick="check123();">
 </div>
 </body>
 </html>

@@ -30,7 +30,15 @@ public class ReviewService {
 		return reviewdao.hitup(r_idx);
 	}
 	
+	public int checkLike(int r_idx, String u_id) {
+		return reviewdao.checkLike(r_idx, u_id);
+	}
+	
 	public int likeUpdate(int r_idx) {
 		return reviewdao.likeUpdate(r_idx);
+	}
+	
+	public void likeInsert(int r_idx, String u_id) {
+		reviewdao.likeInsert(r_idx,u_id);
 	}
 }

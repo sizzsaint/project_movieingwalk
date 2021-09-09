@@ -62,8 +62,15 @@ public interface ReviewMapper {
 	
 	
 	//좋아요 올리기
-	final String UPDATE_LIKES = "update review set r_likes = r_likes + 1 where r_idx = #{r_idx}";
+	final String SELECT_LIKES = "select count(*) from reviewlike where r_idx = #{r_idx} and u_id = #{u_id}";
+	@Select(SELECT_LIKES)
+	int checkLike(int r_idx, String u_id);
 	
+	final String INSERT_LIKES = "insert into reviewlike (r_idx, u_id) values( #{r_idx}, #{u_id} )";
+	@Insert(INSERT_LIKES)
+	void likeInsert(int r_idx, String u_id);
+	
+	final String UPDATE_LIKES = "update review set r_likes = r_likes + 1 where r_idx = #{r_idx}";
 	@Update(UPDATE_LIKES)
 	int likeUpdate(int r_idx);
 	

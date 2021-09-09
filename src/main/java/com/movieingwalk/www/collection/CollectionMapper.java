@@ -1,5 +1,7 @@
 package com.movieingwalk.www.collection;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -40,7 +42,30 @@ public interface CollectionMapper {
 	final String INSERT_COLLECTION ="insert into collection(u_id, col_title, col_memo, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx, col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx)"
 									+"values (#{u_id}, #{col_title}, #{col_memo}, #{col_midx1}, #{col_midx2}, #{col_midx3}, #{col_midx4}, #{col_midx5}, #{col_midx6}, #{col_midx7}, #{col_midx8}, #{col_midx9}, #{col_midx10})";
 	@Insert(INSERT_COLLECTION)
-	void insertCollection(CollectionBean collectionBean); 
+	void insertCollection(CollectionBean collectionBean);
+	
+	
+	final String SELECT_COLLECTIONLIST = "select col_idx, u_id, col_title, col_memo, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx, col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx from collection "
+			+ "where col_movie1_idx = #{m_idx} or col_movie2_idx = #{m_idx} or col_movie3_idx = #{m_idx} or col_movie4_idx = #{m_idx} or col_movie5_idx = #{m_idx} or col_movie6_idx = #{m_idx} or col_movie7_idx = #{m_idx} or col_movie8_idx = #{m_idx} or col_movie9_idx = #{m_idx} or col_movie10_idx = #{m_idx}";
+	
+	@Select(SELECT_COLLECTIONLIST)
+	@Results(id="colResult", value= {
+			@Result(property="col_idx",column="col_idx"),
+			@Result(property="u_id",column="u_id"),
+			@Result(property="col_title",column="col_title"),
+			@Result(property="col_memo",column="col_memo"),
+			@Result(property="col_midx1",column="col_movie1_idx"),
+			@Result(property="col_midx2",column="col_movie2_idx"),
+			@Result(property="col_midx3",column="col_movie3_idx"),
+			@Result(property="col_midx4",column="col_movie4_idx"),
+			@Result(property="col_midx5",column="col_movie5_idx"),
+			@Result(property="col_midx6",column="col_movie6_idx"),
+			@Result(property="col_midx7",column="col_movie7_idx"),
+			@Result(property="col_midx8",column="col_movie8_idx"),
+			@Result(property="col_midx9",column="col_movie9_idx"),
+			@Result(property="col_midx10",column="col_movie10_idx")
+	})
+	ArrayList<CollectionBean> getCollectionList(int m_idx);
 	
 	
 	

@@ -168,12 +168,16 @@
  });
  });
  
- function MoreReview(${review.m_dix}){
+ function MoreReview(){
 	 
-		url = "../review/reviewList?m_idx="+m_idx;
+		var url = "/review/reviewList?m_idx="+${m_idx};
 		window.open(url,"post");
 	}
- //function MoreCollection(${review.r_dix})
+ function MoreCollection(){
+	 
+	 var url = "/collection/collectionList?m_idx="+${m_idx};
+	 window.open(url,"post");
+ }
  
  
  </script>
@@ -205,7 +209,7 @@
 
 <div id="reviews">
 <h3 style='color:white'>리뷰</h3>
-	 <input type="button" value="리뷰 더보기" onClick="MoreReview(${review.m_idx})">
+	 <input type="button" value="리뷰 더보기" onClick="MoreReview()">
 	 <ul class="review_area">
 
 	 <c:forEach var="review" items="${reviewBeanList}" begin="0" end="2" step="1">
@@ -230,11 +234,11 @@
 
 <div id="collections">
 <h3 style='color:white'>해당 영화가 담긴 컬렉션들</h3>
-<input type="button" value="컬렉션 더보기" onClick="MoreCollection(${review.r_dix})">
-<ul class="collection_area">
+<input type="button" value="컬렉션 더보기" onClick="MoreCollection()">
+<ul class="collection_area" style="list-style: none;">
  <c:forEach var="collection" items="${collectionBeanList}" begin="1" end="5" step="1">
  <li id="collection">
- ${collection.col_title}
+ <a href="/collection/collectiondetail?col_idx=${collection.col_idx}">${collection.col_title}</a>
  </c:forEach>
 </ul>
 </div>

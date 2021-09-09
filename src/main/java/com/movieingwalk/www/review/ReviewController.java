@@ -70,26 +70,33 @@ public class ReviewController {
 	
 	//리뷰 상세보기
 	@RequestMapping(value="/reviewDetail", method=RequestMethod.GET)
-	public String reviewDetail(Model model, @RequestParam("r_idx") int r_idx) {
+	public String reviewDetail(Model model, @RequestParam("r_idx") int r_idx, @RequestParam("u_id") String u_id) {
 		logger.debug("리뷰 상세보기 페이지 호출");
 		
 		ReviewBean reviewBean = reviewservice.getReviewDetail(r_idx);
 		model.addAttribute("r_idx", r_idx);
-		model.addAttribute(reviewBean);
-		
+		model.addAttribute("u_id", u_id);
+		model.addAttribute("reviewBean",reviewBean);
 		int hits = reviewservice.hitup(r_idx);
-		model.addAttribute(hits);
+		model.addAttribute("hits", hits);
+		
+		int checkLikes = reviewservice.checkLike(r_idx, u_id);
+		model.addAttribute("checkLikes", checkLikes);
 		
 		return "review/reviewDetail";
 	}
 	
 	//좋아요 처리
 		@RequestMapping(value="/likeUpdate", method=RequestMethod.GET)
-		public String likeUpdate(Model model, @RequestParam("r_idx") int r_idx) {
+		public String likeUpdate(Model model, @RequestParam("r_idx") int r_idx, @RequestParam("u_id") String u_id) {
 			logger.debug("리뷰 좋아요 처리페이지 호출");
-			
+
 			int likes = reviewservice.likeUpdate(r_idx);
+			
+			reviewservice.likeInsert(r_idx,u_id);
+			
 			model.addAttribute("r_idx", r_idx);
+			model.addAttribute("u_id", u_id);
 			model.addAttribute(likes);
 			
 			return "review/likeUpdate";

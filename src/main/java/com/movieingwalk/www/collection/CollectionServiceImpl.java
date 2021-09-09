@@ -1,5 +1,7 @@
 package com.movieingwalk.www.collection;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,10 @@ public class CollectionServiceImpl {
 	public CollectionBean col_datail(int col_idx) {
 		return collectionDao.col_datail(col_idx);
 		
+	}
+
+	public ArrayList<CollectionBean> getCollectionList(int m_idx) {
+		// TODO Auto-generated method stub
+		return collectionDao.getCollectionList(m_idx);
 	}
 }

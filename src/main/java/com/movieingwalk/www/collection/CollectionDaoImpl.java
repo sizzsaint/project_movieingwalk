@@ -27,6 +27,11 @@ public class CollectionDaoImpl implements CollectionDao {
 		collectionMapper.insertCollection(collectionBean);
 	}
 
+	public ArrayList<CollectionBean> getCollectionList(int m_idx) {
+		// TODO Auto-generated method stub
+		return collectionMapper.getCollectionList(m_idx);
+	}
+
 
 	
 
