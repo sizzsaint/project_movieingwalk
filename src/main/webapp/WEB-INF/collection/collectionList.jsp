@@ -20,28 +20,25 @@ if(session.getAttribute("mvId")==null){
 <script type="text/javascript">
 
 $(function(){
-
-	alert(${collectionBeanList[0].col_movie1_idx});
-
-	for(var i=0;i<collectionBeanList.length;i++){
-		
-		alert(collectionBeanList[i].col_movie1_idx);
-		var m_idxs = [];
-		m_idxs.push(collectionBeanList[i].col_movie1_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie2_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie3_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie4_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie5_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie6_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie7_idx);
-		m_idxs.push(collectionBeanList[i].col_movie8_idx);
-		m_idxs.push(collectionBeanList[i].col_movie9_idx);
-		m_idxs.push(collectionBeanList[i].col_movie10_idx); 
 	
-		var collectionList="<div id=collection"+i+" style='border:1px solid gray;'> <h3 style='color:white'>"+collectionBeanList[i].col_title+"</h3>";	
+	
+	${collectionBeanList}.forEach(function(colBean,i,List){
+		var m_idxs = [];
+		m_idxs.push(List[i].col_midx1); 
+		m_idxs.push(List[i].col_midx2); 
+		m_idxs.push(List[i].col_midx3); 
+		m_idxs.push(List[i].col_midx4); 
+		m_idxs.push(List[i].col_midx5); 
+		m_idxs.push(List[i].col_midx6); 
+		m_idxs.push(List[i].col_midx7);
+		m_idxs.push(List[i].col_midx8);
+		m_idxs.push(List[i].col_midx9);
+		m_idxs.push(List[i].col_midx10);
 		
-	for(var=0;i<m_idxs.length;i++){
-		var m_idx = m_idxs[i];
+		var collectionList="<div id=collection"+i+" style='border:1px solid gray;'> <h3 style='color:white'>"+collectionBeanList[i].col_title+"</h3>";	
+			
+	for(var j=0;j<m_idxs.length;j++){
+		var m_idx = m_idxs[j];
 		
 		$.ajax({
 	  		url: "https://api.themoviedb.org/3/movie/"+m_idx+"?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
@@ -70,7 +67,7 @@ $(function(){
 	    		}
 		});
 	}
-	}
+});
 });
 
 </script>
@@ -83,6 +80,21 @@ $(function(){
 <a href="javascript:history.back();">뒤로가기</a>
 
 <div id="collections">
+
+<c:forEach var="collection" items="${collectionBeanList}">
+<div>
+<input type="hidden" class="col_midxs" value="${collection.col_midx1}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx2}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx3}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx4}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx5}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx6}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx7}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx8}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx9}">
+<input type="hidden" class="col_midxs" value="${collection.col_midx10}">
+</div>
+</c:forEach>
 	
 </div>
 
