@@ -3,6 +3,7 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <%
 if(session.getAttribute("mvId")==null){
@@ -70,9 +71,25 @@ if(session.getAttribute("mvId")==null){
 				}
 			});
 		}
-	});
+ });
 
-</script>
+ var checkLike = ${checkLikes};
+ var col_idx = ${col_idx};
+ var u_id = '${u_id}';
+ function check123(){
+	 
+	 if(checkLike > 0){
+		 alert("이미 좋아요를 누른 리뷰입니다.");
+		 return false;
+	 }else{
+		 location.href="collikeUpdate?col_idx="+col_idx+"&u_id="+u_id;
+	 }
+	 
+ }
+
+ </script>
+ 
+
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
@@ -83,6 +100,7 @@ if(session.getAttribute("mvId")==null){
 <tr><td>제목</td><td><c:out value="${collectionBean.col_title}"/>
 </td></tr>
 <tr><td>작성자</td><td><c:out value="${collectionBean.u_id}"/>
+<c:set value="${collectionBean.u_id}" var="u_id"/>
 </td></tr>
 <tr><td>컬렉션 소개</td><td>
 <c:out value="${collectionBean.col_memo}"/>
@@ -92,7 +110,7 @@ if(session.getAttribute("mvId")==null){
 <ol id="newcolList"></ol>
 </td></tr>
 </table>
-
+<input type="button" value="좋아요" onClick="check123();">
 <button onclick="javascript:history.back();">돌아가기</button>
 
 
