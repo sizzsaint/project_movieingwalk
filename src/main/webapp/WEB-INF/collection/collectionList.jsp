@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%
@@ -7,7 +8,8 @@ if(session.getAttribute("mvId")==null){
    response.sendRedirect("/loginMember");
 }else{
 	Object object = session.getAttribute("mvId");
-	String u_id = (String)object;
+	String u_id = (String)object;	
+	
 %> 
 <!DOCTYPE html>
 <html>
@@ -21,56 +23,52 @@ if(session.getAttribute("mvId")==null){
 
 $(function(){
 
-	alert(${collectionBeanList[0].col_movie1_idx});
-
-	for(var i=0;i<collectionBeanList.length;i++){
-		
-		alert(collectionBeanList[i].col_movie1_idx);
-		var m_idxs = [];
-		m_idxs.push(collectionBeanList[i].col_movie1_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie2_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie3_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie4_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie5_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie6_idx); 
-		m_idxs.push(collectionBeanList[i].col_movie7_idx);
-		m_idxs.push(collectionBeanList[i].col_movie8_idx);
-		m_idxs.push(collectionBeanList[i].col_movie9_idx);
-		m_idxs.push(collectionBeanList[i].col_movie10_idx); 
+	<c:forEach items="${collectionBeanList}" var="collection">
 	
-		var collectionList="<div id=collection"+i+" style='border:1px solid gray;'> <h3 style='color:white'>"+collectionBeanList[i].col_title+"</h3>";	
-		
-	for(var=0;i<m_idxs.length;i++){
-		var m_idx = m_idxs[i];
-		
-		$.ajax({
-	  		url: "https://api.themoviedb.org/3/movie/"+m_idx+"?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
-	  		type: "get",
-	  		dataType: "json",
-	  		cache : false,
-	  		async:false,
-	  		timeout : 30000,
-	  		success: function(json) {
-	  			
-	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
-	    			var title = json.title;
-	    			var poster_img = json.poster_path;
-	    			var m_idx = json.id;
-	    					
-	    			//출력을 위한 동적 요소 생성
-	    			collectionList +="<div style='position:relative; border:1px solid gray; float:left; right-margin:10px'>";
-	    			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:200px;' alt=''/></a>";
-	    			collectionList +="<p style='color:white width:170; height:81;'>"+title+"</p>";
-	    			collectionList += "</div>";
-	    			
-	    			$("#collections").append(collectionList);
-	  		},
-	   		 error : function(xhr, textStatus, errorThrown){
-	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
-	    		}
-		});
-	}
-	}
+	var list1 = new Array();
+	
+	list1.push("${collection.col_midx1}");
+	list1.push("${collection.col_midx2}");
+	list1.push("${collection.col_midx3}");
+	list1.push("${collection.col_midx4}");
+	list1.push("${collection.col_midx5}");
+	list1.push("${collection.col_midx6}");
+	list1.push("${collection.col_midx7}");
+	list1.push("${collection.col_midx8}");
+	list1.push("${collection.col_midx9}");
+	list1.push("${collection.col_midx10}");
+	
+	for (var i=0;i<list1.length;i++){
+		m_idx = list1[i];
+		var collectionList = "<div id='collection_"+i+"' style='border:1px solid gray;'>";
+	$.ajax({
+		url: "https://api.themoviedb.org/3/movie/"+m_idx+"?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
+		type: "get",
+		dataType: "json",
+		cache : false,
+		async : false,
+		success: function(json) {
+			
+			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			var title = json.title;
+			var poster_img = json.poster_path;
+			var m_idx = json.id;
+					
+			//출력을 위한 동적 요소 생성
+			collectionList +="<div style='position:relative; border:1px solid gray; float:left; right-margin:10px'>";
+			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:170px;' alt=''/></a>";
+			collectionList +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
+			collectionList += "</div></div>";
+			
+			$("#collections").append(collectionList);
+		},
+		 error : function(xhr, textStatus, errorThrown){
+		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
+		}
+});
+}
+	</c:forEach>
+			
 });
 
 </script>
@@ -82,7 +80,7 @@ $(function(){
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<div id="collections">
+<div id="collections">>
 	
 </div>
 
