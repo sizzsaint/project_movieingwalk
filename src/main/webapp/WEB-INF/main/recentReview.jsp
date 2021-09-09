@@ -12,13 +12,13 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body>
-<table>
+<table class="show">
 <thead>
 <tr><th><i class="fas fa-angle-right"></i> 최신등록된리뷰</th></tr>
 </thead>
-</table>  
+	<tbody><tr><td>
 	<div id="reviews">
-		 <ul class="review_area" style="color:white; border:1px solid gray; width:968px;">
+		 <ul class="review_area" style="color:white; border:1px solid gray; width:850px;">
 	
 		 <c:forEach var="review" items="${mainRecent}" varStatus="status" begin="0" end="5">
 		 <li id="review" style="border:1px solid gray;">
@@ -39,6 +39,8 @@
 		 </c:forEach>
 		 </ul>
 	</div>
-             
+	</td></tr>
+	</tbody>
+</table>    
 </body>
 </html>
