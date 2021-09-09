@@ -33,7 +33,7 @@
 /*Walker추천작, 최신등록된리뷰, 현재상영작*/
 .index .show,
 .index .review{
-	width:80%;
+	width:90%;
 	margin-left:10%;
 	margin-right:10%;
 	margin-bottom: 50px;
@@ -57,13 +57,14 @@
 	color:#ffffff;
 	text-align:center;
 	padding-bottom: 20px;
+	width : 100%
 }
 .index .review thead td{
     color: #168;
     font-size: 12px;
     background: #f0f6f9;
     text-align: center;
-    padding: 5px;
+    
     border: 1px solid #ddd;
 }
 .index .review tbody img{
@@ -77,4 +78,7 @@
     font-size: 12px;
     font-weight: bold;
 	color:#ffffff;
+}
+#review{
+	padding: 5px;
 }

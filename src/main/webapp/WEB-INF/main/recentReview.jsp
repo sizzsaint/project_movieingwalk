@@ -18,7 +18,7 @@
 </thead>
 </table>  
 	<div id="reviews">
-		 <ul class="review_area" style="color:white; border:1px solid gray;">
+		 <ul class="review_area" style="color:white; border:1px solid gray; width:968px;">
 	
 		 <c:forEach var="review" items="${mainRecent}" varStatus="status" begin="0" end="5">
 		 <li id="review" style="border:1px solid gray;">
