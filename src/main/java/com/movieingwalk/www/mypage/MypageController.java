@@ -111,7 +111,7 @@ public class MypageController {
 	
 	//마이페이지 리뷰 + 좋아요리뷰
 	@RequestMapping(value="/myreviewlist", method =RequestMethod.GET)
-	public String myreViewList(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
+	public String myReviewList(Model model, @RequestParam("u_id")String u_id) {
 		logger.debug("마이페이지 리뷰");
 		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
 		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
@@ -119,12 +119,33 @@ public class MypageController {
 		model.addAttribute("myReviewList",myReviewList);
 		model.addAttribute("getMyLikeReview",getMyLikeReview);
 
+		return "mypage/myreviewlist";
+	}
+	
+	@RequestMapping(value="/myreviewall", method = RequestMethod.GET)
+	public String myReviewAll(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
+		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
+		model.addAttribute("myReviewList",myReviewList);
+		model.addAttribute("u_id",u_id);
+
 		int listCnt = myReviewList.size();
 		Paging paging = new Paging(listCnt, curPage);
-		
 		model.addAttribute("listCnt",listCnt);
 		model.addAttribute("paging",paging);
-		return "mypage/myreviewlist";
+		return "mypage/myReviewAll";
+	}
+	
+	@RequestMapping(value="/likesreviewall", method = RequestMethod.GET)
+	public String likesReviewAll(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
+		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
+		model.addAttribute("getMyLikeReview",getMyLikeReview);
+		model.addAttribute("u_id",u_id);
+
+		int listCnt = getMyLikeReview.size();
+		Paging paging = new Paging(listCnt, curPage);
+		model.addAttribute("listCnt",listCnt);
+		model.addAttribute("paging",paging);
+		return "mypage/likesReviewAll";
 	}
 	
 }
