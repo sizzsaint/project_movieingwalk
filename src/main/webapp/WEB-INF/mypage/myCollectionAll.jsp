@@ -14,7 +14,7 @@
  //영화 상세정보 가져오기
 $(function () {
 	var cnt = 0;
-	<c:forEach items="${myCollectionList}" var="collection" begin="0" end="5">
+	<c:forEach items="${myCollectionList}" var="collection">
 
 		var list1 = new Array();
 		cnt += 1;
@@ -72,15 +72,7 @@ $(function () {
 <section style="display:inline-block;">
 <h2 style="color:white;">나의 컬렉션</h2>
 <div id="mycollection"></div>
-<div>
- <a  href="/mypage/mycollectionAll?u_id=${u_id}">전체보기</a>
-</div>
-<!-- 내가좋아한 컬렉션 -->
-<h2 style="color:white;">내가 좋아한 컬렉션</h2>
-<div id="reviews" style="display:inline-block;">
 
-	  <a href="/mypage/likescollectionall?u_id=${u_id}">전체보기</a>
-</div>
 </section>
 
 

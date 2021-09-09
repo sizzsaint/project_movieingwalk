@@ -142,15 +142,25 @@ public class MypageController {
 		return "mypage/likesReviewAll";
 	}
 	
-	//마이콜렉션 메뉴
+	//마이컬렉션 메뉴
 	@RequestMapping(value="/mycollection", method=RequestMethod.GET)
 	public String myCollection(Model model, @RequestParam("u_id")String u_id) {
 		List<CollectionBean> myCollectionList = mypageService.getMyCollection(u_id);
 		model.addAttribute("u_id",u_id);
 		model.addAttribute("myCollectionList",myCollectionList);
 		
-				
 		return "mypage/mycollectionlist";
+	}
+	
+	//마이콜컬렉션 All
+	@RequestMapping(value="/mycollectionAll", method=RequestMethod.GET)
+	public String myCollectionAll(Model model, @RequestParam("u_id")String u_id) {
+		List<CollectionBean> myCollectionList = mypageService.getMyCollection(u_id);
+		model.addAttribute("u_id",u_id);
+		model.addAttribute("myCollectionList",myCollectionList);
+		
+				
+		return "mypage/myCollectionAll";
 	}
 	
 	

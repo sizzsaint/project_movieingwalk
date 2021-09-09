@@ -115,7 +115,7 @@ $(function(){
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<div id="collections">>
+<div id="collections">
 	
 </div>
 
