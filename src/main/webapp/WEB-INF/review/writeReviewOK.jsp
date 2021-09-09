@@ -11,13 +11,13 @@ if(session.getAttribute("mvId")==null){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MovieingWalk</title>
+	<script type="text/javascript">
+		alert('리뷰가 등록되었습니다.')
+		location.href="/movieinfo/MovieDetail?m_idx="+${m_idx};
+	</script>
 </head>
 <body>
-		<script type="text/javascript">
-			alert('리뷰가 등록되었습니다.')
-			location.href="/movieinfo/MovieDetail?m_idx="+${m_idx}+ "&u_id="+${u_id};
-		</script>
 </body>
 </html>
 <%}%>

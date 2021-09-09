@@ -1,6 +1,7 @@
 package com.movieingwalk.www.mypage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
@@ -10,6 +11,8 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
 
@@ -88,5 +91,12 @@ public interface MypageMapper {
 	  @ResultMap("mypagereview") ArrayList<ReviewBean>
 	  getMyLikeReview(@Param("u_id")String u_id);
 	 
+	  //마이페이지 콜렉션
+	  final String MYPAGE_COLLECTIONLIST = "  SELECT * from collection where u_id=#{u_id}";
+	  @Select(MYPAGE_COLLECTIONLIST)
+	  List<CollectionBean> getMyCollection(@Param("u_id") String u_id);
+	  
+	  //마이페이지 내가좋아한 콜렉션
+//	  final String MYPAGE_LIKE_COLLECTION = 
 
 }

@@ -18,7 +18,7 @@ if(session.getAttribute("u_id")==null){
   <nav id="leftMenu" style=" float:left; width:30%;">
     <ul class="mypage">
       <li><a href="/mypage/myreviewlist?u_id=<%=u_id%>">리뷰</a></li>
-      <li><a href="/mypage/mycollectionlist?u_id=<%=u_id%>">컬렉션</a></li>
+      <li><a href="/mypage/mycollection?u_id=<%=u_id%>">컬렉션</a></li>
       <li><a href="#ticket">예매내역</a></li>
       <li><a href="/mypage/modify?u_id=<%=u_id%>">정보수정</a></li>
       <li><a href="/mypage/resign?u_id=<%=u_id%>">탈퇴하기</a></li>

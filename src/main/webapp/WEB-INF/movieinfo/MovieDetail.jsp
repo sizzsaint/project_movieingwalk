@@ -193,10 +193,10 @@
 <h3>평가하기</h3>
 <input type="hidden" name="m_idx"value="${m_idx}"/>
 <div class="star-rating space-x-4 mx-auto">
-	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
+<!-- 	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
 	<input type="submit" id="4-stars" name="r_star" value="4" v-model="ratings" /> <label for="4-stars" class="star">★</label>
 	<input type="submit" id="3-stars" name="r_star" value="3" v-model="ratings" /> <label for="3-stars" class="star">★</label>
-	<input type="submit" id="2-stars" name="r_star" value="2" v-model="ratings" /> <label for="2-stars" class="star">★</label>
+	<input type="submit" id="2-stars" name="r_star" value="2" v-model="ratings" /> <label for="2-stars" class="star">★</label> -->
 	<input type="submit" id="1-star" name="r_star" value="1" v-model="ratings" /> <label for="1-star" class="star">★</label>
 </div>
 </form>

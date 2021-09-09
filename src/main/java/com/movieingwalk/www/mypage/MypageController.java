@@ -1,6 +1,7 @@
 package com.movieingwalk.www.mypage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -51,7 +52,7 @@ public class MypageController {
 	public String modifyMember(Model model, @RequestParam("u_id") String u_id ) {
 	
 		
-		logger.debug("회원정보수정폼");
+		logger.info("회원정보수정폼");
 		MemberBean memberBean = mypageService.modifyMemberView(u_id);
 		model.addAttribute("u_id", u_id);
 		model.addAttribute("memberBean", memberBean);
@@ -69,18 +70,10 @@ public class MypageController {
 		return "mypage/modifyMemberOK";
 	}
 	
-	// 콜렉션 목록 처리
-	@RequestMapping(value = "/mycollectionlist", method = RequestMethod.GET)
-	public String myReview(CollectionBean collectionBean, Model model, @RequestParam("u_id")String u_id) {
-		MemberBean memberBean = mypageService.mypageMain(u_id);
-		model.addAttribute("memberBean", memberBean);
-		return "mypage/myreviewlist";
-	}
-	
 	//탈퇴폼
 	@RequestMapping(value = "/resign", method = RequestMethod.GET)
 	public String resignMember(Model model, @RequestParam("u_id") String u_id) {
-		logger.debug("회원탈퇴폼");
+		logger.info("회원탈퇴폼");
 		MemberBean memberBean = mypageService.resignMember(u_id);
 		model.addAttribute("u_id", u_id);
 		model.addAttribute("memberBean", memberBean);
@@ -93,7 +86,7 @@ public class MypageController {
 			MemberBean memberBean,
 			Model model,
 			HttpSession session) {
-		logger.debug("회원탈퇴처리");
+		logger.info("회원탈퇴처리");
 		MemberBean u_id1 = loginService.loginMember(memberBean);
 		String existPw = u_id1.getU_password();
 		String inputPw = memberBean.getU_password();
@@ -109,10 +102,10 @@ public class MypageController {
 		return "mypage/resignMemberOK";
 	}
 	
-	//마이페이지 리뷰 + 좋아요리뷰
+	//마이리뷰 메뉴
 	@RequestMapping(value="/myreviewlist", method =RequestMethod.GET)
 	public String myReviewList(Model model, @RequestParam("u_id")String u_id) {
-		logger.debug("마이페이지 리뷰");
+		logger.info("마이페이지 리뷰");
 		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
 		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
 		model.addAttribute("u_id",u_id);
@@ -121,7 +114,7 @@ public class MypageController {
 
 		return "mypage/myreviewlist";
 	}
-	
+	//내가쓴 리뷰
 	@RequestMapping(value="/myreviewall", method = RequestMethod.GET)
 	public String myReviewAll(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
 		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
@@ -135,6 +128,7 @@ public class MypageController {
 		return "mypage/myReviewAll";
 	}
 	
+	// 내가좋아요한 리뷰
 	@RequestMapping(value="/likesreviewall", method = RequestMethod.GET)
 	public String likesReviewAll(Model model, @RequestParam("u_id")String u_id, @RequestParam(defaultValue="1") int curPage) {
 		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
@@ -147,5 +141,17 @@ public class MypageController {
 		model.addAttribute("paging",paging);
 		return "mypage/likesReviewAll";
 	}
+	
+	//마이콜렉션 메뉴
+	@RequestMapping(value="/mycollection", method=RequestMethod.GET)
+	public String myCollection(Model model, @RequestParam("u_id")String u_id) {
+		List<CollectionBean> myCollectionList = mypageService.getMyCollection(u_id);
+		model.addAttribute("u_id",u_id);
+		model.addAttribute("myCollectionList",myCollectionList);
+		
+				
+		return "mypage/mycollectionlist";
+	}
+	
 	
 }

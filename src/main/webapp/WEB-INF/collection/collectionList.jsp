@@ -49,7 +49,7 @@ $(function(){
 		async : false,
 		success: function(json) {
 			
-			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 			var title = json.title;
 			var poster_img = json.poster_path;
 			var m_idx = json.id;
@@ -84,7 +84,7 @@ $(function(){
 	
 </div>
 
-<div style="color:white">
+<div style="color:white; display:inline-block;">
 	<c:if test="${pagination.curRange ne 1 }">
     	<a href="#" onClick="fn_paging(1)">[처음]</a> 
 	</c:if>
@@ -109,7 +109,7 @@ $(function(){
     </c:if>
 </div>
                 
-<div style="color:white">
+<div style="color:white; display:inline-block;">
          총 게시글 수 : ${pagination.listCnt } /    총 페이지 수 : ${pagination.pageCnt } / 현재 페이지 : ${pagination.curPage } / 현재 블럭 : ${pagination.curRange } / 총 블럭 수 : ${pagination.rangeCnt }
 </div>
 

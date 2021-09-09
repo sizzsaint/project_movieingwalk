@@ -1,10 +1,12 @@
 package com.movieingwalk.www.mypage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
 
@@ -49,5 +51,10 @@ public class MypageService {
 	//마이페이지 리뷰좋아요
 	public ArrayList<ReviewBean> getMyLikeReview(String u_id){
 		return mypageDao.getMyLikeReview(u_id);
+	}
+	
+	//마이페이지 콜렉션
+	public List<CollectionBean> getMyCollection(String u_id){
+		return mypageDao.getMyCollection(u_id);
 	}
 }
