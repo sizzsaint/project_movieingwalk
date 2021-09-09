@@ -30,7 +30,7 @@ $(function(){
 	
 		var collectionList="<div id=collection"+i+" style='border:1px solid gray;'> <h3 style='color:white'>"+collectionBeanList[i].col_title+"</h3>";	
 		
-	for(var=0;i<m_idxs.length;i++){
+	for(var:0;i<m_idxs.length;i++){
 		var m_idx = m_idxs[i];
 		
 		$.ajax({

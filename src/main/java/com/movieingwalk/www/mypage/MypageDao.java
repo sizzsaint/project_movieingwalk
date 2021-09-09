@@ -40,10 +40,10 @@ public class MypageDao {
 		return mypageMapper.getMyReview(u_id);
 	}
 	
-	//마이페이지리뷰좋아요
-//	public ArrayList<ReviewBean> getMyLikeReview(String u_id){
-//		return mypageMapper.getMyLikeReview(u_id);
-//	}
+//	마이페이지리뷰좋아요
+	public ArrayList<ReviewBean> getMyLikeReview(String u_id){
+		return mypageMapper.getMyLikeReview(u_id);
+	}
 	
 	
 }
