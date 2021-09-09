@@ -39,7 +39,7 @@
 	    			//출력을 위한 동적 요소 생성
 	    			reviewtable +="<td>";
 	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:200px;' alt=''/></a>";
-	    			reviewtable +="<p style='color:white width:170; height:81;'>"+title+"</p>";
+	    			reviewtable +="<p style='color:white;' width:'200px;' height:'81px;'>"+title+"</p>";
 	    			reviewtable += "</td>";
 	    			
 	    			$("#newReviewlist").html(reviewtable);
@@ -72,7 +72,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white width:170; height:81;'>"+title+"</p>";
+			    			genretable +="<p style='color:white;' width:'170px;' height:'81px;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -113,7 +113,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white width:170; height:81;'>"+title+"</p>";
+			    			genretable +="<p style='color:white;' width:'170px;' height:'81px;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -141,16 +141,16 @@
 	  			
 	  				var result = json.results;
 	  				
-	  				for(var j=0; j<10; j++){
+	  				for(var j=0; j<12; j++){
 	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 	  			    var m_idx = result[j].id;
 	    			var title = result[j].title;
 	    			var poster_img = result[j].poster_path;
 	    					
 	    			//출력을 위한 동적 요소 생성
-	    			genretable +="<div style='float:left; margin-right:10px;'>";
-	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
-	    			genretable +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
+	    			genretable +="<div style='float:left; margin-right:10px; width:170px;'>";
+	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
+	    			genretable +="<p style='color:white;' width:'170px;' height:'81px;'>"+title+"</p>";
 	    			genretable += "</div>";
 	  				}
 	  				genretable += "</div>"
@@ -174,10 +174,10 @@
 <table id="newReviewlist"></table>
 <hr>
 <h3 style='color:white'>요즘 뜨는 영화</h3>
-<div id="hotMovies"></div>
+<div id="hotMovies" style="display: block; overflow: auto; height: auto;"></div>
 <hr>
 <h3 style='color:white'>장르별 영화보기</h3>
-<div class="dropdown">
+<div class="dropdown" style="display: block;">
 				
 	<!-- 1depth 카테고리 -->
 	<select name="category1" id="category1">
