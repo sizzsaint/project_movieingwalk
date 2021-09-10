@@ -55,15 +55,16 @@ public class CollectionController {
 	
 	//콜렉션상세보기
 	@RequestMapping(value="/collectiondetail", method = RequestMethod.GET)
-	public String col_detail(Model model,
-			CollectionBean collectionBean,
-			@RequestParam("col_idx")int col_idx, String u_id) {
+	public String col_detail(Model model, CollectionBean collectionBean, @RequestParam("col_idx")int col_idx, @RequestParam("u_id") String u_id) {
 		logger.debug("콜렉션상세보기페이지");
+		
 		collectionBean = collectionService.col_datail(col_idx);
 		model.addAttribute("collectionBean",collectionBean);
 		model.addAttribute("col_idx",col_idx);
 		model.addAttribute("u_id",u_id);
+		
 		int checkLikes = collectionService.checkLike(col_idx, u_id);
+		
 		System.out.println(checkLikes);
 		model.addAttribute("checkLikes", checkLikes);
 		
@@ -93,15 +94,16 @@ public class CollectionController {
 	
 	//좋아요 처리
 	@RequestMapping(value="/collikeUpdate", method=RequestMethod.GET)
-	public String collikeUpdate(Model model, @RequestParam("col_idx") int col_idx,@RequestParam("u_id") String u_id) {
+	public String collikeUpdate(Model model, @RequestParam("col_idx") int col_idx, @RequestParam("u_id") String u_id) {
 		logger.debug("콜렉션 좋아요 처리페이지 호출");
-
+		
+		model.addAttribute("col_idx", col_idx);
+		model.addAttribute("u_id", u_id);
+		
 		int likes = collectionService.likeUpdate(col_idx);
 		
 		collectionService.likeInsert(col_idx,u_id);
 		
-		model.addAttribute("col_idx", col_idx);
-		model.addAttribute("u_id", u_id);
 		model.addAttribute(likes);
 		
 		return "/collection/collikeUpdate";

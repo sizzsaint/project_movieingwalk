@@ -23,32 +23,23 @@ if(session.getAttribute("mvId")==null){
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-
-	var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="/" src="../imges/loading.gif" />')
-
-					.appendTo(document.body).hide();
-
-
-
-	$(window)	
-
-	.ajaxStart(function(){
-
-		loading.show();
-
-	})
-
-	.ajaxStop(function(){
-
-		loading.hide();
-
-	});
-
-});
-
+function FunLoadingBarStart() {
+	var backHeight = $(document).height(); //뒷 배경의 상하 폭
+	var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
+	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
+	var loadingBarImage = ''; //가운데 띄워 줄 이미지
+	loadingBarImage += "<div id='loadingBar'>";
+	loadingBarImage += " <img src='../images/loading.gif'/>"; //로딩 바 이미지
+	loadingBarImage += "</div>";
+	$('body').append(backGroundCover).append(loadingBarImage);
+	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
+	$('#back').show();
+	$('#loadingBar').show();
+	}
 
 $(function(){
+	var u_id = "<%=u_id%>";
+	
 	var cnt = 0;
 	<c:forEach items="${collectionBeanList}" var="collection">
 	
@@ -68,7 +59,7 @@ $(function(){
 	
 	var col_idx = "${collection.col_idx}";
 
-	var collectionList = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = 'collectiondetail?col_idx="+col_idx+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+	var collectionList = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 	for (var i=0;i<list1.length;i++){
 		m_idx = list1[i];
@@ -101,6 +92,11 @@ $(function(){
 	collectionList +="</div>";
 	$("#collections").append(collectionList);
 	</c:forEach>
+	
+	$(function(){
+		 var img = document.getElementById("loadingimg1");
+		 img.remove(); //로딩바 제거
+		});
 			
 });
 
@@ -113,7 +109,9 @@ $(function(){
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<div id="collections">>
+<img id='loadingimg1' src='../images/loading.gif'/>
+
+<div id="collections">
 	
 </div>
 

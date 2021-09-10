@@ -76,9 +76,10 @@ if(session.getAttribute("mvId")==null){
  var checkLike = ${checkLikes};
  var col_idx = ${col_idx};
  var u_id = '${u_id}';
+ 
  function check123(){
 	 
-	 if(checkLike > 0){
+	 if(checkLike == "1"){
 		 alert("이미 좋아요를 누른 리뷰입니다.");
 		 return false;
 	 }else{
