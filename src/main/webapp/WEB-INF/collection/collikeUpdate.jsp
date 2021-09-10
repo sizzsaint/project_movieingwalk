@@ -19,7 +19,7 @@ if(session.getAttribute("mvId")==null){
 var col_idx =${col_idx};
 var u_id = '${u_id}';
 	alert('좋아요가 반영되었습니다.');
-	location.href="/collection/collectiondetail?col_idx="+col_idx;
+	location.href="/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id;
 </script>
 
 </head>
