@@ -52,4 +52,8 @@ public class MypageDao {
 	public List<CollectionBean> getMyCollection(String u_id){
 		return mypageMapper.getMyCollection(u_id);
 	}
+	
+	public List<CollectionBean> getMyLikeCol(String u_id){
+		return mypageMapper.getMyLikeCol(u_id);
+	}
 }

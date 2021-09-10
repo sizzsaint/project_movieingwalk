@@ -15,7 +15,7 @@ if(session.getAttribute("u_id")==null){
 
 </head>
 <body>
-  <nav id="leftMenu" style=" float:left; width:30%;">
+  <nav id="leftMenu" style=" float:left; width:30%; height:auto;">
     <ul class="mypage">
       <li><a href="/mypage/myreviewlist?u_id=<%=u_id%>">리뷰</a></li>
       <li><a href="/mypage/mycollection?u_id=<%=u_id%>">컬렉션</a></li>

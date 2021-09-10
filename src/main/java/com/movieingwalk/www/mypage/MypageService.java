@@ -57,4 +57,8 @@ public class MypageService {
 	public List<CollectionBean> getMyCollection(String u_id){
 		return mypageDao.getMyCollection(u_id);
 	}
+	//마이페이지 좋아요 
+	public List<CollectionBean> getMyLikeCol(String u_id){
+		return mypageDao.getMyLikeCol(u_id);
+	}
 }

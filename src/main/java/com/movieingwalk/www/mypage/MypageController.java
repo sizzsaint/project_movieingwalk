@@ -146,8 +146,10 @@ public class MypageController {
 	@RequestMapping(value="/mycollection", method=RequestMethod.GET)
 	public String myCollection(Model model, @RequestParam("u_id")String u_id) {
 		List<CollectionBean> myCollectionList = mypageService.getMyCollection(u_id);
+		List<CollectionBean> getMyLikeCol = mypageService.getMyLikeCol(u_id);
 		model.addAttribute("u_id",u_id);
 		model.addAttribute("myCollectionList",myCollectionList);
+		model.addAttribute("getMyLikeCol",getMyLikeCol);
 		
 		return "mypage/mycollectionlist";
 	}
@@ -161,6 +163,17 @@ public class MypageController {
 		
 				
 		return "mypage/myCollectionAll";
+	}
+	
+	// 내가좋아요한 컬렉션
+	@RequestMapping(value="/likescolall", method= RequestMethod.GET)
+	public String likesColAll(Model model, @RequestParam("u_id") String u_id) {
+		List<CollectionBean> getMyLikeCol = mypageService.getMyLikeCol(u_id);
+		model.addAttribute("u_id",u_id);
+		model.addAttribute("getMyLikeCol",getMyLikeCol);
+		
+		return "mypage/likesCollectionAll";
+		
 	}
 	
 	

@@ -113,6 +113,16 @@ public interface MypageMapper {
 	  List<CollectionBean> getMyCollection(@Param("u_id") String u_id);
 	  
 	  //마이페이지 내가좋아한 콜렉션
-//	  final String MYPAGE_LIKE_COLLECTION = 
+	  final String MYPAGE_LIKE_COLLECTION = "select collection.col_idx, collection.u_id, col_movie1_idx, col_title "
+	  		+ "from collection inner join collectionlike "
+	  		+ " where collection.col_idx = collectionlike.col_idx and collectionlike.u_id = #{u_id}";
+	  @Select(MYPAGE_LIKE_COLLECTION)
+	  @Results(id="collectionlike", value= {
+				@Result(property="col_idx",column="col_idx"),
+				@Result(property="u_id",column="u_id"),
+				@Result(property="col_title",column="col_title"),
+				@Result(property="col_midx1",column="col_movie1_idx")
+	  })
+	  List<CollectionBean> getMyLikeCol(@Param("u_id")String u_id);
 
 }

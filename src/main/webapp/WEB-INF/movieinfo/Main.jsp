@@ -72,7 +72,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white;' width:'170px;' height:'81px;'>"+title+"</p>";
+			    			genretable +="<p style='color:white; width:170px; height:81px;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -113,7 +113,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white;' width:'170px;' height:'81px;'>"+title+"</p>";
+			    			genretable +="<p style='color:white; width:170px; height:81px;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -150,7 +150,7 @@
 	    			//출력을 위한 동적 요소 생성
 	    			genretable +="<div style='float:left; margin-right:10px; width:170px;'>";
 	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-	    			genretable +="<p style='color:white;' width:'170px;' height:'81px;'>"+title+"</p>";
+	    			genretable +="<p style='color:white; width:170px; height:81px;'>"+title+"</p>";
 	    			genretable += "</div>";
 	  				}
 	  				genretable += "</div>"
