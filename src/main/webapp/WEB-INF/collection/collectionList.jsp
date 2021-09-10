@@ -21,37 +21,36 @@ if(session.getAttribute("mvId")==null){
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
+
 <script type="text/javascript">
 
+function FunLoadingBarStart() {
+	var backHeight = $(document).height(); //뒷 배경의 상하 폭
+	var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
+	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
+	var loadingBarImage = ''; //가운데 띄워 줄 이미지
+	loadingBarImage += "<div id='loadingBar'>";
+	loadingBarImage += " <img src='../images/loading.gif'/>"; //로딩 바 이미지
+	loadingBarImage += "</div>";
+	$('body').append(backGroundCover).append(loadingBarImage);
+	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
+	$('#back').show();
+	$('#loadingBar').show();
+	}
 
-$(document).ready(function(){
 
-	var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="/" src="../imges/loading.gif" />')
-
-					.appendTo(document.body).hide();
-
-
-
-	$(window)	
-
-	.ajaxStart(function(){
-
-		loading.show();
-
-	})
-
-	.ajaxStop(function(){
-
-		loading.hide();
-
-	});
-
-});
+</script>
 
 
 
+<script type="text/javascript">
 
 $(function(){
+	FunLoadingBarStart(); //로딩바 생성
+	});
+
+$(function(){
+	
 	var cnt = 0;
 	<c:forEach items="${collectionBeanList}" var="collection">
 	
@@ -82,9 +81,10 @@ $(function(){
 		dataType: "json",
 		cache : false,
 		async : false,
+		timeout : 30000,
 		success: function(json) {
 			
-			   var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 			var title = json.title;
 			var poster_img = json.poster_path;
 			var m_idx = json.id;
@@ -103,19 +103,26 @@ $(function(){
 }	collectionList +="</div>";
 	$("#collections").append(collectionList);
 	</c:forEach>
-			
 });
+
+$(function(){
+	 var img = document.getElementById("loadingimg1");
+	 img.remove(); //로딩바 제거
+	});
+		
 
 </script>
 
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
-<h2 style="color:white">모든 컬렉션 보기</h2>
+<h2 style="color:white">해당 영화가 담긴 모든 컬렉션 보기</h2>
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<div id="collections">>
+<img id='loadingimg1' src='../images/loading.gif'/>
+
+<div id="collections">
 	
 </div>
 
