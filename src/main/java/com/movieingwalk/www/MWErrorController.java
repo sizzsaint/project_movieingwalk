@@ -11,7 +11,7 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,7 +23,7 @@ public class MWErrorController implements ErrorController {
 	private final String ERROR_500_PAGE_PATH = "/error/500";
 	private final String ERROR_ETC_PAGE_PATH = "/error/error";
 
-	@RequestMapping(value = "/error")
+	@GetMapping(value = "/error")
 	public String handleError(HttpServletRequest request, Model model) {
 		// 에러 코드를 획득한다.
 		Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
