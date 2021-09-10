@@ -4,10 +4,7 @@
 	border:1px
 }
 
-#hotMovies{
-	height:450px;
-	border:1px solid gray;
-}
+
 
 #hotMovies .topRated{
 	position:relative;

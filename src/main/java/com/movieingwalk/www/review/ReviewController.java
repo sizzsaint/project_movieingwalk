@@ -70,7 +70,7 @@ public class ReviewController {
 	
 	//리뷰 상세보기
 	@RequestMapping(value="/reviewDetail", method=RequestMethod.GET)
-	public String reviewDetail(Model model, @RequestParam("r_idx") int r_idx, @RequestParam("u_id") String u_id) {
+	public String reviewDetail(Model model, @RequestParam("r_idx") int r_idx,String u_id) {
 		logger.debug("리뷰 상세보기 페이지 호출");
 		
 		ReviewBean reviewBean = reviewservice.getReviewDetail(r_idx);

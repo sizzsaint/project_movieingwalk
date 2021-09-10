@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
@@ -89,7 +90,18 @@ public interface CollectionMapper {
 	})
 	ArrayList<CollectionBean> getMainCollection();
 	
+	//좋아요 올리기
+	final String SELECT_LIKES = "select count(*) from collectionlike where col_idx = #{col_idx} and u_id = #{u_id}";
+	@Select(SELECT_LIKES)
+	int checkLike(int col_idx, String u_id);
 	
+	final String INSERT_LIKES = "insert into collectionlike (col_idx, u_id) values( #{col_idx}, #{u_id} )";
+	@Insert(INSERT_LIKES)
+	void likeInsert(int col_idx, String u_id);
+	
+	final String UPDATE_LIKES = "update collection set col_likes = col_likes + 1 where col_idx = #{col_idx}";
+	@Update(UPDATE_LIKES)
+	int likeUpdate(int col_idx);
 	
 	
 	

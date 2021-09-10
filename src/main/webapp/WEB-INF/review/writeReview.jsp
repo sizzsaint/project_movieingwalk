@@ -141,8 +141,7 @@ if(session.getAttribute("mvId")==null){
 				<sf:input type="hidden" id="m_idx" path ="m_idx" value="${m_idx}"/>
 				<div>
 					<div>
-						<label for="star-rating"><c:out value="<%=u_id%>" />님의
-							평점</label>
+						<label for="star-rating" style=" margin : 20px auto;"><c:out value="<%=u_id%>" />님의 평점</label>
 
 						<div class="star-rating space-x-4 mx-auto">
 							<input type="radio" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
@@ -153,7 +152,7 @@ if(session.getAttribute("mvId")==null){
 							<sf:input type="hidden" id="r_star" path="r_star"/>
 						</div>
 					
-						<div>
+						<div style="margin : 20px auto;">
 							<label for="r_spoiler">스포일러</label> 
 							<input id="r_spoiler" type="checkbox"/>
 							<sf:input type="hidden" id="spoCheck" path="r_spoiler"/>

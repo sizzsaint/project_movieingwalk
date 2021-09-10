@@ -31,4 +31,16 @@ public class CollectionServiceImpl {
 	public ArrayList<CollectionBean> getMainCollection(){
 		return collectionDao.getMainCollection();
 	}
+	
+	public int checkLike(int col_idx, String u_id) {
+		return collectionDao.checkLike(col_idx, u_id);
+	}
+	
+	public int likeUpdate(int col_idx) {
+		return collectionDao.likeUpdate(col_idx);
+	}
+	
+	public void likeInsert(int col_idx, String u_id) {
+		collectionDao.likeInsert(col_idx,u_id);
+	}
 }

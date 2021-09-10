@@ -35,7 +35,18 @@ public class CollectionDaoImpl implements CollectionDao {
 	public ArrayList<CollectionBean> getMainCollection(){
 		return collectionMapper.getMainCollection();
 	}
-
+	
+	public int checkLike(int col_idx, String u_id){
+		return collectionMapper.checkLike(col_idx, u_id);
+	}
+	
+	public int likeUpdate(int col_idx) {
+		return collectionMapper.likeUpdate(col_idx);
+	}
+	
+	public void likeInsert(int col_idx, String u_id) {
+		collectionMapper.likeInsert(col_idx,u_id);
+	}
 	
 
 	

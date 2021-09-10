@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- jQuery Framework 참조하기 -->
-<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>﻿
+<script type="text/javascript" src="./../../js/jquery-3.1.1.min.js"></script>﻿
 
 <!-- header+footer>-->
 <!-- <link href="./../../css/layout.css" rel ="stylesheet" type="text/css"> -->

@@ -1,12 +1,15 @@
 package com.movieingwalk.www.mypage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 
 @Repository
 public class MypageDao {
@@ -45,5 +48,12 @@ public class MypageDao {
 		return mypageMapper.getMyLikeReview(u_id);
 	}
 	
+	//마이페이지 콜렉션
+	public List<CollectionBean> getMyCollection(String u_id){
+		return mypageMapper.getMyCollection(u_id);
+	}
 	
+	public List<CollectionBean> getMyLikeCol(String u_id){
+		return mypageMapper.getMyLikeCol(u_id);
+	}
 }

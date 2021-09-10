@@ -193,10 +193,10 @@
 <h3>평가하기</h3>
 <input type="hidden" name="m_idx"value="${m_idx}"/>
 <div class="star-rating space-x-4 mx-auto">
-	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
+<!-- 	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
 	<input type="submit" id="4-stars" name="r_star" value="4" v-model="ratings" /> <label for="4-stars" class="star">★</label>
 	<input type="submit" id="3-stars" name="r_star" value="3" v-model="ratings" /> <label for="3-stars" class="star">★</label>
-	<input type="submit" id="2-stars" name="r_star" value="2" v-model="ratings" /> <label for="2-stars" class="star">★</label>
+	<input type="submit" id="2-stars" name="r_star" value="2" v-model="ratings" /> <label for="2-stars" class="star">★</label> -->
 	<input type="submit" id="1-star" name="r_star" value="1" v-model="ratings" /> <label for="1-star" class="star">★</label>
 </div>
 </form>
@@ -217,13 +217,13 @@
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="./review/reviewDetail?r_idx=${review.r_idx}"><p>${review.r_memo}</p></a>
+	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}"><p>${review.r_memo}</p></a>
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p><a href="./review/reviewDetail?r_idx=${review.r_idx}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <p><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
