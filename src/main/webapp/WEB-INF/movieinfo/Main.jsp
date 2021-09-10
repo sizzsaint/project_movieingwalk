@@ -63,7 +63,7 @@
 			  			
 			  				var result = json.results;
 			  				
-			  				for(var j=0; j<6; j++){
+			  				for(var j=0; j<14; j++){
 			  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 			  			    var m_idx = result[j].id;
 			    			var title = result[j].title;
@@ -104,7 +104,7 @@
 			  			
 			  				var result = json.results;
 			  				
-			  				for(var j=0; j<6; j++){
+			  				for(var j=0; j<14; j++){
 			  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 			  			    var m_idx = result[j].id;
 			    			var title = result[j].title;
@@ -141,7 +141,7 @@
 	  			
 	  				var result = json.results;
 	  				
-	  				for(var j=0; j<12; j++){
+	  				for(var j=0; j<14; j++){
 	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 	  			    var m_idx = result[j].id;
 	    			var title = result[j].title;
@@ -196,6 +196,6 @@
 
 </div>
 
-		
+<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

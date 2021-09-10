@@ -26,16 +26,16 @@ public class LoginController {
 	
 	@RequestMapping(value="/registmember", method = RequestMethod.GET)
 	public String register(Model model, MemberBean memberBean) {
-			logger.debug("registerMember called!!!");
-			model.addAttribute("memberBean",memberBean); //뷰 폼값 자동 매핑
+		logger.info("registerMember called!!!");
+		model.addAttribute("memberBean",memberBean); 
 		return "login/register";
 	}
 	
 	@RequestMapping(value = "/registmember", method = RequestMethod.POST)
 	public String registerOK(Model model, MemberBean memberBean) {
-		logger.debug("registerMember called!!!");
+		logger.info("registerMember called!!!");
 		loginService.registerMember(memberBean);
-		model.addAttribute("result", 1); // 뷰 폼값 자동 매핑
+		model.addAttribute("result", 1); 
 		return "login/registerOK";
 	}
 	

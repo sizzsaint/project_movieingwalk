@@ -1,4 +1,4 @@
-set FOREIGN_KEY_CHECKS = 0;
+
 drop table member;
 drop table cinema;
 drop table collection;
@@ -9,7 +9,10 @@ drop table review;
 drop table schedule;
 drop table seat;
 drop table ticket;
- set FOREIGN_KEY_CHECKS = 1;
+
+ 
+#########################################################
+#########################################################
 
 CREATE TABLE member(
        u_id                 varchar(20) not null unique, #id

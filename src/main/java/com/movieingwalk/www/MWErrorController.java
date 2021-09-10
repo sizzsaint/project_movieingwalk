@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +15,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController {
+public class MWErrorController implements ErrorController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	// 에러 페이지 정의
-	private final String ERROR_404_PAGE_PATH = "/error/404.html";
-	private final String ERROR_500_PAGE_PATH = "/error/500.html";
-	private final String ERROR_ETC_PAGE_PATH = "static/error/error";
+	private final String ERROR_404_PAGE_PATH = "/error/404";
+	private final String ERROR_500_PAGE_PATH = "/error/500";
+	private final String ERROR_ETC_PAGE_PATH = "/error/error";
 
 	@RequestMapping(value = "/error")
 	public String handleError(HttpServletRequest request, Model model) {
@@ -51,7 +52,5 @@ public class ErrorController implements org.springframework.boot.web.servlet.err
 		return ERROR_ETC_PAGE_PATH;
 	}
 
-	public String getErrorPath() {
-		return "/error";
-	}
+
 }

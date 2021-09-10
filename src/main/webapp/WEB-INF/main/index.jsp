@@ -75,7 +75,7 @@
 <!-- 추천영화 -->
 <jsp:include page="./recommand.jsp"/>
 
-		<!-- 최신등록된리뷰 -->
+<!-- 최신등록된리뷰 -->
  <jsp:include page="./recentReview.jsp"/>
 
 <!-- 상영중인영화 -->
