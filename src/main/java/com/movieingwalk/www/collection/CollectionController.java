@@ -63,8 +63,8 @@ public class CollectionController {
 		model.addAttribute("collectionBean",collectionBean);
 		model.addAttribute("col_idx",col_idx);
 		model.addAttribute("u_id",u_id);
-		
 		int checkLikes = collectionService.checkLike(col_idx, u_id);
+		System.out.println(checkLikes);
 		model.addAttribute("checkLikes", checkLikes);
 		
 		return "/collection/collection_detail";

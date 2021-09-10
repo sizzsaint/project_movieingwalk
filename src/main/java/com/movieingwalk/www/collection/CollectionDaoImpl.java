@@ -39,6 +39,7 @@ public class CollectionDaoImpl implements CollectionDao {
 	public int checkLike(int col_idx, String u_id){
 		return collectionMapper.checkLike(col_idx, u_id);
 	}
+	
 	public int likeUpdate(int col_idx) {
 		return collectionMapper.likeUpdate(col_idx);
 	}
