@@ -5,6 +5,13 @@
 <!DOCTYPE html>
 
 <html>
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%> 
 <head>
 <meta charset="UTF-8">
 <title>Mypage</title>
@@ -25,4 +32,5 @@
 <!-- footer고정 -->
 <jsp:include page="../main/footer.jsp"/>
 </body>
+<%} %>
 </html>

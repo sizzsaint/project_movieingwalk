@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%> 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -141,4 +148,5 @@ $(function () {
 
 	<jsp:include page="../main/footer.jsp"/>
 </body>
+<%} %>
 </html>

@@ -3,6 +3,13 @@
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%> 
 <head>
 <meta charset="UTF-8">
 <title>MyCollection</title>
@@ -80,4 +87,5 @@ $(function () {
 
 <jsp:include page="../main/footer.jsp"/>
 </body>
+<%} %>
 </html>
