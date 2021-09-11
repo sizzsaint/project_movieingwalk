@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%> 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -22,8 +29,8 @@ $(function () {
 		list1.push("${collection.col_midx1}");
 
 		var col_idx = "${collection.col_idx}";
-
-		var mycollection = "<div id='collection_"+cnt+"' style='border:1px solid gray; float:left;'><p><a href='../collection/collectiondetail?col_idx="+col_idx+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+		var u_id = "${collection.u_id}";
+		var mycollection = "<div id='collection_"+cnt+"' style='border:1px solid gray; float:left;'><p><a href='../collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 		for (var i=0;i<list1.length;i++){
 			m_idx = list1[i];
@@ -42,7 +49,7 @@ $(function () {
 				//출력을 위한 동적 요소 생성
 				<!--포스터-->
 				mycollection +="<div class='poster_area'>";
-				mycollection += "<a href='/collection/collectiondetail?col_idx="+col_idx+"'>"
+				mycollection += "<a href='/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"'>"
 				mycollection += "<img src='"+poster_host+poster_img+"' style='width:170px;' alt='' /></a>";
 				mycollection +="</div>"
 
@@ -70,8 +77,8 @@ $(function () {
 		list1.push("${collection.col_midx1}");
 
 		var col_idx = "${collection.col_idx}";
-
-		var getMyLikeCol = "<div id='collection_"+cnt+"' style='border:1px solid gray; float:left;'><p><a href='../collection/collectiondetail?col_idx="+col_idx+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+		var u_id = "${collection.u_id}";
+		var getMyLikeCol = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 		for (var i=0;i<list1.length;i++){
 			m_idx = list1[i];
@@ -90,7 +97,7 @@ $(function () {
 				//출력을 위한 동적 요소 생성
 				<!--포스터-->
 				getMyLikeCol +="<div class='poster_area'>";
-				getMyLikeCol += "<a href='/collection/collectiondetail?col_idx="+col_idx+"'>"
+				getMyLikeCol +="<a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"
 				getMyLikeCol += "<img src='"+poster_host+poster_img+"' style='width:170px;' alt='' /></a>";
 				getMyLikeCol +="</div>"
 
@@ -141,4 +148,5 @@ $(function () {
 
 	<jsp:include page="../main/footer.jsp"/>
 </body>
+<%} %>
 </html>

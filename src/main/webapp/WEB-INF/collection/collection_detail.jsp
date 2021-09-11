@@ -5,6 +5,8 @@
 
 
 <!DOCTYPE html>
+
+<html>
 <%
 if(session.getAttribute("mvId")==null){
    response.sendRedirect("/loginMember");
@@ -12,7 +14,6 @@ if(session.getAttribute("mvId")==null){
 	Object object = session.getAttribute("mvId");
 	String u_id = (String)object;
 %> 
-<html>
 <head>
 <meta charset="EUC-KR">
 <title>MovieingWalk</title>

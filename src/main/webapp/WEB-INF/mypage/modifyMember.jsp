@@ -6,6 +6,13 @@
 
 <!DOCTYPE html>
 <html>
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%> 
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -272,6 +279,6 @@
 
 
 </body>
-
+<%} %>
 </html>
 
