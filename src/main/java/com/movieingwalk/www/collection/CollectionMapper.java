@@ -103,13 +103,7 @@ public interface CollectionMapper {
 	@Update(UPDATE_LIKES)
 	int likeUpdate(int col_idx);
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 			}

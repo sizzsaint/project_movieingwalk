@@ -17,7 +17,9 @@ if(session.getAttribute("mvId")==null){
 <meta charset="UTF-8">
 <title>MovieingWalk</title>
 
+<!-- css -->
 <link href="../css/loading.css" rel ="stylesheet" type="text/css">
+<link href="../css/collectionMain.css" rel ="stylesheet" type="text/css">
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
@@ -59,7 +61,7 @@ $(function(){
 	
 	var col_idx = "${collection.col_idx}";
 
-	var collectionList = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+	var collectionList = "<div class='collection' id='collection_"+cnt+"' ><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' class='col_title'>"+"${collection.col_title}"+"</a></p>";
 	
 	for (var i=0;i<list1.length;i++){
 		m_idx = list1[i];
@@ -72,15 +74,15 @@ $(function(){
 		async : false,
 		success: function(json) {
 			
-			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+			var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 			var title = json.title;
 			var poster_img = json.poster_path;
 			var m_idx = json.id;
 					
 			//출력을 위한 동적 요소 생성
-			collectionList +="<div style='position:relative; border:1px solid gray; float:left; right-margin:10px'>";
-			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:120px;' alt=''/></a>";
-			collectionList +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
+			collectionList +="<div class='movieCard'>";
+			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img class='poster' src='"+poster_host+poster_img+"' alt=''/></a>";
+			collectionList +="<p class='m_title'>"+title+"</p>";
 			collectionList += "</div>";
 			
 		},
@@ -105,9 +107,9 @@ $(function(){
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
-<h2 style="color:white">모든 컬렉션 보기</h2>
+<h2>모든 컬렉션 보기</h2>
 	
-<a href="javascript:history.back();">뒤로가기</a>
+<button type="button" onclick="location.href='/collection/CollectionWrite'";>컬렉션 만들기</button>
 
 <img id='loadingimg1' src='../images/loading.gif'/>
 

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+h2{
+	color:white;
+	text-align:center;
+}
+
+#collectionWriteButton{
+	float:right; 
+	right-margin:100px;
+}
+
+#collections{
+	border:1px solid gray;
+	width:1270px;
+}
+
+#collections .collection {
+	position:relative;
+	border:1px solid gray; 
+	height:315px; 
+	width:1270px;
+}
+
+#collections .collection .col_title{
+		color:white;
+}
+
+#collections .collection .movieCard{
+	position:relative;  
+	float:left; 
+	right-margin:15px;
+}
+
+#collections .collection .poster{
+	width:120px;
+}
+
+#collections .collection .m_title{
+	text-align:center;
+	color:gray; 
+	width:170; 
+	height:81;
+}
+
+
+
