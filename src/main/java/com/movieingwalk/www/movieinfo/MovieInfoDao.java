@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 
 public interface MovieInfoDao {
 	
@@ -14,4 +15,6 @@ public interface MovieInfoDao {
 	ArrayList<ReviewBean> getReviewList(int m_idx);
 	//컬렉션리스트
 	ArrayList<CollectionBean> getCollectionList(int m_idx);
+	
+	RstarBean getRstar(int m_idx);
 }

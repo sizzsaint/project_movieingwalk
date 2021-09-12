@@ -42,17 +42,18 @@ if(session.getAttribute("mvId")==null){
 <jsp:include page="../main/header.jsp"/>
 <a href="javascript:history.back();" style="color:white">뒤로가기</a>
 <h3 style="color:white">리뷰 상세보기</h3>
-<div id="reviewDetail" style="border:1px solid gray; color:white;">
-<p>
-	 ${reviewBean.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${reviewBean.r_star}
+<div id="reviewDetail" style="border:1px solid gray; background-color: #CCCCFF;border-top-left-radius: 5px; border-bottom-left-radius: 5px;border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+<p> 작성자 :   ${reviewBean.u_id} &nbsp;&nbsp;&nbsp; 별점 :   <img src='../imgdata/star.png' width='30' height='30' alt='/'>${reviewBean.r_star}</p>
 	 <c:if  test= "${reviewBean.r_spoiler eq 'Y'}">
-	 스포일러 O
+	 스포 포함
 	 </c:if>
 	 <c:if  test= "${reviewBean.r_spoiler eq 'N'}">
-	 스포일러 X
+	 스포 미포함
 	 </c:if>
-	 ${reviewBean.r_memo}
+	 <p>${reviewBean.r_memo}</p>
+	 <hr>
 	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${reviewBean.r_likes}
+	 &nbsp;&nbsp;&nbsp;&nbsp;
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${reviewBean.r_comments}
 	${reviewBean.r_date}
 	조회수 : ${reviewBean.r_hits}
