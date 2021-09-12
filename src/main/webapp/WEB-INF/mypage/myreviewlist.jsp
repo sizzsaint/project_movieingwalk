@@ -14,7 +14,7 @@ if(session.getAttribute("mvId")==null){
 <meta charset="UTF-8">
 <title>MyReview</title>
 </head>
-<body >
+<body>
 <jsp:include page="../main/header.jsp"/>
 <jsp:include page="./leftMenu.jsp"/>
 <!-- 나의된리뷰 -->

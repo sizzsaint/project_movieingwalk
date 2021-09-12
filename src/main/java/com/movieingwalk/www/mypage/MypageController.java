@@ -43,6 +43,11 @@ public class MypageController {
 		model.addAttribute("memberBean", memberBeanMain);
 		model.addAttribute("u_id", u_id);
 		session.setAttribute("u_id", u_id);
+		
+		ArrayList<ReviewBean> myReviewList = mypageService.getMyReview(u_id);
+		ArrayList<ReviewBean> getMyLikeReview = mypageService.getMyLikeReview(u_id);
+		model.addAttribute("myReviewList",myReviewList);
+		model.addAttribute("getMyLikeReview",getMyLikeReview);
 		return "mypage/mypageMain";
 	}
 	
