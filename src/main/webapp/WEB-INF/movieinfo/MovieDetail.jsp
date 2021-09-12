@@ -251,31 +251,32 @@ function drawChart(){
 <ul id="credit_area"></ul>
 </div>
 
-<div id="reviews">
-<h3 style='color:white;'>리뷰</h3>
-	 <p><input style="float:right;" type="button" value="리뷰 더보기" onClick="MoreReview()"/></p>
-	 <hr>
-	 <ul id="review_area">
+<div id="review_area">
+<h3>리뷰</h3>
+<div id="rButtonDiv">
+	 <button id="moreReview" onClick="MoreReview()">리뷰 더보기</button>
+</div>
 
 	 <c:forEach var="review" items="${reviewBeanList}" begin="0" end="2" step="1">
-	 <li class="review">
+	 <div class="review">
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
 	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}"><p>${review.r_memo}</p></a>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/' >${review.r_likes}
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
 	 <p><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
-	 </li>
+	 
+	 <div class="icons">
+	 <img src='../imgdata/like.png' width='25' height='25' alt='/'>${review.r_likes}
+	 <img src='../imgdata/comment.png' width='25' height='25' alt='/'>${review.r_comments}
+	 </div>
+	 
+	 </div>
 	 <hr>
 	 </c:forEach>
-	 </ul>
 </div>
 
 <div id="collections">

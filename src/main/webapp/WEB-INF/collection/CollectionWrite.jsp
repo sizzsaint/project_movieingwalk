@@ -17,8 +17,7 @@
 <title>MovieingWalk</title>
 
 <!-- css설정 -->
-<link href="./../../css/collectionWrite.css" rel="stylesheet"
-	type="text/css">
+<link href="../css/collectionWrite.css" rel ="stylesheet" type="text/css">
 
 
 <!-- jQuery Framework 참조하기 -->
@@ -69,13 +68,11 @@
 <body>
 
 	<jsp:include page="../main/header.jsp" />
-	<!-- 좌측메뉴 -->
-	<jsp:include page="./collectionLeft.jsp" />
-	<section style="display: inline-block;">
-		<h2 style='color: white'>컬렉션 만들기</h2>
+		<h2>컬렉션 만들기</h2>
+	<section id="writeSection">
 		<sf:form action="CollectionWriteOk" id="collectionForm"
 			modelAttribute="collectionBean">
-			<table border="1" style='color: white'>
+			<table id="writeform">
 				<tr>
 					<td>제목</td>
 					<td><sf:input path="col_title" id="title" size="20"

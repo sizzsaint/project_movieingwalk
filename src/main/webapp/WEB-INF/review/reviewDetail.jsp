@@ -16,6 +16,8 @@ if(session.getAttribute("mvId")==null){
 <meta charset="UTF-8">
 <title>MovieingWalk</title>
 
+<link href="../css/reviewDetail.css" rel ="stylesheet" type="text/css">
+
 <!-- jQuery Framework 참조하기 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
  
@@ -41,25 +43,28 @@ if(session.getAttribute("mvId")==null){
 <body>
 <jsp:include page="../main/header.jsp"/>
 <a href="javascript:history.back();" style="color:white">뒤로가기</a>
-<h3 style="color:white">리뷰 상세보기</h3>
-<div id="reviewDetail" style="border:1px solid gray; background-color: #CCCCFF;border-top-left-radius: 5px; border-bottom-left-radius: 5px;border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-<p> 작성자 :   ${reviewBean.u_id} &nbsp;&nbsp;&nbsp; 별점 :   <img src='../imgdata/star.png' width='30' height='30' alt='/'>${reviewBean.r_star}</p>
+<h2>리뷰 상세보기</h2>
+<div id="reviewDetail">
+<h3>${reviewBean.u_id} &nbsp;&nbsp;<img src='../imgdata/star.png' width='25' height='25' alt='/'>${reviewBean.r_star}</h3> 
+<hr>
 	 <c:if  test= "${reviewBean.r_spoiler eq 'Y'}">
-	 스포 포함
+	<h4 style="color:#d92e12; border:1px;"> 스포 포함</h4>
 	 </c:if>
 	 <c:if  test= "${reviewBean.r_spoiler eq 'N'}">
-	 스포 미포함
+	<h4 style="color:#183c77; border:1px;"> 스포 미포함</h4>
 	 </c:if>
 	 <p>${reviewBean.r_memo}</p>
 	 <hr>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${reviewBean.r_likes}
+	 작성일 :&nbsp;${reviewBean.r_date} &nbsp;&nbsp;&nbsp;&nbsp;조회수 :&nbsp;${reviewBean.r_hits}
+	 <div id="icons">
+	 <img src='../imgdata/like.png' width='25' height='25' alt='/'>${reviewBean.r_likes}
 	 &nbsp;&nbsp;&nbsp;&nbsp;
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${reviewBean.r_comments}
-	${reviewBean.r_date}
-	조회수 : ${reviewBean.r_hits}
+	 <img src='../imgdata/comment.png' width='25' height='25' alt='/'>${reviewBean.r_comments}
+	</div>
+	
 </div>
-<div id="buttons">
-<input type="button" value="좋아요" onClick="check123();">
+<div id="buttonDiv">
+<button id="likebutton" onClick="check123();">좋아요</button>
 </div>
 </body>
 </html>

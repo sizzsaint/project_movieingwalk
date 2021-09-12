@@ -15,35 +15,35 @@ if(session.getAttribute("mvId")==null){
 <meta charset="UTF-8">
 <title>MovieingWalk</title>
 
+<link href="../css/reviewList.css" rel ="stylesheet" type="text/css">
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
 <h2>모든 리뷰 보기</h2>
 	
-<a href="javascript:history.back();">뒤로가기</a>
+<a href="/movieinfo/MovieDetail?m_idx=${m_idx}">뒤로가기</a>
 
-<div id="reviews">
-	 <ul class="review_area" style="color:white; border:1px solid gray;">
-
+<div id="review_area">
 	 <c:forEach var="review" items="${reviewBeanList}">
-	 <li id="review" style="border:1px solid gray;">
-	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
+	 <div class="review">
+	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='25' height='25' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
 	 <a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id%>"><p>${review.r_memo}</p></a>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
 	 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id%>">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
-	 </li>
+	 <div class="icons">
+	 <img src='../imgdata/like.png' width='25' height='25' alt='/'>${review.r_likes}
+	 <img src='../imgdata/comment.png' width='25' height='25' alt='/'>${review.r_comments}
+	 </div>
+	 </div>
+	 <hr>
 	 </c:forEach>
-	 </ul>
 </div>
 
 <div>

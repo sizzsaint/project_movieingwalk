@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+h2{
+	color:white;
+	text-align:center;
+}
+
+#review_area {
+
+}
+
+#review_area .review{
+	background-color: #ff8000;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	color:black;
+	position:relative;
+	padding:10px;
+}
+
+
+#review_area .review .icons{
+	float:right;
+	position:relative;
+	color:white;
+	background-color:#ff8000; 
+	padding:5px;
+	}

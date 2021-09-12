@@ -91,7 +91,7 @@ $(function(){
 <jsp:include page="../main/header.jsp"/>
 <h2>모든 컬렉션 보기</h2>
 <div id="buttonDiv">
-<button id="colbutton" type="button" onclick="location.href='/collection/CollectionWrite'">컬렉션 만들기</button>
+<button id="colbutton" onclick="location.href='/collection/CollectionWrite'">컬렉션 만들기</button>
 </div>
 <div id="collections">
 	
