@@ -78,7 +78,7 @@ $(function () {
 
 		var col_idx = "${collection.col_idx}";
 		var u_id = "${collection.u_id}";
-		var getMyLikeCol = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+		var getMyLikeCol = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; float:left;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 		for (var i=0;i<list1.length;i++){
 			m_idx = list1[i];
@@ -123,26 +123,27 @@ $(function () {
 
 
 <!-- 내가 쓴 컬렉션 -->
-
+<section>
 	<div style="display: inline-block; float:left; width:70%;">
 		<div style="display: block;">
 			<h2 style="color: white;">나의 컬렉션</h2>
-			<div id="mycollection"></div>
-			<div style="display: block;">
-				<a href="/mypage/mycollectionAll?u_id=${u_id}">전체보기</a>
+			<div id="mycollection" style="position:static; display: inline-block;"></div>
+			<div style="position:static;">
+				<a style="color: white;" href="/mypage/mycollectionAll?u_id=${u_id}">전체보기</a>
 			</div>
 		</div>
-
-		<div style="display:block; float:left;">
+		</div>
+</section>
+<section>
+		<div style="display:block; float:left; width:70%;">
 			<!-- 내가좋아한 컬렉션 -->
 			<h2 style="color: white;">내가 좋아한 컬렉션</h2>
-			<div id="getMyLikeCol"></div>
-			<div style="display: block;">
-				<a href="/mypage/likescolall?u_id=${u_id}">전체보기</a>
+			<div id="getMyLikeCol" style="position:static; display: inline-block;"></div>
+			<div style="position:static;">
+				<a style="color: white;" href="/mypage/likescolall?u_id=${u_id}">전체보기</a>
 			</div>
 		</div>
-	</div>
-
+</section>
 
 
 

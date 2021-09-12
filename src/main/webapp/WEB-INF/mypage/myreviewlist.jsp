@@ -14,7 +14,7 @@ if(session.getAttribute("mvId")==null){
 <meta charset="UTF-8">
 <title>MyReview</title>
 </head>
-<body >
+<body>
 <jsp:include page="../main/header.jsp"/>
 <jsp:include page="./leftMenu.jsp"/>
 <!-- 나의된리뷰 -->
@@ -44,7 +44,7 @@ if(session.getAttribute("mvId")==null){
 	 </c:forEach>
 	 
 	 </ul>
-	   <a  href="/mypage/myreviewall?u_id=${u_id}">전체보기</a>
+	   <a style="color: white;" href="/mypage/myreviewall?u_id=${u_id}">전체보기</a>
 </div>
 <!-- 내가좋아한 리뷰 -->
 <h2 style="color:white;">내가좋아한리뷰</h2>
@@ -69,7 +69,7 @@ if(session.getAttribute("mvId")==null){
 	 </li>
 	 </c:forEach>
 	 </ul>
-	  <a href="/mypage/likesreviewall?u_id=${u_id}">전체보기</a>
+	  <a style="color: white;" href="/mypage/likesreviewall?u_id=${u_id}">전체보기</a>
 </div>
 </section>
 

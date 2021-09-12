@@ -15,23 +15,22 @@ import com.movieingwalk.www.bean.TicketBean;
 @Mapper
 public interface TicketingMapper {
 /**
-int t_idx, u_idx, m_idx, theater_idx, seat_idx;
+int t_idx, u_id, m_idx, theater_idx, seat_idx;
 	String t_date;
  */	
 	// 입력처리?
-	final String INSERT= " INSERT INTO ticket(t_idx, u_idx, m_idx, theater_idx, seat_idx,t_date)"
-			+ " values(#{t_idx}, #{u_idx}, #{m_idx}, #{theater_idx}, #{seat_idx}, #{t_date})";
+	final String INSERT_TICKET= " INSERT INTO TICKET(u_id, theater_idx, m_idx, seat_idx, t_date)"
+			+ " values( #{u_id}, #{theater_idx}, #{m_idx}, #{seat_idx}, #{t_date} )";
+		@Insert(INSERT_TICKET)
+	void insertTicketing(TicketBean ticketBean);		
 	
-	@Insert(INSERT)
-	void registerTicketing(TicketBean ticketBean);
-	
-    // 예매확인 - 일부반환 
-    final String SELECT_PAGE = "select * from (select a.*, ceil(rownum/#{rowsPerPage}) as page from ("
+ /*   // 예매확인 - 일부반환
+    final String SELECT_TICKET= "select * from (select a.*, ceil(rownum/#{rowsPerPage}) as page from ("
     		+ "select t_idx, u_idx, m_idx, theater_idx, seat_idx, t_date order by id desc ) a ) b where b.page=#{page}" ;
-    @Select(SELECT_PAGE)
+    @Select(SELECT_TICKET)
     @Results(id = "queryResult", value={
 			@Result(property = "t_idx",column = "t_idx") ,
-			@Result(property = "u_idx",column = "u_idx") ,
+			@Result(property = "u_id",column = "u_id") ,
 			@Result(property = "m_idx",column = "m_idx") ,
 			@Result(property = "theater_idx",column = "theater_idx") ,
 			@Result(property = "seat_idx",column = "seat_idx") ,
@@ -45,4 +44,5 @@ int t_idx, u_idx, m_idx, theater_idx, seat_idx;
     @Select(SELECT_BY_ID)
     @ResultMap("queryResult")
     TicketBean getView(@Param("t_idx") String t_idx) ;
+    */
 }

@@ -1,14 +1,18 @@
 package com.movieingwalk.www.ticketing;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.movieingwalk.www.bean.TicketBean;
 
@@ -41,41 +45,44 @@ public class TicketingController {
 			logger.debug("ticketingScheduled called!!!");
 		return "ticketing/ticketingScheduled";
 	}
-	// 예매 - 날짜와 시간 지역선택
+	// 예매 폼
 	@RequestMapping(value="/ticketings", method = RequestMethod.GET)
-	public String ticketings(Model model,TicketBean ticketBean, HttpServletRequest httpServletRequest) {
-			logger.debug("ticketingScheduled called!!!");
-			model.addAttribute("ticketBean", ticketBean) ; 
+	public String ticketings(Model model,TicketBean ticketBean) {
+			logger.debug("ticketingScheduled called!!!");			
+			model.addAttribute("ticketBean", ticketBean) ;  // 뷰 폼값 자동 매핑 			
 		return "ticketing/ticketing";
 	}
-	//예매처리 - 날짜와 시간
-	@RequestMapping(value = "/ticketdateok", method = RequestMethod.POST )
-	public String ticketingDateok(Model model, TicketBean ticketBean) {
-		logger.debug("ticketDateok called!!!");
-		ticketingService.insertTicket(ticketBean);
-		model.addAttribute("result", 1) ; // 뷰 폼값 자동 매핑 		
-		return "ticketing/ticketDateok";
-	}
-	
-	// 예매 - 좌석선택 
-	@RequestMapping(value="/ticketings2", method = RequestMethod.GET)
-	public String ticketings2(TicketBean ticketBean, HttpServletRequest httpServletRequest,
-			Model model) {
-			logger.debug("ticketing2 called!!!");
-			model.addAttribute("ticketBean", ticketBean) ; // 뷰 폼값 자동 매핑
-		return "ticketing/ticketing2";
-	}
 
-	//예매처리 - 좌석
-	@RequestMapping(value = "/ticketDetails", method = RequestMethod.POST )
-	public String writeBoardOk(Model model, TicketBean ticketBean) {
-		logger.debug("ticketdetails called!!!");
-		ticketingService.insertTicket(ticketBean);
-		model.addAttribute("result", 1) ; // 뷰 폼값 자동 매핑 
+	// 예매
+	@PostMapping("/ticketings")
+	public String ticketDetails(
+			@ModelAttribute("ticketBean")TicketBean ticketbean,
+			@RequestParam("u_id") String u_id,
+			Model model) {
+		ticketingService.insertTicketing(ticketbean);
+	
+		System.out.println(ticketbean.toString());
 		
+//		TicketBean tb = ticketbean.toEntity();
+		/*Integer a = ticketbean.getT_idx();
+		String b = ticketbean.getU_id();
+		Integer c = ticketbean.getM_idx();
+		Integer d = ticketbean.getTheater_idx();
+		Integer e = ticketbean.getSeat_idx();
+		String f = ticketbean.getT_date();	*/
 		return "ticketing/ticketDetails";
 	}
-	
+	//예매처리 
+/*	@RequestMapping(value = "/ticketings", method = RequestMethod.POST )
+	public String ticketDetails(Model model, TicketBean ticketBean,
+			@RequestParam("u_id") String u_id) { //여기서는 u_id도 받아오셔야할것같고
+		logger.debug("ticketingScheduled called!!!");
+		ticketingService.insertTicketing(ticketBean, u_id);
+		model.addAttribute("result", 1) ; // 뷰 폼값 자동 매핑 		
+		model.addAttribute("u_id",u_id);
+		return "ticketing/ticketDetails";
+	}
+	*/
 	// 예매내역확인 viewBoard.do
 	/*@RequestMapping(value = "/viewBoard.do", method = RequestMethod.GET )
 	public String viewBoard(Model model,

@@ -13,8 +13,8 @@ public class TicketingDao {
 	private static TicketingMapper ticketingMapper;
 
 	//예매
-	public static void insertTicket(TicketBean ticketBean) {
-		ticketingMapper.registerTicketing(ticketBean);		
+	public void insertTicketing(TicketBean ticketBean) {
+		ticketingMapper.insertTicketing(ticketBean);
 	}
 	
 	
