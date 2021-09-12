@@ -13,10 +13,10 @@
 <link href="./../../css/r_star.css" rel="stylesheet" type="text/css">
 <!-- jQuery Framework 참조하기 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  
+
 <!-- 사용자 스크립트 블록 -->
  <script type="text/javascript">
- 
+
  var m_idx = ${m_idx};
  //영화 상세정보 가져오기
  $(function(){
@@ -45,27 +45,30 @@
 	    			//출력을 위한 동적 요소 생성
 	    			<!--포스터-->
 	    			var details ="<div class='poster_area'>";
-	    			details += "<img src='"+poster_host+poster_img+"' style=width:170px;' alt=''>";
+	    			details += "<img src='"+poster_host+poster_img+"' style=height:350px; ' alt=''>";
 	    			details +="</div>"
 	    			<!--타이틀&개봉일-->
 	    			details +="<div class='info_area'>";
-	    			details +="<h3 class='title_area'>"+title+"</h3>";
-	    			details += " "+date;
+	    			details +="<h1 class='title_area'>"+title+"</h3>";
+	    			details += "<p>상영일 :  "+date+"</p>";
 	    			<!--기본정보-->
-	    			details += "<p>상영시간    "+runtime+"분 </p>";
-	    			details +="장르    ";
+	    			details += "<p>상영시간 :  "+runtime+"분 </p>";
+	    			details +="장르 :  ";
 	    			for(i=0;i<genres.length;i++){
 	    				var genre = genres[i].name;
 	    				details += genre+" ";
 	    			}
 	    			if(countries.length>1){
-	    			details += "</p><p>국가    "+country+"</p>";
+	    			details += "</p><p>국가 :  "+country+"</p>" ;
 	    			}
+	    			details += "<div id='buttonDiv'><button id='reviewbutton' onClick='location.href=\"/review/writeReview?m_idx=${m_idx}\"'>평가하기</button></div>"
+	    			details += "</div>";
 	    			$("#details").html(details);
 	    			
-	    			var overviewStr = "<div class='overview_area'><h3 style='color:white'>줄거리</h3>";
+	    			var overviewStr = "<h3 style='color:white'>줄거리</h3>";
 	    			overviewStr += "<p>"+overview+"</p>"
-	    			$("#overview").html(overviewStr);
+	    			$("#overview_area").html(overviewStr);
+	    			
 	  		},
 	   		 error : function(xhr, textStatus, errorThrown){
 	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
@@ -85,7 +88,7 @@
 	  		success: function(json) {
 	  			
 	  			    var ottRaw = json.results.KR.flatrate;
-	  			    var ottList ="<div class='ott_area'><h3 style='color:white'>스트리밍 가능한 곳</h3>";
+	  			    var ottList ="<h3 style='color:white'>스트리밍 가능한 곳</h3>";
 	  			    
 	    			$(ottRaw).each(function(key,value){
 	    				var ottName = value.provider_name;
@@ -96,7 +99,7 @@
 	    			});
 	    			
 	    			ottList +="</div>";
-	    			$("#details").append(ottList);
+	    			$("#ott_area").append(ottList);
 	  		},
 	   		 error : function(xhr, textStatus, errorThrown){
 	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
@@ -119,7 +122,7 @@
 	  			
 	  			//감독정보 가져오기
 	  			var crew = json.crew;
-	  			var directorList = "<h3 style='color:white'>감독 및 배우정보</h3>";
+	  			var directorList = "<h3>감독 및 배우정보</h3>";
 	  			
 	  			$(crew).each(function(key,value){
 	  				var job = value.job;
@@ -129,14 +132,15 @@
 	  					
 	  					//감독정보 동적요소 생성
 	  					if(profile_img != null){
-		  					directorList += "<li id='director'><img src='"+profile_host+profile_img+"' width='100' height='120' alt='/'>";
+		  					directorList += "<li class='director'><img src='"+profile_host+profile_img+"' width='110' height='120' alt='/'>";
 		  				}else{
-		  					directorList += "<li id='director'><img src='../imgdata/img_ready.png' width='100' height='120' alt='/'>";
+		  					directorList += "<li class='director'><img src='../imgdata/img_ready.png' width='110' height='120' alt='/'>";
 		  				}
 
-	  					directorList += "<p style='color:white'>"+directorName+"</p></li>";
+	  					directorList += "<p style='color:white; top-margin:5px;'>"+directorName+
+	  					"</p></li>";
 	  					
-	  					$(".credit_area").append(directorList);
+	  					$("#credit_area").append(directorList);
 	  					}
 					});
 	  			
@@ -144,22 +148,22 @@
 	  			var cast = json.cast;
 	  			var actorList = "";
 	  			
-	  			for(i=0;i<5;i++){
+	  			for(i=0;i<7;i++){
 	  				var actorName = cast[i].name;
 	  				var profile_img = cast[i].profile_path;
 	  				var character = cast[i].character;
 
 	  				//배우정보 동적요소 생성
 	  				if(profile_img != null){
-	  					actorList += "<li id='actor'><img src='"+profile_host+profile_img+"' width='100' height='120' alt='/'>";
+	  					actorList += "<li class='actor'><img src='"+profile_host+profile_img+"' width='110' height='120' alt='/'>";
 	  				}else{
-	  					actorList += "<li id='actor'><img src='../imgdata/img_ready.png' width='100' height='120' alt='/'>";
+	  					actorList += "<li class='actor'><img src='../imgdata/img_ready.png' width='110' height='120' alt='/'>";
 	  				}
-	  				actorList += "<p style='color:white; width:100px;'>"+actorName+"</p>";
-	  				actorList += "<p style='color:gray; width:100px;'>"+character+"</p></li>";
+	  				actorList += "<p style='color:white; width:110px; top-margin:5px;'>"+actorName+"</p>";
+	  				actorList += "<p style='color:gray; width:110px;'>"+character+"</p></li>";
 	  					
 	  				}
-	  			$(".credit_area").append(actorList);
+	  			$("#credit_area").append(actorList);
 	  		
 	 		},
  			error : function(xhr, textStatus, errorThrown){
@@ -178,47 +182,88 @@
 	 var url = "/collection/collectionList?m_idx="+${m_idx};
 	 window.open(url,"post");
  }
- 
- 
  </script>
+ <!-- 구글차트 참조 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+ <script type="text/javascript">
+ 
+//차트 그리기
+ var stars = "${stars}";
+ var star1 = ${stars.star1};
+ var star2 = ${stars.star2};
+ var star3 = ${stars.star3};
+ var star4 = ${stars.star4};
+ var star5 = ${stars.star5};
+ 
+ google.charts.load('current', {packages: ['corechart', 'bar']}); 
+ google.charts.setOnLoadCallback(drawChart); 
+ 
+function drawChart(){ 
+	var data = new google.visualization.DataTable();
+	data.addColumn('string', '별점');
+	data.addColumn('number', '별점 수');
+
+	  
+	data.addRows([
+		['1점', star1],
+		['2점', star2],
+		['3점', star3],
+		['4점', star4],
+		['5점', star5],
+	]);  
+
+	var options = {
+		title: '별점 분포도',
+		hAxis: {
+		title: '별점',
+		viewWindow: {
+	 }
+	 },
+	}
+
+	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+	chart.draw(data, options);
+ 
+ }
+
+ </script>
+ 
+ 
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
 
-<div id="details"></div>
-
-<!-- 리뷰 하기 -->
-<form class="r_star" action="/review/writeReview">
-
-<h3>평가하기</h3>
-<input type="hidden" name="m_idx"value="${m_idx}"/>
-<div class="star-rating space-x-4 mx-auto">
-<!-- 	<input type="submit" id="5-stars" name="r_star" value="5" v-model="ratings" /> <label for="5-stars" class="star pr-4">★</label>
-	<input type="submit" id="4-stars" name="r_star" value="4" v-model="ratings" /> <label for="4-stars" class="star">★</label>
-	<input type="submit" id="3-stars" name="r_star" value="3" v-model="ratings" /> <label for="3-stars" class="star">★</label>
-	<input type="submit" id="2-stars" name="r_star" value="2" v-model="ratings" /> <label for="2-stars" class="star">★</label> -->
-	<input type="submit" id="1-star" name="r_star" v-model="ratings" /> <label for="1-star" class="star">★</label>
+<div id="details">
 </div>
-</form>
 
-<div id="overview"></div>
 
+<div id='chart_div'>
+</div>
+
+<div id='ott_area'></div>
+
+<div id="overview">
+<div id='overview_area'>
+</div></div>
 <div id="credit">
-<ul class="credit_area"></ul>
+<ul id="credit_area"></ul>
 </div>
 
 <div id="reviews">
-<h3 style='color:white'>리뷰</h3>
-	 <input type="button" value="리뷰 더보기" onClick="MoreReview()">
-	 <ul class="review_area">
+<h3 style='color:white;'>리뷰</h3>
+	 <p><input style="float:right;" type="button" value="리뷰 더보기" onClick="MoreReview()"/></p>
+	 <hr>
+	 <ul id="review_area">
 
 	 <c:forEach var="review" items="${reviewBeanList}" begin="0" end="2" step="1">
-	 <li id="review">
+	 <li class="review">
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
 	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}"><p>${review.r_memo}</p></a>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
+	 <img src='../imgdata/like.png' width='30' height='30' alt='/' >${review.r_likes}
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 
@@ -228,6 +273,7 @@
 	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
 	 </c:if>
 	 </li>
+	 <hr>
 	 </c:forEach>
 	 </ul>
 </div>
@@ -242,6 +288,7 @@
  </c:forEach>
 </ul>
 </div>
+
 <jsp:include page="../main/footer.jsp"/>
 </body>
 </html>

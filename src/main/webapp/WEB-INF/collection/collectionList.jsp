@@ -24,31 +24,6 @@ if(session.getAttribute("mvId")==null){
 
 <script type="text/javascript">
 
-function FunLoadingBarStart() {
-	var backHeight = $(document).height(); //뒷 배경의 상하 폭
-	var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
-	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
-	var loadingBarImage = ''; //가운데 띄워 줄 이미지
-	loadingBarImage += "<div id='loadingBar'>";
-	loadingBarImage += " <img src='../images/loading.gif'/>"; //로딩 바 이미지
-	loadingBarImage += "</div>";
-	$('body').append(backGroundCover).append(loadingBarImage);
-	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
-	$('#back').show();
-	$('#loadingBar').show();
-	}
-
-
-</script>
-
-
-
-<script type="text/javascript">
-
-$(function(){
-	FunLoadingBarStart(); //로딩바 생성
-	});
-
 $(function(){
 	
 	var cnt = 0;
@@ -105,11 +80,6 @@ $(function(){
 	</c:forEach>
 });
 
-$(function(){
-	 var img = document.getElementById("loadingimg1");
-	 img.remove(); //로딩바 제거
-	});
-		
 
 </script>
 
@@ -120,7 +90,6 @@ $(function(){
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<img id='loadingimg1' src='../images/loading.gif'/>
 
 <div id="collections">
 	

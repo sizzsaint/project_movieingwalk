@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 
 @Repository
 public class MovieInfoDaoImpl implements MovieInfoDao{
@@ -28,4 +29,7 @@ public class MovieInfoDaoImpl implements MovieInfoDao{
 		return movieInfoMapper.getCollectionList(m_idx);
 	}
 	
+	public RstarBean getRstar(int m_idx) {
+		return movieInfoMapper.getRstar(m_idx);
+	}
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 
 @Service
 public class MovieInfoServiceImpl {
@@ -26,5 +27,9 @@ public class MovieInfoServiceImpl {
 	
 	public ArrayList<CollectionBean> getCollectionList(int m_idx){
 		return movieInfoDao.getCollectionList(m_idx);
+	}
+	
+	public RstarBean getRstar(int m_idx) {
+		return movieInfoDao.getRstar(m_idx);
 	}
 }

@@ -25,20 +25,6 @@ if(session.getAttribute("mvId")==null){
 
 <script type="text/javascript">
 
-function FunLoadingBarStart() {
-	var backHeight = $(document).height(); //뒷 배경의 상하 폭
-	var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
-	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
-	var loadingBarImage = ''; //가운데 띄워 줄 이미지
-	loadingBarImage += "<div id='loadingBar'>";
-	loadingBarImage += " <img src='../images/loading.gif'/>"; //로딩 바 이미지
-	loadingBarImage += "</div>";
-	$('body').append(backGroundCover).append(loadingBarImage);
-	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
-	$('#back').show();
-	$('#loadingBar').show();
-	}
-
 $(function(){
 	var u_id = "<%=u_id%>";
 	
@@ -95,10 +81,6 @@ $(function(){
 	$("#collections").append(collectionList);
 	</c:forEach>
 	
-	$(function(){
-		 var img = document.getElementById("loadingimg1");
-		 img.remove(); //로딩바 제거
-		});
 			
 });
 
@@ -108,11 +90,9 @@ $(function(){
 <body>
 <jsp:include page="../main/header.jsp"/>
 <h2>모든 컬렉션 보기</h2>
-	
-<button type="button" onclick="location.href='/collection/CollectionWrite'";>컬렉션 만들기</button>
-
-<img id='loadingimg1' src='../images/loading.gif'/>
-
+<div id="buttonDiv">
+<button id="colbutton" type="button" onclick="location.href='/collection/CollectionWrite'">컬렉션 만들기</button>
+</div>
 <div id="collections">
 	
 </div>

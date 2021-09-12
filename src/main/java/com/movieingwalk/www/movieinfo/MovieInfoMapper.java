@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Select;
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 
 
 @Mapper
@@ -67,5 +68,18 @@ public interface MovieInfoMapper {
 	})
 	ArrayList<CollectionBean> getCollectionList(@Param("m_idx") int m_idx);
 			
+	
+	//영화 별점 추출
+	final String SELECT_STARS = "select count(case when r_star=1 then 1 end), count(case when r_star=2 then 1 end), count(case when r_star=3 then 1 end), count(case when r_star=4 then 1 end), count(case when r_star=5 then 1 end) from review where m_idx = #{m_idx}";
+	
+	@Select(SELECT_STARS)
+	@Results(id="r_stars", value= {
+			@Result(property="star1", column="count(case when r_star=1 then 1 end)"),
+			@Result(property="star2", column="count(case when r_star=2 then 1 end)"),
+			@Result(property="star3", column="count(case when r_star=3 then 1 end)"),
+			@Result(property="star4", column="count(case when r_star=4 then 1 end)"),
+			@Result(property="star5", column="count(case when r_star=5 then 1 end)")
+	})
+	RstarBean getRstar(@Param("m_idx") int m_idx);
 			
 }

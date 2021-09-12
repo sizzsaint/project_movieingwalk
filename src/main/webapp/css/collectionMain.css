@@ -29,7 +29,7 @@ h2{
 #collections .collection .movieCard{
 	position:relative;  
 	float:left; 
-	right-margin:15px;
+	margin-right:8px;
 }
 
 #collections .collection .poster{
@@ -41,6 +41,28 @@ h2{
 	color:gray; 
 	width:170; 
 	height:81;
+}
+
+#buttonDiv button{
+	border: 1px solid #ff8000; 
+	background-color: rgba(0,0,0,0); 
+	color: #ff8000; 
+	padding: 5px;
+	float:left;
+}
+
+#buttonDiv button:hover{
+	color:white; 
+	background-color: #ff8000;
+}
+
+#buttonDiv #colbutton{
+	size:60px;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	float:right;
 }
 
 

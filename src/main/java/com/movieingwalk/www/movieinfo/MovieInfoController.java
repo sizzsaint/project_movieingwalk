@@ -2,6 +2,7 @@ package com.movieingwalk.www.movieinfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.movieingwalk.www.bean.CollectionBean;
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.MovieBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 import com.movieingwalk.www.mypage.MypageService;
 
 
@@ -49,9 +53,14 @@ public class MovieInfoController {
 		
 		ArrayList<ReviewBean> reviewBeanList = movieInfoService.getReviewList(m_idx);
 		ArrayList<CollectionBean> collectionBeanList = movieInfoService.getCollectionList(m_idx);
+		RstarBean stars = movieInfoService.getRstar(m_idx);
+		
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("reviewBeanList", reviewBeanList);
 		model.addAttribute("collectionBeanList", collectionBeanList);
+		model.addAttribute("stars", stars);
+		System.out.println(stars);
+		
 		MemberBean memberBean = mypageService.mypageMain(u_id);
 		model.addAttribute("memberBean",memberBean);
 
