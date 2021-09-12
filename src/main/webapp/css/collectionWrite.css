@@ -1,15 +1,44 @@
 @charset "UTF-8";
 
+h2{
+	color:white;
+	text-align:center;
+}
+
+#writeSection{
+	display: inline-block;
+	align:center;
+}
+
+#writeSection #writeform{
+	border:1px solid #CCCCFF;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	font-size: 13pt;
+	color:white;
+	align:center;
+
+}
+
 
 #selected {
 	border : 1px solid gray;
 	float:left;
+	background-color: #CCCCFF;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	padding:10px;
 }
 
 #selected #selectedList{
 	list-style:none;
 	position:relative;
 	float:left;
+	padding:0px;
 }
 
 

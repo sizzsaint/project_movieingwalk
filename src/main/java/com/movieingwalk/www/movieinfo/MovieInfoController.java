@@ -59,7 +59,6 @@ public class MovieInfoController {
 		model.addAttribute("reviewBeanList", reviewBeanList);
 		model.addAttribute("collectionBeanList", collectionBeanList);
 		model.addAttribute("stars", stars);
-		System.out.println(stars);
 		
 		MemberBean memberBean = mypageService.mypageMain(u_id);
 		model.addAttribute("memberBean",memberBean);

@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+h2{
+	text-align:center;
+	color:white;
+}
+
+#reviewDetail{
+	border:1px solid gray; 
+	background-color: #ff8000;
+	border-top-left-radius: 7px; 
+	border-bottom-left-radius: 7px;
+	border-top-right-radius: 7px; 
+	border-bottom-right-radius: 7px;
+	padding:10px;
+}
+
+#reviewDetail #starDiv{
+	position:relative;
+	float:right;
+	border:1px solid yellow;
+	border-top-left-radius: 3px; 
+	border-bottom-left-radius: 3px;
+	border-top-right-radius: 3px; 
+	border-bottom-right-radius: 3px;
+	
+}
+
+#reviewDetail #icons{
+	position:relative;
+	float:right;
+}
+
+
+#buttonDiv button{
+	border: 1px solid #ff8000; 
+	background-color: rgba(0,0,0,0); 
+	color: #ff8000; 
+	padding: 5px;
+	float:left;
+	margin:30px;
+	size:60px;
+	align: center;
+}
+
+
+#buttonDiv button:hover{
+	color:white; 
+	background-color: #ff8000;
+}
+
+#buttonDiv #likebutton{
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	WIDTH: 60pt; HEIGHT: 40pt;
+	align: center;
+}
+
+h4{
+	border:1px;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+}

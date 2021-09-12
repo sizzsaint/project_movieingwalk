@@ -11,7 +11,7 @@ h2{
 }
 
 #collections{
-	border:1px solid gray;
+	clear:both;
 	width:1270px;
 }
 
@@ -20,49 +20,55 @@ h2{
 	border:1px solid gray; 
 	height:315px; 
 	width:1270px;
+	background-color: #CCCCFF;
+	border-top-left-radius: 7px; 
+	border-bottom-left-radius: 7px;
+	border-top-right-radius: 7px; 
+	border-bottom-right-radius: 7px;
+	margin-left:10px;
 }
 
 #collections .collection .col_title{
-		color:white;
+		color:black;
 }
 
 #collections .collection .movieCard{
 	position:relative;  
 	float:left; 
-	margin-right:8px;
+	margin-right:5px;
 }
 
 #collections .collection .poster{
-	width:120px;
+	width:110px;
 }
 
 #collections .collection .m_title{
 	text-align:center;
-	color:gray; 
 	width:170; 
 	height:81;
 }
 
 #buttonDiv button{
-	border: 1px solid #ff8000; 
+	border: 1px solid  #CCCCFF; 
 	background-color: rgba(0,0,0,0); 
-	color: #ff8000; 
+	color:  #CCCCFF; 
 	padding: 5px;
 	float:left;
+	clear:both;
 }
 
 #buttonDiv button:hover{
 	color:white; 
-	background-color: #ff8000;
+	background-color:  #CCCCFF;
 }
 
 #buttonDiv #colbutton{
-	size:60px;
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
 	border-bottom-right-radius: 5px;
 	float:right;
+	WIDTH: 90pt; HEIGHT: 35pt;
 }
 
 
