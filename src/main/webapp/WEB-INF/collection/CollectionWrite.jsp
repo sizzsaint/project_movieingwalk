@@ -27,6 +27,10 @@
 
 <!-- 사용자 스크립트 블록 -->
 <script type="text/javascript">
+//글자수제한 정규식
+	var titleJ = /^.{1,20}$/     //모든 글자 1글자이상 20글자 이하
+	var memoJ = /^.{5,80}$/        //모든글자 5자이상 80글자 이하
+	
 	//팝업창 열기
 	function movieSelectPopup() {
 		window.open("/collection/CollectionWrite_SelectMovie", "a",
@@ -53,8 +57,16 @@
 			alert("컬렉션 제목을 입력해주세요.");
 			return false;
 		}
+		if (titleJ.test($("#title").val())){
+			alert("1글자이상 20글자 이하로 입력해주세요.");
+			return false;
+		}
 		if ($("#memo").val() == '') {
 			alert("컬렉션 소개를 입력해주세요.");
+			return false;
+		}
+		if(memoJ.test($("memo").val())){
+			alrer("5글자이상 80글자이하로 입력해주세요.")
 			return false;
 		}
 		if ($("#selectedList li").length != 10) {
