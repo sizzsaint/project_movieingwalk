@@ -30,7 +30,7 @@
 	    			genretable +="<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
 	    			genretable +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
 	    			genretable +="<p style='color:pink; width:170; height:81;'>예매율 순위 높은 순</p>";
-	    			genretable +="<button class=btn_ticket><a href='/ticketings'>예매</button></a>";
+	    			genretable +="<input type=button value=예매하기 onclick=location.href='/ticketings'>";
 	    			genretable += "</div>";	    			
 	  				}
 	  				genretable += "</div>"

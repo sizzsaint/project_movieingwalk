@@ -24,7 +24,7 @@ if(session.getAttribute("mvId")==null){
 <!-- 좌측 메뉴 -->
 <jsp:include page="./leftMenu.jsp"/>
 
-<table style= "width:500px; height:500px;">
+<table style= "width:500px; height:800px;">
 <tr>
 <td>
 </table>

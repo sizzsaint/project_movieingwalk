@@ -11,13 +11,9 @@ public class TicketingService {
 	@Autowired
 	public TicketingDao ticketingDao;
 
-	public static TicketBean getView(String memo_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void insertTicket(TicketBean ticketBean) {
-		TicketingDao.insertTicket(ticketBean);		
+	// 예매
+	public void insertTicketing(TicketBean ticketBean) {
+		ticketingDao.insertTicketing(ticketBean);		
 	}
 
 }

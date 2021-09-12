@@ -14,7 +14,7 @@ if(session.getAttribute("mvId")==null){
   --%>
 <head>
 <meta charset="UTF-8">
-<title>예매내역보기</title>
+<title>예매</title>
 </head>
 <body>
  <!-- CREATE TABLE ticket(
@@ -34,11 +34,12 @@ CREATE TABLE seat (
 PRIMARY KEY (seat_idx)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
   -->
-<h3>예매내역보기</h3><hr> 
-티켓번호 :  ${TicketBean.t_idx} <br>
-영화제목 :  ${#} <br>
-예매시간 :  ${TicketBean.t_date} <br>
-좌석번호 :  ${TicketBean.seat_idx} <br>
+ <h3>예매 내역 확인</h3><hr> 
+
+티켓번호 :  ${ticketBean.t_idx} <br>
+영화제목 :  <br>
+예매시간 :  ${ticketBean.t_date} <br>
+좌석코드 :  ${ticketBean.seat_idx} <br>
 <hr>
 </body>
 <%--

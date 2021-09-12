@@ -109,8 +109,6 @@ $(function(){
 	
 <a href="javascript:history.back();">뒤로가기</a>
 
-<img id='loadingimg1' src='../images/loading.gif'/>
-
 <div id="collections">
 	
 </div>
