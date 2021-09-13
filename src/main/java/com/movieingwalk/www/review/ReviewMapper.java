@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 
 /*int r_idx, m_idx, r_star, r_likes, r_hits, r_comments;
 String u_id, r_date, r_memo, r_spoiler;*/
@@ -73,6 +74,20 @@ public interface ReviewMapper {
 	final String UPDATE_LIKES = "update review set r_likes = r_likes + 1 where r_idx = #{r_idx}";
 	@Update(UPDATE_LIKES)
 	int likeUpdate(int r_idx);
+	
+	
+	//영화 별점 추출
+		final String SELECT_STARS = "select count(case when r_star=1 then 1 end), count(case when r_star=2 then 1 end), count(case when r_star=3 then 1 end), count(case when r_star=4 then 1 end), count(case when r_star=5 then 1 end) from review where m_idx = #{m_idx}";
+		
+		@Select(SELECT_STARS)
+		@Results(id="r_stars", value= {
+				@Result(property="star1", column="count(case when r_star=1 then 1 end)"),
+				@Result(property="star2", column="count(case when r_star=2 then 1 end)"),
+				@Result(property="star3", column="count(case when r_star=3 then 1 end)"),
+				@Result(property="star4", column="count(case when r_star=4 then 1 end)"),
+				@Result(property="star5", column="count(case when r_star=5 then 1 end)")
+		})
+		RstarBean getRstar(@Param("m_idx") int m_idx);
 	
 	
 }

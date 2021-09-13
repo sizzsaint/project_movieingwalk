@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,7 +116,8 @@ function sendSelected(){
 </div>
 <div id="selected">
 <ol id='selectedList' ></ol>
-<input type="button" value="선택완료" onClick="sendSelected();">
 </div>
+<input type="button" id="sendButton" value="선택완료" onClick="sendSelected();">
 </body>
 </html>
+<%}%>

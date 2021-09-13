@@ -122,9 +122,8 @@ h3{
 
 #review_area .review {
 	clear:both;
-	background-color: #ff8000;
-	border:1px solid gray;
-	color:black;
+	border:1px solid #ff8000;
+	color:white;
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
@@ -137,7 +136,7 @@ h3{
 	position:relative;
 	float:right;
 	color:white;
-	background-color:#ff8000; 
+	border:1px solid #ff8000; 
 	padding:5px;
 }
 

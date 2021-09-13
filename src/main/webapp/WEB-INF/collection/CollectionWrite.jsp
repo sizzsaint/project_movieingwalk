@@ -30,7 +30,7 @@
 	//팝업창 열기
 	function movieSelectPopup() {
 		window.open("/collection/CollectionWrite_SelectMovie", "a",
-				"width=900, height=600, left=100, top=50");
+				"width=1000, height=600, left=100, top=50");
 	}
 
 	function setSelectedValue(selectedList, midxList) {
@@ -91,10 +91,9 @@
 				</tr>
 				<tr>
 					<td colspan="2">컬렉션에 추가될 영화는 10개 입니다.
-						<p>
-							<input type="button" value="영화 추가하기"
-								onclick="movieSelectPopup();" />
-						</p>
+						<div id="buttonDiv1">
+							<input type="button" id="Sbutton" onclick="movieSelectPopup();" value="영화 추가하기"/>
+						</div>
 					</td>
 				</tr>
 			</table>
@@ -115,9 +114,9 @@
 				<sf:input type="hidden" path="col_midx9" class="m_idx" />
 				<sf:input type="hidden" path="col_midx10" class="m_idx" />
 			</div>
-			<div>
-			<input type="button" value="컬렉션 등록" onClick="formCheck();" />
-			<input type="reset" value="초기화" />
+			<div id="buttonDiv2">
+			<input type="button" id="colbutton" value="컬렉션 등록" onClick="formCheck();"/>
+			<input type="reset" id="colRbutton" value="초기화"/>
 			</div>
 		</sf:form>
 	</section>

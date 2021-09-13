@@ -18,26 +18,29 @@
 </thead>
 	<tbody><tr><td>
 	<div id="reviews">
-		 <ul class="review_area" style="color:white; border:1px solid gray; width:850px;">
+		 <div class="review_area" style="color:white; border:1px solid gray;">
 	
 		 <c:forEach var="review" items="${mainRecent}" varStatus="status" begin="0" end="5">
-		 <li id="review" style="border:1px solid gray;">
-		 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
+		 <div id="review" style="border-radius:5px; border:1px solid #ff8000; text-align: left;">
+		 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='25' height='25' alt='/'>${review.r_star}
 		 
 		 <c:if  test= "${review.r_spoiler eq 'N'}">
-		 <a href="/review/reviewDetail?r_idx=${review.r_idx}"><p>${review.r_memo}</p></a>
-		 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-		 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
+		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}" style="color:whtie">${review.r_memo}</a>
 		 </c:if>
 		 
 		 <c:if  test= "${review.r_spoiler eq 'Y'}">
-		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
-		 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-		 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
+		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}" style="color:whtie">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a>
 		 </c:if>
-		 </li>
+		 
+		 <div id="icons" style="position:relative; float:right;">
+		 <img src='../imgdata/like.png' width='25' height='25' alt='/'>${review.r_likes}
+		 <img src='../imgdata/comment.png' width='25' height='25' alt='/'>${review.r_comments}
+		 </p>
+		 </div>
+		 
+		 </div>
 		 </c:forEach>
-		 </ul>
+		 </div>
 	</div>
 	</td></tr>
 	</tbody>

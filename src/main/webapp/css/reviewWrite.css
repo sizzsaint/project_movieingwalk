@@ -1,0 +1,111 @@
+@charset "UTF-8";
+h2{
+	text-align:center;
+	color:white;
+}
+
+h3{
+	text-align:left;
+	font-size: 15pt;
+}
+
+#details{
+	border:1px solid gray;
+	color:white;
+	width:500px;
+	height:350px;
+	float:left;
+	position:static;
+}
+
+
+ #details .poster_area{
+	position:relative;
+	float:left;
+	margin-right:10px;
+}
+
+ #details .info_area{
+	position:relative;
+	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	color:white;
+	text-align:left;
+}
+
+#chart_div{
+	width:500px;
+	height:350px;
+	float:left;
+	margin-right:10px;
+	
+}
+
+
+ #writeSection{
+	border:1px solid #ff8000;
+	clear:both;
+	margin-top: 30px;
+	padding:10px;
+	color:white;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	
+}
+
+#writeSection #spoDiv{
+	align-content: left;
+	position:relative;
+}
+
+h4{
+	text-align:left;
+	font-size: 13pt;
+	color:white;
+	
+}
+
+
+#writeSection #rButtonDiv button{
+	border: 1px solid #ff8000; 
+	background-color: rgba(0,0,0,0); 
+	color: #ff8000; 
+	padding: 5px;
+	float:right;
+	align: center;
+}
+
+#writeSection #rButtonDiv button:hover{
+	color:white; 
+	background-color: #ff8000;
+}
+
+#writeSection #rButtonDiv #submitButton{
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	WIDTH: 80pt; HEIGHT: 30pt;
+	float:right;
+}
+
+#writeSection #rButtonDiv #resetButton{
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	WIDTH: 80pt; HEIGHT: 30pt;
+	float:right;
+}
+
+#writeSection #textbox{
+	align-content: left;
+}
+
+#writeSection #textbox #r_memo{
+	align-content: left;
+}
+

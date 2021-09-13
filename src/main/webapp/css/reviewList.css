@@ -10,14 +10,14 @@ h2{
 }
 
 #review_area .review{
-	background-color: #ff8000;
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
 	border-bottom-right-radius: 5px;
-	color:black;
+	color:white;
 	position:relative;
 	padding:10px;
+	border:1px solid #ff8000
 }
 
 
@@ -25,6 +25,6 @@ h2{
 	float:right;
 	position:relative;
 	color:white;
-	background-color:#ff8000; 
+	border:1px solid #ff8000; 
 	padding:5px;
 	}

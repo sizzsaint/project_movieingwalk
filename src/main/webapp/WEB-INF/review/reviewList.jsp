@@ -31,11 +31,11 @@ if(session.getAttribute("mvId")==null){
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='25' height='25' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id%>"><p>${review.r_memo}</p></a>
+	 <a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id%>" style="color:whtie"><p>${review.r_memo}</p></a>
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id%>">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id%>" style="color:whtie">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 </c:if>
 	 <div class="icons">
 	 <img src='../imgdata/like.png' width='25' height='25' alt='/'>${review.r_likes}

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.movieingwalk.www.bean.MemberBean;
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 import com.movieingwalk.www.login.LoginController;
 import com.movieingwalk.www.mypage.MypageService;
 
@@ -40,15 +41,20 @@ public class ReviewController {
 		
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("reviewBean", reviewBean);
+		RstarBean stars = reviewservice.getRstar(m_idx);
+		
+		model.addAttribute("stars", stars);
+		
 		return "review/writeReview";
 	}
 	
 	//리뷰쓰기 처리
 	@PostMapping(value="/writeReviewOK")
-	public String writeReviewOK(ReviewBean bean, Model model, int m_idx) {
+	public String writeReviewOK(ReviewBean bean, Model model, @RequestParam("m_idx") int m_idx) {
 		logger.debug("리뷰작성완료");
 		reviewservice.writeReview(bean);
 		model.addAttribute("m_idx",m_idx);
+		
 		return "review/writeReviewOK";
 	}
 	
@@ -57,6 +63,7 @@ public class ReviewController {
 	public String reviewList(Model model, @RequestParam("m_idx") int m_idx,  @RequestParam(defaultValue="1") int curPage) {
 		logger.debug("리뷰리스트 페이지 호출");
 		ArrayList<ReviewBean> reviewBeanList = reviewservice.getReviewList(m_idx);
+		
 		model.addAttribute("m_idx",m_idx);
 		model.addAttribute("reviewBeanList", reviewBeanList);
 		
