@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- jQuery Framework 참조하기 -->
-<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>﻿
+<script type="text/javascript" src="../../js/jquery-3.1.1.min.js"></script>﻿
 
 <!-- search_팝업창 -->
 <link href="./../../css/searchPopup.css" rel ="stylesheet" type="text/css">
