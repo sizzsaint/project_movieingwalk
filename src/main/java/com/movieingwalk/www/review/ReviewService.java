@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.movieingwalk.www.bean.ReviewBean;
+import com.movieingwalk.www.bean.RstarBean;
 
 @Service
 public class ReviewService {
@@ -40,5 +41,9 @@ public class ReviewService {
 	
 	public void likeInsert(int r_idx, String u_id) {
 		reviewdao.likeInsert(r_idx,u_id);
+	}
+	
+	public RstarBean getRstar(int m_idx) {
+		return reviewdao.getRstar(m_idx);
 	}
 }

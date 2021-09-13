@@ -172,6 +172,55 @@
  });
  });
  
+ //컬렉션 리스트
+ $(function () {
+		var cnt = 0;
+		<c:forEach items="${collectionBeanList}" var="collection">
+
+			var list1 = new Array();
+			cnt += 1;
+
+			list1.push("${collection.col_midx1}");
+
+			var col_idx = "${collection.col_idx}";
+			var u_id = "${collection.u_id}";
+			var collections = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+		
+			for (var i=0;i<list1.length;i++){
+				m_idx = list1[i];
+
+				$.ajax({
+				url: "https://api.themoviedb.org/3/movie/"+m_idx+"?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
+				type: "get",
+				dataType: "json",
+				cache : false,
+				async : false,
+				success: function(json) {
+				  
+					var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
+					var poster_img = json.poster_path;
+				
+					//출력을 위한 동적 요소 생성
+					<!--포스터-->
+					collections +="<div class='poster_area'>";
+					collections += "<a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"
+					collections += "<img src='"+poster_host+poster_img+"' style='width:170px;' alt='' /></a>";
+					collections +="</div>"
+
+			    }, 
+			  
+				error : function(xhr, textStatus, errorThrown){
+					$("div").html("<div>" + textStatus + " (HTTP-" + xhr.status + " / " + errorThrown + ")</div>");
+				} 
+		}); 
+				} 
+			collections +="</div>";
+			$("#collection_area").append(collections);
+			</c:forEach>
+	}); 
+
+
+ 
  function MoreReview(){
 	 
 		var url = "/review/reviewList?m_idx="+${m_idx};
@@ -182,6 +231,7 @@
 	 var url = "/collection/collectionList?m_idx="+${m_idx};
 	 window.open(url,"post");
  }
+ 
  </script>
  <!-- 구글차트 참조 -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -262,11 +312,11 @@ function drawChart(){
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}"><p>${review.r_memo}</p></a>
+	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color:whtie"><p>${review.r_memo}</p></a>
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <p><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color:whtie">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 </c:if>
 	 
 	 <div class="icons">
@@ -282,12 +332,8 @@ function drawChart(){
 <div id="collections">
 <h3 style='color:white'>해당 영화가 담긴 컬렉션들</h3>
 <input type="button" value="컬렉션 더보기" onClick="MoreCollection()">
-<ul class="collection_area" style="list-style: none;">
- <c:forEach var="collection" items="${collectionBeanList}" begin="1" end="5" step="1">
- <li id="collection">
- <a href="/collection/collectiondetail?col_idx=${collection.col_idx}">${collection.col_title}</a>
- </c:forEach>
-</ul>
+<div id="collection_area">
+</div>
 </div>
 
 <jsp:include page="../main/footer.jsp"/>

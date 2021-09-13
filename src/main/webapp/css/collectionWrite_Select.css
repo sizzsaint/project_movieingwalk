@@ -2,6 +2,7 @@
 
 #console{
 	border : 1px solid gray;
+	width:500px;
 	float:left;
 	margin-right:20px;
 }
@@ -9,19 +10,21 @@
 #console .result{
 	position:relative; 
 	float:left; 
-	margin-right:20px;'
+	margin-right:20px;
 }
 
 #selected {
 	border : 1px solid gray;
 	float:left;
+	width:500px;
+	background-color: #775E8F;
 }
 
 #selected #selectedList{
 	list-style:none;
 	position:relative;
 	float:left;
-	margin-right:20px;
+	background-color: #775E8F;
 }
 
 
@@ -33,4 +36,14 @@
 
 #selected #selectedList .card .m_idx{
 	display:none;
+}
+
+#sendButton{
+	clear:both;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	WIDTH: 80pt; HEIGHT: 30pt;
+	float:right;
 }

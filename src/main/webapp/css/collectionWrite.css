@@ -7,11 +7,11 @@ h2{
 
 #writeSection{
 	display: inline-block;
-	align:center;
+	align-content: center;
 }
 
 #writeSection #writeform{
-	border:1px solid #CCCCFF;
+	border:1px solid #775E8F;
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
@@ -26,7 +26,9 @@ h2{
 #selected {
 	border : 1px solid gray;
 	float:left;
-	background-color: #CCCCFF;
+	width:1200px;
+	height:400px;
+	background-color: #775E8F;
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
@@ -45,8 +47,62 @@ h2{
 #selected #selectedList .card{
 	position:relative; 
 	float:left;
+	margin-right:10px;
 }
 
 #selected #selectedList .card .m_idx{
 	display:none;
 }
+
+
+#buttonDiv1 button{
+	border: 1px solid #775E8F; 
+	background-color: rgba(0,0,0,0); 
+	color:  #775E8F; 
+	padding: 3px;
+	clear:both;
+	font-size:13pt;
+}
+
+#buttonDiv1 button:hover{
+	color:white; 
+	background-color: #775E8F;
+}
+
+#buttonDiv1 #Sbutton{
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	float:right;
+	WIDTH: 100pt; HEIGHT: 35pt;
+	font-size:13pt;
+}
+
+
+#buttonDiv2 button{
+	clear:both;
+	border: 1px solid #775E8F; 
+	background-color: rgba(0,0,0,0); 
+	color:  #775E8F; 
+	padding: 3px;
+	clear:both;
+	font-size:13pt;
+}
+
+#buttonDiv2 button:hover{
+	color:white; 
+	background-color: #775E8F;
+}
+
+#buttonDiv2 #colbutton{
+	clear:both;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	float:right;
+	WIDTH: 90pt; HEIGHT: 35pt;
+	font-size:13pt;
+}
+
