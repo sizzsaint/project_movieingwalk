@@ -67,7 +67,7 @@ $(function(){
 					
 			//출력을 위한 동적 요소 생성
 			collectionList +="<div class='movieCard'>";
-			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img class='poster' src='"+poster_host+poster_img+"' alt=''/></a>";
+			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img class='poster' src='"+poster_host+poster_img+"' alt='../imgdata/img_ready.PNG'/></a>";
 			collectionList +="<p class='m_title'>"+title+"</p>";
 			collectionList += "</div>";
 			

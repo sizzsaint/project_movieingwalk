@@ -50,6 +50,7 @@ function drawChart(){
 
 	var options = {
 		title: '별점 분포도',
+		chartArea: {'width': '100%', 'height': '80%'},
 		hAxis: {
 		title: '별점',
 		viewWindow: {
@@ -133,7 +134,7 @@ function drawChart(){
  
  
 //글자수제한 정규식
-	var memoJ = /^.{5,80}$/;        //모든글자 5자이상 80글자 이하 
+	var memoJ = /^.{5,400}$/;        // 5자이상 400자 이하 
  
  //유효성 검사
  function checkForm(){
@@ -156,7 +157,7 @@ function drawChart(){
 			console.log('true');
 			$('#r_memo').text('');
 		}else{
-			alert("소개를 5글자이상 80글자이하로 입력해주세요.")
+			alert("리뷰는 5자이상 400자 이하로 입력해주세요.")
 			return false;
         }
 		
