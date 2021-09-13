@@ -50,7 +50,7 @@
 			<li><a href="/collection">컬렉션</a></li>
 		</ul>
 		<ul class="ticketing">
-			<li><a href="#">예매</a></li>
+			<li><a href="/ticket">예매</a></li>
 		</ul>
 		<ul class="my_page">
 			<li>
