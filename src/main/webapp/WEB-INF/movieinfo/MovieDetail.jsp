@@ -9,7 +9,7 @@
 <meta charset="EUC-KR">
 <title>MovieingWalk</title>
 <!-- css설정 -->
-<link href="../css/movieDetail.css" rel ="stylesheet" type="text/css">
+<link href="../../css/movieDetail.css" rel ="stylesheet" type="text/css">
 <link href="./../../css/r_star.css" rel="stylesheet" type="text/css">
 <!-- jQuery Framework 참조하기 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
