@@ -70,7 +70,7 @@ $(function(){
 			//출력을 위한 동적 요소 생성
 			collectionList +="<div style='position:relative; border:1px solid gray; float:left; right-margin:10px'>";
 			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:120px;' alt=''/></a>";
-			collectionList +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
+			collectionList +="<p style='color:white; width:110; height:81;'>"+title+"</p>";
 			collectionList += "</div>";	
 		},
 		 error : function(xhr, textStatus, errorThrown){

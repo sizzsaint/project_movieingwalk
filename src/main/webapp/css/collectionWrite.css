@@ -18,8 +18,7 @@ h2{
 	border-bottom-right-radius: 5px;
 	font-size: 13pt;
 	color:white;
-	align:center;
-
+	align-self: center;
 }
 
 
@@ -28,7 +27,7 @@ h2{
 	float:left;
 	width:1200px;
 	height:400px;
-	background-color: #775E8F;
+	background-color: #705487;
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
@@ -62,6 +61,7 @@ h2{
 	padding: 3px;
 	clear:both;
 	font-size:13pt;
+	
 }
 
 #buttonDiv1 button:hover{
@@ -74,9 +74,9 @@ h2{
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 
 	border-bottom-right-radius: 5px;
-	float:right;
 	WIDTH: 100pt; HEIGHT: 35pt;
 	font-size:13pt;
+	
 }
 
 
@@ -88,6 +88,8 @@ h2{
 	padding: 3px;
 	clear:both;
 	font-size:13pt;
+	align-content:center;
+	margin:8px;
 }
 
 #buttonDiv2 button:hover{
@@ -96,7 +98,16 @@ h2{
 }
 
 #buttonDiv2 #colbutton{
-	clear:both;
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	float:right;
+	WIDTH: 90pt; HEIGHT: 35pt;
+	font-size:13pt;
+}
+
+#buttonDiv2 #colRbutton{
 	border-top-left-radius: 5px; 
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 5px; 

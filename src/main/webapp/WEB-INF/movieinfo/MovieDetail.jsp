@@ -267,6 +267,7 @@ function drawChart(){
 		title: '별점 분포도',
 		hAxis: {
 		title: '별점',
+		backgroundColor:'#D8D9E1', //배경색
 		viewWindow: {
 	 }
 	 },

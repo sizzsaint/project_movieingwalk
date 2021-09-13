@@ -97,7 +97,7 @@
 			<table id="writeform">
 				<tr>
 					<td>제목</td>
-					<td><sf:input path="col_title" id="title" size="20"
+					<td><sf:input path="col_title" id="title" size="30"
 							maxlegth="20" /> <sf:errors path="col_title" /></td>
 				</tr>
 				<tr>
@@ -107,8 +107,8 @@
 				</tr>
 				<tr>
 					<td>컬렉션 소개</td>
-					<td><sf:textarea path="col_memo" id="memo" size="80"
-							cssStyle="width:350px;height:100px" maxlength="80" /> <sf:errors
+					<td><sf:textarea path="col_memo" id="memo" size="100"
+							cssStyle="width:400px;height:150px" maxlength="80" /> <sf:errors
 							path="col_memo" /></td>
 				</tr>
 				<tr>
@@ -138,7 +138,7 @@
 			</div>
 			<div id="buttonDiv2">
 			<input type="button" id="colbutton" value="컬렉션 등록" onClick="formCheck();"/>
-			<input type="reset" id="colRbutton" value="초기화"/>
+			<input type="button" id="colRbutton" onClick="window.location.reload();" value="초기화"/>
 			</div>
 		</sf:form>
 	</section>

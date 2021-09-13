@@ -2,9 +2,10 @@
 
 #console{
 	border : 1px solid gray;
-	width:500px;
+	width:550px;
 	float:left;
 	margin-right:20px;
+	border-radius:5px;
 }
 
 #console .result{
@@ -16,8 +17,9 @@
 #selected {
 	border : 1px solid gray;
 	float:left;
-	width:500px;
-	background-color: #775E8F;
+	width:550px;
+	background-color: #705487;
+	border-radius:5px;
 }
 
 #selected #selectedList{
@@ -45,5 +47,5 @@
 	border-top-right-radius: 5px; 
 	border-bottom-right-radius: 5px;
 	WIDTH: 80pt; HEIGHT: 30pt;
-	float:right;
+	float:left;
 }

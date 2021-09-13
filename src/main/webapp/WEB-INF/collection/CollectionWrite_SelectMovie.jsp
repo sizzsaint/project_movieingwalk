@@ -76,11 +76,11 @@ function selectMovie(m_idx){
     			
     			var selected = "<li class='card'>";
     			if(poster_img != null){
-    				selected += "<img src='"+poster_host+poster_img+"' style='width:100px;' alt='/'>";
+    				selected += "<img src='"+poster_host+poster_img+"' style='width:110px;' alt='/'>";
     			}else{
-    				selected += "<img src='../imgdata/img_ready.png' width='100px' height='150px' alt='/'>";
+    				selected += "<img src='../imgdata/img_ready.png' width='110px' height='150px' alt='/'>";
     			}
-    			selected += "<p style='color:red; text-align:center;' width='170px' height='81px'>"+title+"</p>"
+    			selected += "<p style='color:red; text-align:center;' width='110px'>"+title+"</p>"
     			selected += "<p class='m_idx'>"+m_idx+"</p>";
     			$("#selectedList").append(selected);
 	  		},
