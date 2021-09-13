@@ -13,7 +13,6 @@
     <ul class="ticketing">
       <li><a href="/ticketScr">상영작</a></li>
       <li><a href="/ticketSch">개봉예정작</a></li>
-      <li><a href="/ticketings">예매하기</a></li>
     </ul>
     </nav>
 </body>

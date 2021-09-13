@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./../../css/mypage.css" rel="stylesheet" type="text/css">
+<link href="./../../css/ticket.css" rel="stylesheet" type="text/css">
 <jsp:include page="../main/header.jsp"/>
 <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
  <script type="text/javascript"> 
@@ -18,7 +18,7 @@
 	  				var genretable = "<div class='popular'>";
 	  			
 	  				var result = json.results;
-	  				
+	  				// 여기 맞아요? 네 여기에여 다시 시작좀 해주세요 네
 	  				for(var j=0; j<15; j++){
 	  			    var poster_host = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 	  			    var m_idx = result[j].id;
@@ -30,7 +30,7 @@
 	    			genretable +="<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style=width:170px;' alt=''/></a>";
 	    			genretable +="<p style='color:white; width:170; height:81;'>"+title+"</p>";
 	    			genretable +="<p style='color:pink; width:170; height:81;'>예매율 순위 높은 순</p>";
-	    			genretable +="<input type=button value=예매하기 onclick=location.href='/ticketings'>";
+	    			genretable +="<input type=button value=예매하기 onclick=location.href='/ticketings?m_idx="+m_idx+"'>";
 	    			genretable += "</div>";	    			
 	  				}
 	  				genretable += "</div>"
