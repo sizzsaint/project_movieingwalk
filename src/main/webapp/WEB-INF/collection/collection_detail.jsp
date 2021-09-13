@@ -17,9 +17,8 @@ if(session.getAttribute("mvId")==null){
 <head>
 <meta charset="EUC-KR">
 <title>MovieingWalk</title>
-
 <!-- css설정 -->
-<link href="../css/collectionWrite.css" rel ="stylesheet" type="text/css">
+<link href="./../../css/collectionDetail.css" rel ="stylesheet" type="text/css">
 
 <!-- jQuery Framework 참조하기 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -42,12 +41,12 @@ if(session.getAttribute("mvId")==null){
 		midxList[10] = ${ collectionBean.col_midx10 };
 
 		var col_list;
-		for (i = 0; i < midxList.length; i++) {
+		for (i = 1; i < midxList.length; i++) {
 			var m_idx = midxList[i];
 
 			$.ajax({
-				async : false,
-				url: "https://api.themoviedb.org/3/movie/" + m_idx + "?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
+				async : true,
+				url: "https://api.themoviedb.org/3/movie/"+m_idx+"?api_key=9348030243f7b212abdd53ccc8412e24&language=ko",
 				type: "get",
 				dataType: "json",
 				cache: false,
@@ -61,8 +60,8 @@ if(session.getAttribute("mvId")==null){
 
 					//출력을 위한 동적 요소 생성
 					col_list += "<td>";
-					col_list += "<a href='/movieinfo/MovieDetail?m_idx=" + m_idx + "'>" + "<img src='" + poster_host + poster_img + "' style='width:100px;' alt=''/></a>";
-					col_list += "<p style='color:white width:170; height:81;'>" + title + "</p>";
+					col_list += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:100px;' alt=''/></a>";
+					col_list += "<p id='movie_name'>" + title + "</p>";
 					col_list += "</td>";
 
 					$("#newcolList").html(col_list);
@@ -90,31 +89,32 @@ if(session.getAttribute("mvId")==null){
  }
 
  </script>
- 
 
 </head>
 <body>
-<jsp:include page="../main/header.jsp"/>
 
-<h2 style='color:white'>컬렉션 상세보기</h2>
-<input type="hidden" value="<c:out value="${collectionBean.col_idx}"/>"/>
-<table border="1" style='color:white'>
-<tr><td>제목</td><td><c:out value="${collectionBean.col_title}"/>
-</td></tr>
-<tr><td>작성자</td><td><c:out value="${collectionBean.u_id}"/>
-<c:set value="${collectionBean.u_id}" var="u_id"/>
-</td></tr>
-<tr><td>컬렉션 소개</td><td>
-<c:out value="${collectionBean.col_memo}"/>
-</td></tr>
+	<jsp:include page="../main/header.jsp" />
+	
+<div class="collection_item">
+<h2 id="collection_detail">컬렉션 상세보기</h2>
+<div class="collection_text">
 
-<tr><td colspan="2">컬렉션
+<span>제목</span>
+<h5><c:out value="${collectionBean.col_title}"/></h5>
+<span>작성자</span>
+<h5><c:out value="${collectionBean.u_id}"/></h5>
+<span>컬렉션소개</span>
+<h5><c:out value="${collectionBean.col_memo}"/></h5>
+<span>해당 컬렉션에 포함된 영화</span>
 <ol id="newcolList"></ol>
-</td></tr>
-</table>
-<input type="button" value="좋아요" onClick="check123();">
-<button onclick="javascript:history.back();">돌아가기</button>
-
+<div id="col_btn">
+<button id="col_btn" onclick="check123();">좋아요</button>
+<input type="hidden" value="${collectionBean.col_idx}"/>
+<button id="col_btn" onclick="javascript:history.back();">돌아가기</button>
+</div>
+</div>
+</div>
+<jsp:include page="../main/footer.jsp"/>
 
 </body>
 <%}%>

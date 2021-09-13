@@ -24,6 +24,9 @@ if(session.getAttribute("mvId")==null){
 
 <script type="text/javascript">
 
+$(document).ready(function(){
+	
+
 $(function(){
 	
 	var cnt = 0;
@@ -79,7 +82,7 @@ $(function(){
 	$("#collections").append(collectionList);
 	</c:forEach>
 });
-
+}
 
 </script>
 
