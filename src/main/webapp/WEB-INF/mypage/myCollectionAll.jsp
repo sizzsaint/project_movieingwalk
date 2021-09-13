@@ -30,7 +30,7 @@ $(function () {
 
 		var col_idx = "${collection.col_idx}";
 		var u_id = "${collection.u_id}";
-		var mycollection = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+		var mycollection = "<div id='collection_"+cnt+"' style='border:1px solid gray; float:left;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 		for (var i=0;i<list1.length;i++){
 			m_idx = list1[i];
