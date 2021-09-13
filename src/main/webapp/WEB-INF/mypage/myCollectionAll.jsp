@@ -30,7 +30,7 @@ $(function () {
 
 		var col_idx = "${collection.col_idx}";
 		var u_id = "${collection.u_id}";
-		var mycollection = "<div id='collection_"+cnt+"' style='border:1px solid gray; float:left;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+		var mycollection = "<div id='collection_"+cnt+"' style='border:1px solid gray; float:left;'><p  style='width:170px; height:44px'><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 	
 		for (var i=0;i<list1.length;i++){
 			m_idx = list1[i];
@@ -76,7 +76,7 @@ $(function () {
 
 
 <!-- 내가 쓴 컬렉션 -->
-<section style="display:inline-block;">
+<section style="display:inline-block; width:70%;">
 <h2 style="color:white;">나의 컬렉션</h2>
 <div id="mycollection"></div>
 

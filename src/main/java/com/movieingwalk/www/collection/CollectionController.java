@@ -31,7 +31,7 @@ public class CollectionController {
 	//컬렉션 만들기
 	@RequestMapping(value="/CollectionWrite", method = RequestMethod.GET)
 	public String writeCollection(Model model, CollectionBean collectionBean) {
-		logger.debug("컬렉션만들기 페이지 호출");
+		logger.info("컬렉션만들기 페이지 호출");
 		model.addAttribute(collectionBean);
 		return "/collection/CollectionWrite";
 	}
@@ -39,7 +39,7 @@ public class CollectionController {
 	//컬렉션 영화 추가
 	@RequestMapping(value="/CollectionWrite_SelectMovie", method=RequestMethod.GET)
 	public String collectionWrite_selectMovie() {
-		logger.debug("컬렉션 영화 선택페이지 호츨");
+		logger.info("컬렉션 영화 선택페이지 호츨");
 		
 		return "/collection/CollectionWrite_SelectMovie";
 	}
@@ -47,7 +47,7 @@ public class CollectionController {
 	//컬렉션 입력처리
 	@RequestMapping(value="/CollectionWriteOk", method = RequestMethod.POST)
 	public String CollectionWriteOk(Model model, CollectionBean collectionBean) {
-		logger.debug("컬렉션만들기 처리 페이지 호출");
+		logger.info("컬렉션만들기 처리 페이지 호출");
 		
 		collectionService.insertCollection(collectionBean);
 		return "/collection/CollectionWriteOk";
@@ -56,7 +56,7 @@ public class CollectionController {
 	//콜렉션상세보기
 	@RequestMapping(value="/collectiondetail", method = RequestMethod.GET)
 	public String col_detail(Model model, CollectionBean collectionBean, @RequestParam("col_idx")int col_idx, @RequestParam("u_id") String u_id) {
-		logger.debug("콜렉션상세보기페이지");
+		logger.info("콜렉션상세보기페이지");
 		
 		collectionBean = collectionService.col_datail(col_idx);
 		model.addAttribute("collectionBean",collectionBean);
@@ -75,7 +75,7 @@ public class CollectionController {
 	@RequestMapping(value="/collectionList", method=RequestMethod.GET)
 	public String collectionList(Model model,  @RequestParam("m_idx") int m_idx) {
 		
-		logger.debug("컬렉션 리스트");
+		logger.info("컬렉션 리스트");
 		ArrayList<CollectionBean> collectionBeanList = collectionService.getCollectionList(m_idx);
 	
 		model.addAttribute("collectionBeanList", collectionBeanList);
@@ -85,7 +85,7 @@ public class CollectionController {
 	
 	@RequestMapping(value="")
 	public String collectionMain(Model model) {
-		logger.debug("컬렉션메인");
+		logger.info("컬렉션메인");
 		ArrayList<CollectionBean> collectionBeanList = collectionService.getMainCollection();
 		model.addAttribute("collectionBeanList", collectionBeanList);
 
@@ -95,7 +95,7 @@ public class CollectionController {
 	//좋아요 처리
 	@RequestMapping(value="/collikeUpdate", method=RequestMethod.GET)
 	public String collikeUpdate(Model model, @RequestParam("col_idx") int col_idx, @RequestParam("u_id") String u_id) {
-		logger.debug("콜렉션 좋아요 처리페이지 호출");
+		logger.info("콜렉션 좋아요 처리페이지 호출");
 		
 		model.addAttribute("col_idx", col_idx);
 		model.addAttribute("u_id", u_id);
