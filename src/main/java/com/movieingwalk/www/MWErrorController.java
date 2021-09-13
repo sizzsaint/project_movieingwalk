@@ -33,7 +33,6 @@ public class MWErrorController implements ErrorController {
 			// HttpStatus와 비교해 페이지 분기를 나누기 위한 변수
 			int statusCode = Integer.valueOf(status.toString());
 			// 로그로 상태값을 기록 및 출력
-			logger.info("httpStatus : " + statusCode);
 			// 404 error
 			if (statusCode == HttpStatus.NOT_FOUND.value()) {
 				// 에러 페이지에 표시할 정보

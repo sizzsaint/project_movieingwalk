@@ -13,36 +13,38 @@ if(session.getAttribute("mvId")==null){
 %> 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MovieingWalk</title>
+<link href="../../css/movieDetail.css" rel ="stylesheet" type="text/css">
+
 </head>
 <body>
 
 <jsp:include page="../main/header.jsp"/>
 <jsp:include page="./leftMenu.jsp"/>
 
-<section style="display:inline-block;">
+<section style="display:inline-block; width:70%">
 <h2 style="color:white;">내가좋아한리뷰</h2>
-<div id="reviews" style="display:inline-block;">
-	 <ul class="review_area" style="color:white; border:1px solid gray;">
-
+<div id="review_area" style="width:auto !important;">
 	 <c:forEach var="review" items="${getMyLikeReview}">
-	 <li id="review" style="border:1px solid gray;">
+	 <div class="review" style="width:95% !important;">
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}"><p>${review.r_memo}</p></a>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
+	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color:whtie"><p>${review.r_memo}</p></a>
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
-	 <img src='../imgdata/like.png' width='30' height='30' alt='/'>${review.r_likes}
-	 <img src='../imgdata/comment.png' width='30' height='30' alt='/'>${review.r_comments}
+	 <p><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color:whtie">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 </c:if>
-	 </li>
+	 
+	 <div class="icons">
+	 <img src='../imgdata/like.png' width='25' height='25' alt='/'>${review.r_likes}
+	 <img src='../imgdata/comment.png' width='25' height='25' alt='/'>${review.r_comments}
+	 </div>
+	 
+	 </div>
+	 <hr>
 	 </c:forEach>
-	 </ul>
 </div>
 <div style="float: none;">
 	<c:if test="${pagination.curRange ne 1 }">

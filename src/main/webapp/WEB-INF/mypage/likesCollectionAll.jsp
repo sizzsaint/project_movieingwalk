@@ -68,7 +68,7 @@ $(function () {
 <jsp:include page="../main/header.jsp"/>
 <jsp:include page="./leftMenu.jsp"/>
 
-	<section style="display: inline-block;">
+	<section style="display: inline-block; width:70%;">
 		<h2 style="color: white;">내가 좋아한 컬렉션</h2>
 		<div id="getMyLikeCol"></div>
 
