@@ -49,7 +49,7 @@
 	    			details +="</div>"
 	    			<!--타이틀&개봉일-->
 	    			details +="<div class='info_area'>";
-	    			details +="<h1 class='title_area'>"+title+"</h3>";
+	    			details +="<h1 class='title_area' style='width:315;'>"+title+"</h1>";
 	    			details += "<p>상영일 :  "+date+"</p>";
 	    			<!--기본정보-->
 	    			details += "<p>상영시간 :  "+runtime+"분 </p>";
@@ -88,7 +88,7 @@
 	  		success: function(json) {
 	  			
 	  			    var ottRaw = json.results.KR.flatrate;
-	  			    var ottList ="<h3 style='color:white'>스트리밍 가능한 곳</h3>";
+	  			    var ottList ="<h3 style='color:white; margin-bottom:10px !important;'>스트리밍 가능한 곳</h3>";
 	  			    
 	    			$(ottRaw).each(function(key,value){
 	    				var ottName = value.provider_name;
@@ -134,7 +134,7 @@
 	  					if(profile_img != null){
 		  					directorList += "<li class='director'><img src='"+profile_host+profile_img+"' width='110' height='120' alt='/'>";
 		  				}else{
-		  					directorList += "<li class='director'><img src='../imgdata/img_ready.png' width='110' height='120' alt='/'>";
+		  					directorList += "<li class='director'><img src='../imgdata/img_ready.PNG' width='110' height='120' alt='/'>";
 		  				}
 
 	  					directorList += "<p style='color:white; top-margin:5px;'>"+directorName+
@@ -157,7 +157,7 @@
 	  				if(profile_img != null){
 	  					actorList += "<li class='actor'><img src='"+profile_host+profile_img+"' width='110' height='120' alt='/'>";
 	  				}else{
-	  					actorList += "<li class='actor'><img src='../imgdata/img_ready.png' width='110' height='120' alt='/'>";
+	  					actorList += "<li class='actor'><img src='../imgdata/img_ready.PNG' width='110' height='120' alt='/'>";
 	  				}
 	  				actorList += "<p style='color:white; width:110px; top-margin:5px;'>"+actorName+"</p>";
 	  				actorList += "<p style='color:gray; width:110px;'>"+character+"</p></li>";
@@ -265,9 +265,9 @@ function drawChart(){
 
 	var options = {
 		title: '별점 분포도',
+		chartArea: {'width': '100%', 'height': '80%'},
 		hAxis: {
 		title: '별점',
-		backgroundColor:'#D8D9E1', //배경색
 		viewWindow: {
 	 }
 	 },
@@ -278,7 +278,6 @@ function drawChart(){
 	chart.draw(data, options);
  
  }
-
  </script>
  
  
@@ -313,11 +312,11 @@ function drawChart(){
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color:whtie"><p>${review.r_memo}</p></a>
+	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color: #E0E0E0"><p style="color: #E0E0E0;">${review.r_memo}</p></a>
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color:whtie">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <p style="color: #E0E0E0;"><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color: #E0E0E0">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 </c:if>
 	 
 	 <div class="icons">

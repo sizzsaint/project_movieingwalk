@@ -45,7 +45,7 @@
 	  				if(poster_img != null){
 		  				searchResult += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:200px;' alt='/'/></a>";
 	  				}else{
-	  					searchResult += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='../imgdata/img_ready.png' style='width:200px;' alt='/'></a>";
+	  					searchResult += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='../imgdata/img_ready.PNG' style='width:200px;' alt='/'></a>";
 	  				}
 	  				searchResult += "<p style='color:white; text-align:center;' width='170px' height='81px'>"+title+"</p></div>";
 	  			})

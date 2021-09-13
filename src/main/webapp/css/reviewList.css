@@ -6,25 +6,26 @@ h2{
 }
 
 #review_area {
-
+	border:1px solid gray;
+	color:white;
 }
 
 #review_area .review{
-	border-top-left-radius: 5px; 
-	border-bottom-left-radius: 5px;
-	border-top-right-radius: 5px; 
-	border-bottom-right-radius: 5px;
-	color:white;
-	position:relative;
-	padding:10px;
-	border:1px solid #ff8000
+	border:1px solid #ff8000; 
+	margin-bottom:5px; 
+	margin-left:0px;
+	border-radius: 5px; 
+	text-align:left; 
+	padding:10px; 
+	display:inline-block; 
+	width:1200px;
 }
 
 
 #review_area .review .icons{
-	float:right;
-	position:relative;
-	color:white;
-	border:1px solid #ff8000; 
-	padding:5px;
+	position:relative; 
+	float:right; 
+	color:white; 
+	padding:5px; 
+	display: inline-block;
 	}

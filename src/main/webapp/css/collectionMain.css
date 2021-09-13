@@ -30,7 +30,7 @@ h2{
 }
 
 #collections .collection .col_title{
-		color: #0b0c2a;
+		color: white;
 		font-size:15pt;
 }
 
@@ -38,6 +38,8 @@ h2{
 	position:relative;  
 	float:left; 
 	margin-right:5px;
+	width:115px;
+	display: inline-block;
 }
 
 #collections .collection .poster{
@@ -47,7 +49,8 @@ h2{
 #collections .collection .m_title{
 	text-align:center;
 	width:110; 
-	height:81;
+	color:white;
+	display: inline-block;
 }
 
 #buttonDiv button{

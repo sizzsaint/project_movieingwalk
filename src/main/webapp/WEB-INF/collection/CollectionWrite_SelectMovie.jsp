@@ -47,13 +47,13 @@ if(session.getAttribute("mvId")==null){
 	  				//검색 결과 동적요소 생성
 	  				searchResult += "<div class='result'>";
 	  				if(poster_img != null){
-		  				searchResult += "<img onClick='selectMovie(" +m_idx+ ")'src='" +poster_host + poster_img+ "' style='width:170px;' alt='/'>";
+		  				searchResult += "<img onClick='selectMovie(" +m_idx+ ")'src='" +poster_host + poster_img+ "' style='width:170px; height:255px;' alt='/'>";
 	  				}else{
-	  					searchResult += "<img onClick='selectMovie(" +m_idx+ ")' src='../imgdata/img_ready.png' width='170' height='255' alt='/'>";
+	  					searchResult += "<img onClick='selectMovie(" +m_idx+ ")' src='../imgdata/img_ready.PNG' style='width:170; height:255;' alt='/'>";
 	  				}
-	  				searchResult += "<p style='text-align:center;' width='170px' height='81px'>"+title+"</p></div>";
+	  				searchResult += "<p style='text-align:center; width=:170px; margin-top:5px; margin-bottom:5px;'>"+title+"</p></div>";
 	  			})
-	  			$("#console").html(searchResult);
+	  			$("#console").append(searchResult);
 	  		},
 	  		error : function(xhr, textStatus, errorThrown){
 	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");
@@ -76,11 +76,11 @@ function selectMovie(m_idx){
     			
     			var selected = "<li class='card'>";
     			if(poster_img != null){
-    				selected += "<img src='"+poster_host+poster_img+"' style='width:110px;' alt='/'>";
+    				selected += "<img src='"+poster_host+poster_img+"' style='width:110px; height:150px;' alt='/'>";
     			}else{
-    				selected += "<img src='../imgdata/img_ready.png' width='110px' height='150px' alt='/'>";
+    				selected += "<img src='../imgdata/img_ready.PNG' style='width:110px; height:150px;' alt='/'>";
     			}
-    			selected += "<p style='color:red; text-align:center;' width='110px'>"+title+"</p>"
+    			selected += "<p style='color:white; text-align:center; width:110px;'>"+title+"</p>"
     			selected += "<p class='m_idx'>"+m_idx+"</p>";
     			$("#selectedList").append(selected);
 	  		},
@@ -113,11 +113,15 @@ function sendSelected(){
   <input type="button" value="검색" onClick="searchMovie();">
 </div>
 <div id="console">
+<h3>검색 결과</h3>
 </div>
 <div id="selected">
+<h3 style="color:white;">선택한 영화</h3>
 <ol id='selectedList' ></ol>
 </div>
+<div id="buttonDiv">
 <input type="button" id="sendButton" value="선택완료" onClick="sendSelected();">
+</div>
 </body>
 </html>
 <%}%>
