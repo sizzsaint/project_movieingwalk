@@ -19,15 +19,6 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-	<!-- 외부 레포지토리 추가 -->
-	<repositories>
-		<repository>
-			<id>ojdbc14</id>
-			<name>oracle.com</name>
-			<url>http://maven.geomajas.org</url>
-		</repository>
-	</repositories>
-
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/taglibs/standard -->
@@ -36,7 +27,7 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -71,14 +62,6 @@
 			<version>2.2.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>19.7.0.0</version>
-		</dependency>
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -89,22 +72,22 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.12.0</version>
-</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.0</version>
+		</dependency>
 
-<dependency>
-	<groupId>javax.validation</groupId>
-	<artifactId>validation-api</artifactId>
-    <version>2.0.1.Final</version>
-</dependency>   
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
 
 
-		
+
 	</dependencies>
 
 	<build>
