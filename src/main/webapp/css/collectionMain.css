@@ -20,12 +20,13 @@ h2{
 	border:1px solid gray; 
 	height:315px; 
 	width:1270px;
-	background-color: #775E8F;
+	background-color: #705487;
 	border-top-left-radius: 7px; 
 	border-bottom-left-radius: 7px;
 	border-top-right-radius: 7px; 
 	border-bottom-right-radius: 7px;
 	margin-left:10px;
+	margin-bottom: 5px;
 }
 
 #collections .collection .col_title{
@@ -45,14 +46,14 @@ h2{
 
 #collections .collection .m_title{
 	text-align:center;
-	width:170; 
+	width:110; 
 	height:81;
 }
 
 #buttonDiv button{
-	border: 1px solid #775E8F; 
+	border: 1px solid #705487; 
 	background-color: rgba(0,0,0,0); 
-	color:  #775E8F; 
+	color: #705487; 
 	padding: 3px;
 	float:left;
 	clear:both;
@@ -61,7 +62,7 @@ h2{
 
 #buttonDiv button:hover{
 	color:white; 
-	background-color:  #775E8F;
+	background-color: #705487;
 }
 
 #buttonDiv #colbutton{

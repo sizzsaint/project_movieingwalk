@@ -124,36 +124,40 @@ function drawChart(){
   $(function(){
 	  
 	  
-	  
 	  $("input[name='r_star']:radio").change(function () {
 	        //라디오 버튼 값을 가져온다.
 	        var r_star = this.value;  
 			$("#r_star").val(r_star);
-	});
+	  });
   });
+ 
+ 
+//글자수제한 정규식
+	var memoJ = /^.{5,80}$/;        //모든글자 5자이상 80글자 이하 
  
  //유효성 검사
  function checkForm(){
-		if($("#r_memo").val() == ''){
+		if($("#r_star").val() == '0'){
 			alert("영화의 별점을 선택해주세요.");
 	     	return false;
 		}
 		
 		if($("#r_spoiler").is(":checked")){
 			$("#spoCheck").val("Y");
-			alert("스포일러가 포함되었습니다");
 		}else{
 			$("#spoCheck").val("N");
-			alert("스포일러가 포함되지 않았습니다.");
 		}
 		
 		if($("#r_memo").val() == ''){
 			alert("리뷰 내용을 입력해주세요");
 	     	return false;
 		}
-		if($("#r_memo").val().length < 5){
-			alert("리뷰 내용은 5자 이상 입력해주세요.");;
-            return false;
+		if(memoJ.test($("#r_memo").val())){
+			console.log('true');
+			$('#r_memo').text('');
+		}else{
+			alert("소개를 5글자이상 80글자이하로 입력해주세요.")
+			return false;
         }
 		
 		document.getElementById("reviewForm").submit();
@@ -183,7 +187,7 @@ function drawChart(){
 	<input type="radio" id="4-stars" name="r_star" value="4" v-model="ratings" /> <label for="4-stars" class="star">★</label>
 	<input type="radio" id="3-stars" name="r_star" value="3" v-model="ratings" /> <label for="3-stars" class="star">★</label>
 	<input type="radio" id="2-stars" name="r_star" value="2" v-model="ratings" /> <label for="2-stars" class="star">★</label>
-	<input type="radio" id="1-star" class="r_star" value="1" v-model="ratings" /> <label for="1-star" class="star">★</label>
+	<input type="radio" id="1-star" name="r_star" value="1" v-model="ratings" /> <label for="1-star" class="star">★</label>
 	<sf:input type="hidden" id="r_star" path="r_star"/>
 	</div>
 					
@@ -192,7 +196,7 @@ function drawChart(){
 <sf:input type="hidden" id="spoCheck" path="r_spoiler"/>
 </div>
 <div id="textbox">
-<sf:textarea  name="r_memo" id="r_memo" path="r_memo" rows="10" cols="70" placeholder="리뷰를 입력해주세요"/>
+<sf:textarea  name="r_memo" id="r_memo" path="r_memo" rows="30" cols="100" placeholder="리뷰를 입력해주세요"/>
 </div>
 </div>
 <div id="rButtonDiv">
