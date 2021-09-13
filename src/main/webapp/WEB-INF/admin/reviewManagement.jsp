@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
-<link href="./../../css/adSection.css" rel ="stylesheet" type="text/css">
+﻿<!-- css -->
+<link href="./../../css/adSection.css" rel="stylesheet" type="text/css">
+
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
 
 <style>
@@ -26,16 +28,25 @@ table{
 
 <script type="text/javascript">
 function sortChange(e){
-	if(e.value == "r_idx"){
-		location.href='/rInfo_ridxSort'
+	if(e.value == "r_star"){
+		location.href='/rInfo_rstarSort'
+	}
+	else if(e.value == "r_date"){
+		location.href='/rInfo_rdateSort'
+	}
+	else if(e.value == "r_likes"){
+		location.href='/rInfo_rlikesSort'
+	}
+	else if(e.value == "r_hits"){
+		location.href='/rInfo_rhitsSort'
 	}
 	else{
-		location.href='/rInfo_rdateSort'
+		location.href='/rInfo_rcommentsSort'
 	}
 }
 </script>
 
-<section>
+<section class="adSection">
 	<table>
 		<tr>
 			<td width="15%"><h1>리뷰목록</h1></td>
@@ -43,7 +54,7 @@ function sortChange(e){
 			<!-- 검색창 -->
  				<div class="search">
     				<input type="text" placeholder="검색하세요.">
-    				<a href="#"><i class="fas fa-search fa-2x"></i></a>
+    				<a href="#"><i class="fas fa-search fa-lg"></i></a>
 				</div>
 			</td>
 			<td width="15%">
@@ -51,8 +62,11 @@ function sortChange(e){
 					<h3>정렬 방식</h3>
 					<select name="sort" id="sort" onchange="sortChange(this)">
 						<option selected>--정렬방식--</option>
-						<option value="r_idx">리뷰번호</option>
+						<option value="r_star">리뷰별 수</option>
 						<option value="r_date">등록날짜</option>
+						<option value="r_likes">좋아요 수</option>
+						<option value="r_hits">조회수</option>
+						<option value="r_comments">댓글 수</option>
 					</select>
 				</div>
 			</td>
@@ -64,20 +78,22 @@ function sortChange(e){
 	<table>
 		<tr style="text-align: center; font-weight: bold;">
 			<td>리뷰번호</td><!-- r_idx-->
-			<td>영화명</td><!-- m_title -->
-			<td>개봉일</td><!-- m_date-->
-			<td>회원아이디</td><!-- u_idx-->
-			<td>등록날짜</td><!-- r_date-->
-			<td>등록내용</td><!-- r_comments-->
-			<td></td>
+			<td>회원아이디</td><!-- u_id -->
+			<td>리뷰별 수</td><!-- r_star-->
+			<td>등록일</td><!-- r_date-->
+			<td>좋아요 수</td><!-- r_likes-->
+			<td>조회 수</td><!-- r_hits-->
+			<td>댓글 수</td><!-- r_comments-->
+			<td>리뷰 삭제</td>
 		</tr>
 		<c:forEach items="${reviewsInfo}" var="info">
 		<tr> 
 			<td>${info.r_idx}</td>
-			<td>${info.m_title}</td>
-			<td>${info.m_date}</td>
-			<td>${info.u_idx}</td>
+			<td>${info.u_id}</td>
+			<td>${info.r_star}</td>
 			<td>${info.r_date}</td>
+			<td>${info.r_likes}</td>
+			<td>${info.r_hits}</td>
 			<td>${info.r_comments}</td>
 			<td>
 				<input type="submit" name="r_idx" id="r_idx" value="${info.r_idx }">

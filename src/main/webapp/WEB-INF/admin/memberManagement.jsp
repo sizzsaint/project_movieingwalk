@@ -7,14 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
-<link href="./../../css/index.css" rel ="stylesheet" type="text/css">
-<link href="./../../css/adSection.css" rel ="stylesheet" type="text/css">
+﻿<!-- css -->
+<link href="./../../css/adSection.css" rel="stylesheet" type="text/css">
+
 <script src="https://kit.fontawesome.com/8eb5905426.js"></script>
 
 <style>
 table{
 	padding:0;
 	margin:0;
+}
+
+button{
+	border: 0;
+	outline: 0;
+	display:inline-block;
 }
 </style>
 
@@ -39,15 +46,16 @@ function sortChange(e){
 }
 </script>
 
-<section>
+<section class="adSection">
 	<table>
 		<tr>
 			<td width="15%"><h1>회원목록</h1></td>
 			<td width="69%">
 			<!-- 검색창 -->
+			<!-- 검색창 -->
  				<div class="search">
-    				<input type="text" placeholder="아이디를 검색하세요.">
-    				<a href="#"><i class="fas fa-search fa-2x"></i></a>
+    				<input type="text" placeholder="검색하세요.">
+    				<a href="#"><i class="fas fa-search fa-lg"></i></a>
 				</div>
 			</td>
 			<td width="15%">
@@ -64,7 +72,7 @@ function sortChange(e){
 		</tr>
 	</table>
 	
-	<form id="frm" method="GET" action="/deleteMember"  >
+	<form id="frm" method="GET" action="/deleteMember">
 	<!-- content 테이블 -->
 	<table>
 		<tr style="text-align: center; font-weight: bold;">
@@ -89,8 +97,7 @@ function sortChange(e){
 			<td>${info.u_date}</td><!-- u_date -->
 			<td>${info.u_admin}</td><!-- u_admin-->
 			<td>
-	 		
-			<input type="submit" name="u_id" id="u_id" value="${info.u_id}"/>
+				<input type="submit" name="u_id" id="u_id" value="${info.u_id }">
 			</td>
 		</tr>
 		</c:forEach>
