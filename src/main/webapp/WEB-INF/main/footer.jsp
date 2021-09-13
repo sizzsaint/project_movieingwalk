@@ -12,13 +12,13 @@
 </head>
 <body>
 
-<hr>
+<hr id="footer">
 <footer>
 서울특별시 종로구 종로로 777길 77, 종로몰 7층(종로로동)<br>
 대표 : 김세훈, 강윤경, 오승희, 조소영
 <p>copyright &copy; MOVIEING WALK_ALL Rights Reserved.</p>
 </footer>
-<hr>
+<hr id="footer">
 
 </body>
 </html>

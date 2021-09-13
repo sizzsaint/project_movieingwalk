@@ -7,8 +7,17 @@ footer{
 	font-size: 10px;
 	height: 50px;
 	witdh: 1270px;
+	display: block;
+	position: static;
+	top: 10px;
 }
 footer p{
 	font-weight: bold;
 	font-size: 10px;
+}
+#footer{
+	width: 1270px;
+	display: block;
+	position: static;
+	top: 10px;
 }
