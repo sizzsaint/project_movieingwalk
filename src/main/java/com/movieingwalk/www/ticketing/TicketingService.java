@@ -1,5 +1,7 @@
 package com.movieingwalk.www.ticketing;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +14,21 @@ public class TicketingService {
 	TicketingDao ticketingDao;
 
 	// 예매
-	public void insertTicketing(TicketBean ticketBean) {
-		ticketingDao.insertTicketing(ticketBean);		
+	public int insertTicketing(TicketBean ticketBean) {
+		return ticketingDao.insertTicketing(ticketBean);		
 	}
 
+	// 예매목록
+		public ArrayList<TicketBean> getticketList(String u_id) {
+			// TODO Auto-generated method stub
+			return ticketingDao.getticketList(u_id);
+		}
+	
 	// 예매내역
-	public TicketBean getView(String u_id) {
-		// TODO Auto-generated method stub
-		return ticketingDao.getView(u_id);
+	public TicketBean getView(String t_idx) {
+		return ticketingDao.getView(t_idx);
 	}
+
+	
 
 }

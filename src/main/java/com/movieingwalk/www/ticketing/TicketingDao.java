@@ -1,5 +1,7 @@
 package com.movieingwalk.www.ticketing;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,16 +14,28 @@ public class TicketingDao {
 	TicketingMapper ticketingMapper;
 
 	//예매
-	public void insertTicketing(TicketBean ticketBean) {
-		ticketingMapper.insertTicketing(ticketBean);
+	public int insertTicketing(TicketBean ticketBean) {
+		
+		//where not exists (select seat_idx from ticket where seat_idx=#{seat_idx})
+		int result=ticketingMapper.selectSeatIDxCount(ticketBean);
+		if(result==0) {
+			System.out.println( "등록 데이터 :"+ ticketBean.toString());
+			ticketingMapper.insertTicketing(ticketBean);	
+		}
+		return result;
 	}
-
+	//예매리스트
+		public ArrayList<TicketBean> getticketList(String u_id) {
+			// TODO Auto-generated method stub
+			return ticketingMapper.getticketList(u_id);
+		}
 	// 예매내역
-	public TicketBean getView(String u_id) {
+	public TicketBean getView(String t_idx) {
 		// TODO Auto-generated method stub
-		System.out.println("u_id:" + u_id);
-		return ticketingMapper.getView(u_id);
+		return ticketingMapper.getView(t_idx);
 	}
+	
+
 	
 	
 	

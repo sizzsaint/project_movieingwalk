@@ -1,5 +1,8 @@
 package com.movieingwalk.www.ticketing;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.movieingwalk.www.bean.ReviewBean;
 import com.movieingwalk.www.bean.TicketBean;
+import com.movieingwalk.www.mypage.MypageService;
+import com.movieingwalk.www.review.Paging;
 
 @Controller
 public class TicketingController {
 	
 	@Autowired	
-	TicketingService ticketingService ;	
+	TicketingService ticketingService ;
+	@Autowired
+	MypageService mypageService;
 
 	private static final Logger logger = LoggerFactory.getLogger(TicketingController.class);
 	
@@ -55,24 +63,43 @@ public class TicketingController {
 	@PostMapping(value = "/ticketings2")
 	public String ticketingOK(TicketBean ticketbean, Model model, int m_idx){
 		logger.debug("예매완료");
-		ticketingService.insertTicketing(ticketbean);
+		int result=ticketingService.insertTicketing(ticketbean);
+		
+		//System.out.println("예매 결과  :" + result);
+		if(result==1) {
+			model.addAttribute("msg", "ok");
+		}
 		model.addAttribute("m_idx", m_idx);
 		return "ticketing/ticketings2";
 	}
-
-	// 예매내역보기 
-	@RequestMapping(value = "/ticketdetails", method = RequestMethod.GET )
-	public String viewBoard(Model model,
-		 @RequestParam("u_id") String u_id) {
+		
+	//예매 리스트
+	@RequestMapping(value="/ticketing/ticketlist", method=RequestMethod.GET)
+	public String reviewList(Model model, @RequestParam("u_id") String u_id,  @RequestParam(defaultValue="1") int curPage) {
+		logger.debug("예매리스트");
+		ArrayList<TicketBean> ticketBeanList = ticketingService.getticketList(u_id);
+		
+		model.addAttribute("u_id",u_id);
+		model.addAttribute("ticketBeanList", ticketBeanList);
+		
+		int listCnt = ticketBeanList.size();
+		Paging paging = new Paging(listCnt, curPage);
+		
+		model.addAttribute("listCnt", listCnt);
+		model.addAttribute("paging", paging);
+		return "ticketing/ticketlist";
+	}
 	
-	logger.debug("예매내역보기 호출");
-	System.out.println("u_id : "+u_id);
-	TicketBean ticketbean =  ticketingService.getView(u_id) ;
+	//예매내역상세
+	@RequestMapping(value="/ticketing/ticketDetails", method=RequestMethod.GET)
+	public String ticketDetail(Model model, @RequestParam("t_idx") String t_idx) {
+		logger.debug("예매내역상세");
+		
+		TicketBean ticketbean =  ticketingService.getView(t_idx) ;
+		model.addAttribute("t_idx", t_idx ) ;
+		model.addAttribute("ticketbean",ticketbean) ; 
 	
-	model.addAttribute("u_id", u_id ) ;
-	model.addAttribute("ticketbean",ticketbean) ; 
-	
-	return "/login/ticketDetails";
-}
+		return "ticketing/ticketDetails";
+	}
 
 }

@@ -1,19 +1,4 @@
 
-drop table member;
-drop table cinema;
-drop table collection;
-drop table comment;
-drop table movie;
-drop table ott;
-drop table review;
-drop table schedule;
-drop table seat;
-drop table ticket;
-
- 
-#########################################################
-#########################################################
-
 CREATE TABLE member(
        u_id                 varchar(20) not null unique, #id
        u_password           varchar(20) , # pw
@@ -35,7 +20,8 @@ CREATE TABLE ticket(
        t_idx                int NOT NULL auto_increment, #티켓번호
        u_id                varchar(20) NOT NULL, #유저아이디
        m_idx                int , #영화코드(API)
-       t_date               datetime , #예매시간
+       t_date               varchar(40), #예매시간
+       tt_date              varchar(20)   , #예매날짜
        theater_idx          int , # 영화관코드
        seat_idx             int, # 좌석코드
 PRIMARY KEY (t_idx)

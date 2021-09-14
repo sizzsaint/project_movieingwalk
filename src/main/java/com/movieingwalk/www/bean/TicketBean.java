@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public class TicketBean {
 	
 	int t_idx, m_idx, theater_idx, seat_idx;
-	String t_date, u_id;
+	String t_date, u_id, tt_date;
 
 	public String getU_id() {
 		return u_id;
@@ -55,6 +55,13 @@ public class TicketBean {
 
 	public void setT_date(String t_date) {
 		this.t_date = t_date;
+	}
+	public String getTt_date() {
+		return tt_date;
+	}
+
+	public void setTt_date(String tt_date) {
+		this.tt_date = tt_date;
 	}
 
 }

@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="./../../css/ticket.css" rel="stylesheet" type="text/css">
+<title>movieingwalk</title>
+<link href="./../../css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<br><br><br><br>
-  <nav id="Menu">
+  <nav id="Menu" style=" float:center; width:30%; height:auto;">
     <ul class="ticketing">
       <li><a href="/ticketScr">상영작</a></li>
       <li><a href="/ticketSch">개봉예정작</a></li>
