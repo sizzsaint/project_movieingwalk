@@ -15,16 +15,11 @@
 		location.href='/mInfo_udateSort'
 	</script>
 </c:if>
-<c:if test="${remove eq 'movie'}">
-	<script type="text/javascript">
-		alert('삭제되었습니다.')
-		location.href='/mInfo_mdateSort'
-	</script>
-</c:if>
+
 <c:if test="${remove eq 'review'}">
 	<script type="text/javascript">
 		alert('삭제되었습니다.')
-		location.href='/rInfo_ridxSort'
+		location.href='/rInfo_rdateSort'
 	</script>
 </c:if>
 </body>

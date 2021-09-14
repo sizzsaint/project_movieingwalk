@@ -18,6 +18,7 @@
 대표 : 김세훈, 강윤경, 오승희, 조소영
 <p>copyright &copy; MOVIEING WALK_ALL Rights Reserved.</p>
 </footer>
+<a style="float:right; color: black" href="/adIndex">관리자</a>
 <hr id="footer">
 
 </body>

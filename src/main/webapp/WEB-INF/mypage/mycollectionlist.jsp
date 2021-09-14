@@ -125,7 +125,7 @@ $(function () {
 <!-- 내가 쓴 컬렉션 -->
 <article style="display: inline-block; width: 70%">
 <section>
-	<div style="display: inline-block; float:left;">
+	<div style="display: inline-block; float:left; width: 100%;">
 		<div style="display: block;">
 			<h2 style="color: white;">나의 컬렉션</h2>
 			<div id="mycollection" style="position:static; display: inline-block;"></div>
@@ -136,7 +136,7 @@ $(function () {
 		</div>
 </section>
 <section>
-		<div style="display:block; float:left;">
+		<div style="display:block; float:left; width: 100%;">
 			<!-- 내가좋아한 컬렉션 -->
 			<h2 style="color: white;">내가 좋아한 컬렉션</h2>
 			<div id="getMyLikeCol" style="position:static; display: inline-block;"></div>

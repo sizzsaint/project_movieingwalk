@@ -18,10 +18,10 @@
 </thead>
 	<tbody><tr><td>
 	<div id="reviews">
-		 <div id="review_area" style="color:white; border:1px solid gray;">
+		 <div id="review_area" style="color:white;">
 	
-		 <c:forEach var="review" items="${mainRecent}" varStatus="status" begin="0" end="5">
-		 <div class="review" style="border:1px solid #ff8000; margin-bottom:5px; margin-left:0px; border-radius: 5px; text-align:left; padding:10px; display:inline-block; width:1150px;">
+		 <c:forEach var="review" items="${mainRecent}" varStatus="status" begin="0" end="4">
+		 <div class="review" style="border:1px solid #ff8000; margin-bottom:5px; margin-left:0px; border-radius: 5px; text-align:left; padding:10px; display:inline-block; width:92%;">
 		 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='25' height='25' alt='/'>${review.r_star}
 		 
 		 <c:if  test= "${review.r_spoiler eq 'N'}">

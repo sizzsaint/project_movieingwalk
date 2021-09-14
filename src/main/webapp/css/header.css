@@ -12,7 +12,7 @@ html,body {
 /*header*/
 header{
 	background: #070720;
-	height:150px;
+	height:200px;
 	width: 1270px;
 }
 
@@ -34,7 +34,7 @@ header img{
 	padding: 5px 0 17px;
 	display: block;
 	margin: 0px auto;
-	width:130px;
+	width:200px;
 }
 
 header td input[type=button]{

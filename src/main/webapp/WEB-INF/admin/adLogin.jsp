@@ -9,27 +9,24 @@
 <head>
 <meta charset="UTF-8">
 <!-- jQuery Framework 참조하기 -->
-<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
-﻿
-<!-- header+footer>-->
-<link href="./../../css/layout.css" rel ="stylesheet" type="text/css">
-<!-- login_section -->
-<link href="./../../css/login.css" rel ="stylesheet" type="text/css">
-<title>관리자 로그인</title>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+﻿<!-- css -->
+<link href="./../../css/adLogin.css" rel="stylesheet" type="text/css">
 
+<title>관리자 로그인</title>
 </head>
 
 <body>
 
-<section>
+<section class="adLogin">
 	<form action="/loginAdmin" method="post">
 		<div id="login_box" style="margin:0 auto;">
 			<h2>로그인</h2>
 			<ul id="input_button">
 				<li id="id_pass">
-					<ul id="ad">
+					<ul>
 						<li>
-							<span>아이디</span>
+							<span>아이디  </span>
 							<input type="text" id="u_id" name="u_id" size="20" placeholder="아이디" required="required" >
 						</li>
 						<li id="pass">
