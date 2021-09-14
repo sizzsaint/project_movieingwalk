@@ -25,7 +25,8 @@ if(session.getAttribute("mvId")==null){
  <script type="text/javascript">
  var checkLike = ${checkLikes};
  var r_idx = ${r_idx};
- var u_id = '${u_id}';
+ var u_id = <%=u_id%>;
+ 
  function check123(){
 	 
 	 if(checkLike == "1"){

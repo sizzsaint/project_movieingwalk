@@ -2,7 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-    
+<%
+if(session.getAttribute("mvId")==null){
+   response.sendRedirect("/loginMember");
+}else{
+	Object object = session.getAttribute("mvId");
+	String u_id = (String)object;
+%> 
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -312,11 +319,11 @@ function drawChart(){
 	 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='30' height='30' alt='/'>${review.r_star}
 	 
 	 <c:if  test= "${review.r_spoiler eq 'N'}">
-	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color: #E0E0E0"><p style="color: #E0E0E0;">${review.r_memo}</p></a>
+	 <a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id %>" style="color: #E0E0E0"><p style="color: #E0E0E0;">${review.r_memo}</p></a>
 	 </c:if>
 	 
 	 <c:if  test= "${review.r_spoiler eq 'Y'}">
-	 <p style="color: #E0E0E0;"><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=${review.u_id}" style="color: #E0E0E0">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
+	 <p style="color: #E0E0E0;"><a href="../review/reviewDetail?r_idx=${review.r_idx}&u_id=<%=u_id %>" style="color: #E0E0E0">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a></p>
 	 </c:if>
 	 
 	 <div class="icons">
@@ -341,3 +348,4 @@ function drawChart(){
 <jsp:include page="../main/footer.jsp"/>
 </body>
 </html>
+<%}%>
