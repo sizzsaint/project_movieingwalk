@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+a { text-decoration:none !important;
+	color:white !important;
+	 } 
+
 h2{
 	color:white;
 	text-align:center;

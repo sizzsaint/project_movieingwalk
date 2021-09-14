@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+a { text-decoration:none !important } 
+
+
+
 h3{
 	color:white;
 	margin-bottom: 0px;
@@ -153,6 +157,11 @@ h3{
 #collections{
 	border:1px solid gray;
 	color:white;
+	text-align:left;
+	align-self: left;
+	align-items: left;
+	align-content: left;
+	height:361px;
 }
 
 .info_area #buttonDiv button{
@@ -180,4 +189,26 @@ h3{
 	WIDTH: 60pt; HEIGHT: 40pt;
 }
 
+#collections #colbutton button{
+	border: 1px solid #705487; 
+	background-color: rgba(0,0,0,0); 
+	color: #705487; 
+	padding: 5px;
+	float:right;
+	margin:15px;
+	align: center;
+}
 
+#collections #colbutton button:hover{
+	color:white; 
+	background-color: #705487;
+}
+
+#collections #colbutton #morcolButton{
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px;
+	align: center;
+	WIDTH: 90pt; HEIGHT: 40pt;
+}

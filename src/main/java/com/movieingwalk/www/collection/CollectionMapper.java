@@ -46,7 +46,7 @@ public interface CollectionMapper {
 	@Insert(INSERT_COLLECTION)
 	void insertCollection(CollectionBean collectionBean);
 	
-	
+	//컬렉션 리스트
 	final String SELECT_COLLECTIONLIST = "select col_idx, u_id, col_title, col_memo, col_movie1_idx, col_movie2_idx, col_movie3_idx, col_movie4_idx, col_movie5_idx, col_movie6_idx, col_movie7_idx, col_movie8_idx, col_movie9_idx, col_movie10_idx from collection "
 			+ "where col_movie1_idx = #{m_idx} or col_movie2_idx = #{m_idx} or col_movie3_idx = #{m_idx} or col_movie4_idx = #{m_idx} or col_movie5_idx = #{m_idx} or col_movie6_idx = #{m_idx} or col_movie7_idx = #{m_idx} or col_movie8_idx = #{m_idx} or col_movie9_idx = #{m_idx} or col_movie10_idx = #{m_idx}";
 	
@@ -70,7 +70,8 @@ public interface CollectionMapper {
 	ArrayList<CollectionBean> getCollectionList(int m_idx);
 	
 	
-	final String SELECT_COL_LIKED = "select * from collection order by col_likes desc limit 3";
+	//컬렉션 메인
+	final String SELECT_COL_LIKED = "select * from collection order by col_likes desc";
 	@Select(SELECT_COL_LIKED)
 	@Results(id="mainResult", value= {
 			@Result(property="col_idx",column="col_idx"),

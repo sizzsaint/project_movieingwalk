@@ -16,7 +16,7 @@ if(session.getAttribute("mvId")==null){
 <head>
 <meta charset="UTF-8">
 <title>MovieingWalk</title>
-
+<link href="../css/collectionList.css" rel ="stylesheet" type="text/css">
 <link href="../css/loading.css" rel ="stylesheet" type="text/css">
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@ $(function(){
 
 	var col_idx = "${collection.col_idx}";
 
-	var collectionList = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = 'collectiondetail?col_idx="+col_idx+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+	var collectionList = "<div class='collection' id='collection_"+cnt+"' style='border:1px solid gray; height:315px; width:1270px;'><p><a href = 'collectiondetail?col_idx="+col_idx+"' style='color:white; text-decoration:none;'>"+"${collection.col_title}"+"</a></p>";
 	
 	for (var i=0;i<list1.length;i++){
 		m_idx = list1[i];
@@ -68,9 +68,9 @@ $(function(){
 			var m_idx = json.id;
 					
 			//출력을 위한 동적 요소 생성
-			collectionList +="<div style='position:relative; border:1px solid gray; float:left; right-margin:10px'>";
-			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:120px;' alt=''/></a>";
-			collectionList +="<p style='color:white; width:110; height:81;'>"+title+"</p>";
+			collectionList +="<div class='movieCard'>";
+			collectionList += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:110px;' alt=''/></a>";
+			collectionList +="<p style='color:white; width:110px; height:81px;'>"+title+"</p>";
 			collectionList += "</div>";	
 		},
 		 error : function(xhr, textStatus, errorThrown){
@@ -78,20 +78,20 @@ $(function(){
 		}
 		
 });
-}	collectionList +="</div>";
+}	
+	collectionList +="</div>";
 	$("#collections").append(collectionList);
 	</c:forEach>
 });
-}
+});
 
 </script>
 
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
-<h2 style="color:white">해당 영화가 담긴 모든 컬렉션 보기</h2>
+<h2 style="color:white; text-align:center;">해당 영화가 담긴 모든 컬렉션 보기</h2>
 	
-<a href="javascript:history.back();">뒤로가기</a>
 
 
 <div id="collections">

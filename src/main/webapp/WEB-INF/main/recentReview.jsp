@@ -25,11 +25,11 @@
 		 ${review.u_id} &nbsp;&nbsp;&nbsp; <img src='../imgdata/star.png' width='25' height='25' alt='/'>${review.r_star}
 		 
 		 <c:if  test= "${review.r_spoiler eq 'N'}">
-		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}" style="color:whtie">${review.r_memo}</a>
+		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}" style='color:white; text-decoration:none;'>${review.r_memo}</a>
 		 </c:if>
 		 
 		 <c:if  test= "${review.r_spoiler eq 'Y'}">
-		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}" style="color:whtie">스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a>
+		 <p><a href="/review/reviewDetail?r_idx=${review.r_idx}" style='color:white; text-decoration:none;'>스포일러가 포함된 리뷰입니다. 읽으시려면 눌러주세요</a>
 		 </c:if>
 		 
 		 <div id="icons" style="position:relative; float:right; color:white; padding:5px; display: inline-block;">

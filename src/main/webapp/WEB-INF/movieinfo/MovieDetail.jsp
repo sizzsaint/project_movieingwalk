@@ -49,7 +49,7 @@
 	    			details +="</div>"
 	    			<!--타이틀&개봉일-->
 	    			details +="<div class='info_area'>";
-	    			details +="<h1 class='title_area' style='width:315;'>"+title+"</h1>";
+	    			details +="<h1 class='title_area'>"+title+"</h1>";
 	    			details += "<p>상영일 :  "+date+"</p>";
 	    			<!--기본정보-->
 	    			details += "<p>상영시간 :  "+runtime+"분 </p>";
@@ -184,7 +184,7 @@
 
 			var col_idx = "${collection.col_idx}";
 			var u_id = "${collection.u_id}";
-			var collections = "<div id='collection_"+cnt+"' style='border:1px solid gray; height:315px;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
+			var collections = "<div id='collection_"+cnt+"' style='height:315px; width:175px; float:left;'><p><a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"+"${collection.col_title}"+"</a></p>";
 		
 			for (var i=0;i<list1.length;i++){
 				m_idx = list1[i];
@@ -202,7 +202,7 @@
 				
 					//출력을 위한 동적 요소 생성
 					<!--포스터-->
-					collections +="<div class='poster_area'>";
+					collections +="<div class='poster_area' style='position:relative; width:175px;'>";
 					collections += "<a href = '/collection/collectiondetail?col_idx="+col_idx+"&u_id="+u_id+"' style='color:white;'>"
 					collections += "<img src='"+poster_host+poster_img+"' style='width:170px;' alt='' /></a>";
 					collections +="</div>"
@@ -331,7 +331,9 @@ function drawChart(){
 
 <div id="collections">
 <h3 style='color:white'>해당 영화가 담긴 컬렉션들</h3>
-<input type="button" value="컬렉션 더보기" onClick="MoreCollection()">
+<div id="colbutton">
+<button id="morcolButton" onClick="MoreCollection()">컬렉션 더보기</button> 
+</div>
 <div id="collection_area">
 </div>
 </div>

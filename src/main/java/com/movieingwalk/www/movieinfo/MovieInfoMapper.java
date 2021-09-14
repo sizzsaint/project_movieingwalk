@@ -27,7 +27,7 @@ public interface MovieInfoMapper {
 
 	
 	//영화 리뷰 추출
-	final String SELECT_REVIEW_BY_MIDX = "select r_idx, u_id, m_idx, r_star, r_date, r_likes, r_hits, r_comments, r_memo, r_spoiler from review where m_idx = #{m_idx}";
+	final String SELECT_REVIEW_BY_MIDX = "select r_idx, u_id, m_idx, r_star, r_date, r_likes, r_hits, r_comments, r_memo, r_spoiler from review where m_idx = #{m_idx} order by r_likes desc";
 	
 	@Select(SELECT_REVIEW_BY_MIDX)
 	@Results(id="reviewResult", value={

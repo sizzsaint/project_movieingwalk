@@ -53,7 +53,7 @@ if(session.getAttribute("mvId")==null){
 	  				}
 	  				searchResult += "<p style='text-align:center; width=:170px; margin-top:5px; margin-bottom:5px;'>"+title+"</p></div>";
 	  			})
-	  			$("#console").append(searchResult);
+	  			$("#console").html(searchResult);
 	  		},
 	  		error : function(xhr, textStatus, errorThrown){
 	    		$("div").html("<div>"+textStatus+" (HTTP-"+xhr.status+" / "+errorThrown +")</div>");

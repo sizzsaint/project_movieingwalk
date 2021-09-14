@@ -9,11 +9,17 @@ import com.movieingwalk.www.bean.TicketBean;
 public class TicketingService {
 	
 	@Autowired
-	public TicketingDao ticketingDao;
+	TicketingDao ticketingDao;
 
 	// 예매
 	public void insertTicketing(TicketBean ticketBean) {
 		ticketingDao.insertTicketing(ticketBean);		
+	}
+
+	// 예매내역
+	public TicketBean getView(String u_id) {
+		// TODO Auto-generated method stub
+		return ticketingDao.getView(u_id);
 	}
 
 }

@@ -39,7 +39,7 @@
 	    			//출력을 위한 동적 요소 생성
 	    			reviewtable +="<td>";
 	    			reviewtable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'>"+"<img src='"+poster_host+poster_img+"' style='width:200px;' alt=''/></a>";
-	    			reviewtable +="<p style='color:white; text-align:center;' width:'200px;'>"+title+"</p>";
+	    			reviewtable +="<p style='color:white; text-align:center;' width:'200px; height:81px;'>"+title+"</p>";
 	    			reviewtable += "</td>";
 	    			
 	    			$("#newReviewlist").html(reviewtable);
@@ -72,7 +72,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white; width:170px; text-align:center;'>"+title+"</p>";
+			    			genretable +="<p style='color:white; width:170px; height:81px; text-align:center;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -113,7 +113,7 @@
 			    			//출력을 위한 동적 요소 생성
 			    			genretable +="<div style='float:left; margin-right:10px;'>";
 			    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-			    			genretable +="<p style='color:white; width:170px; text-align:center;'>"+title+"</p>";
+			    			genretable +="<p style='color:white; width:170px; height:81px; text-align:center;'>"+title+"</p>";
 			    			genretable += "</div>";
 			  				}
 			  				genretable += "</div>"
@@ -150,7 +150,7 @@
 	    			//출력을 위한 동적 요소 생성
 	    			genretable +="<div style='float:left; margin-right:10px; width:170px;'>";
 	    			genretable += "<a href='/movieinfo/MovieDetail?m_idx="+m_idx+"'><img src='" +poster_host + poster_img+ "' style='width:170px;' alt=''/></a>";
-	    			genretable +="<p style='color:white; width:170px; text-align:center;'>"+title+"</p>";
+	    			genretable +="<p style='color:white; width:170px; height:81px; text-align:center;'>"+title+"</p>";
 	    			genretable += "</div>";
 	  				}
 	  				genretable += "</div>"

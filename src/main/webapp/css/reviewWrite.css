@@ -10,28 +10,32 @@ h3{
 }
 
 #details{
-	border:1px solid gray;
-	color:white;
-	width:500px;
 	height:350px;
+	width:600px;
 	float:left;
-	position:static;
+	postion:static;
+	margin-right:5px;
+	display: inline-block;
 }
 
 
  #details .poster_area{
-	position:relative;
+	color:gray;
+	posision:relative;
 	float:left;
-	margin-right:10px;
+	right-margin:0px;
 }
 
  #details .info_area{
+	height:350px;
+	width:343px;
+	text-align:left;
+	padding-left:15px;
+	padding-right:7px; 
+	color:white;
 	position:relative;
 	float:left;
-	margin-left:10px;
-	margin-right:10px;
-	color:white;
-	text-align:left;
+	display: inline-block;
 }
 
 #chart_div{
